@@ -108,14 +108,14 @@ cat << EOF > /etc/hosts
 #
 
 #<ip-address>   <hostname.domain.org>   <hostname>
-127.0.0.1       localhost.local librerouter localhost
-10.0.0.1        librerouter.local
-10.0.0.10       webmin.local
-10.0.0.250      easyrtc.local
-10.0.0.251      yacy.local
-10.0.0.252      friendica.local
-10.0.0.253      owncloud.local
-10.0.0.254      mailpile.local 
+127.0.0.1       localhost.librenet librerouter localhost
+10.0.0.1        librerouter.librenet
+10.0.0.10       webmin.librenet
+10.0.0.250      easyrtc.librenet
+10.0.0.251      yacy.librenet
+10.0.0.252      friendica.librenet
+10.0.0.253      owncloud.librenet
+10.0.0.254      mailpile.librenet
 EOF
 
 }
@@ -128,7 +128,7 @@ configure_interfaces()
 {
 	# Network interfaces configuration for 
 	# Physical/Virtual machine
-if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
+if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" -o "$PROCESSOR" = "ARM" ]; then
 	cat << EOF >  /etc/network/interfaces 
 	# interfaces(5) file used by ifup(8) and ifdown(8)
 	auto lo
@@ -190,93 +190,93 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
             netmask 255.255.255.0
 EOF
 	# Network interfaces configuration for board
-	elif [ "$PROCESSOR" = "ARM" ]; then
-	cat << EOF >  /etc/network/interfaces 
-	# interfaces(5) file used by ifup(8) and ifdown(8)
-	auto lo
-	iface lo inet loopback
-
-	#External network interface
-	auto eth0
-	allow-hotplug eth0
-	iface eth0 inet dhcp
-
-	#External network interface
-	# wireless wlan0
-	auto wlan0
-	allow-hotplug wlan0
-	iface wlan0 inet dhcp
-
-	##External Network Bridge 
-	#auto br0
-	allow-hotplug br0
-	iface br0 inet dhcp   
-	    bridge_ports eth0 wlan0
-
-	#Internal network interface
-	auto eth1
-	allow-hotplug eth1
-	iface eth1 inet manual
-
-	#Internal network interface
-	# wireless wlan1
-	auto wlan1
-	allow-hotplug wlan1
-	iface wlan1 inet manual
-
-	#Internal network Bridge
-	auto br1
-	allow-hotplug br1
-	# Setup bridge
-	iface br1 inet static
-	    bridge_ports eth1 wlan1
-	    address 10.0.0.1
-	    netmask 255.255.255.0
-	    network 10.0.0.0
-    
-	#Yacy
-	auto eth1:1
-	allow-hotplug eth1:1
-	iface eth1:1 inet static
-	    address 10.0.0.251
-	    netmask 255.255.255.0
-
-	#Friendica
-	auto eth1:2
-	allow-hotplug eth1:2
-	iface eth1:2 inet static
-	    address 10.0.0.252
-	    netmask 255.255.255.0
-    
-	#OwnCloud
-	auto eth1:3
-	allow-hotplug eth1:3
-	iface eth1:3 inet static
-	    address 10.0.0.253
-	    netmask 255.255.255.0
-    
-	#Mailpile
-	auto eth1:4
-	allow-hotplug eth1:4
-	iface eth1:4 inet static
-	    address 10.0.0.254
-	    netmask 255.255.255.0
-	
-	#Webmin
-	auto eth1:5
-	allow-hotplug eth1:5
-	iface eth1:5 inet static
-	    address 10.0.0.10
-	    netmask 255.255.255.0
-
-	#EasyRTC
-	auto eth1:6
-	allow-hotplug eth1:6
-	iface eth1:6 inet static
-	    address 10.0.0.250
-	    netmask 255.255.255.0
-
-EOF
+#	elif [ "$PROCESSOR" = "ARM" ]; then
+#	cat << EOF >  /etc/network/interfaces 
+#	# interfaces(5) file used by ifup(8) and ifdown(8)
+#	auto lo
+#	iface lo inet loopback
+#
+#	#External network interface
+#	auto eth0
+#	allow-hotplug eth0
+#	iface eth0 inet dhcp
+#
+#	#External network interface
+#	# wireless wlan0
+#	auto wlan0
+#	allow-hotplug wlan0
+#	iface wlan0 inet dhcp
+#
+#	##External Network Bridge 
+#	#auto br0
+#	allow-hotplug br0
+#	iface br0 inet dhcp   
+#	    bridge_ports eth0 wlan0
+#
+#	#Internal network interface
+#	auto eth1
+#	allow-hotplug eth1
+#	iface eth1 inet manual
+#
+#	#Internal network interface
+#	# wireless wlan1
+#	auto wlan1
+#	allow-hotplug wlan1
+#	iface wlan1 inet manual
+#
+#	#Internal network Bridge
+#	auto br1
+#	allow-hotplug br1
+#	# Setup bridge
+#	iface br1 inet static
+#	    bridge_ports eth1 wlan1
+#	    address 10.0.0.1
+#	    netmask 255.255.255.0
+#	    network 10.0.0.0
+#    
+#	#Yacy
+#	auto eth1:1
+#	allow-hotplug eth1:1
+#	iface eth1:1 inet static
+#	    address 10.0.0.251
+#	    netmask 255.255.255.0
+#
+#	#Friendica
+#	auto eth1:2
+#	allow-hotplug eth1:2
+#	iface eth1:2 inet static
+#	    address 10.0.0.252
+#	    netmask 255.255.255.0
+#    
+#	#OwnCloud
+#	auto eth1:3
+#	allow-hotplug eth1:3
+#	iface eth1:3 inet static
+#	    address 10.0.0.253
+#	    netmask 255.255.255.0
+#    
+#	#Mailpile
+#	auto eth1:4
+#	allow-hotplug eth1:4
+#	iface eth1:4 inet static
+#	    address 10.0.0.254
+#	    netmask 255.255.255.0
+#	
+#	#Webmin
+#	auto eth1:5
+#	allow-hotplug eth1:5
+#	iface eth1:5 inet static
+#	    address 10.0.0.10
+#	    netmask 255.255.255.0
+#
+#	#EasyRTC
+#	auto eth1:6
+#	allow-hotplug eth1:6
+#	iface eth1:6 inet static
+#	    address 10.0.0.250
+#	    netmask 255.255.255.0
+#
+#EOF
 
 fi
 
@@ -293,7 +293,7 @@ configure_dhcp()
 echo "Configuring dhcp server ..."
 echo "
 ddns-update-style none;
-option domain-name \"librerouter.local\";
+option domain-name \"librerouter.librenet\";
 option domain-name-servers 10.0.0.1;
 default-lease-time 600;
 max-lease-time 7200;
@@ -406,7 +406,6 @@ net.ipv6.conf.lo.disable_ipv6 = 1
 # Restarting sysctl
 sysctl -p > /dev/null
 
-if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 cat << EOF > /etc/rc.local
 #!/bin/sh
 
@@ -416,8 +415,8 @@ iptables -t nat -F
 iptables -t filter -F
 
 # Redirecting http traffic to squid 
-iptables -t nat -A PREROUTING -i br1 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -i eth1 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
+iptables -t nat -A PREROUTING -i eth0 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
 
 ## i2p petitions 
 #iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
@@ -434,35 +433,6 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 31
 
 exit 0
 EOF
-
-elif [ "$PROCESSOR" = "ARM" ]; then
-cat << EOF > /etc/rc.local
-#!/bin/sh
-
-iptables -X
-iptables -F
-iptables -t nat -F
-iptables -t filter -F
-
-# Redirecting http traffic to squid 
-iptables -t nat -A PREROUTING -i br1 -p tcp ! -d 10.0.0.0/24  --dport 80 -j DNAT --to 10.0.0.1:3128
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
-
-## i2p petitions 
-#iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-#iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-#iptables -t nat -A PREROUTING -i br1 -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
-
-## Allow surf onion zone
-#iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-#iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-
-## Enable Blacklist
-#[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
-
-exit 0
-EOF
-fi
 
 chmod +x /etc/rc.local
 
@@ -644,40 +614,40 @@ server:
     access-control: 0.0.0.0/0 refuse
 
     # Configure DNSSEC validation
-    # local, onion and i2p domains are not checked for DNSSEC validation
+    # librenet, onion and i2p domains are not checked for DNSSEC validation
 #    auto-trust-anchor-file: "/var/lib/unbound/root.key"
     do-not-query-localhost: no
-#    domain-insecure: "local"
+#    domain-insecure: "librenet"
 #    domain-insecure: "onion"
 #    domain-insecure: "i2p"
     
 #Local destinations
-local-zone: "local" static
-local-data: "librerouter.local. IN A 10.0.0.1"
-local-data: "i2p.local. IN A 10.0.0.1"
-local-data: "tahoe.local. IN A 10.0.0.1"
-local-data: "webmin.local. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
+local-zone: "librenet" static
+local-data: "librerouter.librenet. IN A 10.0.0.1"
+local-data: "i2p.librenet. IN A 10.0.0.1"
+local-data: "tahoe.librenet. IN A 10.0.0.1"
+local-data: "webmin.librenet. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
 
     for i in $(ls /var/lib/tor/hidden_service/)
     do
     if [ $i == "easyrtc" ]; then
-      echo "local-data: \"$i.local. IN A 10.0.0.250\"" \
+      echo "local-data: \"$i.librenet. IN A 10.0.0.250\"" \
       >> /etc/unbound/unbound.conf
     fi
     if [ $i == "yacy" ]; then
-      echo "local-data: \"$i.local. IN A 10.0.0.251\"" \
+      echo "local-data: \"$i.librenet. IN A 10.0.0.251\"" \
       >> /etc/unbound/unbound.conf
     fi
     if [ $i == "friendica" ]; then
-      echo "local-data: \"$i.local. IN A 10.0.0.252\"" \
+      echo "local-data: \"$i.librenet. IN A 10.0.0.252\"" \
       >> /etc/unbound/unbound.conf
     fi
     if [ $i == "owncloud" ]; then
-      echo "local-data: \"$i.local. IN A 10.0.0.253\"" \
+      echo "local-data: \"$i.librenet. IN A 10.0.0.253\"" \
       >> /etc/unbound/unbound.conf
     fi
     if [ $i == "mailpile" ]; then
-      echo "local-data: \"$i.local. IN A 10.0.0.254\"" \
+      echo "local-data: \"$i.librenet. IN A 10.0.0.254\"" \
       >> /etc/unbound/unbound.conf
     fi
     done
@@ -736,7 +706,7 @@ forward-zone:
 # Forward rest of zones to DjDNS
 forward-zone:
     name: "."
-    forward-addr: 217.12.17.133@53
+    forward-addr: 8.8.8.8@53
     forward-addr: 10.0.0.1@9053
 
 ' >> /etc/unbound/unbound.conf
@@ -897,7 +867,7 @@ echo "
 
 \$db_host = 'localhost';
 \$db_user = 'root';
-\$db_pass = 'librerouter';
+\$db_pass = '$MYSQL_PASS';
 \$db_data = 'frndc';
 
 \$a->path = '';
@@ -934,6 +904,8 @@ cd /opt/easyrtc
 
 # Starting EasyRTC server
 nohup nodejs server &
+
+echo ""
 cd
 }
 
@@ -974,35 +946,35 @@ if [ ! -e  /var/lib/mysql/owncloud ]; then
 fi
 
 # Creating Owncloud configuration file 
-echo "
-<?php
-$CONFIG = array (
-  'instanceid' => 'oc5606b55d9a',
-  'passwordsalt' => 'V1ufXood1AXa0ikQ8reY13k5pm01Ci',
-  'secret' => 'd/JPELayYmcHagt4sDfe5d+c6ZQAwt6ZAlTHZ/oJzJviDU9C',
-  'trusted_domains' => 
-  array (
-    0 => '$SERVER_OWNCLOUD',
-  ),
-  'datadirectory' => '/var/www/owncloud/data',
-  'overwrite.cli.url' => 'http://bsxjhmgmnqmfxnnu.onion',
-  'dbtype' => 'mysql',
-  'dbhost' => 'localhost',
-  'dbname' => 'owncloud',
-  'dbuser' => 'root',
-  'dbpassword' => 'librerouter',
-  'default_language' => 'en',
-  'defaultapp' => 'files',
-  'knowledgebaseenabled' => true,
-  'allow_user_to_change_display_name' => true,
-  'remember_login_cookie_lifetime' => 60*60*24*15,
-  'session_lifetime' => 60 * 60 * 24,
-  'session_keepalive' => true,
-  'version' => '8.1.7.2',
-  'logtimezone' => 'UTC',
-  'installed' => true,
-);
-" > /var/www/owncloud/config/config.php
+#echo "
+#<?php
+#$CONFIG = array (
+#  'instanceid' => 'oc5606b55d9a',
+#  'passwordsalt' => 'V1ufXood1AXa0ikQ8reY13k5pm01Ci',
+#  'secret' => 'd/JPELayYmcHagt4sDfe5d+c6ZQAwt6ZAlTHZ/oJzJviDU9C',
+#  'trusted_domains' => 
+#  array (
+#    0 => 'owncloud.librenet',
+#  ),
+#  'datadirectory' => '/var/www/owncloud/data',
+#  'overwrite.cli.url' => 'http://owncloud.librenet',
+#  'dbtype' => 'mysql',
+#  'dbhost' => 'localhost',
+#  'dbname' => 'owncloud',
+#  'dbuser' => 'root',
+#  'dbpassword' => '$MYSQL_PASS',
+#  'default_language' => 'en',
+#  'defaultapp' => 'files',
+#  'knowledgebaseenabled' => true,
+#  'allow_user_to_change_display_name' => true,
+#  'remember_login_cookie_lifetime' => 60*60*24*15,
+#  'session_lifetime' => 60 * 60 * 24,
+#  'session_keepalive' => true,
+#  'version' => '8.1.7.2',
+#  'logtimezone' => 'UTC',
+#  'installed' => true,
+#);
+#" > /var/www/owncloud/config/config.php
 
 }
 
@@ -1029,14 +1001,14 @@ configure_squid()
 echo "Configuring squid server ..."
 
 # Generating certificates for ssl connection
-echo "Generating certificates ..."
-if [ ! -e /etc/ssl/squid.pam ]; then
-openssl req -new -newkey rsa:1024 -days 1365 -nodes -x509 -keyout myca.pem -out /etc/ssl/squid.pem -batch
-fi
+#echo "Generating certificates ..."
+#if [ ! -e /etc/ssl/squid.pam ]; then
+#openssl req -new -newkey rsa:1024 -days 1365 -nodes -x509 -keyout myca.pem -out /etc/ssl/squid.pem -batch
+#fi
 
 # Initializing squid ssl_db
-/usr/local/squid/libexec/ssl_crtd -c -s /var/lib/ssl_db
-chown -R squid.squid /var/lib/ssl_db
+#/usr/local/squid/libexec/ssl_crtd -c -s /var/lib/ssl_db
+#chown -R squid.squid /var/lib/ssl_db
 
 # squid configuration
 
@@ -1067,14 +1039,14 @@ http_port 10.0.0.1:3128 accel vhost allow-direct
 coredump_dir /var/spool/squid3
 
 # https configuration
-https_port 3129 intercept ssl-bump generate-host-certificates=on dynamic_cert_mem_cache_size=4MB
+#https_port 3129 intercept ssl-bump generate-host-certificates=on dynamic_cert_mem_cache_size=4MB
  
-cert=/etc/ssl/squid.pem key=/etc/ssl/squid.pem
+#cert=/etc/ssl/squid.pem key=/etc/ssl/squid.pem
  
-ssl_bump server-first all
+#ssl_bump server-first all
  
-sslcrtd_program /usr/local/squid/libexec/ssl_crtd -s /var/lib/ssl_db -M 4MB
-sslcrtd_children 8 startup=1 idle=1
+#sslcrtd_program /usr/local/squid/libexec/ssl_crtd -s /var/lib/ssl_db -M 4MB
+#sslcrtd_children 8 startup=1 idle=1
 
 refresh_pattern ^ftp:           1440    20%     10080
 refresh_pattern ^gopher:        1440    0%      1440
@@ -1223,7 +1195,6 @@ EOF
 
 cp /etc/init.d/squid3 /etc/init.d/squid3-i2p
 
-cp /etc/init.d/squid3 /etc/init.d/squid3-i2p
 sed "s~Provides:.*~Provides:          squid3-i2p~g" -i  /etc/init.d/squid3-i2p
 sed "s~PIDFILE=.*~PIDFILE=/var/run/squid3-i2p.pid~g" -i  /etc/init.d/squid3-i2p
 sed "s~CONFIG=.*~CONFIG=/etc/squid3/squid-i2p.conf~g" -i /etc/init.d/squid3-i2p
@@ -1339,11 +1310,11 @@ smtpd_use_tls=yes
 smtpd_tls_session_cache_database = btree:\${data_directory}/smtpd_scache
 smtp_tls_session_cache_database = btree:\${data_directory}/smtp_scache
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-myhostname = librerouter.local
+myhostname = librerouter.librenet
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = librerouter.local, localhost.local, localhost.local, localhost
+mydestination = librerouter.librenet, localhost.librenet, localhost
 relayhost =
 mynetworks = 127.0.0.0/8, 10.0.0.0/24
 mailbox_size_limit = 0
@@ -1407,19 +1378,19 @@ echo "upstream php-handler {
 
 echo "server {
   listen 80 default_server;
-  return 301 http://librerouter.local;
+  return 301 http://librerouter.librenet;
 }
 
 server {
   listen 80;
-  server_name box.local;
-  return 301 http://librerouter.local;
+  server_name box.librenet;
+  return 301 http://librerouter.librenet;
 }
 " > /etc/nginx/sites-enabled/default
 
 echo "server {
   listen 10.0.0.1:80;
-  server_name librerouter.local;
+  server_name librerouter.librenet;
   root /var/www/html;
   index index.html;
 
@@ -1462,10 +1433,10 @@ fi
 
 # Creating Yacy virtual host configuration
 echo "
-# Redirect yacy.local to Tor hidden service yacy
+# Redirect yacy.librenet to Tor hidden service yacy
 server {
         listen 10.0.0.251:80;
-        server_name yacy.local;
+        server_name yacy.librenet;
 location / {
     proxy_pass       http://127.0.0.1:8090;
     proxy_set_header Host      \$host;
@@ -1477,7 +1448,7 @@ location / {
 server {
         listen 10.0.0.251;
         server_name _;
-        return 301 http://yacy.local;
+        return 301 http://yacy.librenet;
 }
 
 # Redirect connections to yacy running on 127.0.0.1:8090
@@ -1503,10 +1474,10 @@ server {
 }
 server {
         listen 10.0.0.251:443 ssl;
-        server_name yacy.local;
+        server_name yacy.librenet;
         ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
         ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
-        return 301 http://yacy.local;
+        return 301 http://yacy.librenet;
 }
 " > /etc/nginx/sites-enabled/yacy
 
@@ -1539,17 +1510,17 @@ server {
 server {
         listen 10.0.0.252:80;
         server_name _;
-        return 301 http://friendica.local;
+        return 301 http://friendica.librenet;
 }
   
 # Redirect connections from http to https
 #server {
 #  listen 10.0.0.252:80;
-#  server_name friendica.local;
+#  server_name friendica.librenet;
 #  
 #  index index.php;
 #  root /var/www/friendica;
-#  rewrite ^ https://friendica.local\$request_uri? permanent;
+#  rewrite ^ https://friendica.librenet\$request_uri? permanent;
 #  }
 
 # Main server for Tor hidden service friendica
@@ -1566,7 +1537,7 @@ server {
 
 server {
   listen 10.0.0.252:80;
-  server_name friendica.local;
+  server_name friendica.librenet;
 
 #  ssl on;
 #  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
@@ -1722,13 +1693,13 @@ server {
 server {
         listen 10.0.0.253:80;
         server_name _;
-        return 301 http://owncloud.local;
+        return 301 http://owncloud.librenet;
 }
   
-# Redirect connections from owncloud.local to Tor hidden service owncloud
+# Redirect connections from owncloud.librenet to Tor hidden service owncloud
 server {
   listen 10.0.0.253:80;
-  server_name owncloud.local;
+  server_name owncloud.librenet;
   index index.php;
   root /var/www/owncloud;
 
@@ -1774,7 +1745,7 @@ server {
 #
 #server {
 #  listen 80;
-#  server_name owncloud.local;
+#  server_name owncloud.librenet;
 #  return 301 https://$SERVER_OWNCLOUD\$request_uri;
 #  }
 #
@@ -1865,13 +1836,13 @@ echo "
 server {
         listen 10.0.0.254;
         server_name _;
-        return 301 http://mailpile.local;
+        return 301 http://mailpile.librenet;
 }   
 
-# Redirect connections from mailpile.local to Tor hidden service mailpile
+# Redirect connections from mailpile.librenet to Tor hidden service mailpile
 server {
     # Mailpile Domain
-    server_name mailpile.local;
+    server_name mailpile.librenet;
     client_max_body_size 20m;
 
     # Nginx port 80 and 443
@@ -1929,17 +1900,17 @@ fi
 
 # Creating Webmin virtual host configuration
 echo "
-# Redirect connections from 10.0.0.10 to webmin.local
+# Redirect connections from 10.0.0.10 to webmin.librenet
 server {
         listen 10.0.0.10;
         server_name _;
-        return 301 https://webmin.local;
+        return 301 https://webmin.librenet;
 }
 
 # Redirect connections to webmin running on 127.0.0.1:10000
 server {
         listen 10.0.0.10:443 ssl;
-        server_name webmin.local;
+        server_name webmin.librenet;
 
   ssl on;
   ssl_certificate /etc/ssl/nginx/webmin.crt;
@@ -1976,10 +1947,10 @@ fi
 
 # Creating EasyRTC virtual host configuration
 echo "
-# Redirect easyrtc.local to Tor hidden service easyrtc
+# Redirect easyrtc.librenet to Tor hidden service easyrtc
 server {
         listen 10.0.0.250:80;
-        server_name easyrtc.local;
+        server_name easyrtc.librenet;
 location / {
     proxy_pass       http://127.0.0.1:8080;
     proxy_set_header Host      \$host;
@@ -1991,7 +1962,7 @@ location / {
 server {
         listen 10.0.0.250;
         server_name _;
-        return 301 http://easyrtc.local\$request_uri;
+        return 301 http://easyrtc.librenet\$request_uri;
 }
 
 # Redirect connections to easyrtc running on 127.0.0.1:8080
@@ -2009,10 +1980,10 @@ location / {
 # Redirect https connections to http
 server {
         listen 10.0.0.250:443 ssl;
-        server_name easyrtc.local;
+        server_name easyrtc.librenet;
         ssl_certificate /etc/ssl/nginx/$SERVER_EASYRTC.crt;
         ssl_certificate_key /etc/ssl/nginx/$SERVER_EASYRTC.key;
-        return 301 http://easyrtc.local;
+        return 301 http://easyrtc.librenet;
 }
 server {
         listen 10.0.0.250:443 ssl;
