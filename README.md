@@ -78,8 +78,94 @@ Your Physical/Virtual machine need to meet the minimum requirements:
 2. 1 GB of Physical memory
 3. 16 GB of free space
 If your machine is ok with requirement, then you can process to next step.
+
 **Step 2: Setup the network.**
 In this step you need to connect one interface of your machine to Internet, and other one to local network device.
+Networking of Community cube
+CCube has two way to work
+
+    a) Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
+    b) Bridge mode where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
+
+The way networking works in CCube is the system has:
+
+2 Bridges two interfaces each
+
+    1st bridge acts as a WAN
+    2sc bridge acts as LAN
+
+So, we actually have 4 possible scenarios
+
+    WAN is WiFi, LAN is WiFi
+    WAN is WiFi, LAN is Cabled Ethernet
+    WAN is Cabled Ethernet, LAN is WiFi
+    WAN is Cabled Ethernet, LAN is Cabled Ethernet
+    Server mode: 1 uniqe LAN is a Brdiged and can be WLAN or Cabled Ethert conected to the existing LAN from the CCube owner.
+
+It will be enough to configure two interfaces, one from the LAN Birdge, and one from WAN Bridge, no matter whether they are WiFi or Ethernet, and leave other two interfaces unconfigured and everything will work.
+
+Work flow for the network configuration wizard:
+
+The most secure way to configure networks is via the touch screen by using a wizard. Alternatively we can also have console wizard to set up the configuration which is being implemented in github
+
+This wizard should ask the customer about:
+
+a) Do you want your protect your privacy or just user Community cube services?
+
+if yes then mode bridge if not then mode equals server
+
+b) Mode Transparent firewall Bridge:
+
+Lets configure the Internet access (WAN)
+
+Do you want to conect your CCube to your Internet router via cable or WLAN?
+
+if WLAN
+
+Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
+
+if Cable:
+
+If Cable and DHCP:
+
+Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the conection getting up If not especify error conditions
+
+If Cable and FIX IP address:
+
+Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the conections answers If not especify error conditions
+
+Lets configure the Internal access (LAN Intranet)
+
+Do you want to setup your internal protected network via cable or WLAN?
+
+If WLAN then:
+
+Please specify your internal new WLAN name SSID Please specifiy your SSID WPA2 CCMP password The daemon should check the connection getting up If not especify error conditions The IP addresses are 10.0.0.1 forced (if the guy another then hack the box)
+
+if Cable then:
+
+Please be aware we use this internal range: 10.0.0.100 to 200 Gateway 10.0.0.1 and DNS
+
+Please plug a cable Detecting link Link up Now your connected
+
+c) Mode Server only WAN external bridge will be used and then all WLAN and ETH will be all 4 interfaces in the same Bridge NIC logical interface
+
+Do you want to use a cable or want CCube connect to your router or switch?
+
+if WLAN
+
+Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
+
+if Cable:
+
+If Cable and DHCP:
+
+Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the connection getting up If not specify error conditions
+
+If Cable and FIX IP address:
+
+Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions
+
 
 
 **Step 3. Executing scripts.**
