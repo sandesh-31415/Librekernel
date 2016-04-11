@@ -11,23 +11,22 @@ b) If you install the scripts in a Virtual machine that becames bridge virtual s
 
 Thanks to a unique combination of open hardware (Yes really open and just a say check the link here) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
 
-***Librerouter*** is a plug and play, open source, energy efficient server designed from the ground up with security and privacy in mind.
-
 ###Why do we need this technology?
 
-The Internet is full of ___free___ services. Most are offered by __large corporations__ that work for the _common good_. Right? 
+The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
-**NOT TRUE!**. They are giving you something for _free_ because they want something in return - your personal data.  By **burying** the details in their _terms and conditions page_, that ***almost nobody reads***, they are in fact hiding their nefarious intentions.
 
-**Librerouter** operates exactly the opposite, because we integrate into each **Librerouter** a carefully selected  security audited services, you no longer need to depend on the good intentions of these big corporations.
-
-Librerouter initiative work as a __Peered Cooperativeness Project__ that intends to be the biggest world wide cooperative company allowing investment only to purchase of *boxes* and connecting them to the ***Librerouter*** network. 
-
+    Services accessible behind a router that you can reach from inside or outside your network from everywhere anonymously.
+    Complete set of internet services: 
+          Decentralized Storage antidestructible: Owncloud TahoeLasf I2P integration
+          Videoconference: Webrtc XMPP(otrs) over TOR or I2P and natively
+          Decentralized: Search engine: Yacy
+          Decentralized Social network: Friendica
+    Trustworthy and open source: Based in Libre Kernel Operating system GNU plus open hardware drivers.
+    
 ## What ain't Librerouter? (..and will never be)
-
-- A private society or corporation.
-- Head managed.
-- Difficult to use.
+- A private society or corporation and will close the source or abandon GNU license
+- Head managed or centrlized at any level
 
 ## Features Comparison
 
