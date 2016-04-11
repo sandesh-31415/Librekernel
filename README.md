@@ -1,7 +1,5 @@
 Librerouter
 ==============
-
-
 ## What is Librerouter?
 
 ***Librerouter*** is a technology that makes protecting your privacy easy by:
@@ -16,6 +14,8 @@ a) If you buy a Librerouter
 b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
 
 Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
+![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14444873/e97a483c-0048-11e6-8fe2-ac2cc39b5634.png)
+
 
 ###Why do we need this technology?
 
@@ -53,16 +53,21 @@ new picture
 • Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
 In our decentralized system your valuable information is encrypted three times:
-![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
 1. Before it even leaves your computer, in the web browser
 2. In the collaboration tool before the data goes to the hard disk
 3. When backing up to the grid, the slices will also be encrypted. 
-
+![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
 ![storage](https://cloud.githubusercontent.com/assets/13025157/14444754/f0ebf814-0047-11e6-9558-25e26b3d614b.jpg)
 A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
 ![grid](https://cloud.githubusercontent.com/assets/13025157/14444751/e3eaba38-0047-11e6-95f4-e4753c0d50c5.jpg)
+![grid4](https://cloud.githubusercontent.com/assets/13025157/14444809/5f670ebe-0048-11e6-8b0d-5170ab2afdc4.png)
+You can also sync your home Community Cube with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement COMMUNITY CUBE server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
 
+COMMUNITY CUBE can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
+You can use Community Cube to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
+You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
+![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
 
 
 ## Which hardware is needed to run Librerouter?
@@ -186,6 +191,150 @@ Step 7. Downloading and Installing packages
 The same as in Physical/Virtual machine case.
 If step 7 finished successfully then test.sh execution for odroid board is finished successfully and it's time to run the next script “app-installation-script.sh”. 
 
+DNS Resolution
+
+CommunityCube needs a powerfull DNS resolver to provide a transparent browsing for the user.
+
+
+DNS petitions are processed in this way:
+
+- Regular webpages (ex: www.meneame.net) are resolved by DjDNS. If decentralized DNS cannot resolve it, it's routed to TOR DNS
+
+- Onion domains are resolved to a IP inside range 10.192.0.0/16
+
+- I2P domains are always resolved to 10.191.0.1
+
+- Local defined domains, forwards to 10.0.0.1
+
+- Service replacement (ex: google.com it's replaced by our internal service YaCy) will resolve local ip 10.0.0.25x
+
+Petition Flow
+
+If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
+
+Otherwise, the rest of petitions will be processed following next steps
+
+
+Connection Flow 1: IP Blocking
+
+All petitions should be filtered by some rules.
+
+First rule it's a list of known advertising Ips without asking.
+
+We integrated known IP lists from Shallalist, mesdk12 and urlblacklist to avoid connection to IP that can be used to track you
+
+This IPs are used usually to show you ADS and profile you
+
+So, access to this IP are completely restricted to warrant privacy and avoid any profiling
+
+Connection Flow 2: Content Manager
+
+To enforce security by default will be blocked all petitions to not known sites. Also will be blocked a list of Corporations, governamental websites or any kind of non classified websites.
+
+On the content manager, if it's detected a HTTP/HTTPS request, will show a page in browser saying the reason why this IP/website it's blocked.
+
+Here's a list of possible reasons:
+
+- Malicious
+
+- Suspicious
+
+- Corporation
+
+- Governamental
+
+- Data leakers
+
+- And the rest it's classified as Unknown.
+
+Selection would be remembered to not annoy the user.
+
+
+Connection Flow 3: Squid Open SSL Tunnel
+
+When user it's using a HTTPS connection to a darknet domain, this traffic it's considered as insecure.
+
+On darknet domains, squid will open the SSL tunnel and inspect for possible exploits, virus and attacks to the user.
+
+If this connection it's to a HTTPS regular domain, this SSL tunnel will be not open nor inspected. Will be routed directly to the internet (ex: https://yourbank.com)
+
+Connection Flow 4: Squid Content Filtering Virus & Anonymous HTTP Headers
+
+Content filtering will be done if it's a HTTPS open SSL tunnel, or a regular HTTP petition.
+
+
+Squid will do mainly two process of it.
+
+
+- With I-cmp/clamav plugin, filter all possible viruses.
+
+- Remove from HTTP headers all possible identification to you.
+Connection Flow 5: IPS & Exploits: Suricata
+
+If traffic it's a HTTPS open SSL tunnel (only in darknet domains), or a regular HTTP petition, then Suricata will inspect traffic, too.
+
+Suricata will be configured with rules to avoid, mainly, browser exploits (usually in darknets, to take control of browser).
+
+Loading VRT ruleset from snort and other IPS.
+
+Connection Flow 6: Connection to Outside
+
+If connection pass all blocks and Connection Flow filters, then this petition can reach the internet. Otherwise will be blocked. And will reach in this way
+
+- I2P domains/eepSite (ex: i2p2.i2p) will be redirected to I2P
+
+- SSL Regular domains (ex: https://yourbank.com) will reach te internet directly (remember no regular connections if you don't allow)
+
+- Hidden services (ex: asdf1234.onion) will go through TOR
+
+- HTTP (ex: http://news.com) will go through TOR to the internet site
+Access from outside model (Bypass Router / Closed Ports
+
+To give access to file through an out-communitycube network, we will use TOR
+
+Use regular Tor Browser to bypass internal network firewall.
+
+So, each service running in communitycube will have a Hidden Service domain, and optionally a EEP Site (I2P hidden service).
+
+In a second integration step we can create our Agent:
+
+Our Agent it's a modified TorBrowser version with:
+
+- I2P
+
+- Foxyproxy configured ready to browse CommunityCube network, and Darknets.
+
+- Block load regular internet content, over a TOR/I2P domain. (prevents easy image tracking)
+
+Security plugins such as
+
+- Stop fingerprinting
+
+- Privacy Badger
+
+- Track me not
+
+- Fireclam
+
+- Mailvelope
+
+There's a first version of Agent for linux 32bit. It's needed to have Java installed
+
+https://cloud.comunitycube.com:8083/public.php?service=files&t=6eacefffe8443befe42af8114988c474
+
+There's a first version of Agent for windows 32bit. It doens't have I2P network conneciton
+
+https://cloud.comunitycube.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
+
+
+For a stable Agent stage, we should fork FoxyProxy to improve security by removing the external api exposing to each websites; or use another plugin.
+
+This agent will exists for any platform: windows 32&64, Mac OSX universal, linux 32&64, android, windows phone, firefox OS and iOS.
+ARP Firewall
+
+CageOS will integrate a ARP firewall to add another security layer in the incoming and outgoing connections, working with another layer of the OSI model.
+
+It is analogous to iptables, but operates at the MAC (ARP) layer, rather than the IP layer.
 
 #### Steps to setup on LibreRouter.
 
@@ -351,3 +500,78 @@ Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp c
 If Cable and FIX IP address:
 
 Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Kernel & Forensics
+Threat 	CageOS Protection
+Several Exploit 	GrSecurity
+Memory-based protection schemes 	PaX
+Mandatory access control scheme 	SELinux
+Cold Boot Attack 	TRESOR
+Potentially hostile/injected code from non-code containing memory pages 	KERNEXEC
+System
+Threat 	CageOS Protection
+Toolchain compilation (fortify) 	libc patches
+MAC Spoof 	MAC Address randomizer
+Hardware Serial number identification 	HDD/RAM serial number changer
+Vulnerable on bootloader 	Bootloader password protection
+Vulnerable on boot partition modifications 	/boot partition Read only. Needed to change only on kernel upgrades
+SSH root login directly 	Disable SSH root login
+Physical reboot 	Disable control+alt+del on inittab & /​etc/​acpi/​powerbtn-acpi-support.sh
+Brute force attack on services 	Fail2Ban
+ICMP Flood Protection 	IPTables not answer ICMP requests
+Network accept all port connection 	IPTables DROP policy by default
+Virus infection on other network OS 	Clamav
+Intrusion Detection System 	Suricata
+Hidden software exploits 	RKHunter
+Software security holes 	Debian Security repositories
+Untrusted Cronjobs 	Block cronjobs for everybody in cron.deny
+Binaries with root permission 	Disable unwanted SUID/SGID binaries
+Insecure network programs 	Block rlogink,telnet,tftp,ftp,rsh,rexec
+IP spoof 	sysctl hardening configuration
+IP spoof 	Darknet preconfigure
+TOR extra security 	SocksPort 9050 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort IsolateDestAddr
+DNS leak protection 	Usage of OpenNIC
+Hidden code on apps 	Verifiable builds
+Take advantage of already logged in sessions 	Bash usage of VLOCK and/or TMOUT to protect your bash login
+Direct access to HDD data 	Full disk LUKS encryption
+Exploits of shared resources & hardware 	Docker
+SSH Old protocol weak 	SSH only protocol V2 allowed
+Computer stealing 	Secured&encrypted backup on decentralized storage grid
+Rootkit 	Use OpenSource & RKHunter
+Software backdoor 	Use OpenSource
+Hardware backdoor 	Use OpenHardware
+Packet Sniffing 	Using HTTPS Everywhere
+Security
+Responsible for building Tor circuits 	Tor client running on CommunityCube
+Exploit Quantum protection 	Yes, suricata
+Intrusion Prevention System 	Yes
+Browser exploit protection 	Yes
+Protection against IP/location discovery 	Yes & agent
+Workstation does not have to trust Gateway 	No
+IP/DNS protocol leak protection 	Only if you configure manually
+Updates
+Operating System Updates 	Persist once updated
+Update Notifications 	Yes on LED and TFT display
+Important news notifications 	Yes on LED and TFT display
+Decentralized System Updates 	Using APT P2P
+Fingerprint
+Network/web Fingerprint 	Maximum possible protection with Agent (pc (windows/linux/mac) & mobile (android/ios)
+Clearnet traffic 	Routing model it's described in Network page
+Surf the deepweb with regular browser 	Yes but not recommended
+Randomized update notifications 	Yes
+Privacy Enhanced Browser 	Yes, Tor Browser with patches
+Hides your time zone (set to UTC) 	Yes
+Secure gpg.conf 	Yes
+Enable secure SSH access 	Yes, through physical TFT with external network disconnect
+Auto Disable logins 	Only logins are possible on configuration mode, activated through physical TFT with external network disconnect
+Internet of the Things protection 	Yes, it's described in Network page
+Misc
+HTTP Header Anonymous 	Yes
+Big clock skew attack against NTP 	Tot blocked
+VPN Support 	Configurable through TFT
+Ad-bloking track protection 	Yes
+Root password configuration 	Yes, mandatory on first boot and later on TFT configuration panel
+Wifi password configuratio 	Yes, manadatory on first boot and later on TFT configuration panel
+Internal WIFI device without password or WEP encryption 	No
