@@ -17,7 +17,6 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![nsamusculargooglecloud](https://cloud.githubusercontent.com/assets/13025157/14445905/4de7ff96-0051-11e6-9669-d2776c6b45fe.jpg)
 ![nsaspying_zps1a20b436](https://cloud.githubusercontent.com/assets/13025157/14445906/4df56dac-0051-11e6-9d2e-7d3c6fc4cdfd.jpg)
 ![privacybook33](https://cloud.githubusercontent.com/assets/13025157/14445913/57503936-0051-11e6-8148-78071b878838.png)
-![reversing-and-auditing-androids-proprietary-bits-13-638](https://cloud.githubusercontent.com/assets/13025157/14445912/574ef8c8-0051-11e6-80ac-a1f6177fbf99.jpg)
 ![yes-we-scan](https://cloud.githubusercontent.com/assets/13025157/14445932/67e3bd04-0051-11e6-8681-975e76d150cd.jpg)
 ![temporary_208720140319-93516-8lpgzq pdf000](https://cloud.githubusercontent.com/assets/13025157/14445934/6d067f38-0051-11e6-989a-d65177b74be2.jpg)
 ![skynet-applying-advanced-cloud-based-behavior-p5-normal](https://cloud.githubusercontent.com/assets/13025157/14445936/71e8b520-0051-11e6-93a7-69d5449a7c6a.gif)
@@ -41,6 +40,69 @@ Thanks to a unique combination of open hardware (Yes really open paste report fr
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![ykpjm jpg-600x303](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
 ![pazpal](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
+![reversing-and-auditing-androids-proprietary-bits-13-638](https://cloud.githubusercontent.com/assets/13025157/14445912/574ef8c8-0051-11e6-80ac-a1f6177fbf99.jpg)
+
+![11551f1_0](https://cloud.githubusercontent.com/assets/13025157/14445975/c0dfb9da-0051-11e6-85f3-11909bc981cd.jpg)
+![architecture-of-tee copy](https://cloud.githubusercontent.com/assets/13025157/14445976/c0e30e3c-0051-11e6-9737-47e787df430e.png)
+![article-2015may-securing-rf-links-fig1-fullsize](https://cloud.githubusercontent.com/assets/13025157/14445977/c0e35ea0-0051-11e6-9890-f7d6e1220e63.jpg)
+![bootfromflash](https://cloud.githubusercontent.com/assets/13025157/14445979/c0e403a0-0051-11e6-8fcc-26c1c12c74e3.png)
+![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
+![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
+![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
+![fig22](https://cloud.githubusercontent.com/assets/13025157/14445982/c1003e30-0051-11e6-9ad5-8884d27bc1b9.jpg)
+![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
+![flashdays_new1](https://cloud.githubusercontent.com/assets/13025157/14445986/c1113ece-0051-11e6-883d-57e64bc70daf.png)
+![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
+![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
+![git](https://cloud.githubusercontent.com/assets/13025157/14445988/c115b0e4-0051-11e6-9d93-9cca8809bbf3.jpg)
+![grid](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
+![hacking-with-arm-devices-netwalker-and-also-on-linux-34-638](https://cloud.githubusercontent.com/assets/13025157/14445992/c12a6fe8-0051-11e6-85c0-ce7de4e51731.jpg)
+![images](https://cloud.githubusercontent.com/assets/13025157/14445991/c1280e38-0051-11e6-90af-b73ede6610a4.png)
+![milestone](https://cloud.githubusercontent.com/assets/13025157/14445993/c12ab0fc-0051-11e6-9724-f97ce314dc52.png)
+![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14445994/c12c7d06-0051-11e6-8cd4-4cd244d34dfa.png)
+![ryf](https://cloud.githubusercontent.com/assets/13025157/14445995/c1317158-0051-11e6-96e7-8ab400e4cbe3.png)
+![security-for-io-t-apr-29th-mentor-embedded-hangout-12-638](https://cloud.githubusercontent.com/assets/13025157/14445996/c13f0e94-0051-11e6-9b32-1dd35bf98d52.jpg)
+![trustzone-software-architecture](https://cloud.githubusercontent.com/assets/13025157/14445997/c1407360-0051-11e6-8be3-60ac0a941cfe.jpg)
+![uboot-presentation-2013-6-638](https://cloud.githubusercontent.com/assets/13025157/14445999/c143d848-0051-11e6-9dee-8a5fabcf8e3e.jpg)
+![ykpjm jpg-600x303](https://cloud.githubusercontent.com/assets/13025157/14445998/c1433000-0051-11e6-83b5-1e594ba93aca.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
