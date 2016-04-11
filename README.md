@@ -160,8 +160,6 @@ Script workflow
 
 It aims to configure all the packages and services.
 
-Script workflow
-
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 1. Check User 
@@ -184,19 +182,19 @@ Script workflow
   * Tor DNS will be configured to listed 10.0.0.1:9053
   * DjDNS will be configured to listed 10.0.0.1:8053
 
-## DNS resolution process.
-# Classified domains
+#### DNS resolution process.
+##### Classified domains
   * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
   * Social networks - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
   * Storages        - Will be resolved to ip address 10.0.0.253 (Owncloud) by unbound.
   * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
     
-# Local, i2p and onion domains
+##### Local, i2p and onion domains
   * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
   * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
   * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
    
-# Other domain names
+##### Other domain names
   * Any other domain name will be resolved by DjDNS with DNSSEC validation.
 
 >Please see left part of workflow image.
