@@ -24,46 +24,22 @@ Some of __Librerouter__ services has being provided by some time, but un-integra
 
 If you want more information about the software that we picked check [here](https://cageos.org/index.php?page=apps).
 
-## Why not just use existing Darknets/F2net?
-
-None of _F2Friend-nets_, _darknets_, _private-nets_, _Libre-nets_, _peering-nets_,  _deep-web_ are the first choice for any non-technical end users, they need a product to protect their-selves. Most of _secured_ services work inside those _pseudoF2Fnets_ that often don't offer a ***decentralized real world interconnection***, and almost all don't offer a ***soft migration*** way for a those end users, often trained, for a commercial centralized product.
-
 ## Librerouter protect us against...?
-
-Bad people with bad intentions like:
-
 - **Sniffers**: those that are checking your traffic
 - **Government spy/monitoring institutions passive actions**: like passive bots collecting general data from worldwide, if they target  anyone... that is another story.
 - **CommunityLibrerouter evil nodes**:  a box Owned for those _bad people_.
 - **Malicious internet nodes**: better known as _blackbones_.
 - **Your internet provider (ISP)**: if they would trying anything with your data.
 
-## How does it protect me?
-
-In technical words , to protect you, Librerouter does:
-
+## How it will protect me?
  - Filtering virus, exploits _malware_, ads , bad IP-sources and bad content.
  - Decentralizing the services (doing impossible to apply big data to you )
  - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
  - Forcing encryption for all communications and data storage and in rest.
  - Filtering the data that expose you, like scripts,cookies, browser info,etc.
 
-
-## How Librerouter network works?
-
-In our decentralized system your valuable information is encrypted three times:
-
-1. Before it even leaves your computer, in the web browser
-2. In the collaboration tool before the data goes to the hard disk
-3. When backing up to the grid, the slices will also be encrypted.
-
 ![CLibrerouter Network](https://ksr-ugc.imgix.net/assets/003/699/998/0698df91b8b2e9e1c61368ae8eeb7798_original.jpg?v=1430330247&w=680&fit=max&auto=format&q=92&s=e140edd32e6462fdd221c8b299bc965f)
-
-You want more information, you can check [here](https://cageos.org/index.php?page=network) for more information or [here](https://213.129.164.215:4580/dokuwiki/doku.php?id=communityLibrerouter_overview) for a lot more information.
-
-## How to collaborate?
-
-Easy as fork us and send pull requests, but if you want to get in touch with us meet us in our web page [CageOS](www.cageos.org).
+You want more information, you can check [here](https://cageos.org/index.php?page=network) for more information or 
 
 ## Which hardware is needed to run Librerouter?
 
