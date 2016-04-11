@@ -17,10 +17,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 ## Services runing in Librerouter
-
-Some of __Librerouter__ services has being provided by some time, but un-integrated and with some flaws, let's show you:
-
-![Services](https://ksr-ugc.imgix.net/assets/003/699/855/2679953ba748e512d3ec207f732d1bb2_original.jpg?v=1430329011&w=680&fit=max&auto=format&q=92&s=b7153d55686098a5c8a52ef9a57e10bd)
+![fgfs](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
 If you want more information about the software that we picked check [here](https://cageos.org/index.php?page=apps).
 
@@ -65,9 +62,9 @@ This is on discussion yet, but the idea is to offer a solution that can be deplo
 | CASE | CASE |  CASE | 
 | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | 
 
-![XU4](https://ksr-ugc.imgix.net/assets/003/944/858/1dd038cc6d011fae2e9c64b3373f26aa_original.jpg?v=1433797073&w=680&fit=max&auto=format&q=92&s=7465889c0357eb0ccbaf781a4c0e7016)
+![dddd](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
 
-More information [here](https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:hardware:communityLibrerouter_-_odroid_xu3_lite).
+
 
 
 ## Setup
