@@ -98,14 +98,53 @@ The way networking works in Librerouter will be:
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 
 ![wizard](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
-
+![servermode](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
 
 
 **Step 3. Executing scripts.**
 In this step you need to download and execute the following scripts on your machine with given order.
 1. app-installation-script.sh
 2. app-configuration-script.sh
+![initial-install-workflow](https://cloud.githubusercontent.com/assets/13025157/14444383/5b99d710-0045-11e6-9ae8-3efa1645f355.png)
 
+Step 1. Checking user
+The script should be run by user root, if it was run by another user then it will warn and exit.
+Step 2. Checking Platform
+The all software intended to run on Debian 7/8 or Ubuntu 12.04/14.04, so if script finds another platform it will output an error and exit.
+Step 3. Checking Hardware
+As software can be installed either on odroid or Physical/Virtual machine, in this step we need to determine hardware. If script runs on odroid it should find Processor = ARM Hardware = XU3 or XU4 or C1+ or C2 If script runs on Physical/Virtual machine it should fine Processor = Intel After determining hardware type we can determine the next step.
+If hardware is Physical/Virtual machine
+Step 4. Checking requirements
+There are a list of minimum requirements that Physical/Virtual machine needs to meet.
+    2 network interfaces (ethernet or wlan)
+    1 GB of Physical memory
+    16 GB of Free disk space
+If machine meets the requirements then script goes to next step, otherwise it will warn and exit.
+Step 5. Getting DHCP client on interfaces
+In this step script first DHCP request from eth1 to get an ip address. If succeed, it will check for Internet connection and if Internet connection is established this step is done successfully. In any case of failure (no DHCP response or on Internet connection) script will try the same scenario for next interface. Order to try is - eth1, wlan1, eth0, wlan0 (list of available interfaces are available from step 4).
+Of no success in any interface, then script will warn user to plug the machine to Internet and will exit.
+Step 6. Preparing repositories and updating sources
+In this step script adds repository links for necessary packages into package manager sources and updates them. Script will output an error ant exit if it is not possible to add repositories or update sources.
+Step 7. Downloading and Installing packages
+As we already have repository sources updated in step 6, so at this point script will download and install packages using package manager tools. If something goes wrong during download or installation, script will output an error ant exit.
+If step 7 finished successfully then test.sh execution for Physical/Virtual machine is finished successfully and it's time to run the next script “app-installation-script.sh”.
+If hardware is odroid board
+Step 4. Check if the board assembled.
+There are list of modules that need to be connected to odroid board, so script will check if that modules are connected.
+You can fine information about necessary modules here
+If any module is missed user will get warning and script will exit.
+Step 5. Configuring bridge interfaces.
+In this step script will configure 2 bridge interfaces br0 and br1.
+    eth0 and wlan0 will be bridged into interface br0
+    eth1 and wlan1 will be bridged into interface br1
+In ethernet network, br0 should be connected to Internet and br0 to local network. In wireless network, bridge interdace with wore powerful wlan will be connected to Internet and other one to local network.
+After configuring bridge interfaces script will enable dhcp chient on external network interface and set static ip address 10.0.0.1/8 in internal network interface, and then check the Internet connection.
+If everything goes fine it will process to next step, otherwise will warn the user to plug the machine to Internet and exit.
+Step 6. Preparing repositories and updating sources
+The same as in Physical/Virtual machine case.
+Step 7. Downloading and Installing packages
+The same as in Physical/Virtual machine case.
+If step 7 finished successfully then test.sh execution for odroid board is finished successfully and it's time to run the next script “app-installation-script.sh”. 
 
 
 #### Steps to setup on LibreRouter.
@@ -114,7 +153,7 @@ In this step you need to download and execute the following scripts on your mach
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
-You can find more information about necessary modules [here](https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:hardware:communityLibrerouter_-_odroid_xu3_lite).
+
 
 **Step 2. Executing scripts.**
 
@@ -254,4 +293,21 @@ Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp c
 
 If Cable and FIX IP address:
 Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions
+///////////////////////////////////////////////////////////////////////////////////////////////////
+mode 2
 
+ Do you want to use a cable or want librerouter connect to your router or switch?
+
+if WLAN
+
+Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
+
+if Cable:
+
+If Cable and DHCP:
+
+Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the connection getting up If not specify error conditions
+
+If Cable and FIX IP address:
+
+Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions 
