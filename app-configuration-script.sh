@@ -645,11 +645,12 @@ rm -rf shallalist.tar.gz shallalist
 
 # Creating social networks domains list configuration file
 cat socialnet_domain.list | \
-awk {'print \"local-data: \"" $1 " IN A 10.0.0.252\""'} \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.252\""'} \
 > /etc/unbound/socialnet_domain.list.conf
 
 # Creating search engines domains list configuration file
-cat searchengines_domain.list | awk {'print "local-data: \"" $1 " IN A 10.0.0.251\""'} \
+cat searchengines_domain.list | \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.251\""'} \
 > /etc/unbound/searchengines_domain.list.conf
 
 # Creating  webmail domains list configuration file
