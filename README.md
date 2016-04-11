@@ -98,44 +98,6 @@ The way networking works in Librerouter will be:
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 
 ![wizard](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
-This wizard should ask the customer about and is pending in the project to be developed:
- -a) Do you want your protect your privacy or just user Librerouter services? if yes then mode bridge if not then mode equals server.
- -b) Mode Transparent firewall Bridge:
- -     Lets configure the Internet access (WAN)
- -     Do you want to conect your Librerouter to your Internet router via cable or WLAN?
- -         if WLAN
-Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
-
-if Cable:
-
-*If Cable and DHCP:
-Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the conection getting up If not especify error conditions
-
-If Cable and FIX IP address:
-*Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the conections answers If not especify error conditions
-
-Lets configure the Internal access (LAN Intranet)
- -Do you want to setup your internal protected network via cable or WLAN?
-
-If WLAN then:
- -Please specify your internal new WLAN name SSID Please specifiy your SSID WPA2 CCMP password The daemon should check the connection getting up If not especify error conditions The IP addresses are 10.0.0.1 forced (if the guy another then hack the box)
-
-if Cable then:
- -Please be aware we use this internal range: 10.0.0.100 to 200 Gateway 10.0.0.1 and DNS
- -Please plug a cable Detecting link Link up Now your connected
-
-c) Mode Server only WAN external bridge will be used and then all WLAN and ETH will be all 4 interfaces in the same Bridge NIC logical interface.Do you want to use a cable or want CCube connect to your router or switch?
-
-if WLAN
-
-Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
-
-if Cable:
-If Cable and DHCP:
-Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the connection getting up If not specify error conditions
-
-If Cable and FIX IP address:
-Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions
 
 
 
@@ -252,4 +214,44 @@ It aims to configure all the packages and services.
 >You can check out the full license [here](https://github.com/CommunityLibrerouter/debian-autoscript/blob/master/LICENSE)
 
 This project is licensed under the terms of the **GNU GPL V2** license.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+This wizard should ask the customer about and is pending in the project to be developed:
+ -a) Do you want your protect your privacy or just user Librerouter services? if yes then mode bridge if not then mode equals server.
+ -b) Mode Transparent firewall Bridge:
+ -     Lets configure the Internet access (WAN)
+ -     Do you want to conect your Librerouter to your Internet router via cable or WLAN?
+ -         if WLAN
+Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
+
+if Cable:
+
+*If Cable and DHCP:
+Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the conection getting up If not especify error conditions
+
+If Cable and FIX IP address:
+*Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the conections answers If not especify error conditions
+
+Lets configure the Internal access (LAN Intranet)
+ -Do you want to setup your internal protected network via cable or WLAN?
+
+If WLAN then:
+ -Please specify your internal new WLAN name SSID Please specifiy your SSID WPA2 CCMP password The daemon should check the connection getting up If not especify error conditions The IP addresses are 10.0.0.1 forced (if the guy another then hack the box)
+
+if Cable then:
+ -Please be aware we use this internal range: 10.0.0.100 to 200 Gateway 10.0.0.1 and DNS
+ -Please plug a cable Detecting link Link up Now your connected
+
+c) Mode Server only WAN external bridge will be used and then all WLAN and ETH will be all 4 interfaces in the same Bridge NIC logical interface.Do you want to use a cable or want CCube connect to your router or switch?
+
+if WLAN
+
+Please specify your internet router SSID Please specify your encryption methods WPA or WPA2 WEP not allowed no encryption not allowed Please specifiy your SSID password The daemon should check the conection getting up If not especify error conditions
+
+if Cable:
+If Cable and DHCP:
+Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the connection getting up If not specify error conditions
+
+If Cable and FIX IP address:
+Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions
 
