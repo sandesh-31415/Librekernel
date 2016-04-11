@@ -40,24 +40,28 @@ If you want more information about the software that we picked check [here](http
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 ## Which hardware is needed to run Librerouter?
-| https://www.gitbook.com/book/bananapi/bpi-r1/details
-| https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
-| https://www.element14.com/community/community/designcenter/sama5d3xplained/blog/2014/04/25/debian-on-the-sama5d3-xplained
-| https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
+
+https://www.gitbook.com/book/bananapi/bpi-r1/details
+
+https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
+
+https://www.element14.com/community/community/designcenter/sama5d3xplained/blog/2014/04/25/debian-on-the-sama5d3-xplained
+
+https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
 
 This is on discussion yet, but the idea is to offer a solution that can be deployable on a public distribution with your own hardware, but as standalone  we have this models:
 
 - **Librerouter** has two presentations:
 
-| Board | 
+| Board | --------|
 |--------|--------|
-|Odroid C2  |
-|ssd 8gbc10|
-|USB2ETH | HDD 2TB|
-|2xWLAN 1watt| 2xGE-RJ45 |
-|Batterie UPS|
-|CASE| 
-|RoboPeak RUUSB|Waveshare |
+|Odroid C2  |--------|
+|ssd 8gbc10|--------|
+|USB2ETH | HDD 2TB|--------|
+|2xWLAN 1watt| 2xGE-RJ45 |--------|
+|Batterie UPS|--------|
+|CASE| --------|
+|RoboPeak RUUSB|Waveshare |--------|
 
 ![XU4](https://ksr-ugc.imgix.net/assets/003/944/858/1dd038cc6d011fae2e9c64b3373f26aa_original.jpg?v=1433797073&w=680&fit=max&auto=format&q=92&s=7465889c0357eb0ccbaf781a4c0e7016)
 
