@@ -32,7 +32,7 @@ If you want more information about the software that we picked check [here](http
 - **Your internet provider (ISP)**: if they would trying anything with your data.
 
 ## How it will protect me?
- - Filtering virus, exploits _malware_, ads , bad IP-sources and bad content.
+ - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content.
  - Decentralizing the services (doing impossible to apply big data to you )
  - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
  - Forcing encryption for all communications and data storage and in rest.
@@ -40,6 +40,10 @@ If you want more information about the software that we picked check [here](http
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 ## Which hardware is needed to run Librerouter?
+https://www.gitbook.com/book/bananapi/bpi-r1/details
+https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
+https://www.element14.com/community/community/designcenter/sama5d3xplained/blog/2014/04/25/debian-on-the-sama5d3-xplained
+https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
 
 This is on discussion yet, but the idea is to offer a solution that can be deployable on a public distribution with your own hardware, but as standalone  we have this models:
 
