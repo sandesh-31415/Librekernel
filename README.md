@@ -17,6 +17,7 @@ Thanks to a unique combination of open hardware (Yes really open paste report fr
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14444873/e97a483c-0048-11e6-8fe2-ac2cc39b5634.png)
 
 
+
 ###Why do we need this technology?
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
@@ -46,6 +47,17 @@ If you want more information about the software that we picked check [here](http
  - Forcing encryption for all communications and data storage and in rest.
 
 new picture
+
+Services
+Decentralized Backup - I2P+Tahoe-LAFS
+Social Network - Friendica
+Search Engine - YaCy
+Collaborative Document Editing - OwnCloud
+Secure Email - Mailpile
+Xat&Voice Conferencing
+Decentralized Authentication Hive2Hive
+https://www.cageos.org/index.php?page=apps
+https://github.com/CommunityCube/debian-autoscript/issues
 
  -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
