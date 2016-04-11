@@ -2,9 +2,14 @@ Librerouter
 ==============
 
 
-## What is Librerouter(Librerouter)?
+## What is Librerouter?
 
-***Librerouter*** is a technology that makes protecting your privacy easy. Thanks to a unique combination of  open hardware and software, it’s both a server and a provider of free secure services. You can trust us, we are fully open.
+***Librerouter*** is a technology that makes protecting your privacy easy by:
+
+a) If you buy a premade server
+b) If you install the scripts in a Virtual machine that becames bridge virtual server
+
+Thanks to a unique combination of open hardware (Yes really open and just a say check the link here) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
 
 ***Librerouter*** is a plug and play, open source, energy efficient server designed from the ground up with security and privacy in mind.
 
