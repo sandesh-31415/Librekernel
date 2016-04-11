@@ -14,7 +14,7 @@ a) If you buy a Librerouter
 b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
 
 Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
-![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14444873/e97a483c-0048-11e6-8fe2-ac2cc39b5634.png)
+![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 
 
 
