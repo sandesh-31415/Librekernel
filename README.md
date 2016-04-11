@@ -54,14 +54,17 @@ This is on discussion yet, but the idea is to offer a solution that can be deplo
 - **Librerouter** has two presentations:
 
 | Board | --------|
-|--------|--------|
-|Odroid C2  |--------|
-|ssd 8gbc10|--------|
-|USB2ETH | HDD 2TB|--------|
-|2xWLAN 1watt| 2xGE-RJ45 |--------|
-|Batterie UPS|--------|
-|CASE| --------|
-|RoboPeak RUUSB|Waveshare |--------|
+|--------|--------|--------|
+| Banana bpi-r1  | OLinuXIno-LIME2 | ATSAMA5D3+Xplained |
+| ssd 8gbc10|ssd 8gbc10|ssd 8gbc10|
+| 1xUSB2ETH+1xonboard|1xUSB2ETH+1xonboard|1xUSB2ETH+1xonboard|
+| HDD 1TB| HDD 1TB| HDD 1TB|
+| 2xWLAN 1watt| 2xWLAN 1watt| 2xWLAN 1watt| 
+| Batterie UPS| Batterie UPS| Batterie UPS|
+| Adapt-POE-volt| Adapt-POE-volt| Adapt-POE-volt| 
+| usbto-Ledsblinkstick.com| usbto-Ledsblinkstick.com| usbto-Ledsblinkstick.com|
+| CASE| CASE|  CASE | 
+| RoboPeak RUSB or Waveshare |--------|--------|--------|
 
 ![XU4](https://ksr-ugc.imgix.net/assets/003/944/858/1dd038cc6d011fae2e9c64b3373f26aa_original.jpg?v=1433797073&w=680&fit=max&auto=format&q=92&s=7465889c0357eb0ccbaf781a4c0e7016)
 
