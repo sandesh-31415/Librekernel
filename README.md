@@ -37,8 +37,7 @@ If you want more information about the software that we picked check [here](http
  - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
  - Forcing encryption for all communications and data storage and in rest.
  - Filtering the data that expose you, like scripts,cookies, browser info,etc.
-
-![CLibrerouter Network](https://ksr-ugc.imgix.net/assets/003/699/998/0698df91b8b2e9e1c61368ae8eeb7798_original.jpg?v=1430330247&w=680&fit=max&auto=format&q=92&s=e140edd32e6462fdd221c8b299bc965f)
+![CLibrerouter Network](https://www.cageos.org/network/images/NetworkTraffic6-small.png)
 You want more information, you can check [here](https://cageos.org/index.php?page=network) for more information or 
 
 ## Which hardware is needed to run Librerouter?
