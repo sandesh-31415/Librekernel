@@ -1,9 +1,33 @@
-Librerouter
-==============
+###Why do we need this technology?
+
+The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
+![2746881_orig](https://cloud.githubusercontent.com/assets/13025157/14445524/df973fbe-004d-11e6-9f42-3571f91a53b8.jpg)
+![ibm_hi1](https://cloud.githubusercontent.com/assets/13025157/14445525/e7eb0042-004d-11e6-9016-958bf320513e.jpg)
+![ibm_hitler_and_the_ibm_c](https://cloud.githubusercontent.com/assets/13025157/14445528/edcb7f32-004d-11e6-901f-bf42447ec4c7.jpg)
+![ibm_and_the_holocaust_ cover](https://cloud.githubusercontent.com/assets/13025157/14445530/f4c324d4-004d-11e6-842a-c2d857134bf9.jpg)
+![imageforbigdataarticle](https://cloud.githubusercontent.com/assets/13025157/14445533/fbf573d8-004d-11e6-9aa9-c77849f49f12.jpg)
+![images](https://cloud.githubusercontent.com/assets/13025157/14445537/0268c166-004e-11e6-96c3-a4b9c162e94f.jpg)
+
+![2013-09-25-googleglass-thumb](https://cloud.githubusercontent.com/assets/13025157/14445893/2a98f716-0051-11e6-9ac2-818c201f4384.JPG)
+![056c026d-1c66-4d42-9fae-a8e96df290c5-1020x961-1](https://cloud.githubusercontent.com/assets/13025157/14445894/2c89c32a-0051-11e6-8740-867a030a5116.jpg)
+![cyc3ij8uqaazaft jpglarge](https://cloud.githubusercontent.com/assets/13025157/14445895/3400a88a-0051-11e6-98a1-a48494952a8b.jpeg)
+![csaxkaauyaaf__m](https://cloud.githubusercontent.com/assets/13025157/14445897/37e70840-0051-11e6-967a-4528a2619f8f.png)
+![google_cia_nsa6080spy-1](https://cloud.githubusercontent.com/assets/13025157/14445901/44b3abd2-0051-11e6-8564-8527da21f7d1.jpg)
+![nsa-inside sh](https://cloud.githubusercontent.com/assets/13025157/14445904/4de51c72-0051-11e6-81ba-43b7a50ea492.png)
+![nsamusculargooglecloud](https://cloud.githubusercontent.com/assets/13025157/14445905/4de7ff96-0051-11e6-9669-d2776c6b45fe.jpg)
+![nsaspying_zps1a20b436](https://cloud.githubusercontent.com/assets/13025157/14445906/4df56dac-0051-11e6-9d2e-7d3c6fc4cdfd.jpg)
+![privacybook33](https://cloud.githubusercontent.com/assets/13025157/14445913/57503936-0051-11e6-8148-78071b878838.png)
+![reversing-and-auditing-androids-proprietary-bits-13-638](https://cloud.githubusercontent.com/assets/13025157/14445912/574ef8c8-0051-11e6-80ac-a1f6177fbf99.jpg)
+![yes-we-scan](https://cloud.githubusercontent.com/assets/13025157/14445932/67e3bd04-0051-11e6-8681-975e76d150cd.jpg)
+![temporary_208720140319-93516-8lpgzq pdf000](https://cloud.githubusercontent.com/assets/13025157/14445934/6d067f38-0051-11e6-989a-d65177b74be2.jpg)
+![skynet-applying-advanced-cloud-based-behavior-p5-normal](https://cloud.githubusercontent.com/assets/13025157/14445936/71e8b520-0051-11e6-93a7-69d5449a7c6a.gif)
+
+
+
+
 ## What is Librerouter?
 
 ***Librerouter*** is a technology that makes protecting your privacy easy by:
-
     Filtering virus, exploits malware, ads , bad IP-sources and bad content.
     Decentralizing the services (doing impossible to apply big data to you )
     Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
@@ -15,12 +39,9 @@ b) If your IT then install the scripts in a Virtual machine that becames bridge 
 
 Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
+![ykpjm jpg-600x303](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
+![pazpal](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
 
-
-
-###Why do we need this technology?
-
-The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
 
 ## Services runing in Librerouter
@@ -59,6 +80,11 @@ Decentralized Authentication Hive2Hive
 https://www.cageos.org/index.php?page=apps
 https://github.com/CommunityCube/debian-autoscript/issues
 
+![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445487/9ca99cd8-004d-11e6-8a35-a79e4acdff43.jpg)
+![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
+
  -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
 • Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
@@ -81,6 +107,8 @@ You can use Community Cube to filter them out when it automatically imports post
 You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
 ![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
 
+With federated XMPP servers for authentication but perfect for discovering users outside the Community Cube network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 ## Which hardware is needed to run Librerouter?
  - https://www.gitbook.com/book/bananapi/bpi-r1/details
