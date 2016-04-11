@@ -75,6 +75,7 @@ This is on discussion yet, but the idea is to offer a solution that can be deplo
 
 - **Librerouter** has two presentations:
 Comes with four network interfaces which are configured as follows: 2 Wireless and 2 Gigabyte Ethernet.
+
 | Board | Board | Board | 
 |--------|--------|--------|
 | Banana bpir1  | OLinuXIno-LIME2 | ATSAMA5D3Xplained |
