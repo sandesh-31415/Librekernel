@@ -66,9 +66,9 @@ This is on discussion yet, but the idea is to offer a solution that can be deplo
 | CASE | CASE |  CASE | 
 | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | 
 
-![XU4](https://ksr-ugc.imgix.net/assets/003/944/858/1dd038cc6d011fae2e9c64b3373f26aa_original.jpg?v=1433797073&w=680&fit=max&auto=format&q=92&s=7465889c0357eb0ccbaf781a4c0e7016)
+![dddd](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
 
-More information [here](https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:hardware:communityLibrerouter_-_odroid_xu3_lite).
+
 
 
 ## Setup
