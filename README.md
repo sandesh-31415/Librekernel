@@ -16,19 +16,7 @@ Thanks to a unique combination of open hardware (Yes really open and just a say 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
 
-    Services accessible behind a router that you can reach from inside or outside your network from everywhere anonymously.
-    Complete set of internet services: 
-          Decentralized Storage antidestructible: Owncloud TahoeLasf I2P integration
-          Videoconference: Webrtc XMPP(otrs) over TOR or I2P and natively
-          Decentralized: Search engine: Yacy
-          Decentralized Social network: Friendica
-    Trustworthy and open source: Based in Libre Kernel Operating system GNU plus open hardware drivers.
-    
-## What ain't Librerouter? (..and will never be)
-- A private society or corporation and will close the source or abandon GNU license
-- Head managed or centrlized at any level
-
-## Features Comparison
+## Services runing in Librerouter
 
 Some of __Librerouter__ services has being provided by some time, but un-integrated and with some flaws, let's show you:
 
