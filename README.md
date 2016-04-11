@@ -64,36 +64,26 @@ This is on discussion yet, but the idea is to offer a solution that can be deplo
 
 ![dddd](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
 
-
-
-
 ## Setup
 <!-- this part needs to be refactored by someone that does know the current state of building process -->
 There are 2 ways to join to CommunityLibrerouter network
 
-##### 1. Setup CommunityLibrerouter software on Physical/Virtual machine.
-##### 2. Setup CommunityLibrerouter software on LibreRouter.
+##### 1. Setup CommunityLibrerouter software on Physical/Virtual machine----Debian or librekernel distro
+##### 2. Setup CommunityLibrerouter software on ARM-------------------------Debian or librekernel distro croscompiled
 
 #### Steps to setup on Physical/Virtual machine.
-
 **Step 1: Checking requirements**
-
 Your Physical/Virtual machine need to meet the minimum requirements:
-
 1. 2 network interface
 2. 1 GB of Physical memory
 3. 16 GB of free space
-
 If your machine is ok with requirement, then you can process to next step.
-
 **Step 2: Setup the network.**
-
 In this step you need to connect one interface of your machine to Internet, and other one to local network device.
 
+
 **Step 3. Executing scripts.**
-
 In this step you need to download and execute the following scripts on your machine with given order.
-
 1. app-installation-script.sh
 2. app-configuration-script.sh
 
