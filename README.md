@@ -74,12 +74,10 @@ There are 2 ways to join to CommunityLibrerouter network
 #### Steps to setup on Physical/Virtual machine.
 **Step 1: Checking requirements**
 Your Physical/Virtual machine need to meet the minimum requirements:
-
-1. 2 network interface
-
-2. 1 GB of Physical memory
-
-3. 16 GB of free space
+*1. x2 network interfaceS
+*2. 1 GB of RAM
+*3. 16 GB of SD or micro SD or virtual booting HD
+*4. SATA HARDDISK or separate second phzsical or virutual DISK
 
 If your machine is ok with requirement, then you can process to next step.
 
@@ -95,17 +93,16 @@ b) Bridge mode where the trafic is filtered by dns, and by proxy squid with clam
 The way networking works in CCube is the system has:
 
 2 Bridges two interfaces each
-
-    1st bridge acts as a WAN
-    2sc bridge acts as LAN
+1st bridge acts as a WAN
+2sc bridge acts as LAN
 
 So, we actually have 4 possible scenarios
+WAN is WiFi, LAN is WiFi
+WAN is WiFi, LAN is Cabled Ethernet
+WAN is Cabled Ethernet, LAN is WiFi
+WAN is Cabled Ethernet, LAN is Cabled Ethernet
 
-    WAN is WiFi, LAN is WiFi
-    WAN is WiFi, LAN is Cabled Ethernet
-    WAN is Cabled Ethernet, LAN is WiFi
-    WAN is Cabled Ethernet, LAN is Cabled Ethernet
-    Server mode: 1 uniqe LAN is a Brdiged and can be WLAN or Cabled Ethert conected to the existing LAN from the CCube owner.
+Server mode: 1 uniqe LAN is a Brdiged and can be WLAN or Cabled Ethert conected to the existing LAN from the CCube owner.
 
 It will be enough to configure two interfaces, one from the LAN Birdge, and one from WAN Bridge, no matter whether they are WiFi or Ethernet, and leave other two interfaces unconfigured and everything will work.
 
