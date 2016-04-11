@@ -32,7 +32,7 @@ If you want more information about the software that we picked check [here](http
 - **Your internet provider (ISP)**: if they would trying anything with your data.
 
 ## How it will protect me?
- - Filtering virus, exploits _malware_, ads , bad IP-sources and bad content.
+ - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content.
  - Decentralizing the services (doing impossible to apply big data to you )
  - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
  - Forcing encryption for all communications and data storage and in rest.
@@ -40,19 +40,30 @@ If you want more information about the software that we picked check [here](http
 
 ## Which hardware is needed to run Librerouter?
 
+https://www.gitbook.com/book/bananapi/bpi-r1/details
+
+https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
+
+https://www.element14.com/community/community/designcenter/sama5d3xplained/blog/2014/04/25/debian-on-the-sama5d3-xplained
+
+https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
+
 This is on discussion yet, but the idea is to offer a solution that can be deployable on a public distribution with your own hardware, but as standalone  we have this models:
 
 - **Librerouter** has two presentations:
 
-|Low-end model - Odroid C2| High-end model - Odroid XU4|
-|--------|--------|
-|Odroid C2  | Odroid XU4 |
-|ssd 8gbc10|ssd 8gbc10|
-|USB2ETH | HDD 2TB|
-|2xWLAN 1watt| SB2ETH |
-|Batteries|2xWLAN 1watt|
-|CASE| CASE|
-|RoboPeak Usb tft screen  |RoboPeak Usb tft screen  |
+| Board | Board | Board | 
+|--------|--------|--------|
+| Banana bpir1  | OLinuXIno-LIME2 | ATSAMA5D3Xplained |
+| ssd 8gbc10 | ssd 8gbc10| ssd 8gbc10 |
+| 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard |
+| HDD 1TB | HDD 1TB | HDD 1TB|
+| 2xWLAN 1watt | 2xWLAN 1watt| 2xWLAN 1watt| 
+| Batterie UPS| Batterie UPS| Batterie UPS|
+| Adapt-POE-volt| Adapt-POE-volt| Adapt-POE-volt| 
+| usbto-Ledsblinkstick.com| usbto-Ledsblinkstick.com| usbto-Ledsblinkstick.com|
+| CASE | CASE |  CASE | 
+| RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | 
 
 ![XU4](https://ksr-ugc.imgix.net/assets/003/944/858/1dd038cc6d011fae2e9c64b3373f26aa_original.jpg?v=1433797073&w=680&fit=max&auto=format&q=92&s=7465889c0357eb0ccbaf781a4c0e7016)
 
