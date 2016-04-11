@@ -17,10 +17,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 ## Services runing in Librerouter
-
-Some of __Librerouter__ services has being provided by some time, but un-integrated and with some flaws, let's show you:
-
-![Services](https://ksr-ugc.imgix.net/assets/003/699/855/2679953ba748e512d3ec207f732d1bb2_original.jpg?v=1430329011&w=680&fit=max&auto=format&q=92&s=b7153d55686098a5c8a52ef9a57e10bd)
+![fgfs](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
 If you want more information about the software that we picked check [here](https://cageos.org/index.php?page=apps).
 
