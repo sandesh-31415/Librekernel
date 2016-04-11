@@ -6,10 +6,16 @@ Librerouter
 
 ***Librerouter*** is a technology that makes protecting your privacy easy by:
 
-a) If you buy a premade server
-b) If you install the scripts in a Virtual machine that becames bridge virtual server
+    Filtering virus, exploits malware, ads , bad IP-sources and bad content.
+    Decentralizing the services (doing impossible to apply big data to you )
+    Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
+    Forcing encryption for all communications and data storage and in rest.
+    Filtering the data that expose you, like scripts,cookies, browser info,etc.
 
-Thanks to a unique combination of open hardware (Yes really open and just a say check the link here) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
+a) If you buy a Librerouter
+b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
+
+Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
 
 ###Why do we need this technology?
 
@@ -24,16 +30,40 @@ If you want more information about the software that we picked check [here](http
 ## Librerouter protect us against...?
 - **Sniffers**: those that are checking your traffic
 - **Government spy/monitoring institutions passive actions**: like passive bots collecting general data from worldwide, if they target  anyone... that is another story.
-- **CommunityLibrerouter evil nodes**:  a box Owned for those _bad people_.
+- **Librerouter evil nodes**:  a box Owned for those _bad people_.
 - **Malicious internet nodes**: better known as _blackbones_.
 - **Your internet provider (ISP)**: if they would trying anything with your data.
 
 ## How it will protect me?
- - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content.
+ - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
+ ![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14444623/fb7e4184-0046-11e6-89c7-72618f6c2d2b.jpg)
  - Decentralizing the services (doing impossible to apply big data to you )
+ ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
  - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
+
+ Picture new
+
  - Forcing encryption for all communications and data storage and in rest.
- - Filtering the data that expose you, like scripts,cookies, browser info,etc.
+
+new picture
+
+ -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
+• Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
+• Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
+• Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
+The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
+In our decentralized system your valuable information is encrypted three times:
+![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
+1. Before it even leaves your computer, in the web browser
+2. In the collaboration tool before the data goes to the hard disk
+3. When backing up to the grid, the slices will also be encrypted. 
+
+The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
+![storage](https://cloud.githubusercontent.com/assets/13025157/14444754/f0ebf814-0047-11e6-9558-25e26b3d614b.jpg)
+A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
+![grid](https://cloud.githubusercontent.com/assets/13025157/14444751/e3eaba38-0047-11e6-95f4-e4753c0d50c5.jpg)
+
+
 
 ## Which hardware is needed to run Librerouter?
  - https://www.gitbook.com/book/bananapi/bpi-r1/details
@@ -44,7 +74,7 @@ If you want more information about the software that we picked check [here](http
 This is on discussion yet, but the idea is to offer a solution that can be deployable on a public distribution with your own hardware, but as standalone  we have this models:
 
 - **Librerouter** has two presentations:
-
+Comes with four network interfaces which are configured as follows: 2 Wireless and 2 Gigabyte Ethernet.
 | Board | Board | Board | 
 |--------|--------|--------|
 | Banana bpir1  | OLinuXIno-LIME2 | ATSAMA5D3Xplained |
@@ -66,6 +96,15 @@ There are 2 ways to join to CommunityLibrerouter network
 
 ##### 1. Setup CommunityLibrerouter software on Physical/Virtual machine----Debian or librekernel distro
 ##### 2. Setup CommunityLibrerouter software on ARM-------------------------Debian or librekernel distro croscompiled
+
+The following list includes some of the features that have been added and modified in the Linux kernel (core):
+
+• Anti-exploitation modules high tuned for OS attacking resistance.   
+• Anti-forensic capabilities in the case of seizure by law enforcement. 
+• Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched. 
+• Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
+• Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
+• Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
 
 #### Steps to setup on Physical/Virtual machine.
 **Step 1: Checking requirements**
