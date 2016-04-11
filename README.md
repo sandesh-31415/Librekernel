@@ -81,7 +81,9 @@ If your machine is ok with requirement, then you can process to next step.
 
 **Step 2: Setup the network.**
 In this step you need to connect one interface of your machine to Internet, and other one to local network device.
-Networking of Librerouter has two way to work
+Networking of Librerouter has two way to work.
+
+
 a) Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443860/38ba291e-0042-11e6-94c3-83346f2f7afa.png)
 b) Bridge mode where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
