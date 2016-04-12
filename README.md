@@ -1,4 +1,4 @@
-###Why do we need this technology?
+####Why do we need this technology?
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 ![2746881_orig](https://cloud.githubusercontent.com/assets/13025157/14445524/df973fbe-004d-11e6-9f42-3571f91a53b8.jpg)
@@ -24,15 +24,17 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 
-## What is Librerouter?
+#### What is Librerouter?
 
-***Librerouter*** is a technology that makes protecting your privacy easy by:
-    Filtering virus, exploits malware, ads , bad IP-sources and bad content.
-    Decentralizing the services (doing impossible to apply big data to you )
-    Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
-    Forcing encryption for all communications and data storage and in rest.
-    Filtering the data that expose you, like scripts,cookies, browser info,etc.
+***Librerouter*** is a GNU technology that makes protecting your privacy easy by:
+     - Filtering virus, exploits malware, ads , bad IP-sources and bad content.
+     - Decentralizing the services (doing impossible to apply big data to you )
+     - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
+     - Forcing encryption for all communications and data storage and in rest.
+     - Filtering the data that expose you, like scripts,cookies, browser info,etc.
 
+#### HOW?
+![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
 a) If you buy a Librerouter
 b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
 
@@ -47,7 +49,6 @@ Thanks to a unique combination of open hardware (Yes really open paste report fr
 ![bootfromflash](https://cloud.githubusercontent.com/assets/13025157/14445979/c0e403a0-0051-11e6-8fcc-26c1c12c74e3.png)
 ![hacking-with-arm-devices-netwalker-and-also-on-linux-34-638](https://cloud.githubusercontent.com/assets/13025157/14445992/c12a6fe8-0051-11e6-85c0-ce7de4e51731.jpg)
 ![libreboot](https://cloud.githubusercontent.com/assets/13025157/14445991/c1280e38-0051-11e6-90af-b73ede6610a4.png)
-
 ![respectyourprivacy](https://cloud.githubusercontent.com/assets/13025157/14445995/c1317158-0051-11e6-96e7-8ab400e4cbe3.png)
 ![security-for-io-t-apr-29th-mentor-embedded-hangout-12-638](https://cloud.githubusercontent.com/assets/13025157/14445996/c13f0e94-0051-11e6-9b32-1dd35bf98d52.jpg)
 ![trustzone-software-architecture](https://cloud.githubusercontent.com/assets/13025157/14445997/c1407360-0051-11e6-8be3-60ac0a941cfe.jpg)
@@ -59,16 +60,14 @@ Thanks to a unique combination of open hardware (Yes really open paste report fr
 
 ## Services runing in Librerouter ## 
 
-
-![fgfs](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
+![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
-![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
+![data center or decantralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
-![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 ![git](https://cloud.githubusercontent.com/assets/13025157/14445988/c115b0e4-0051-11e6-9d93-9cca8809bbf3.jpg)
-![grid](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
+![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
 If you want more information about the software that we picked check [here](https://cageos.org/index.php?page=apps).
 
 ## Librerouter protect us against...?
