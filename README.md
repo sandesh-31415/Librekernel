@@ -1,3 +1,9 @@
+![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472862/85e49ae0-00f5-11e6-9591-163f1acd5098.png)
+![librerouter - logo-01](https://cloud.githubusercontent.com/assets/13025157/14472863/85e49b80-00f5-11e6-8176-680febe65643.jpg)
+![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472876/902023bc-00f5-11e6-92c3-da729baa1c04.png)
+![librerouter - logo-01](https://cloud.githubusercontent.com/assets/13025157/14472877/902532e4-00f5-11e6-8dd0-f2348e1c5b69.jpg)
+
+
 ####Why do we need this technology?
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
