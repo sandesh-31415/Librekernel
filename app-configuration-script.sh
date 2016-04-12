@@ -606,6 +606,15 @@ include: /etc/unbound/searchengines_domain.list.conf
 # Include webmail domains list configuration
 include: /etc/unbound/webmail_domain.list.conf
 
+# Include chat domains list configuration
+include: /etc/unbound/chat_domain.list.conf
+
+# Include storage domains list configuration
+include: /etc/unbound/storage_domain.list.conf
+
+# Include block domains list configuration
+include: /etc/unbound/block_domain.list.conf
+ 
 # .ounin domains will be resolved by TOR DNS 
 forward-zone:
     name: "onion."
@@ -614,7 +623,8 @@ forward-zone:
 # Forward rest of zones to DjDNS
 forward-zone:
     name: "."
-    forward-addr: 10.0.0.1@8053
+    forward-addr: 217.12.17.133@53
+    forward-addr: 10.0.0.1@9053
 
 ' >> /etc/unbound/unbound.conf
 
@@ -639,29 +649,52 @@ echo "Configuring domain list ..."
 find BL/socialnet -name domains -exec cat {} \; > socialnet_domain.list
 find BL/searchengines -name domains -exec cat {} \; > searchengines_domain.list
 find BL/webmail -name domains -exec cat {} \; > webmail_domain.list
+find BL/chat -name domains -exec cat {} \; > chat_domain.list
+find BL/downloads -name domains -exec cat {} \; > storage_domain.list
+find BL/spyware -name domains -exec cat {} \; > block_domain.list
+find BL/redirector -name domains -exec cat {} \; >> block_domain.list
+find BL/tracker -name domains -exec cat {} \; >> block_domain.list
 
 # Deleting old files
 rm -rf shallalist.tar.gz shallalist 	
 
-# Creating social networks domains list configuration file
-cat socialnet_domain.list | \
-awk {'print "local-data: \"" $1 " IN A 10.0.0.252\""'} \
-> /etc/unbound/socialnet_domain.list.conf
+# Creating chat domains list configuration file
+cat chat_domain.list | \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.250\""'} \
+> /etc/unbound/chat_domain.list.conf
 
 # Creating search engines domains list configuration file
 cat searchengines_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.251\""'} \
 > /etc/unbound/searchengines_domain.list.conf
 
+# Creating social networks domains list configuration file
+cat socialnet_domain.list | \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.252\""'} \
+> /etc/unbound/socialnet_domain.list.conf
+
+# Creating storage domains list configuration file
+cat storage_domain.list | \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.253\""'} \
+> /etc/unbound/storage_domain.list.conf
+
 # Creating  webmail domains list configuration file
 cat webmail_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.254\""'} \
 > /etc/unbound/webmail_domain.list.conf
 
+# Creating  block domains list configuration file
+cat block_domain.list | \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.1\""'} \
+> /etc/unbound/block_domain.list.conf
+
 # Deleting old files
 rm -rf socialnet_domain.list
 rm -rf searchengines_domain.list
 rm -rf webmail_domain.list
+rm -rf chat_domain.list
+rm -rf storage_domain.list
+rm -rf block_domain.list
 
 # There is a need to stop dnsmasq before starting unbound
 echo "Stoping dnsmasq ..."
