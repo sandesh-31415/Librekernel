@@ -34,10 +34,11 @@ The Internet is full of ___free___ services and you are the product they sell yo
      • - Filtering the data that expose you, like scripts,cookies, browser info,etc.
 
 #### HOW?
+
 ![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
+
  • -a) If you buy a Librerouter
- 
- • -b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
+  • -b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
 
 Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
