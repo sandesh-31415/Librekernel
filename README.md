@@ -25,18 +25,19 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 #### What is Librerouter?
-
+![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
 ***Librerouter*** is a GNU technology that makes protecting your privacy easy by:
-     - Filtering virus, exploits malware, ads , bad IP-sources and bad content.
-     - Decentralizing the services (doing impossible to apply big data to you )
-     - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
-     - Forcing encryption for all communications and data storage and in rest.
-     - Filtering the data that expose you, like scripts,cookies, browser info,etc.
+     • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
+     • - Decentralizing the services (doing impossible to apply big data to you )
+     • - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
+     • - Forcing encryption for all communications and data storage and in rest.
+     • - Filtering the data that expose you, like scripts,cookies, browser info,etc.
 
 #### HOW?
 ![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
-a) If you buy a Librerouter
-b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
+ • -a) If you buy a Librerouter
+ 
+ • -b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
 
 Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
