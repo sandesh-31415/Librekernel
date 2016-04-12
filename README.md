@@ -1,6 +1,7 @@
 ####Why do we need this technology?
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
+
 ![2746881_orig](https://cloud.githubusercontent.com/assets/13025157/14445524/df973fbe-004d-11e6-9f42-3571f91a53b8.jpg)
 ![ibm_hi1](https://cloud.githubusercontent.com/assets/13025157/14445525/e7eb0042-004d-11e6-9016-958bf320513e.jpg)
 ![ibm_hitler_and_the_ibm_c](https://cloud.githubusercontent.com/assets/13025157/14445528/edcb7f32-004d-11e6-901f-bf42447ec4c7.jpg)
@@ -24,9 +25,11 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 
-#### What is Librerouter?
+#### WTH is Librerouter?
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
+
 ***Librerouter*** is a GNU technology that makes protecting your privacy easy by:
+
      • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
      • - Decentralizing the services (doing impossible to apply big data to you )
      • - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
