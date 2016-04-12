@@ -84,32 +84,43 @@ configure_repositories ()
 	echo "Updating repositories ..."
         apt-get update 2>&1 > /tmp/apt-get-update-default.log
  	echo "Installing apt-transport-https ..."
-	apt-get install apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+	apt-get install -y apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 	
 		# Prepare owncloud repo
-#		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
-#		wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key -O- | apt-key add -
+		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
+		wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key -O- | apt-key add -
+		# apt-get update
+		# apt-get install owncloud
 
-		# Prepare owncloud repo
-#		echo 'deb http://packages.prosody.im/debian wheezy main' > /etc/apt/sources.list.d/prosody.list
-#		wget https://prosody.im/files/prosody-debian-packages.key -O- | apt-key add -
+		# Prepare prosody repo
+		# echo 'deb http://packages.prosody.im/debian wheezy main' > /etc/apt/sources.list.d/prosody.list
+		# wget https://prosody.im/files/prosody-debian-packages.key -O- | apt-key add -
  
 		# Prepare tahoe repo
 		echo 'deb https://dl.dropboxusercontent.com/u/18621288/debian wheezy main' > /etc/apt/sources.list.d/tahoei2p.list
-
+		apt-key advanced --keyserver pgp.net.nz --recv-keys 8CF6E896B3C01B09
+		# W: GPG error: https://dl.dropboxusercontent.com wheezy Release: The following signatures were invalid: KEYEXPIRED 1460252357
+		# apt-get install apt-transport-https
+		# apt-get update
+		# apt-get install i2p-tahoe-lafs
+				
 		# Prepare yacy repo
 		echo 'deb http://debian.yacy.net ./' > /etc/apt/sources.list.d/yacy.list
 		apt-key advanced --keyserver pgp.net.nz --recv-keys 03D886E7
+		# apt-get update
+		# apt-get install yacy
 
 		# Prepare i2p repo
-		echo 'deb http://deb.i2p2.no/ stable main' > /etc/apt/sources.list.d/i2p.list
+		echo 'deb http://deb.i2p2.no/ wheezy main' > /etc/apt/sources.list.d/i2p.list
 		wget --no-check-certificate https://geti2p.net/_static/i2p-debian-repo.key.asc -O- | apt-key add -
+		# apt-get update
+		# apt-get install i2p i2p-keyring killyourtv-keyring
 
 		# Prepare tor repo
 		echo 'deb http://deb.torproject.org/torproject.org wheezy main'  > /etc/apt/sources.list.d/tor.list
-		gpg --keyserve 223.252.21.101 --recv 886DDD89
-		gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
-
+		apt-key advanced --keyserver pgp.net.nz --recv-keys 74A941BA219EC810
+		# apt-get update
+		# deb.torproject.org-keyring
 
 	elif [ $PLATFORM = "D8" ]; then
 		# Avoid macchanger asking for information
@@ -278,7 +289,7 @@ install_packages ()
 	apt-get update 2>&1 > /tmp/apt-get-update.log
 	echo "Installing packages ... "
 if [ $PLATFORM = "D7" ]; then
-	apt-get install -y privoxy squid3 nginx php5-common php5-fpm \
+	apt-get install -y --force-yes privoxy squid3 nginx php5-common php5-fpm \
 	php5-cli php5-json php5-mysql php5-curl php5-intl php5-mcrypt \
 	php5-memcache php-xml-parser php-pear unbound owncloud \
 	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
@@ -404,10 +415,10 @@ check_requirements()
 
 	# Checking free space. 
 	min_storage=16
-        if [ 1 -eq `echo "${STORAGE} < ${min_storage}" | bc` ]; then 
+	if [ "$STORAGE" -lt "$min_storage" ]; then
 		echo "You need at least 16GB of free space. Exiting"
 		exit 6
-        fi
+	fi
 }
 
 # ----------------------------------------------
