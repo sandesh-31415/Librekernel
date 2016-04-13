@@ -121,7 +121,8 @@ A unique combination of open hardware, GNU software and training book you can ac
 #How it will protect me?
 
  - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
- ![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14444623/fb7e4184-0046-11e6-89c7-72618f6c2d2b.jpg)
+ 
+![meta filterr](https://cloud.githubusercontent.com/assets/13025157/14502172/449a7158-01aa-11e6-803c-f77de4274e7c.jpg)
 
  - Decentralizing the services (doing impossible to apply big data to you )
  - 
