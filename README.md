@@ -6,6 +6,12 @@
 
 ######Why do we need this technology?######
 
+- **Sniffers**: those that are checking your traffic
+- **Government spy/monitoring institutions passive actions**: like passive bots collecting general data from worldwide, if they target  anyone... that is another story.
+- **Librerouter evil nodes**:  a box Owned for those _bad people_.
+- **Malicious internet nodes**: better known as _blackbones_.
+- **Your internet provider (ISP)**: if they would trying anything with your data.
+
 ![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
@@ -1567,19 +1573,13 @@ Anonymous: No IP can be track dont miss understood with anonymous nick or hash u
 
 
 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
-
-![git](https://cloud.githubusercontent.com/assets/13025157/14445988/c115b0e4-0051-11e6-9d93-9cca8809bbf3.jpg)
 ![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
-If you want more information about the software that we picked check [here](https://cageos.org/index.php?page=apps).
 
-## Librerouter protect us against...?
-- **Sniffers**: those that are checking your traffic
-- **Government spy/monitoring institutions passive actions**: like passive bots collecting general data from worldwide, if they target  anyone... that is another story.
-- **Librerouter evil nodes**:  a box Owned for those _bad people_.
-- **Malicious internet nodes**: better known as _blackbones_.
-- **Your internet provider (ISP)**: if they would trying anything with your data.
 
 ## How it will protect me?
  - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
