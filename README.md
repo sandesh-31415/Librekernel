@@ -98,9 +98,11 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 
-A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks:
 
-#### Who? Why? What? How? When?
+
+#Who? Why? What? How? When?
+
+A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks:
 
 • Open source comunity.
 • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
@@ -140,7 +142,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 
 
 
-## How it will protect me?
+#How it will protect me?
 
  - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
  ![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14444623/fb7e4184-0046-11e6-89c7-72618f6c2d2b.jpg)
@@ -169,7 +171,7 @@ https://github.com/CommunityCube/debian-autoscript/issues
 
 
 
-## Services running in Librerouter ## 
+#Services running in Librerouter ## 
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
@@ -203,7 +205,9 @@ https://github.com/CommunityCube/debian-autoscript/issues
 
 https://www.cageos.org/index.php?page=apps
 
-## Service Descentralized Indestructible Storage the RockStar app
+
+
+##Service Descentralized Indestructible Storage the RockStar app
 
  -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
@@ -262,7 +266,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 ## Libre or not libre libraries in the App## 
 
-## //Software Dependencies Status// ## 
+### //Software Dependencies Status// ## 
 
 ^Software ^Dependencies ^Source ^ URL ^
 
@@ -1642,7 +1646,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 
 
-## Which hardware is needed to run Librerouter?
+#Which hardware is needed to run Librerouter?
 
  - http://www.imx6rex.com/open-rex/
  - https://www.gitbook.com/book/bananapi/bpi-r1/details
@@ -1680,12 +1684,12 @@ Comes with four network interfaces which are configured as follows: 2 Wireless a
 
 
 
-## Setup
+#Setup Modes
 <!-- this part needs to be refactored by someone that does know the current state of building process -->
 There are 2 ways to join to CommunityLibrerouter network
 
-##### 1. Setup CommunityLibrerouter software on Physical/Virtual machine----Debian or librekernel distro
-##### 2. Setup CommunityLibrerouter software on ARM-------------------------Debian or librekernel distro croscompiled
+###1. Setup CommunityLibrerouter software on Physical/Virtual machine----Debian or librekernel distro
+###2. Setup CommunityLibrerouter software on ARM-------------------------Debian or librekernel distro croscompiled
 
 The following list includes some of the features that have been added and modified in the Linux kernel (core):
 
@@ -1708,7 +1712,7 @@ The following list includes some of the features that have been added and modifi
 
 
 
-#### Steps to setup on Physical/Virtual machine.
+##Steps to setup on Physical/Virtual machine.
 
 **Step 1: Checking requirements**
 Your Physical/Virtual machine need to meet the minimum requirements:
@@ -1737,7 +1741,7 @@ Networking of Librerouter has two way to work.
 
 
 
-**Server mode**
+##Server mode**
 
 The way networking works in Librerouter will be:
 
@@ -1752,7 +1756,7 @@ The way networking works in Librerouter will be:
 
 
  
-**Bridge mode**
+##Bridge mode**
 
 Where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
   
@@ -1770,7 +1774,7 @@ Where the trafic is filtered by dns, and by proxy squid with clamav and ssl bump
 
 
 
-**Step 3. Executing scripts.**
+#Step 3. Executing scripts.
 
 
 In this step you need to download and execute the following scripts on your machine with given order.
@@ -1862,7 +1866,7 @@ If step 7 finished successfully then test.sh execution for odroid board is finis
 
 
 
-####Network Flow
+#Network Flow
 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
@@ -1888,21 +1892,22 @@ CommunityCube needs a powerfull DNS resolver to provide a transparent browsing f
 ![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
 
 
-#Intelligence IP, Domain Providers:
+##Intelligence IP, Domain Providers:
 
 - Shallalist
 - mesdk12
 - http://urlblacklist.com/?sec=download
 - https://www.iblocklist.com/lists
+- http://iplists.firehol.org/
+- https://github.com/rustybird/corridor
 
-
-#Connection Flow 3: Squid Open SSL Tunnel
+###Connection Flow 3: Squid Open SSL Tunnel
 
 When user it's using a HTTPS connection to a darknet domain, this traffic it's considered as insecure.
 On darknet domains, squid will open the SSL tunnel and inspect for possible exploits, virus and attacks to the user.
 If this connection it's to a HTTPS regular domain, this SSL tunnel will be not open nor inspected. Will be routed directly to the internet (ex: https://yourbank.com)
 
-#Connection Flow 4: Squid Content Filtering Virus & Anonymous HTTP Headers
+###Connection Flow 4: Squid Content Filtering Virus & Anonymous HTTP Headers
 
 Content filtering will be done if it's a HTTPS open SSL tunnel, or a regular HTTP petition.
 
@@ -1968,9 +1973,7 @@ https://cloud.comunitycube.com:8083/public.php?service=files&t=8d6e823f6d24dd126
 
 
 
-#### Steps to setup on LibreRouter.
-
-**Step 1. Get an A20-OLinuXIno-LIME2 and assemble it.**
+#Steps to setup on LibreRouter on A20-OLinuXIno-LIME2 and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
@@ -1993,9 +1996,7 @@ There are several seperate modules that need to be connected to A20-OLinuXIno-LI
 
 
 
-#### Steps to setup on LibreRouter.
-
-**Step 1. Get an Banapi Router and assemble it.**
+#Steps to setup on LibreRouter in an Banapi Router and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
@@ -2016,9 +2017,7 @@ There are several seperate modules that need to be connected to A20-OLinuXIno-LI
 
 
 
-#### Steps to setup on LibreRouter.
-
-**Step 1. Get an Explained and assemble it.**
+#Steps to setup on LibreRouter in an Explained and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
@@ -2044,9 +2043,7 @@ There are several seperate modules that need to be connected to A20-OLinuXIno-LI
 
 
 
-#### Steps to setup on LibreRouter.
-
-**Step 1. Get an  IM6REX and assemble it.**
+#Steps to setup on LibreRouter in an  IM6REX and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
@@ -2076,7 +2073,7 @@ There are several seperate modules that need to be connected to A20-OLinuXIno-LI
 
 
 
-**Step 2. Executing scripts.**
+#Executing scripts.
 
 In this step you need to download and execute the following scripts on your machine with given order.
 
@@ -2090,9 +2087,9 @@ In this step you need to download and execute the following scripts on your mach
 
 
 
-#### Workflow of scripts.
+#Workflow of scripts.
 
-**1. app-installation-script.sh (Initialization script)**
+##1. app-installation-script.sh (Initialization script)**
 
 Script workflow
 
@@ -2162,7 +2159,7 @@ Script workflow
 
 
 
-**2. app-configuration-script.sh (Parametrization script)**
+#app-configuration-script.sh (Parametrization script)**
 
 It aims to configure all the packages and services.
 
@@ -2190,23 +2187,35 @@ It aims to configure all the packages and services.
 
 
 
-#### DNS resolution process.
+##DNS resolution process.
 
-##### Classified domains
+###Classified domains
   * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
   * Social networks - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
   * Storages        - Will be resolved to ip address 10.0.0.253 (Owncloud) by unbound.
   * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
     
-##### Local, i2p and onion domains
+###Local, i2p and onion domains
 
   * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
   * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
   * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
    
-##### Other domain names
+###Other domain names
 
   * Any other domain name will be resolved by DjDNS,P2P or OpenNIC with CryptoDNS.
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 
@@ -2373,4 +2382,13 @@ Ad-bloking track protection 	Yes
 Root password configuration 	Yes, mandatory on first boot and later on TFT configuration panel
 Wifi password configuratio 	Yes, manadatory on first boot and later on TFT configuration panel
 Internal WIFI device without password or WEP encryption 	No
+
+
+
+
 ![milestonesproyect](https://cloud.githubusercontent.com/assets/13025157/14445993/c12ab0fc-0051-11e6-9724-f97ce314dc52.png)
+  * http://www.privacytrust.org/certification/privacy/
+  * https://www.truste.com/business-products/trusted-cloud/
+  * https://www.european-privacy-seal.eu/EPS-en/Home
+  * https://www.datenschutzzentrum.de/zertifizierung/
+  * http://www.edaa.eu/certification-process/trust-seal/
