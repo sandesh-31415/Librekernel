@@ -244,10 +244,12 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 ### //Software Dependencies Status// ## 
 
-^Software ^Dependencies ^Source ^ URL ^
-
-|	build-essential	|	build-essential	|	Chosing Build-Essential	|		[[http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc]]		|
-|		|	libc6-dev	|	Chosing eglibc instead of 'libc6-dev'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|Software |Dependencies |Source | URL |
+|---|---|---|---|
+|	build-essential	|	build-essential	|	Chosing Build-Essential	| 
+[[http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc]]		|
+|		|	libc6-dev	|	Chosing eglibc instead of 'libc6-dev'	|
+[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
 |		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
 |		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
 |		|	libc-dev	|	Not Found libc-dev	|				|
@@ -1611,7 +1613,370 @@ With federated XMPP servers for authentication but perfect for discovering users
 |		|	roundcube-core	|	Chosing roundcube'    as      source  package instead of      'roundcube-core'	|				|
 				|		|		[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]		|
 				|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		|
-
+|		|	libssl1.0.0	|	Chosing openssl'      as      source  package instead of      'libssl1.0.0'	|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|		|	unbound-anchor	|	Chosing unbound'      as      source  package instead of      'unbound-anchor'	|		[[git://anonscm.debian.org/pkg-dns/unbound.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/u/unbound/unbound_1.5.8-1.dsc]]		|
+|		|	adduser	|		|		[[svn://svn.debian.org/adduser/]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/a/adduser/adduser_3.114.dsc]]		|
+|		|	openssl	|		|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|	usbutils	|	usbutils	|		|		[[http://ftp.bg.debian.org/debian/pool/main/u/usbutils/usbutils_007-4.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libusb-1.0-0	|	Chosing libusbx'      as      source  package instead of      'libusb-1.0-0'	|				|
+|		|		|	Not Found libusbx	|				|
+|		|	zlib1g	|	Chosing zlib' as      source  package instead of      'zlib1g'	|		[[http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc]]		|
+|	unzip	|	unzip	|		|		[[http://ftp.bg.debian.org/debian/pool/main/u/unzip/unzip_6.0-20.dsc]]		|
+|		|	libbz2-1.0	|	Chosing bzip2'        as      source  package instead of      'libbz2-1.0'	|		[[git://git.debian.org/collab-maint/bzip2.git]]		|
+|		|	libc6	|		|		[[http://ftp.bg.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.6-8.dsc]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.6.orig.tar.bz2]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.6-8.debian.tar.bz2]]		|
+|		|		|		|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|	wireless-tools	|	wireless-tools	|		|		[[http://ftp.bg.debian.org/debian/pool/main/w/wireless-tools/wireless-tools_30~pre9-8.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libiw30	|	Chosing wireless-tools instead of 'libiw30'	|		[[http://ftp.bg.debian.org/debian/pool/main/w/wireless-tools/wireless-tools_30~pre9-8.dsc]]		|
+|	yacy	|	yacy 	|	Not Found yacy	|				|
+|		|	openjdk-7-jre-headless	|	Chosing openjdk-7'    as      source  package instead of      'openjdk-7-jre-headless'	|		[[http://bazaar.launchpad.net/~openjdk/openjdk/openjdk7]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/o/openjdk-7/openjdk-7_7u95-2.6.4-1.dsc]]		|
+|		|	sudo	|		|		[[git://anonscm.debian.org/collab-maint/sudo.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/s/sudo/sudo_1.8.15-1.1.dsc]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|	libcrypto++9	|	libcrypto++9 	|	Chosing libcrypto++'  as      source  package instead of      'libcrypto++9'	|		[[http://ftp.bg.debian.org/debian/pool/main/libc/libcrypto++/libcrypto++_5.6.1-9.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libgcc1	|	Chosing gcc-4.7'      as      source  package instead of      'libgcc1'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|		|	libstdc++6	|	Chosing gcc-4.7'      as      source  package instead of      'libstdc++6'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|	python-pycryptopp	|	python-pycryptopp    	|	Chosing pycryptopp'   as      source  package instead of      'python-pycryptopp'	|		[[git://anonscm.debian.org/tahoe/pycryptopp.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/pycryptopp/pycryptopp_0.6.0.20120313-1.dsc]]		|
+|		|	python2.6	|	Not Found python2.6	|		[[http://bazaar.launchpad.net/~doko/python/pkg2.7-debian]]		|
+|		|	python2.7	|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python2.7/python2.7_2.7.11-4.dsc]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python2.7/python2.7_2.7.11-4.diff.gz]]		|
+|		|	python	|	Chosing python-defaults'      as      source  package instead of      'python'	|		[[http://alioth.debian.org/anonscm/bzr/pkg-python/python-defaults-debian]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python-defaults/python-defaults_2.7.11-1.dsc]]		|
+|		|	python	|	Chosing python-defaults'      as      source  package instead of      'python'	|		[[http://alioth.debian.org/anonscm/bzr/pkg-python/python-defaults-debian]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python-defaults/python-defaults_2.7.11-1.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libcrypto++9	|	Chosing libcrypto++'  as      source  package instead of      'libcrypto++9'	|		[[http://ftp.bg.debian.org/debian/pool/main/libc/libcrypto++/libcrypto++_5.6.1-9.dsc]]		|
+|		|	libgcc1	|	Chosing gcc-4.7'      as      source  package instead of      'libgcc1'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|		|	libstdc++6	|	Chosing gcc-4.7'      as      source  package instead of      'libstdc++6'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|	golang-go	|	golang-go    	|	Chosing golang instead of 'golang-go'	|		[[git://anonscm.debian.org/pkg-golang/golang.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/g/golang/golang_1.6-1.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|		|	debconf-2.0	|	Not Found debconf-2.0	|				|
+|		|	perl	|		|		[[git://anonscm.debian.org/perl/perl.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/perl/perl_5.22.1-9.dsc]]		|
+|	golang-src	|	golang-src	|	Not Found golang--print-urisrc	|				|
+|		|	golang-src   	|	Not Found golang--print-urisrc	|				|
+|	ejabberd	|	ejabberd	|		|		[[git://git.deb.at/pkg/ejabberd.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/ejabberd/ejabberd_16.02-2.dsc]]		|
+|		|	adduser	|		|		[[svn://svn.debian.org/adduser/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/a/adduser/adduser_3.114.dsc]]		|
+|		|	erlang-asn1	|	Chosing erlang instead of 'erlang-asn1'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-base	|	Chosing erlang instead of 'erlang-base'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-base-hipe	|	Chosing erlang instead of 'erlang-base-hipe'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-crypto	|	Chosing erlang instead of 'erlang-crypto'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-inets	|	Chosing erlang instead of 'erlang-inets'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-mnesia	|	Chosing erlang instead of 'erlang-mnesia'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-odbc	|	Chosing erlang instead of 'erlang-odbc'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-public-key	|	Chosing erlang instead of 'erlang-public-key'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-ssl	|	Not Found erlang--print-urissl	|				|
+|		|	erlang-syntax-tools	|	Not Found erlang--print-urisyntax-tools	|				|
+|		|	erlang-abi-15.b	|	Not Found erlang-abi-15.b	|				|
+|		|	openssl	|		|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|		|	ucf	|		|		[[git://anonscm.debian.org/users/srivasta/debian/ucf.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/u/ucf/ucf_3.0036.dsc]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|		|	debconf-2.0	|	Not Found debconf-2.0	|				|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|				|
+|		|		|		|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libexpat1	|	Chosing expat'        as      source  package instead of      'libexpat1'	|				|
+|		|		|		|		[[svn://svn.debian.org/svn/debian-xml-sgml/packages/expat/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/expat/expat_2.1.1-1.dsc]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/expat/expat_2.1.1.orig.tar.bz2]]		|
+|		|	libpam0g	|	Chosing pam'  as      source  package instead of      'libpam0g'	|				|
+|		|		|		|		[[http://bzr.debian.org/bzr/pkg-pam/debian/sid/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/p/pam/pam_1.1.8-3.2.dsc]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/p/pam/pam_1.1.8-3.2.diff.gz]]		|
+|		|	libssl1.0.0	|	Chosing openssl'      as      source  package instead of      'libssl1.0.0'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|		|	zlib1g	|	Chosing zlib' as      source  package instead of      'zlib1g'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc]]		|
+|	snort	|	snort	|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	snort-common-libraries	|	Chosing snort'        as      source  package instead of      'snort-common-libraries'	|				|
+|		|		|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	snort-rules-default	|	Chosing snort'        as      source  package instead of      'snort-rules-default'	|				|
+|		|		|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	snort-common	|	Chosing snort'        as      source  package instead of      'snort-common'	|				|
+|		|		|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|		|	debconf-2.0	|	Not Found debconf-2.0	|				|
+|		|		|		|		[[git://anonscm.debian.org/collab-maint/rsyslog.git]]		|
+|		|	rsyslog	|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/rsyslog/rsyslog_8.16.0-1.dsc]]		|
+|		|	system-log-daemon	|	Not Found system-log-daemon	|				|
+|		|	logrotate	|		|		[[http://svn.fedorahosted.org/svn/logrotate/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/l/logrotate/logrotate_3.8.7-2.dsc]]		|
+|		|	net-tools	|		|		[[https://anonscm.debian.org/git/pkg-net-tools/pkg-net-tools.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/n/net-tools/net-tools_1.60+git20150829.73cef8a-2.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|				|
+|		|		|		|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libdaq0	|	Chosing daq'  as      source  package instead of      'libdaq0'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/d/daq/daq_2.0.4-3.dsc]]		|
+|		|	libdumbnet1	|	Chosing libdumbnet'   as      source  package instead of      'libdumbnet1'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.dsc]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.diff.gz]]		|
+|		|	libgcrypt11	|		|		[[svn://svn.debian.org/svn/pkg-gnutls/packages/libgcrypt11/trunk		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0.orig.tar.bz2]]		|
+|		|	libgnutls26	|	Chosing gnutls26'     as      source  package instead of      'libgnutls26'	|				|
+|		|		|		|		[[svn://svn.debian.org/svn/pkg-gnutls/packages/gnutls26/trunk]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20-8+deb7u5.dsc]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20.orig.tar.bz2]]		|
+|		|	libpcap0.8	|	Chosing libpcap'      as      source  package instead of      'libpcap0.8'	|				|
+|		|		|		|		[[git://anonscm.debian.org/users/rfrancoise/libpcap.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libp/libpcap/libpcap_1.7.4-2.dsc]]		|
+|		|	libpcre3	|	Chosing pcre3'        as      source  package instead of      'libpcre3'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/p/pcre3/pcre3_8.38-3.dsc]]		|
+|		|	libprelude2	|	Chosing libprelude'   as      source  package instead of      'libprelude2'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libp/libprelude/libprelude_1.0.0-11.7.dsc]]		|
+|		|	zlib1g	|	Chosing zlib' as      source  package instead of      'zlib1g'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc]]		|
+|	friendica	|	friendica    	|	Not Found friendica	|				|
+|	DJDNS	|	DJDNS	|	Not Found DJDNS	|				|
+|	OpenBazar	|	OpenBazar    	|	Not Found OpenBazar	|				|
+|	Mailpile	|	Mailpile	|	Not Found Mailpile	|				|
+|	roundcube	|	roundcube    	|		|		[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		|
+|		|	roundcube-core	|	Chosing roundcube'    as      source  package instead of      'roundcube-core'	|				|
+				|		|		[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]		|
+				|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		|
+|		|	libssl1.0.0	|	Chosing openssl'      as      source  package instead of      'libssl1.0.0'	|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|		|	unbound-anchor	|	Chosing unbound'      as      source  package instead of      'unbound-anchor'	|		[[git://anonscm.debian.org/pkg-dns/unbound.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/u/unbound/unbound_1.5.8-1.dsc]]		|
+|		|	adduser	|		|		[[svn://svn.debian.org/adduser/]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/a/adduser/adduser_3.114.dsc]]		|
+|		|	openssl	|		|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|	usbutils	|	usbutils	|		|		[[http://ftp.bg.debian.org/debian/pool/main/u/usbutils/usbutils_007-4.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libusb-1.0-0	|	Chosing libusbx'      as      source  package instead of      'libusb-1.0-0'	|				|
+|		|		|	Not Found libusbx	|				|
+|		|	zlib1g	|	Chosing zlib' as      source  package instead of      'zlib1g'	|		[[http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc]]		|
+|	unzip	|	unzip	|		|		[[http://ftp.bg.debian.org/debian/pool/main/u/unzip/unzip_6.0-20.dsc]]		|
+|		|	libbz2-1.0	|	Chosing bzip2'        as      source  package instead of      'libbz2-1.0'	|		[[git://git.debian.org/collab-maint/bzip2.git]]		|
+|		|	libc6	|		|		[[http://ftp.bg.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.6-8.dsc]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.6.orig.tar.bz2]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.6-8.debian.tar.bz2]]		|
+|		|		|		|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|	wireless-tools	|	wireless-tools	|		|		[[http://ftp.bg.debian.org/debian/pool/main/w/wireless-tools/wireless-tools_30~pre9-8.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libiw30	|	Chosing wireless-tools instead of 'libiw30'	|		[[http://ftp.bg.debian.org/debian/pool/main/w/wireless-tools/wireless-tools_30~pre9-8.dsc]]		|
+|	yacy	|	yacy 	|	Not Found yacy	|				|
+|		|	openjdk-7-jre-headless	|	Chosing openjdk-7'    as      source  package instead of      'openjdk-7-jre-headless'	|		[[http://bazaar.launchpad.net/~openjdk/openjdk/openjdk7]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/o/openjdk-7/openjdk-7_7u95-2.6.4-1.dsc]]		|
+|		|	sudo	|		|		[[git://anonscm.debian.org/collab-maint/sudo.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/s/sudo/sudo_1.8.15-1.1.dsc]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|	libcrypto++9	|	libcrypto++9 	|	Chosing libcrypto++'  as      source  package instead of      'libcrypto++9'	|		[[http://ftp.bg.debian.org/debian/pool/main/libc/libcrypto++/libcrypto++_5.6.1-9.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libgcc1	|	Chosing gcc-4.7'      as      source  package instead of      'libgcc1'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|		|	libstdc++6	|	Chosing gcc-4.7'      as      source  package instead of      'libstdc++6'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|	python-pycryptopp	|	python-pycryptopp    	|	Chosing pycryptopp'   as      source  package instead of      'python-pycryptopp'	|		[[git://anonscm.debian.org/tahoe/pycryptopp.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/pycryptopp/pycryptopp_0.6.0.20120313-1.dsc]]		|
+|		|	python2.6	|	Not Found python2.6	|		[[http://bazaar.launchpad.net/~doko/python/pkg2.7-debian]]		|
+|		|	python2.7	|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python2.7/python2.7_2.7.11-4.dsc]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python2.7/python2.7_2.7.11-4.diff.gz]]		|
+|		|	python	|	Chosing python-defaults'      as      source  package instead of      'python'	|		[[http://alioth.debian.org/anonscm/bzr/pkg-python/python-defaults-debian]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python-defaults/python-defaults_2.7.11-1.dsc]]		|
+|		|	python	|	Chosing python-defaults'      as      source  package instead of      'python'	|		[[http://alioth.debian.org/anonscm/bzr/pkg-python/python-defaults-debian]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/python-defaults/python-defaults_2.7.11-1.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libcrypto++9	|	Chosing libcrypto++'  as      source  package instead of      'libcrypto++9'	|		[[http://ftp.bg.debian.org/debian/pool/main/libc/libcrypto++/libcrypto++_5.6.1-9.dsc]]		|
+|		|	libgcc1	|	Chosing gcc-4.7'      as      source  package instead of      'libgcc1'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|		|	libstdc++6	|	Chosing gcc-4.7'      as      source  package instead of      'libstdc++6'	|				|
+|		|		|	Not Found gcc-4.7	|				|
+|	golang-go	|	golang-go    	|	Chosing golang instead of 'golang-go'	|		[[git://anonscm.debian.org/pkg-golang/golang.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/g/golang/golang_1.6-1.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|		|	debconf-2.0	|	Not Found debconf-2.0	|				|
+|		|	perl	|		|		[[git://anonscm.debian.org/perl/perl.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/p/perl/perl_5.22.1-9.dsc]]		|
+|	golang-src	|	golang-src	|	Not Found golang--print-urisrc	|				|
+|		|	golang-src   	|	Not Found golang--print-urisrc	|				|
+|	ejabberd	|	ejabberd	|		|		[[git://git.deb.at/pkg/ejabberd.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/ejabberd/ejabberd_16.02-2.dsc]]		|
+|		|	adduser	|		|		[[svn://svn.debian.org/adduser/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/a/adduser/adduser_3.114.dsc]]		|
+|		|	erlang-asn1	|	Chosing erlang instead of 'erlang-asn1'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-base	|	Chosing erlang instead of 'erlang-base'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-base-hipe	|	Chosing erlang instead of 'erlang-base-hipe'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-crypto	|	Chosing erlang instead of 'erlang-crypto'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-inets	|	Chosing erlang instead of 'erlang-inets'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-mnesia	|	Chosing erlang instead of 'erlang-mnesia'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-odbc	|	Chosing erlang instead of 'erlang-odbc'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-public-key	|	Chosing erlang instead of 'erlang-public-key'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-erlang/erlang/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/erlang/erlang_18.3-dfsg-1.dsc]]		|
+|		|	erlang-ssl	|	Not Found erlang--print-urissl	|				|
+|		|	erlang-syntax-tools	|	Not Found erlang--print-urisyntax-tools	|				|
+|		|	erlang-abi-15.b	|	Not Found erlang-abi-15.b	|				|
+|		|	openssl	|		|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|		|	ucf	|		|		[[git://anonscm.debian.org/users/srivasta/debian/ucf.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/u/ucf/ucf_3.0036.dsc]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|		|	debconf-2.0	|	Not Found debconf-2.0	|				|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|				|
+|		|		|		|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libexpat1	|	Chosing expat'        as      source  package instead of      'libexpat1'	|				|
+|		|		|		|		[[svn://svn.debian.org/svn/debian-xml-sgml/packages/expat/trunk/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/expat/expat_2.1.1-1.dsc]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/e/expat/expat_2.1.1.orig.tar.bz2]]		|
+|		|	libpam0g	|	Chosing pam'  as      source  package instead of      'libpam0g'	|				|
+|		|		|		|		[[http://bzr.debian.org/bzr/pkg-pam/debian/sid/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/p/pam/pam_1.1.8-3.2.dsc]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/p/pam/pam_1.1.8-3.2.diff.gz]]		|
+|		|	libssl1.0.0	|	Chosing openssl'      as      source  package instead of      'libssl1.0.0'	|				|
+|		|		|		|		[[svn://anonscm.debian.org/pkg-openssl/openssl/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/o/openssl/openssl_1.0.2g-1.dsc]]		|
+|		|	zlib1g	|	Chosing zlib' as      source  package instead of      'zlib1g'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc]]		|
+|	snort	|	snort	|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	snort-common-libraries	|	Chosing snort'        as      source  package instead of      'snort-common-libraries'	|				|
+|		|		|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	snort-rules-default	|	Chosing snort'        as      source  package instead of      'snort-rules-default'	|				|
+|		|		|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	snort-common	|	Chosing snort'        as      source  package instead of      'snort-common'	|				|
+|		|		|		|		[[git://anonscm.debian.org/pkg-snort/pkg-snort.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/s/snort/snort_2.9.7.0-5.dsc]]		|
+|		|	debconf	|		|		[[https://anonscm.debian.org/git/debconf/debconf.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/d/debconf/debconf_1.5.59.dsc]]		|
+|		|	debconf-2.0	|	Not Found debconf-2.0	|				|
+|		|		|		|		[[git://anonscm.debian.org/collab-maint/rsyslog.git]]		|
+|		|	rsyslog	|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/rsyslog/rsyslog_8.16.0-1.dsc]]		|
+|		|	system-log-daemon	|	Not Found system-log-daemon	|				|
+|		|	logrotate	|		|		[[http://svn.fedorahosted.org/svn/logrotate/]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/l/logrotate/logrotate_3.8.7-2.dsc]]		|
+|		|	net-tools	|		|		[[https://anonscm.debian.org/git/pkg-net-tools/pkg-net-tools.git]]		|
+|		|		|		|		[[http://ftp.bg.debian.org/debian/pool/main/n/net-tools/net-tools_1.60+git20150829.73cef8a-2.dsc]]		|
+|		|	libc6	|	Chosing eglibc instead of 'libc6'	|				|
+|		|		|		|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz]]		|
+|		|	libdaq0	|	Chosing daq'  as      source  package instead of      'libdaq0'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/d/daq/daq_2.0.4-3.dsc]]		|
+|		|	libdumbnet1	|	Chosing libdumbnet'   as      source  package instead of      'libdumbnet1'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.dsc]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.diff.gz]]		|
+|		|	libgcrypt11	|		|		[[svn://svn.debian.org/svn/pkg-gnutls/packages/libgcrypt11/trunk		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4.dsc]]		|
+|		|		|		|		[[http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0.orig.tar.bz2]]		|
+|		|	libgnutls26	|	Chosing gnutls26'     as      source  package instead of      'libgnutls26'	|				|
+|		|		|		|		[[svn://svn.debian.org/svn/pkg-gnutls/packages/gnutls26/trunk]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20-8+deb7u5.dsc]]		|
+|		|		|	 	|		[[http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20.orig.tar.bz2]]		|
+|		|	libpcap0.8	|	Chosing libpcap'      as      source  package instead of      'libpcap0.8'	|				|
+|		|		|		|		[[git://anonscm.debian.org/users/rfrancoise/libpcap.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libp/libpcap/libpcap_1.7.4-2.dsc]]		|
+|		|	libpcre3	|	Chosing pcre3'        as      source  package instead of      'libpcre3'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/p/pcre3/pcre3_8.38-3.dsc]]		|
+|		|	libprelude2	|	Chosing libprelude'   as      source  package instead of      'libprelude2'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/libp/libprelude/libprelude_1.0.0-11.7.dsc]]		|
+|		|	zlib1g	|	Chosing zlib' as      source  package instead of      'zlib1g'	|				|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc]]		|
+|	friendica	|	friendica    	|	Not Found friendica	|				|
+|	DJDNS	|	DJDNS	|	Not Found DJDNS	|				|
+|	OpenBazar	|	OpenBazar    	|	Not Found OpenBazar	|				|
+|	Mailpile	|	Mailpile	|	Not Found Mailpile	|				|
+|	roundcube	|	roundcube    	|		|		[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]		|
+|		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		|
+|		|	roundcube-core	|	Chosing roundcube'    as      source  package instead of      'roundcube-core'	|				|
+				|		|		[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]		|
+				|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		
 
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
