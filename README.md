@@ -27,10 +27,19 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![yes-we-scan](https://cloud.githubusercontent.com/assets/13025157/14445932/67e3bd04-0051-11e6-8681-975e76d150cd.jpg)
 ![temporary_208720140319-93516-8lpgzq pdf000](https://cloud.githubusercontent.com/assets/13025157/14445934/6d067f38-0051-11e6-989a-d65177b74be2.jpg)
 ![skynet-applying-advanced-cloud-based-behavior-p5-normal](https://cloud.githubusercontent.com/assets/13025157/14445936/71e8b520-0051-11e6-93a7-69d5449a7c6a.gif)
-
-
-
-
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 #### WTH is Librerouter?
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
 
