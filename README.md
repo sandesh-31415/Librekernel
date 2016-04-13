@@ -14,6 +14,7 @@
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
 ![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
+![netneutralit](https://cloud.githubusercontent.com/assets/17382786/14496131/7b88b782-0192-11e6-9107-464aad2fda93.jpg)
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 
 
