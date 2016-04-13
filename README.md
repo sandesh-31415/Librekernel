@@ -1730,11 +1730,26 @@ So, we actually have 4 possible PHySICAL scenarios
 **Step 2: Setup the network.**
 In this step you need to connect one interface of your machine to Internet, and other one to local network device.
 Networking of Librerouter has two way to work.
+
+
+
 **Server mode**
 The way networking works in Librerouter will be:
  -1 uniqe fix IP LAN or Bridge> can be WLAN or Cabled Ethernett connected to the existing internet router LAN. Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
+ 
+ ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+ 
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443924/9c798300-0042-11e6-85b1-1760c5b3789d.png)
+
+
+
  -b) Bridge mode where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
+ 
+  
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 
 ![wizard](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
