@@ -244,10 +244,14 @@ With federated XMPP servers for authentication but perfect for discovering users
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 ## Libre or not libre libraries in the App## 
-<dt>
-### //Software Dependencies Status// ## 
 
-<table style="width:600px"><thead>
+### //Software Dependencies Status// ## 
+<style>
+table{
+width:800px !important;
+}
+</style>
+<table><thead>
 <tr>
 <th align="center">Software</th>
 <th align="center">Dependencies</th>
