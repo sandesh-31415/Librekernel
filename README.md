@@ -175,24 +175,15 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
-//Legend//
-
-Public network programs allow anyone with the program to be part of the network and provide anonymity for everyone on the network.
-
-Private network programs provide anonymity from those outside the network, but not from those inside the network. These networks are basically as safe as the members invited into them. For more information about Private networks.
-
-Friend-to-friend (F2F) network programs provide anonymity from those outside the network and also from all those inside the network except for your direct friends (those who invited you or those who you invided into the network). For more information about Friend-to-friend networks.
-
-Open authentication: Use OpenId or any other external API to authenticates the user.        
-
-Not Open authentication: Centralized or Decentralized single user repository.    
-
-Anonymous: No IP can be track dont miss understood with anonymous nick or hash used as users ID. We are looking for the solution that from is NOT possibe ALWAYS to enumerate in any way the rest of the boxes public IPs.
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
+## Libre or not libre libraries ## 
+
+ ## //Software Dependencies Status// ## 
+
+^Software ^Dependencies ^Source ^ URL ^
 
 |	build-essential	|	build-essential	|	Chosing Build-Essential	|		[[http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc]]		|
 |		|	libc6-dev	|	Chosing eglibc instead of 'libc6-dev'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
