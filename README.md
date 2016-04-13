@@ -40,8 +40,10 @@ The Internet is full of ___free___ services and you are the product they sell yo
      • - Open authentication (dissolve legal relation between user-human and legal-name-ip), 
      • - Forcing encryption for all communications and data storing in the backends.
      • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
- 
- ![metafilter](https://cloud.githubusercontent.com/assets/17382786/14495726/fb5f06ac-0190-11e6-9865-ddc3678dda4a.jpg)
+
+
+
+![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 
 
 
