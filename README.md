@@ -248,11 +248,11 @@ With federated XMPP servers for authentication but perfect for discovering users
 ### //Software Dependencies Status// ## 
 
 <table><thead>
-<tr>
-<th align="center" width="20%">Software</th>
+<tr width="600">
+<th align="center" width="10%">Software</th>
 <th align="center" width="10%">Dependencies</th>
-<th align="center" width="20%">Source</th>
-<th align="center" width="20%">URL</th>
+<th align="center" width="10%">Source</th>
+<th align="center" width="10%">URL</th>
 </tr>
 </thead><tbody>
 <tr>
