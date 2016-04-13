@@ -6,6 +6,8 @@
 
 ######Why do we need this technology?######
 
+![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
+
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
 ![2746881_orig](https://cloud.githubusercontent.com/assets/13025157/14445524/df973fbe-004d-11e6-9f42-3571f91a53b8.jpg)
@@ -72,12 +74,20 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
  • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
  
- 
- 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+ Place here graphs that shows same thing but with a virtual machine
 
+![virtual_machine3](https://cloud.githubusercontent.com/assets/17382786/14489130/cfde7096-016b-11e6-8eeb-32b309e67a6d.png)
+![virtualmachine](https://cloud.githubusercontent.com/assets/17382786/14489128/cfd796d6-016b-11e6-83e7-623a14e5bd26.png)
+![virtualmchine2](https://cloud.githubusercontent.com/assets/17382786/14489129/cfdbca76-016b-11e6-8e49-4c44ead00aba.png)
+
+ 
+ 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 
@@ -90,7 +100,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 • Easy to use for all people with zero tech knowledge.
 • Plug and play system to make your traffic untraceable.
 • It is the future Data Center resilience infrastructure.
-• Now, you, because the Hardware exist.
+• Now, you, because the Hardware ARM is going Open
 
 
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
@@ -116,7 +126,9 @@ A unique combination of open hardware, GNU software and training book you can ac
 
 
 
-
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -130,12 +142,13 @@ A unique combination of open hardware, GNU software and training book you can ac
 
 
 
-## Services runing in Librerouter ## 
+## Services running in Librerouter ## 
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
-![data center or decantralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
-^Finalist ^Decentralized ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ OpenAuth ^ encryption ^
+
+
+
 |OwnCloud      |no|no|no|yes|no public/no anonymous|no|no|no|AES-256|
 |Mailpile      |no|no|yes|no (direct from encryption schema)|no public/no anonymous|no|no|no|4096bit DSA/elg|
 |Diaspora      |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
