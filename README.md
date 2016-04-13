@@ -170,20 +170,9 @@ A unique combination of open hardware, GNU software and training book you can ac
 |CjDNS|yes|no      |yes|no|yes|yes|yes|no|
 |VPN  |no|Partial|yes|no|no|yes|yes|no|
 
-//Decentralization - If fits on a point of this list, isn't completelly decentralized//
-
-  * **D1**: Is "multiple central servers" (like multiple introducers)
-  * **D2**: Is "federated servers" (horizontal network, no authority, each node is a single point of failure for the clients connected to it)
-  * **D3**: Is "has bootstrap nodes" (old skype)
-  * **D4**: Is "no central authority" (like tor directory authorities)
-    
-//Comments//
-
-  * cjdns is for fast and scalable end-to-end encrypted networks. It's not anonymous and isn't attempting to be this in the first place.
-  * Some use cases require fast connections, like VOIP and neither Tor nor I2P can deliver the required latency of max 150ms. I'm proposing a hybrid model that allows both, depending on what you need.
-  * It's also hard to sort cjdns into public/private/f2f since the routing doesn't care which policy you want to enforce on the network.
-  * We need a clear definition of what level of security/privacy/identity-hiding we need. I2P or Tor latency is too high for some use cases, while you may want to have better identity-hiding in other use-cases. There's no silver bullet for all use-cases.
-Also, if we're actually entering the field of anonymous and encrypted systems, the security community will rip us apart for using OwnCloud. The OwnCloud code base is in a bad state (I didn't believe it as well until I actually looked into the source). With a bad code base it's very hard to verify the code is bug free and secure.
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 //Legend//
