@@ -1835,6 +1835,7 @@ If step 7 finished successfully then test.sh execution for odroid board is finis
 
 ####Netowrk Flow
 
+![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 ####DNS Resolution Explained
 
@@ -2036,13 +2037,13 @@ Script workflow
 10. Install packages
   * Install necessary packages
 
->You can find Initialization workflow [here](https://213.129.164.215:4580/dokuwiki/doku.php?id=initialization_workflow)
+ 
 
 **2. app-configuration-script.sh (Parametrization script)**
 
 It aims to configure all the packages and services.
 
-![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
+
 
 1. Check User 
   * You need to run script as root user
