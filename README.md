@@ -42,14 +42,15 @@ The Internet is full of ___free___ services and you are the product they sell yo
      • - Forcing encryption for all communications and data storage and in rest.
      • - Filtering the data that expose you, like scripts,cookies, browser info,etc.
 
-#### HOW?
+#### HOW to use it?
 
 ![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
 
- • -a) If you buy a Librerouter
-  • -b) If your IT then install the scripts in a Virtual machine that becames bridge virtual server
+ • -a) If you buy a Librerouter.
+ • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
 
-Thanks to a unique combination of open hardware (Yes really open paste report from Davidmexico) and open source software(yes bree of binary blobs so no just opensource but paranoid openess according Libre Kernel GNU standars.) 
+A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks
+
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![opensourceversugnu](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
 ![parabola](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
