@@ -4,7 +4,7 @@
 ![librerouter logo-01](https://cloud.githubusercontent.com/assets/13025157/14472877/902532e4-00f5-11e6-8dd0-f2348e1c5b69.jpg)
 
 
-######Why do we need this technology?######
+#Why do we need this technology?
 
 - **Sniffers**: those that are checking your traffic
 - **Government spy/monitoring institutions passive actions**: like passive bots collecting general data from worldwide, if they target  anyone... that is another story.
@@ -49,7 +49,8 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 
-#### WTH is Librerouter?
+#WTH is Librerouter?
+
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
 
 ***Librerouter*** is a GNU open hardware and software:
@@ -71,7 +72,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 
-#### HOW to use it?
+#HOW to use it?
 
  • -a) If you buy a Librerouter then connect it like:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
