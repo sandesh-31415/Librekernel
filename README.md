@@ -30,7 +30,9 @@ The Internet is full of ___free___ services and you are the product they sell yo
 .
 .
 .
-.
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 .
 .
 .
