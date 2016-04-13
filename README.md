@@ -122,8 +122,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 
  - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
  
-
-![metaprozfilter](https://cloud.githubusercontent.com/assets/13025157/14502206/7895064e-01aa-11e6-9082-73b0d7f6ff6d.jpg)
+![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 
  - Decentralizing the services (doing impossible to apply big data to you )
  - 
