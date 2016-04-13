@@ -247,7 +247,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <dt>
 ### //Software Dependencies Status// ## 
 
-<table width="600"><thead>
+<table style="width:600px"><thead>
 <tr>
 <th align="center">Software</th>
 <th align="center">Dependencies</th>
