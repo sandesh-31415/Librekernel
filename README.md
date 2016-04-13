@@ -1852,7 +1852,7 @@ If step 7 finished successfully then test.sh execution for odroid board is finis
 CommunityCube needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
 
 
-DNS petitions are processed in this way:
+#DNS petitions are processed in this way:
 
 - Regular webpages (ex: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS. If it can not resolve then we need to ask TOR about but using DNSCRYPT and using services like DIana or Open NIC
 
@@ -1864,34 +1864,26 @@ DNS petitions are processed in this way:
 
 - Service replacement (ex: google.com it's replaced by our internal service YaCy) will resolve local ip 10.0.0.25x
 
-Petition Flow
+- Petition Flow: If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
 
-If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
-
-Otherwise, the rest of petitions will be processed following next steps
+![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
 
 
+#Intelligence IP, Domain Providers:
 
-Intelligence IP, Domain Providers:
-Shallalist
-mesdk12
-urlblacklist
-iblocklist
-
-
+- Shallalist
+- mesdk12
+- http://urlblacklist.com/?sec=download
+- https://www.iblocklist.com/lists
 
 
-
-
-Connection Flow 3: Squid Open SSL Tunnel
+#Connection Flow 3: Squid Open SSL Tunnel
 
 When user it's using a HTTPS connection to a darknet domain, this traffic it's considered as insecure.
-
 On darknet domains, squid will open the SSL tunnel and inspect for possible exploits, virus and attacks to the user.
-
 If this connection it's to a HTTPS regular domain, this SSL tunnel will be not open nor inspected. Will be routed directly to the internet (ex: https://yourbank.com)
 
-Connection Flow 4: Squid Content Filtering Virus & Anonymous HTTP Headers
+#Connection Flow 4: Squid Content Filtering Virus & Anonymous HTTP Headers
 
 Content filtering will be done if it's a HTTPS open SSL tunnel, or a regular HTTP petition.
 
@@ -1923,51 +1915,31 @@ If connection pass all blocks and Connection Flow filters, then this petition ca
 - HTTP (ex: http://news.com) will go through TOR to the internet site
 Access from outside model (Bypass Router / Closed Ports
 
-To give access to file through an out-communitycube network, we will use TOR
 
-Use regular Tor Browser to bypass internal network firewall.
 
-So, each service running in communitycube will have a Hidden Service domain, and optionally a EEP Site (I2P hidden service).
-
-In a second integration step we can create our Agent:
-
-Our Agent it's a modified TorBrowser version with:
-
-- I2P
-
-- Foxyproxy configured ready to browse CommunityCube network, and Darknets.
-
-- Block load regular internet content, over a TOR/I2P domain. (prevents easy image tracking)
-
-Security plugins such as
-
-- Stop fingerprinting
-
-- Privacy Badger
-
-- Track me not
-
-- Fireclam
-
-- Mailvelope
-
-There's a first version of Agent for linux 32bit. It's needed to have Java installed
+There's a first version of Superbrowser for linux 32bit. It's needed to have Java installed
 
 https://cloud.comunitycube.com:8083/public.php?service=files&t=6eacefffe8443befe42af8114988c474
 
-There's a first version of Agent for windows 32bit. It doens't have I2P network conneciton
+There's a first version of Superbrowser  for windows 32bit. It doens't have I2P network conneciton
 
 https://cloud.comunitycube.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
 
 
-For a stable Agent stage, we should fork FoxyProxy to improve security by removing the external api exposing to each websites; or use another plugin.
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-This agent will exists for any platform: windows 32&64, Mac OSX universal, linux 32&64, android, windows phone, firefox OS and iOS.
-ARP Firewall
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-CageOS will integrate a ARP firewall to add another security layer in the incoming and outgoing connections, working with another layer of the OSI model.
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-It is analogous to iptables, but operates at the MAC (ARP) layer, rather than the IP layer.
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 #### Steps to setup on LibreRouter.
 
@@ -1975,6 +1947,52 @@ It is analogous to iptables, but operates at the MAC (ARP) layer, rather than th
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+#### Steps to setup on LibreRouter.
+
+**Step 1. Get an Banapi Router and assemble it.**
+
+There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+#### Steps to setup on LibreRouter.
+
+**Step 1. Get an Explained and assemble it.**
+
+There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+#### Steps to setup on LibreRouter.
+
+**Step 1. Get an  IM6REX and assemble it.**
+
+There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 **Step 2. Executing scripts.**
