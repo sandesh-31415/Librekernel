@@ -244,9 +244,9 @@ With federated XMPP servers for authentication but perfect for discovering users
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 ## Libre or not libre libraries in the App## 
-
-### //Software Dependencies Status// ## 
 <dt>
+### //Software Dependencies Status// ## 
+
 |Software |Dependencies |Source | URL |
 |:---:   |:---:    |:---:    |:---:   |
 |	build-essential	|	build-essential	|	Chosing Build-Essential	| [[http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc]]		|
@@ -1978,8 +1978,8 @@ With federated XMPP servers for authentication but perfect for discovering users
 |		|		|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		|
 |		|	roundcube-core	|	Chosing roundcube'    as      source  package instead of      'roundcube-core'	|				|
 				|		|		[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]		|
-				|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]		
-</dt>
+				|	 	|		[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]|		
+
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
