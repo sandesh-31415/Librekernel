@@ -13,26 +13,8 @@
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
-![2746881_orig](https://cloud.githubusercontent.com/assets/13025157/14445524/df973fbe-004d-11e6-9f42-3571f91a53b8.jpg)
-![ibm_hi1](https://cloud.githubusercontent.com/assets/13025157/14445525/e7eb0042-004d-11e6-9016-958bf320513e.jpg)
-![ibm_hitler_and_the_ibm_c](https://cloud.githubusercontent.com/assets/13025157/14445528/edcb7f32-004d-11e6-901f-bf42447ec4c7.jpg)
-![ibm_and_the_holocaust_ cover](https://cloud.githubusercontent.com/assets/13025157/14445530/f4c324d4-004d-11e6-842a-c2d857134bf9.jpg)
-![imageforbigdataarticle](https://cloud.githubusercontent.com/assets/13025157/14445533/fbf573d8-004d-11e6-9aa9-c77849f49f12.jpg)
-![images](https://cloud.githubusercontent.com/assets/13025157/14445537/0268c166-004e-11e6-96c3-a4b9c162e94f.jpg)
-![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495089/47028802-018e-11e6-8b5b-2af2e0a28a47.png)
-![2013-09-25-googleglass-thumb](https://cloud.githubusercontent.com/assets/13025157/14445893/2a98f716-0051-11e6-9ac2-818c201f4384.JPG)
-![056c026d-1c66-4d42-9fae-a8e96df290c5-1020x961-1](https://cloud.githubusercontent.com/assets/13025157/14445894/2c89c32a-0051-11e6-8740-867a030a5116.jpg)
-![cyc3ij8uqaazaft jpglarge](https://cloud.githubusercontent.com/assets/13025157/14445895/3400a88a-0051-11e6-98a1-a48494952a8b.jpeg)
-![csaxkaauyaaf__m](https://cloud.githubusercontent.com/assets/13025157/14445897/37e70840-0051-11e6-967a-4528a2619f8f.png)
-![google_cia_nsa6080spy-1](https://cloud.githubusercontent.com/assets/13025157/14445901/44b3abd2-0051-11e6-8564-8527da21f7d1.jpg)
-![nsa-inside sh](https://cloud.githubusercontent.com/assets/13025157/14445904/4de51c72-0051-11e6-81ba-43b7a50ea492.png)
-![nsamusculargooglecloud](https://cloud.githubusercontent.com/assets/13025157/14445905/4de7ff96-0051-11e6-9669-d2776c6b45fe.jpg)
-![nsaspying_zps1a20b436](https://cloud.githubusercontent.com/assets/13025157/14445906/4df56dac-0051-11e6-9d2e-7d3c6fc4cdfd.jpg)
-![privacybook33](https://cloud.githubusercontent.com/assets/13025157/14445913/57503936-0051-11e6-8148-78071b878838.png)
-![yes-we-scan](https://cloud.githubusercontent.com/assets/13025157/14445932/67e3bd04-0051-11e6-8681-975e76d150cd.jpg)
-![temporary_208720140319-93516-8lpgzq pdf000](https://cloud.githubusercontent.com/assets/13025157/14445934/6d067f38-0051-11e6-989a-d65177b74be2.jpg)
-![skynet-applying-advanced-cloud-based-behavior-p5-normal](https://cloud.githubusercontent.com/assets/13025157/14445936/71e8b520-0051-11e6-93a7-69d5449a7c6a.gif)
-
+![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
+![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 
 
 
