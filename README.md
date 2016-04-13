@@ -27,21 +27,20 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![yes-we-scan](https://cloud.githubusercontent.com/assets/13025157/14445932/67e3bd04-0051-11e6-8681-975e76d150cd.jpg)
 ![temporary_208720140319-93516-8lpgzq pdf000](https://cloud.githubusercontent.com/assets/13025157/14445934/6d067f38-0051-11e6-989a-d65177b74be2.jpg)
 ![skynet-applying-advanced-cloud-based-behavior-p5-normal](https://cloud.githubusercontent.com/assets/13025157/14445936/71e8b520-0051-11e6-93a7-69d5449a7c6a.gif)
-.
-.
-.
+
+
+
+
+
+
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-.
-.
-.
-.
-.
-.
-.
-.
-.
+
+
+
+
+
 #### WTH is Librerouter?
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
 
@@ -55,6 +54,15 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
 
 
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+
 #### HOW to use it?
 
  • -a) If you buy a Librerouter then connect it like:
@@ -62,6 +70,15 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
  • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
+ 
+ 
+ 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
 
 A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks
 
