@@ -109,6 +109,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 • Now, you, because the Hardware ARM is going Open
 
 
+
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![opensourceversugnu](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
 ![parabola](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
@@ -136,6 +137,25 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
+
+
+## How it will protect me?
+
+ - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
+ ![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14444623/fb7e4184-0046-11e6-89c7-72618f6c2d2b.jpg)
+
+ - Decentralizing the services (doing impossible to apply big data to you )
+ - 
+ ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
+
+
+https://github.com/CommunityCube/debian-autoscript/issues
+
+![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+
+
+
+
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -153,8 +173,9 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
 
+
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
-![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
+![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
 
 
 ^Finalist ^Decentralized ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ OpenAuth ^ encryption ^
@@ -180,13 +201,14 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 https://www.cageos.org/index.php?page=apps
-![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445487/9ca99cd8-004d-11e6-8a35-a79e4acdff43.jpg)
-![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
 
  -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
 • Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
 • Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
+
+![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
+
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
 In our decentralized system your valuable information is encrypted three times:
 1. Before it even leaves your computer, in the web browser
@@ -207,6 +229,16 @@ You control your incoming and outgoing posts, and push your posts from a single 
 
 With federated XMPP servers for authentication but perfect for discovering users outside the Community Cube network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
 ![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
+
+
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
 
 
 
@@ -1594,19 +1626,6 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 
 
-## How it will protect me?
-
- - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
- ![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14444623/fb7e4184-0046-11e6-89c7-72618f6c2d2b.jpg)
-
- - Decentralizing the services (doing impossible to apply big data to you )
- - 
- ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
-
-
-https://github.com/CommunityCube/debian-autoscript/issues
-
-![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
 
 ## Which hardware is needed to run Librerouter?
