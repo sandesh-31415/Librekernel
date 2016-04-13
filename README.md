@@ -69,6 +69,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
+
  • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
  
  
