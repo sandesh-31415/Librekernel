@@ -246,17 +246,13 @@ With federated XMPP servers for authentication but perfect for discovering users
 ## Libre or not libre libraries in the App## 
 
 ### //Software Dependencies Status// ## 
-<style>
-table{
-width:800px !important;
-}
-</style>
+
 <table><thead>
 <tr>
-<th align="center">Software</th>
-<th align="center">Dependencies</th>
-<th align="center">Source</th>
-<th align="center">URL</th>
+<th align="center" width="20%">Software</th>
+<th align="center" width="10%">Dependencies</th>
+<th align="center" width="20%">Source</th>
+<th align="center" width="20%">URL</th>
 </tr>
 </thead><tbody>
 <tr>
