@@ -1708,6 +1708,7 @@ The following list includes some of the features that have been added and modifi
 
 
 #### Steps to setup on Physical/Virtual machine.
+
 **Step 1: Checking requirements**
 Your Physical/Virtual machine need to meet the minimum requirements:
  - 1. x2 network interfaceS
@@ -1721,23 +1722,27 @@ The way networking works in Librerouter will be:
  - 1x bridge acts as a WAN
  - 2st bridge acts as LAN
 
-So, we actually have 4 possible PHySICAL scenarios
+So, we actually have 4 possible PHySICAL scenarios:
+
  - WAN is WiFi, LAN is WiFi
  - WAN is WiFi, LAN is Cabled Ethernet
  - WAN is Cabled Ethernet, LAN is WiFi
  - WAN is Cabled Ethernet, LAN is Cabled Ethernet
 
 **Step 2: Setup the network.**
+
 In this step you need to connect one interface of your machine to Internet, and other one to local network device.
 Networking of Librerouter has two way to work.
 
 
 
 **Server mode**
+
 The way networking works in Librerouter will be:
- -1 uniqe fix IP LAN or Bridge> can be WLAN or Cabled Ethernett connected to the existing internet router LAN. Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
+
+ -  -1 uniqe fix IP LAN or Bridge> can be WLAN or Cabled Ethernett connected to the existing internet router LAN. Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
  
- ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
  
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443924/9c798300-0042-11e6-85b1-1760c5b3789d.png)
@@ -1768,9 +1773,16 @@ The way networking works in Librerouter will be:
 
 
 **Step 3. Executing scripts.**
+
+
 In this step you need to download and execute the following scripts on your machine with given order.
-1. app-installation-script.sh
-2. app-configuration-script.sh
+
+ - 1. app-installation-script.sh
+ - 2. app-configuration-script.sh
+ - 3. app-post configuiration encryption FDE fill disk en cryption
+ - 4. Minimun System Wizards
+ - 5. Subsystems GUIs
+
 ![initial-install-workflow](https://cloud.githubusercontent.com/assets/13025157/14444383/5b99d710-0045-11e6-9ae8-3efa1645f355.png)
 
 Step 1. Checking user
