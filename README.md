@@ -1,5 +1,5 @@
 ![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472862/85e49ae0-00f5-11e6-9591-163f1acd5098.png)
-![librerouter - log-01](https://cloud.githubusercontent.com/assets/13025157/14472863/85e49b80-00f5-11e6-8176-680febe65643.jpg)
+![librerou - log0 1](https://cloud.githubusercontent.com/assets/13025157/14472863/85e49b80-00f5-11e6-8176-680febe65643.jpg)
 ![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472876/902023bc-00f5-11e6-92c3-da729baa1c04.png)
 ![librerouter logo-01](https://cloud.githubusercontent.com/assets/13025157/14472877/902532e4-00f5-11e6-8dd0-f2348e1c5b69.jpg)
 
@@ -152,8 +152,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
-
-
+^Finalist ^Decentralized ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ OpenAuth ^ encryption ^
 
 |OwnCloud      |no|no|no|yes|no public/no anonymous|no|no|no|AES-256|
 |Mailpile      |no|no|yes|no (direct from encryption schema)|no public/no anonymous|no|no|no|4096bit DSA/elg|
@@ -165,6 +164,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 |RTC.io/WebRTC |no|no|yes ([[http://stackoverflow.com/questions/23085335/is-webrtc-traffic-over-turn-end-to-end-encrypted|even with TURN server]])|no|no|no|no|no|DTLS|
 
 ^Net ^Decentralized/Authorityless ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ Can list ALL external IP users ^
+
 |TOR  |no|yes      |yes|no|yes|no|no|no|
 |I2P  |no|yes  |yes|no|yes|no|no|yes [[https://thetinhat.com/articles/2015/i2p-survey.html|i2p-survey]]|
 |CjDNS|yes|no      |yes|no|yes|yes|yes|no|
