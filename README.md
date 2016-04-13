@@ -81,7 +81,8 @@ The Internet is full of ___free___ services and you are the product they sell yo
 
 
 
-A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks
+A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks:
+
 #### Who? Why? What? How? When?
 
 • Open source comunity.
@@ -109,6 +110,24 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![ykpjm jpg-600x303](https://cloud.githubusercontent.com/assets/13025157/14445998/c1433000-0051-11e6-83b5-1e594ba93aca.png)
 ![trustzone](https://cloud.githubusercontent.com/assets/13025157/14445982/c1003e30-0051-11e6-9ad5-8884d27bc1b9.jpg)
 ![flashdays_new1](https://cloud.githubusercontent.com/assets/13025157/14445986/c1113ece-0051-11e6-883d-57e64bc70daf.png)
+
+
+
+
+
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+
+
+
+
 
 
 ## Services runing in Librerouter ## 
@@ -162,8 +181,11 @@ Not Open authentication: Centralized or Decentralized single user repository.
 
 Anonymous: No IP can be track dont miss understood with anonymous nick or hash used as users ID. We are looking for the solution that from is NOT possibe ALWAYS to enumerate in any way the rest of the boxes public IPs.
 
-//Software Dependencies Status//
-^Software ^Dependencies ^Source ^ URL ^
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
 |	build-essential	|	build-essential	|	Chosing Build-Essential	|		[[http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc]]		|
 |		|	libc6-dev	|	Chosing eglibc instead of 'libc6-dev'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
 |		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
