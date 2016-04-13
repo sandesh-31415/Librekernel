@@ -1742,25 +1742,22 @@ The way networking works in Librerouter will be:
 
  -  -1 uniqe fix IP LAN or Bridge> can be WLAN or Cabled Ethernett connected to the existing internet router LAN. Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
  
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
  
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443924/9c798300-0042-11e6-85b1-1760c5b3789d.png)
 
+![servermodeworkflow](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
 
 
- -b) Bridge mode where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
+
+
  
+**Bridge mode**
+
+Where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
   
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 
-![wizard](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
-![servermode](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
-
-
+![bridmode workflow](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
 
 
 
@@ -2190,7 +2187,10 @@ It aims to configure all the packages and services.
   * Tor DNS will be configured to listed 10.0.0.1:9053
   * DjDNS will be configured to listed 10.0.0.1:8053
 
+
+
 #### DNS resolution process.
+
 ##### Classified domains
   * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
   * Social networks - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
@@ -2198,15 +2198,16 @@ It aims to configure all the packages and services.
   * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
     
 ##### Local, i2p and onion domains
+
   * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
   * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
   * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
    
 ##### Other domain names
+
   * Any other domain name will be resolved by DjDNS,P2P or OpenNIC with CryptoDNS.
 
 
->Please see left part of workflow image.
 
 # Configure Reverse proxy
  
