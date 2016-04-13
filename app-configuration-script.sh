@@ -331,6 +331,7 @@ chmod +x /etc/blacklists/blacklists-iptables.sh
 # ---------------------------------------------------------
 configure_iptables()
 {
+if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 cat << EOF > /etc/rc.local
 #!/bin/sh -e
 #
@@ -345,55 +346,61 @@ cat << EOF > /etc/rc.local
 #
 # By default this script does nothing.
 
-
+iptables -X
 iptables -F
-iptables -F -t nat
+iptables -t nat -F
+iptables -t filter -F
 
-#Allow ssh from internal to Communitycube and allow SSH to external servers
-iptables -t nat -A PREROUTING -i br1 -p tcp -d 10.0.0.1 --dport 22 -j ACCEPT
-
-#Allow internal access to
-iptables -t nat -A PREROUTING -i br1 -p tcp -d 10.0.0.1 --dport 80 -j ACCEPT
-iptables -t nat -A PREROUTING -i br1 -p tcp -d 10.0.0.1 --dport 443 -j ACCEPT
-iptables -t nat -A PREROUTING -i br1 -p tcp -d 10.0.0.1 --dport 7000 -j ACCEPT
-
-# Redirect to Local Nginx server
-# Should be handled by Yacy 
-iptables -t nat -I PREROUTING -i br1 -d 10.0.0.251 -p tcp -j DNAT --to 10.0.0.1:80  
-# Should be handled by Friendica
-iptables -t nat -I PREROUTING -i br1 -d 10.0.0.252 -p tcp -j DNAT --to 10.0.0.1:80 
-# Should be handled by Owncloud
-iptables -t nat -I PREROUTING -i br1 -d 10.0.0.253 -p tcp -j DNAT --to 10.0.0.1:80 
-# Should be handled by Mailpile
-iptables -t nat -I PREROUTING -i br1 -d 10.0.0.254 -p tcp -j DNAT --to 10.0.0.1:80 
-
-#i2p petitions 
+# i2p petitions 
 iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
 iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -i br1 -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
-#Allow surf onion zone
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
+
+# Allow surf onion zone
 iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
 iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
 
-###### WORK MODE 1 #####
-# use TOR for regular and TOR requests
-
-#iptables -t nat -A PREROUTING -i br1 -p tcp --syn -j REDIRECT --to-ports 9040
+# Enable Blacklist
+[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
 
 
-####### WORK MODE 2 #####
-# use TOR for TOR petitions
-# use Squid for the rest
+exit 0
+EOF
+elif [ "$PROCESSOR" = "ARM" ]; then
+cat << EOF > /etc/rc.local
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
 
-#regular 80 port traffic to squid
-iptables -t nat -A PREROUTING -i br1 -s 10.0.0.0/16 -p tcp --dport 80 -j REDIRECT --to-port 3129
+iptables -X
+iptables -F
+iptables -t nat -F
+iptables -t filter -F
 
-#rest for TOR
-iptables -t nat -A PREROUTING -i br1 -p tcp --syn -m multiport ! --dports 80 -j REDIRECT --to-ports 9040
+# i2p petitions 
+iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -i br1 -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
+
+# Allow surf onion zone
+iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+
+# Enable Blacklist
 [ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
 
 exit 0
 EOF
+fi
 
 chmod +x /etc/rc.local
 
@@ -450,8 +457,6 @@ HiddenServicePort 443 127.0.0.1:443
 
 HiddenServiceDir /var/lib/tor/hidden_service/mailpile
 HiddenServicePort 33411 127.0.0.1:33411
-
-
 
 DNSPort   9053
 DNSListenAddress 10.0.0.1
@@ -561,12 +566,14 @@ server:
     access-control: 127.0.0.1/8 allow
     access-control: 0.0.0.0/0 refuse
 
-
-    # auto-trust-anchor-file: "/var/lib/unbound/root.key"
+    # Configure DNSSEC validation
+    # local, onion and i2p domains are not checked for DNSSEC validation
+#    auto-trust-anchor-file: "/var/lib/unbound/root.key"
     do-not-query-localhost: no
-    #domain-insecure: "onion"
-    #private-domain: "onion"
-
+#    domain-insecure: "local"
+#    domain-insecure: "onion"
+#    domain-insecure: "i2p"
+    
     #Local destinations
     local-zone: "local." static
     local-data: "communitycube.local. IN A 10.0.0.1"
@@ -576,7 +583,7 @@ server:
     for i in $(ls /var/lib/tor/hidden_service/)
 	do
 	cat << EOF >>  /etc/unbound/unbound.conf
-local-data: "$i.local.  IN A 10.0.0.1"
+    local-data: "$i.local.  IN A 10.0.0.1"
 EOF
 done
 
@@ -586,16 +593,16 @@ for i in $(ls /var/lib/tor/hidden_service/)
 	
 	if [ -n "$hn" ]; then
 		cat << EOF >>  /etc/unbound/unbound.conf
-local-zone: "$hn." static
-local-data: "$hn. IN A 10.0.0.1"
+    local-zone: "$hn." static
+    local-data: "$hn. IN A 10.0.0.1"
 EOF
 	fi
 done
 
 echo '
 # I2P domains will be resolved us 10.191.0.1 
-local-zone: "i2p." static
-local-data: "i2p. A 10.191.0.1"
+local-zone: "i2p." redirect
+local-data: "i2p. IN A 10.191.0.1"
 
 # Include social networks domains list configuration
 include: /etc/unbound/socialnet_domain.list.conf
@@ -696,6 +703,9 @@ rm -rf chat_domain.list
 rm -rf storage_domain.list
 rm -rf block_domain.list
 
+# Updating DNSSEC root trust anchor
+unbound-anchor -a "/var/lib/unbound/root.key"
+
 # There is a need to stop dnsmasq before starting unbound
 echo "Stoping dnsmasq ..."
 if ps aux | grep -w 'dnsmasq' | grep -v 'grep' > /dev/null;   then
@@ -716,7 +726,284 @@ fi
 }
 
 
+# ---------------------------------------------------------
+# Function to configure nginx web server
+# ---------------------------------------------------------
+configure_nginx() 
+{
+mkdir -p /etc/ssl/nginx/
 
+echo "upstream php-handler {
+  server 127.0.0.1:9000;
+  #server unix:/var/run/php5-fpm.sock;
+  }" > /etc/nginx/sites-enabled/php-fpm
+
+echo "server {
+  listen 80 default_server;
+  return 301 http://communitycube.local;
+}
+
+server {
+  listen 80;
+  server_name box.local;
+  return 301 http://communitycube.local;
+}" > /etc/nginx/sites-enabled/default
+
+echo "server {
+  listen 80;
+  server_name communitycube.local 10.0.0.1;
+  root /var/www/html;
+  index index.html;
+
+        location /phpmyadmin {
+               root /usr/share/;
+               index index.php index.html index.htm;
+               location ~ ^/phpmyadmin/(.+\.php)$ {
+                       try_files \$uri =404;
+                       root /usr/share/;
+                       fastcgi_pass 127.0.0.1:9000;
+                       fastcgi_index index.php;
+                       fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+                       include /etc/nginx/fastcgi_params;
+               }
+               location ~* ^/phpmyadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+                       root /usr/share/;
+               }
+        }
+        location /phpMyAdmin {
+               rewrite ^/* /phpmyadmin last;
+        }
+}" > /etc/nginx/sites-enabled/communitycube
+
+# Configuring Yacy virtual host
+SERVER_YACY="$(cat /var/lib/tor/hidden_service/yacy/hostname 2>/dev/null)"
+echo "server {
+        listen 80;
+        server_name yacy.local;
+        return 301 http://$SERVER_YACY\$request_uri;
+}
+
+server {
+        listen 10.0.0.251;
+        server_name _;
+        return 301 http://$SERVER_YACY;
+}
+
+server {
+        listen 80;
+        server_name $SERVER_YACY;
+
+location / {
+    proxy_pass       http://127.0.0.1:8090;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
+
+}" > /etc/nginx/sites-enabled/yacy
+
+# Configuring Friendica virtual host
+SERVER_FRIENDICA="$(cat /var/lib/tor/hidden_service/friendica/hostname 2>/dev/null)"
+echo "server {
+  listen 8181;
+  server_name $SERVER_FRIENDICA;
+  index index.php;
+  root /var/www/friendica;
+  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
+  }
+
+server {
+  listen 80;
+  server_name $SERVER_FRIENDICA;
+  index index.php;
+  root /var/www/friendica;
+  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
+  }
+
+server {
+        listen 10.0.0.252;
+        server_name _;
+        return 301 https://$SERVER_FRIENDICA;
+}
+  
+server {
+  listen 80;
+  server_name friendica.local;
+  index index.php;
+  root /var/www/friendica;
+  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
+  }
+
+}
+
+server {
+  listen 443;
+  ssl on;
+  server_name $SERVER_FRIENDICA;
+  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
+  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
+  ssl_session_timeout 5m;
+  ssl_protocols SSLv3 TLSv1;
+  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+  ssl_prefer_server_ciphers on;
+
+  index index.php;
+  charset utf-8;
+  root /var/www/friendica;
+  access_log /var/log/nginx/friendica.log;
+  # allow uploads up to 20MB in size
+  client_max_body_size 20m;
+  client_body_buffer_size 128k;
+
+
+  # rewrite to front controller as default rule
+  location / {
+    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+  }
+
+  # make sure webfinger and other well known services aren't blocked
+  # by denying dot files and rewrite request to the front controller
+  location ^~ /.well-known/ {
+    allow all;
+    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+  }
+
+  # statically serve these file types when possible
+  # otherwise fall back to front controller
+  # allow browser to cache them
+  # added .htm for advanced source code editor library
+  location ~* \.(jpg|jpeg|gif|png|ico|css|js|htm|html|ttf|woff|svg)$ {
+    expires 30d;
+    try_files \$uri /index.php?q=\$uri&\$args;
+  }
+  
+  # block these file types
+  location ~* \.(tpl|md|tgz|log|out)$ {
+    deny all;
+  }
+  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  # or a unix socket
+  location ~* \.php$ {
+    # Zero-day exploit defense.
+    # http://forum.nginx.org/read.php?2,88845,page=3
+    # Won't work properly (404 error) if the file is not stored on this
+    # server, which is entirely possible with php-fpm/php-fcgi.
+    # Comment the 'try_files' line out if you set up php-fpm/php-fcgi on
+    # another machine.  And then cross your fingers that you won't get hacked.
+    try_files \$uri =404;
+
+    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+    # With php5-cgi alone:
+    fastcgi_pass 127.0.0.1:9000;
+
+    # With php5-fpm:
+    #fastcgi_pass unix:/var/run/php5-fpm.sock;
+
+    include fastcgi_params;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+  }
+
+  # deny access to all dot files
+  location ~ /\. {
+    deny all;
+  }
+}
+" > /etc/nginx/sites-enabled/friendica 
+
+# Configuring Owncloud virtual host
+SERVER_OWNCLOUD=`cat /var/lib/tor/hidden_service/owncloud/hostname`
+
+echo "server {
+  listen 80;
+  server_name $SERVER_OWNCLOUD;
+  return 301 https://\$server_name\$request_uri;
+  }
+  
+server {
+        listen 10.0.0.253;
+        server_name _;
+        return 301 https://$SERVER_OWNCLOUD;
+}
+
+ server {
+  listen 80;
+  server_name owncloud.local;
+  return 301 https://$SERVER_OWNCLOUD\$request_uri;
+  }
+
+server {
+  listen 7070;
+  server_name $SERVER_OWNCLOUD;
+  return 301 https://\$server_name\$request_uri;
+  }
+
+server {
+  listen 443;
+  ssl on;
+  server_name $SERVER_OWNCLOUD;
+  ssl_certificate /etc/ssl/nginx/$SERVER_OWNCLOUD.crt;
+  ssl_certificate_key /etc/ssl/nginx/$SERVER_OWNCLOUD.key;
+
+  # Path to the root of your installation
+  root /var/www/owncloud/;
+  # set max upload size
+  client_max_body_size 10G;
+  fastcgi_buffers 64 4K;
+
+  rewrite ^/caldav(.*)\$ /remote.php/caldav\$1 redirect;
+  rewrite ^/carddav(.*)\$ /remote.php/carddav\$1 redirect;
+  rewrite ^/webdav(.*)\$ /remote.php/webdav\$1 redirect;
+
+  index index.php;
+  error_page 403 /core/templates/403.php;
+  error_page 404 /core/templates/404.php;
+
+  location = /robots.txt {
+    allow all;
+    log_not_found off;
+    access_log off;
+    }
+
+  location ~ ^/(?:\.htaccess|data|config|db_structure\.xml|README){
+    deny all;
+    }
+
+  location / {
+   # The following 2 rules are only needed with webfinger
+   rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+   rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json last;
+
+   rewrite ^/.well-known/carddav /remote.php/carddav/ redirect;
+   rewrite ^/.well-known/caldav /remote.php/caldav/ redirect;
+
+   rewrite ^(/core/doc/[^\/]+/)\$ \$1/index.html;
+
+   try_files \$uri \$uri/ /index.php;
+   }
+
+   location ~ \.php(?:\$|/) {
+   fastcgi_split_path_info ^(.+\.php)(/.+)\$;
+   include fastcgi_params;
+   fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+   fastcgi_param PATH_INFO \$fastcgi_path_info;
+   fastcgi_param HTTPS on;
+   fastcgi_pass php-handler;
+   }
+
+   # Optional: set long EXPIRES header on static assets
+   location ~* \.(?:jpg|jpeg|gif|bmp|ico|png|css|js|swf)\$ {
+       expires 30d;
+       # Optional: Don't log access to assets
+         access_log off;
+   }
+
+  }
+" > /etc/nginx/sites-enabled/owncloud 
+
+service nginx restart
+}
 
 
 
@@ -740,7 +1027,7 @@ configure_interfaces		# Configuring external and internal interfaces
 configure_tor			# Configuring TOR server
 configure_i2p			# Configuring i2p services
 configure_unbound		# Configuring unbound DNS server
-
+configure_nginx                 # Configuring nginx web server
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
 #configure_iptables		# Configuring iptables rules
