@@ -39,8 +39,8 @@ The Internet is full of ___free___ services and you are the product they sell yo
      • - Open authentication (dissolve legal relation between user-human and legal-name-ip), 
      • - Forcing encryption for all communications and data storing in the backends.
      • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
-![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
-
+ 
+ ![metafilter](https://cloud.githubusercontent.com/assets/17382786/14495726/fb5f06ac-0190-11e6-9865-ddc3678dda4a.jpg)
 
 
 
@@ -131,7 +131,7 @@ A unique combination of open hardware, GNU software and training book you can ac
  ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
 
 
-https://github.com/CommunityCube/debian-autoscript/issues
+https://github.com/Librerouter/debian-autoscript/issues
 
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
@@ -213,18 +213,18 @@ A grid splits your files up into little pieces, encrypts them and spreads them o
 
 ![grid4](https://cloud.githubusercontent.com/assets/13025157/14444809/5f670ebe-0048-11e6-8b0d-5170ab2afdc4.png)
 
-You can also sync your home Community Cube with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement COMMUNITY CUBE server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
+You can also sync your home Librerouter with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement Librerouter server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
 
 ## Service The descentralized Social networkNetwork
 
-COMMUNITY CUBE can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
-You can use Community Cube to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
+Librerouter can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
+You can use Librerouter to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
 You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
 ![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
 
 ## Service The descentralized Video Conference
 
-With federated XMPP servers for authentication but perfect for discovering users outside the Community Cube network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
+With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
 ![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 
@@ -1851,7 +1851,7 @@ If step 7 finished successfully then test.sh execution for odroid board is finis
 
 ####DNS Resolution Explained
 
-CommunityCube needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
+Librerouter needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
 
 
 #DNS petitions are processed in this way:
@@ -1922,11 +1922,11 @@ Access from outside model (Bypass Router / Closed Ports
 
 There's a first version of Superbrowser for linux 32bit. It's needed to have Java installed
 
-https://cloud.comunitycube.com:8083/public.php?service=files&t=6eacefffe8443befe42af8114988c474
+https://cloud.Librerouter.com:8083/public.php?service=files&t=6eacefffe8443befe42af8114988c474
 
 There's a first version of Superbrowser  for windows 32bit. It doens't have I2P network conneciton
 
-https://cloud.comunitycube.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
+https://cloud.Librerouter.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
 
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -2256,7 +2256,7 @@ if Cable then:
  -Please be aware we use this internal range: 10.0.0.100 to 200 Gateway 10.0.0.1 and DNS
  -Please plug a cable Detecting link Link up Now your connected
 
-c) Mode Server only WAN external bridge will be used and then all WLAN and ETH will be all 4 interfaces in the same Bridge NIC logical interface.Do you want to use a cable or want CCube connect to your router or switch?
+c) Mode Server only WAN external bridge will be used and then all WLAN and ETH will be all 4 interfaces in the same Bridge NIC logical interface.Do you want to use a cable or want Librerouter connect to your router or switch?
 
 if WLAN
 
@@ -2330,7 +2330,7 @@ Software backdoor 	Use OpenSource
 Hardware backdoor 	Use OpenHardware
 Packet Sniffing 	Using HTTPS Everywhere
 Security
-Responsible for building Tor circuits 	Tor client running on CommunityCube
+Responsible for building Tor circuits 	Tor client running on Librerouter
 Exploit Quantum protection 	Yes, suricata
 Intrusion Prevention System 	Yes
 Browser exploit protection 	Yes
