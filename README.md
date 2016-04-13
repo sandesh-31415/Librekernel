@@ -34,19 +34,22 @@ The Internet is full of ___free___ services and you are the product they sell yo
 #### WTH is Librerouter?
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
 
-***Librerouter*** is a GNU technology that makes protecting your privacy easy by:
+***Librerouter*** is a GNU open hardware and software:
 
      • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
-     • - Decentralizing the services (doing impossible to apply big data to you )
-     • - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
-     • - Forcing encryption for all communications and data storage and in rest.
-     • - Filtering the data that expose you, like scripts,cookies, browser info,etc.
+     • - Decentralizing the services (doing impossible to apply big data :the enemy )
+     • - Open authentication (dissolve legal relation between user-human and legal-name-ip), 
+     • - Forcing encryption for all communications and data storing in the backends.
+     • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
+![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
+
 
 #### HOW to use it?
 
-![metafirewallfilter](https://cloud.githubusercontent.com/assets/13025157/14445984/c103c686-0051-11e6-8867-3016fa5c5a94.jpg)
-
- • -a) If you buy a Librerouter.
+ • -a) If you buy a Librerouter then connect it like:
+![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
+![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
+![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
  • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
 
 A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks
@@ -73,11 +76,10 @@ A unique combination of open hardware, GNU software and training book you can ac
 ## Services runing in Librerouter ## 
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
-![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
+
 ![data center or decantralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
-![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
-![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
+
 ![git](https://cloud.githubusercontent.com/assets/13025157/14445988/c115b0e4-0051-11e6-9d93-9cca8809bbf3.jpg)
 ![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
 If you want more information about the software that we picked check [here](https://cageos.org/index.php?page=apps).
