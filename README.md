@@ -1785,42 +1785,52 @@ In this step you need to download and execute the following scripts on your mach
 
 ![initial-install-workflow](https://cloud.githubusercontent.com/assets/13025157/14444383/5b99d710-0045-11e6-9ae8-3efa1645f355.png)
 
-Step 1. Checking user
+ - Step 1. Checking user
 The script should be run by user root, if it was run by another user then it will warn and exit.
-Step 2. Checking Platform
+
+ - Step 2. Checking Platform
 The all software intended to run on Debian 7/8 or Ubuntu 12.04/14.04, so if script finds another platform it will output an error and exit.
-Step 3. Checking Hardware
+
+ - Step 3. Checking Hardware
 As software can be installed either on odroid or Physical/Virtual machine, in this step we need to determine hardware. If script runs on odroid it should find Processor = ARM Hardware = XU3 or XU4 or C1+ or C2 If script runs on Physical/Virtual machine it should fine Processor = Intel After determining hardware type we can determine the next step.
 If hardware is Physical/Virtual machine
-Step 4. Checking requirements
+
+ - Step 4. Checking requirements
 There are a list of minimum requirements that Physical/Virtual machine needs to meet.
     2 network interfaces (ethernet or wlan)
     1 GB of Physical memory
     16 GB of Free disk space
 If machine meets the requirements then script goes to next step, otherwise it will warn and exit.
-Step 5. Getting DHCP client on interfaces
+
+ - Step 5. Getting DHCP client on interfaces
 In this step script first DHCP request from eth1 to get an ip address. If succeed, it will check for Internet connection and if Internet connection is established this step is done successfully. In any case of failure (no DHCP response or on Internet connection) script will try the same scenario for next interface. Order to try is - eth1, wlan1, eth0, wlan0 (list of available interfaces are available from step 4).
 Of no success in any interface, then script will warn user to plug the machine to Internet and will exit.
-Step 6. Preparing repositories and updating sources
+
+ - Step 6. Preparing repositories and updating sources
 In this step script adds repository links for necessary packages into package manager sources and updates them. Script will output an error ant exit if it is not possible to add repositories or update sources.
-Step 7. Downloading and Installing packages
+
+ - Step 7. Downloading and Installing packages
 As we already have repository sources updated in step 6, so at this point script will download and install packages using package manager tools. If something goes wrong during download or installation, script will output an error ant exit.
 If step 7 finished successfully then test.sh execution for Physical/Virtual machine is finished successfully and it's time to run the next script “app-installation-script.sh”.
 If hardware is odroid board
-Step 4. Check if the board assembled.
+
+ - Step 4.2. Check if the board assembled.
 There are list of modules that need to be connected to odroid board, so script will check if that modules are connected.
 You can fine information about necessary modules here
 If any module is missed user will get warning and script will exit.
-Step 5. Configuring bridge interfaces.
+
+ - Step 5.2. Configuring bridge interfaces.
 In this step script will configure 2 bridge interfaces br0 and br1.
     eth0 and wlan0 will be bridged into interface br0
     eth1 and wlan1 will be bridged into interface br1
 In ethernet network, br0 should be connected to Internet and br0 to local network. In wireless network, bridge interdace with wore powerful wlan will be connected to Internet and other one to local network.
 After configuring bridge interfaces script will enable dhcp chient on external network interface and set static ip address 10.0.0.1/8 in internal network interface, and then check the Internet connection.
 If everything goes fine it will process to next step, otherwise will warn the user to plug the machine to Internet and exit.
-Step 6. Preparing repositories and updating sources
+
+ - Step 6.2. Preparing repositories and updating sources
 The same as in Physical/Virtual machine case.
-Step 7. Downloading and Installing packages
+
+ - Step 7.2. Downloading and Installing packages
 The same as in Physical/Virtual machine case.
 If step 7 finished successfully then test.sh execution for odroid board is finished successfully and it's time to run the next script “app-installation-script.sh”. 
 
@@ -1833,18 +1843,18 @@ If step 7 finished successfully then test.sh execution for odroid board is finis
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
-####Netowrk Flow
+####Network Flow
 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 ####DNS Resolution Explained
 
-CommunityCube needs a powerfull DNS resolver to provide a transparent browsing for the user.
+CommunityCube needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
 
 
 DNS petitions are processed in this way:
 
-- Regular webpages (ex: www.meneame.net) are resolved by DjDNS. If decentralized DNS cannot resolve it, it's routed to TOR DNS
+- Regular webpages (ex: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS. If it can not resolve then we need to ask TOR about but using DNSCRYPT and using services like DIana or Open NIC
 
 - Onion domains are resolved to a IP inside range 10.192.0.0/16
 
@@ -1861,39 +1871,16 @@ If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx serv
 Otherwise, the rest of petitions will be processed following next steps
 
 
-Connection Flow 1: IP Blocking
 
-All petitions should be filtered by some rules.
+Intelligence IP, Domain Providers:
+Shallalist
+mesdk12
+urlblacklist
+iblocklist
 
-First rule it's a list of known advertising Ips without asking.
 
-We integrated known IP lists from Shallalist, mesdk12 and urlblacklist to avoid connection to IP that can be used to track you
 
-This IPs are used usually to show you ADS and profile you
 
-So, access to this IP are completely restricted to warrant privacy and avoid any profiling
-
-Connection Flow 2: Content Manager
-
-To enforce security by default will be blocked all petitions to not known sites. Also will be blocked a list of Corporations, governamental websites or any kind of non classified websites.
-
-On the content manager, if it's detected a HTTP/HTTPS request, will show a page in browser saying the reason why this IP/website it's blocked.
-
-Here's a list of possible reasons:
-
-- Malicious
-
-- Suspicious
-
-- Corporation
-
-- Governamental
-
-- Data leakers
-
-- And the rest it's classified as Unknown.
-
-Selection would be remembered to not annoy the user.
 
 
 Connection Flow 3: Squid Open SSL Tunnel
