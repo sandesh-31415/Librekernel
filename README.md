@@ -152,6 +152,11 @@ A unique combination of open hardware, GNU software and training book you can ac
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
+
+![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
+![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
+
+
 ^Finalist ^Decentralized ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ OpenAuth ^ encryption ^
 
 |OwnCloud      |no|no|no|yes|no public/no anonymous|no|no|no|AES-256|
@@ -173,6 +178,36 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+https://www.cageos.org/index.php?page=apps
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445487/9ca99cd8-004d-11e6-8a35-a79e4acdff43.jpg)
+![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
+
+ -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
+• Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
+• Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
+• Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
+The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
+In our decentralized system your valuable information is encrypted three times:
+1. Before it even leaves your computer, in the web browser
+2. In the collaboration tool before the data goes to the hard disk
+3. When backing up to the grid, the slices will also be encrypted. 
+![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
+The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
+![storage](https://cloud.githubusercontent.com/assets/13025157/14444754/f0ebf814-0047-11e6-9558-25e26b3d614b.jpg)
+A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
+![grid](https://cloud.githubusercontent.com/assets/13025157/14444751/e3eaba38-0047-11e6-95f4-e4753c0d50c5.jpg)
+![grid4](https://cloud.githubusercontent.com/assets/13025157/14444809/5f670ebe-0048-11e6-8b0d-5170ab2afdc4.png)
+You can also sync your home Community Cube with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement COMMUNITY CUBE server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
+
+COMMUNITY CUBE can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
+You can use Community Cube to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
+You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
+![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
+
+With federated XMPP servers for authentication but perfect for discovering users outside the Community Cube network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
+
 
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -1557,63 +1592,22 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
-![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
 
 
 ## How it will protect me?
+
  - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
  ![firewall filter](https://cloud.githubusercontent.com/assets/13025157/14444623/fb7e4184-0046-11e6-89c7-72618f6c2d2b.jpg)
+
  - Decentralizing the services (doing impossible to apply big data to you )
+ - 
  ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
- - Open authentication (dissolve legal relation between user and name-ip), Dark-nets (anonymisation of IP)
 
- Picture new
 
- - Forcing encryption for all communications and data storage and in rest.
-
-new picture
-
-Services
-Decentralized Backup - I2P+Tahoe-LAFS
-Social Network - Friendica
-Search Engine - YaCy
-Collaborative Document Editing - OwnCloud
-Secure Email - Mailpile
-Xat&Voice Conferencing
-Decentralized Authentication Hive2Hive
-https://www.cageos.org/index.php?page=apps
 https://github.com/CommunityCube/debian-autoscript/issues
 
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
-![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445487/9ca99cd8-004d-11e6-8a35-a79e4acdff43.jpg)
-![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
-
- -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
-• Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
-• Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
-• Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
-The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
-In our decentralized system your valuable information is encrypted three times:
-1. Before it even leaves your computer, in the web browser
-2. In the collaboration tool before the data goes to the hard disk
-3. When backing up to the grid, the slices will also be encrypted. 
-![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
-The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
-![storage](https://cloud.githubusercontent.com/assets/13025157/14444754/f0ebf814-0047-11e6-9558-25e26b3d614b.jpg)
-A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
-![grid](https://cloud.githubusercontent.com/assets/13025157/14444751/e3eaba38-0047-11e6-95f4-e4753c0d50c5.jpg)
-![grid4](https://cloud.githubusercontent.com/assets/13025157/14444809/5f670ebe-0048-11e6-8b0d-5170ab2afdc4.png)
-You can also sync your home Community Cube with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement COMMUNITY CUBE server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
-
-COMMUNITY CUBE can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
-You can use Community Cube to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
-You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
-![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
-
-With federated XMPP servers for authentication but perfect for discovering users outside the Community Cube network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
-![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 ## Which hardware is needed to run Librerouter?
  - https://www.gitbook.com/book/bananapi/bpi-r1/details
