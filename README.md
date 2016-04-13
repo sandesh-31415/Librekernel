@@ -19,7 +19,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![ibm_and_the_holocaust_ cover](https://cloud.githubusercontent.com/assets/13025157/14445530/f4c324d4-004d-11e6-842a-c2d857134bf9.jpg)
 ![imageforbigdataarticle](https://cloud.githubusercontent.com/assets/13025157/14445533/fbf573d8-004d-11e6-9aa9-c77849f49f12.jpg)
 ![images](https://cloud.githubusercontent.com/assets/13025157/14445537/0268c166-004e-11e6-96c3-a4b9c162e94f.jpg)
-
+![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495089/47028802-018e-11e6-8b5b-2af2e0a28a47.png)
 ![2013-09-25-googleglass-thumb](https://cloud.githubusercontent.com/assets/13025157/14445893/2a98f716-0051-11e6-9ac2-818c201f4384.JPG)
 ![056c026d-1c66-4d42-9fae-a8e96df290c5-1020x961-1](https://cloud.githubusercontent.com/assets/13025157/14445894/2c89c32a-0051-11e6-8740-867a030a5116.jpg)
 ![cyc3ij8uqaazaft jpglarge](https://cloud.githubusercontent.com/assets/13025157/14445895/3400a88a-0051-11e6-98a1-a48494952a8b.jpeg)
@@ -2381,9 +2381,21 @@ Wifi password configuratio 	Yes, manadatory on first boot and later on TFT confi
 Internal WIFI device without password or WEP encryption 	No
 
 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
-![milestonesproyect](https://cloud.githubusercontent.com/assets/13025157/14445993/c12ab0fc-0051-11e6-9724-f97ce314dc52.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
+
+
+
+
+
   * http://www.privacytrust.org/certification/privacy/
   * https://www.truste.com/business-products/trusted-cloud/
   * https://www.european-privacy-seal.eu/EPS-en/Home
