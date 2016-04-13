@@ -202,6 +202,8 @@ https://github.com/CommunityCube/debian-autoscript/issues
 
 https://www.cageos.org/index.php?page=apps
 
+## Service Descentralized Indestructible Storage the RockStar app
+
  -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
 • Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
@@ -214,18 +216,29 @@ In our decentralized system your valuable information is encrypted three times:
 1. Before it even leaves your computer, in the web browser
 2. In the collaboration tool before the data goes to the hard disk
 3. When backing up to the grid, the slices will also be encrypted. 
+4. 
 ![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
+
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
+
 ![storage](https://cloud.githubusercontent.com/assets/13025157/14444754/f0ebf814-0047-11e6-9558-25e26b3d614b.jpg)
+
 A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
+
 ![grid](https://cloud.githubusercontent.com/assets/13025157/14444751/e3eaba38-0047-11e6-95f4-e4753c0d50c5.jpg)
+
 ![grid4](https://cloud.githubusercontent.com/assets/13025157/14444809/5f670ebe-0048-11e6-8b0d-5170ab2afdc4.png)
+
 You can also sync your home Community Cube with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement COMMUNITY CUBE server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
+
+## Service The descentralized Social networkNetwork
 
 COMMUNITY CUBE can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
 You can use Community Cube to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
 You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
 ![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
+
+## Service The descentralized Video Conference
 
 With federated XMPP servers for authentication but perfect for discovering users outside the Community Cube network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
 ![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
@@ -246,9 +259,9 @@ With federated XMPP servers for authentication but perfect for discovering users
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-## Libre or not libre libraries ## 
+## Libre or not libre libraries in the App## 
 
- ## //Software Dependencies Status// ## 
+## //Software Dependencies Status// ## 
 
 ^Software ^Dependencies ^Source ^ URL ^
 
@@ -1629,15 +1642,16 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 
 ## Which hardware is needed to run Librerouter?
+
+ - http://www.imx6rex.com/open-rex/
  - https://www.gitbook.com/book/bananapi/bpi-r1/details
  - https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
  - https://www.element14.com/community/community/designcenter/sama5d3xplained/blog/2014/04/25/debian-on-the-sama5d3-xplained
  - https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
 
-This is on discussion yet, but the idea is to offer a solution that can be deployable on a public distribution with your own hardware, but as standalone  we have this models:
-
-- **Librerouter** has two presentations:
+ 
 Comes with four network interfaces which are configured as follows: 2 Wireless and 2 Gigabyte Ethernet.
+
 
 | Board | Board | Board | 
 |--------|--------|--------|
@@ -1652,7 +1666,18 @@ Comes with four network interfaces which are configured as follows: 2 Wireless a
 | CASE | CASE |  CASE | 
 | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | 
 
-![dddd](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
+![ComponentsH](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
+
+
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
 
 ## Setup
 <!-- this part needs to be refactored by someone that does know the current state of building process -->
@@ -1669,6 +1694,18 @@ The following list includes some of the features that have been added and modifi
 • Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
 • Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
 • Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
+
+
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+
 
 #### Steps to setup on Physical/Virtual machine.
 **Step 1: Checking requirements**
@@ -1702,6 +1739,17 @@ The way networking works in Librerouter will be:
 
 ![wizard](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
 ![servermode](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
+
+
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
 
 
 **Step 3. Executing scripts.**
