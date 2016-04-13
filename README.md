@@ -63,11 +63,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
  
  Place here graphs that shows same thing but with a virtual machine
 
-![virtual_machine3](https://cloud.githubusercontent.com/assets/17382786/14489130/cfde7096-016b-11e6-8eeb-32b309e67a6d.png)
-![virtualmachine](https://cloud.githubusercontent.com/assets/17382786/14489128/cfd796d6-016b-11e6-83e7-623a14e5bd26.png)
-![virtualmchine2](https://cloud.githubusercontent.com/assets/17382786/14489129/cfdbca76-016b-11e6-8e49-4c44ead00aba.png)
-
- 
+![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
  
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
