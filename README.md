@@ -7166,14 +7166,7 @@ With federated XMPP servers for authentication but perfect for discovering users
         <td>Chosing roundcube'    as      source  package instead of      'roundcube-core'</td>
         <td></td>
     </tr>
-    <tr>
-        <td>[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>[[http://ftp.bg.debian.org/debian//main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]</td>
-        <td></td>
-    </tr>
+  
 </table>
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
