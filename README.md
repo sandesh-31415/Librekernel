@@ -6439,14 +6439,6 @@ With federated XMPP servers for authentication but perfect for discovering users
         <td></td>
     </tr>
     <tr>
-        <td>[[https://anonscm.debian.org/git/pkg-roundcube/roundcube.git]]</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>[[http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc]]</td>
-        <td></td>
-    </tr>
-    <tr>
         <td>Chosing openssl'      as      source  package instead of      'libssl1.0.0'</td>
         <td>[[svn://anonscm.debian.org/pkg-openssl/openssl/]]</td>
     </tr>
