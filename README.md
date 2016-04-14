@@ -268,7 +268,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td align="center"></td>
 </tr>
 <tr>
-<td align="center">[[svn://svn.debian.org/pkg-glibc/glibc-package/]]</td>
+<td align="center">[[svn://svn.debian.org/<br>pkg-glibc/glibc-package/]]</td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
