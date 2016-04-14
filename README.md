@@ -247,6 +247,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 ### //Software Dependencies Status// ## 
 
+
 <table><thead>
 <tr>
 <th width="10%">Software</th>
@@ -10483,7 +10484,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.diff.gz">http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.diff.gz</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/libd/libdumbnet/libdumbnet_1.12-7.diff.gz">http://ftp.bg.debian.org/debian/pool/<br>main/libd/libdumbnet/libdumbnet_1.12-7.diff.gz</a>]]</td>
 </tr>
 <tr>
 <td></td>
@@ -10495,13 +10496,13 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4.dsc">http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4.dsc</a>]]</td>
+<td>[[<a href="http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4.dsc">http://security.debian.org/pool/<br>updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4.dsc</a>]]</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0.orig.tar.bz2">http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0.orig.tar.bz2</a>]]</td>
+<td>[[<a href="http://security.debian.org/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0.orig.tar.bz2">http://security.debian.org/pool/<br>updates/main/libg/libgcrypt11/libgcrypt11_1.5.0.orig.tar.bz2</a>]]</td>
 </tr>
 <tr>
 <td></td>
@@ -10519,13 +10520,13 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20-8+deb7u5.dsc">http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20-8+deb7u5.dsc</a>]]</td>
+<td>[[<a href="http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20-8+deb7u5.dsc">http://security.debian.org/pool/<br>updates/main/g/gnutls26/gnutls26_2.12.20-8+deb7u5.dsc</a>]]</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20.orig.tar.bz2">http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20.orig.tar.bz2</a>]]</td>
+<td>[[<a href="http://security.debian.org/pool/updates/main/g/gnutls26/gnutls26_2.12.20.orig.tar.bz2">http://security.debian.org/pool/<br>updates/main/g/gnutls26/gnutls26_2.12.20.orig.tar.bz2</a>]]</td>
 </tr>
 <tr>
 <td></td>
@@ -10543,7 +10544,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/libp/libpcap/libpcap_1.7.4-2.dsc">http://ftp.bg.debian.org/debian/pool/main/libp/libpcap/libpcap_1.7.4-2.dsc</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/libp/libpcap/libpcap_1.7.4-2.dsc">http://ftp.bg.debian.org/debian/<br>pool/main/libp/libpcap/libpcap_1.7.4-2.dsc</a>]]</td>
 </tr>
 <tr>
 <td></td>
@@ -10555,19 +10556,19 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/p/pcre3/pcre3_8.38-3.dsc">http://ftp.bg.debian.org/debian/pool/main/p/pcre3/pcre3_8.38-3.dsc</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/p/pcre3/pcre3_8.38-3.dsc">http://ftp.bg.debian.org/debian/<br>pool/main/p/pcre3/pcre3_8.38-3.dsc</a>]]</td>
 </tr>
 <tr>
 <td></td>
 <td>libprelude2</td>
-<td>Chosing libprelude'   as      source  package instead of      'libprelude2'</td>
+<td>Chosing libprelude' as source  package instead of      'libprelude2'</td>
 <td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/libp/libprelude/libprelude_1.0.0-11.7.dsc">http://ftp.bg.debian.org/debian/pool/main/libp/libprelude/libprelude_1.0.0-11.7.dsc</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/libp/libprelude/libprelude_1.0.0-11.7.dsc">http://ftp.bg.debian.org/debian/<br>pool/main/libp/libprelude/libprelude_1.0.0-11.7.dsc</a>]]</td>
 </tr>
 <tr>
 <td></td>
@@ -10579,7 +10580,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc">http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc">http://ftp.bg.debian.org/debian/<br>pool/main/z/zlib/zlib_1.2.8.dfsg-2.dsc</a>]]</td>
 </tr>
 <tr>
 <td>friendica</td>
@@ -10615,7 +10616,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc">http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc">http://ftp.bg.debian.org/<br>debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc</a>]]</td>
 </tr>
 <tr>
 <td></td>
@@ -10626,13 +10627,13 @@ With federated XMPP servers for authentication but perfect for discovering users
 <tr>
 <td></td>
 <td></td>
-<td>[[<a href="https://anonscm.debian.org/git/pkg-roundcube/roundcube.git">https://anonscm.debian.org/git/pkg-roundcube/roundcube.git</a>]]</td>
+<td>[[<a href="https://anonscm.debian.org/git/pkg-roundcube/roundcube.git">https://anonscm.debian.org/<br>git/pkg-roundcube/roundcube.git</a>]]</td>
 <td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc">http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc</a>]]</td>
+<td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc">http://ftp.bg.debian.org/debian/<br>/main/r/roundcube/roundcube_1.1.4+dfsg.1-3.dsc</a>]]</td>
 <td></td>
 </tr>
 </tbody></table>
