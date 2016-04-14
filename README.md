@@ -250,7 +250,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 
 |Software|Dependencies|Source|URL|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |	build-essential	|	build-essential	|	Chosing Build-Essential	|		[[http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc]]		|
 |		|	libc6-dev	|	Chosing eglibc instead of 'libc6-dev'	|		[[svn://svn.debian.org/pkg-glibc/glibc-package/]]		|
 |		|		|		|		[[http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc]]		|
