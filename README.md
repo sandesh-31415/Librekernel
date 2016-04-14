@@ -248,16 +248,17 @@ With federated XMPP servers for authentication but perfect for discovering users
 ### //Software Dependencies Status// ## 
 
 
+
 <table><thead>
 <tr>
-<th width="10%">Software</th>
+
 <th width="10%">Dependencies</th>
 <th width="10%">Source</th>
 <th width="10%">URL</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>build-essential</td>
+
 <td>build-essential</td>
 <td>Chosing Build-Essential</td>
 <td>[[<a href="http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc">http://ftp.bg.debian.org/debian/pool/main/b/build-essential/build-essential_12.2.dsc</a>]]</td>
@@ -268,20 +269,14 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td>Chosing eglibc instead of 'libc6-dev'</td>
 <td></td>
 </tr>
+
 <tr>
-<td>[[svn://svn.debian.org/<br>pkg-glibc/glibc-package/]]</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
 <td></td>
 <td></td>
 <td>[[<a href="http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc">http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.dsc</a>]]</td>
 </tr>
 <tr>
-<td></td>
+
 <td></td>
 <td></td>
 <td>[[<a href="http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz">http://security.debian.org/pool/updates/main/e/eglibc/eglibc_2.13-38+deb7u10.diff.gz</a>]]</td>
@@ -10637,6 +10632,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 <td></td>
 </tr>
 </tbody></table>
+
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
