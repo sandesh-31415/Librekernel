@@ -708,7 +708,7 @@ unbound-anchor -a "/var/lib/unbound/root.key"
 
 # There is a need to stop dnsmasq before starting unbound
 echo "Stoping dnsmasq ..."
-if ps aux | grep -w 'dnsmasq' | grep -v 'grep' > /dev/null;   then
+if ps aux | grep -w "dnsmasq" | grep -v "grep" > /dev/null;   then
 	kill -9 `ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'`
 fi
      echo "kill -9 \`ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'\`" \
@@ -717,7 +717,7 @@ fi
 
 echo "Starting Unbound DNS server ..."
 service unbound restart
-if ps aux | grep -w 'unbound' | grep -v 'grep' > /dev/null; then
+if ps aux | grep -w "unbound" | grep -v "grep" > /dev/null; then
 	echo "Unbound DNS server successfully started."
 else
 	echo "Error: Unable to start unbound DNS server. Exiting"
@@ -727,16 +727,50 @@ fi
 
 
 # ---------------------------------------------------------
+# Function to configure Friendica
+# ---------------------------------------------------------
+configure_friendica()
+{
+if [ ! -e  /var/lib/mysql/frndc ]; then
+  echo "Enter root mysql password"
+  echo "CREATE DATABASE frndc;
+grant all privileges on frndc.* to  friendica@localhost  identified by 'SuperPass8Wor1_2';" | mysql -u root -p
+fi
+
+if [ ! -e  /var/www/friendica ]; then
+
+cd /var/www
+git clone https://github.com/friendica/friendica.git
+cd friendica
+git clone https://github.com/friendica/friendica-addons.git addon
+
+chown -R www-data:www-data /var/www/friendica/view/smarty3
+chmod g+w /var/www/friendica/view/smarty3
+touch /var/www/friendica/.htconfig.php
+chown www-data:www-data /var/www/friendica/.htconfig.php
+chmod g+rwx /var/www/friendica/.htconfig.php
+
+fi
+
+if [ -z "$(grep "friendica/include/poller" /etc/crontab)" ]; then
+    echo '*/10 * * * * /usr/bin/php /var/www/friendica/include/poller.php' >> /etc/crontab
+fi
+}
+
+
+# ---------------------------------------------------------
 # Function to configure nginx web server
 # ---------------------------------------------------------
 configure_nginx() 
 {
+echo "Configuring Nginx ..."
 mkdir -p /etc/ssl/nginx/
 
 echo "upstream php-handler {
   server 127.0.0.1:9000;
   #server unix:/var/run/php5-fpm.sock;
-  }" > /etc/nginx/sites-enabled/php-fpm
+  }
+" > /etc/nginx/sites-enabled/php-fpm
 
 echo "server {
   listen 80 default_server;
@@ -747,7 +781,8 @@ server {
   listen 80;
   server_name box.local;
   return 301 http://communitycube.local;
-}" > /etc/nginx/sites-enabled/default
+}
+" > /etc/nginx/sites-enabled/default
 
 echo "server {
   listen 80;
@@ -773,22 +808,42 @@ echo "server {
         location /phpMyAdmin {
                rewrite ^/* /phpmyadmin last;
         }
-}" > /etc/nginx/sites-enabled/communitycube
+}
+" > /etc/nginx/sites-enabled/communitycube
+
+
 
 # Configuring Yacy virtual host
+echo "Configuring Yacy virtual host ..."
+
+# Getting Tor hidden service yacy name
 SERVER_YACY="$(cat /var/lib/tor/hidden_service/yacy/hostname 2>/dev/null)"
-echo "server {
+
+# Generating keys and certificates for https connection
+if [ ! -e /etc/ssl/nginx/$SERVER_YACY.key -o ! -e /etc/ssl/nginx/$SERVER_YACY.csr -o ! -e  /etc/ssl/nginx/$SERVER_YACY.crt ]; then
+    openssl genrsa -des3 -out /etc/ssl/nginx/$SERVER_YACY.key 2048
+    openssl req -new -key /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.csr
+    cp /etc/ssl/nginx/$SERVER_YACY.key /etc/ssl/nginx/$SERVER_YACY.org
+    openssl rsa -in /etc/ssl/nginx/$SERVER_YACY.key.org -out /etc/ssl/nginx/$SERVER_YACY.key
+    openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_YACY.csr -signkey /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.crt
+fi
+
+echo "
+# Redirect yacy.local to Tor hidden service yacy
+server {
         listen 80;
         server_name yacy.local;
         return 301 http://$SERVER_YACY\$request_uri;
 }
 
+# Redirect connections from 10.0.0.251 to Tor hidden service yacy
 server {
         listen 10.0.0.251;
         server_name _;
         return 301 http://$SERVER_YACY;
 }
 
+# Redirect connections to yacy running on 127.0.0.1:8090
 server {
         listen 80;
         server_name $SERVER_YACY;
@@ -799,10 +854,26 @@ location / {
     proxy_set_header X-Real-IP \$remote_addr;
   }
 
-}" > /etc/nginx/sites-enabled/yacy
+}
+
+# Redirect https connections to http
+server {
+        listen *:443 ssl;
+        server_name $SERVER_YACY;
+        ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
+        ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
+        return 301 http://$SERVER_YACY;
+}
+" > /etc/nginx/sites-enabled/yacy
+
+
 
 # Configuring Friendica virtual host
+echo "Configuring Friendica virtual host ..."
+
+# Getting Tor hidden service friendica name
 SERVER_FRIENDICA="$(cat /var/lib/tor/hidden_service/friendica/hostname 2>/dev/null)"
+
 echo "server {
   listen 8181;
   server_name $SERVER_FRIENDICA;
@@ -832,175 +903,176 @@ server {
   root /var/www/friendica;
   rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
   }
-
-}
-
-server {
-  listen 443;
-  ssl on;
-  server_name $SERVER_FRIENDICA;
-  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
-  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
-  ssl_session_timeout 5m;
-  ssl_protocols SSLv3 TLSv1;
-  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
-  ssl_prefer_server_ciphers on;
-
-  index index.php;
-  charset utf-8;
-  root /var/www/friendica;
-  access_log /var/log/nginx/friendica.log;
-  # allow uploads up to 20MB in size
-  client_max_body_size 20m;
-  client_body_buffer_size 128k;
-
-
-  # rewrite to front controller as default rule
-  location / {
-    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
-  }
-
-  # make sure webfinger and other well known services aren't blocked
-  # by denying dot files and rewrite request to the front controller
-  location ^~ /.well-known/ {
-    allow all;
-    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
-  }
-
-  # statically serve these file types when possible
-  # otherwise fall back to front controller
-  # allow browser to cache them
-  # added .htm for advanced source code editor library
-  location ~* \.(jpg|jpeg|gif|png|ico|css|js|htm|html|ttf|woff|svg)$ {
-    expires 30d;
-    try_files \$uri /index.php?q=\$uri&\$args;
-  }
-  
-  # block these file types
-  location ~* \.(tpl|md|tgz|log|out)$ {
-    deny all;
-  }
-  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-  # or a unix socket
-  location ~* \.php$ {
-    # Zero-day exploit defense.
-    # http://forum.nginx.org/read.php?2,88845,page=3
-    # Won't work properly (404 error) if the file is not stored on this
-    # server, which is entirely possible with php-fpm/php-fcgi.
-    # Comment the 'try_files' line out if you set up php-fpm/php-fcgi on
-    # another machine.  And then cross your fingers that you won't get hacked.
-    try_files \$uri =404;
-
-    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-
-    # With php5-cgi alone:
-    fastcgi_pass 127.0.0.1:9000;
-
-    # With php5-fpm:
-    #fastcgi_pass unix:/var/run/php5-fpm.sock;
-
-    include fastcgi_params;
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-  }
-
-  # deny access to all dot files
-  location ~ /\. {
-    deny all;
-  }
-}
 " > /etc/nginx/sites-enabled/friendica 
 
+#server {
+#  listen 443;
+#  ssl on;
+#  server_name $SERVER_FRIENDICA;
+#  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
+#  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
+#  ssl_session_timeout 5m;
+#  ssl_protocols SSLv3 TLSv1;
+#  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+#  ssl_prefer_server_ciphers on;
+#
+#  index index.php;
+#  charset utf-8;
+#  root /var/www/friendica;
+#  access_log /var/log/nginx/friendica.log;
+#  # allow uploads up to 20MB in size
+#  client_max_body_size 20m;
+#  client_body_buffer_size 128k;
+#
+#
+#  # rewrite to front controller as default rule
+#  location / {
+#    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+#  }
+#
+#  # make sure webfinger and other well known services arent blocked
+#  # by denying dot files and rewrite request to the front controller
+#  location ^~ /.well-known/ {
+#    allow all;
+#    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+#  }
+#
+#  # statically serve these file types when possible
+#  # otherwise fall back to front controller
+#  # allow browser to cache them
+#  # added .htm for advanced source code editor library
+#  location ~* \.(jpg|jpeg|gif|png|ico|css|js|htm|html|ttf|woff|svg)$ {
+#    expires 30d;
+#    try_files \$uri /index.php?q=\$uri&\$args;
+#  }
+#  
+#  # block these file types
+#  location ~* \.(tpl|md|tgz|log|out)$ {
+#    deny all;
+#  }
+#  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#  # or a unix socket
+#  location ~* \.php$ {
+#    # Zero-day exploit defense.
+#    # http://forum.nginx.org/read.php?2,88845,page=3
+#    # Wont work properly (404 error) if the file is not stored on this
+#    # server, which is entirely possible with php-fpm/php-fcgi.
+#    # Comment the try_files line out if you set up php-fpm/php-fcgi on
+#    # another machine.  And then cross your fingers that you wont get hacked.
+#    try_files \$uri =404;
+#
+#    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+#    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+#
+#    # With php5-cgi alone:
+#    fastcgi_pass 127.0.0.1:9000;
+#
+#    # With php5-fpm:
+#    #fastcgi_pass unix:/var/run/php5-fpm.sock;
+#
+#    include fastcgi_params;
+#    fastcgi_index index.php;
+#    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+#  }
+#
+#  # deny access to all dot files
+#  location ~ /\. {
+#    deny all;
+#  }
+#}
+
+
+
 # Configuring Owncloud virtual host
-SERVER_OWNCLOUD=`cat /var/lib/tor/hidden_service/owncloud/hostname`
 
-echo "server {
-  listen 80;
-  server_name $SERVER_OWNCLOUD;
-  return 301 https://\$server_name\$request_uri;
-  }
-  
-server {
-        listen 10.0.0.253;
-        server_name _;
-        return 301 https://$SERVER_OWNCLOUD;
-}
 
- server {
-  listen 80;
-  server_name owncloud.local;
-  return 301 https://$SERVER_OWNCLOUD\$request_uri;
-  }
-
-server {
-  listen 7070;
-  server_name $SERVER_OWNCLOUD;
-  return 301 https://\$server_name\$request_uri;
-  }
-
-server {
-  listen 443;
-  ssl on;
-  server_name $SERVER_OWNCLOUD;
-  ssl_certificate /etc/ssl/nginx/$SERVER_OWNCLOUD.crt;
-  ssl_certificate_key /etc/ssl/nginx/$SERVER_OWNCLOUD.key;
-
-  # Path to the root of your installation
-  root /var/www/owncloud/;
-  # set max upload size
-  client_max_body_size 10G;
-  fastcgi_buffers 64 4K;
-
-  rewrite ^/caldav(.*)\$ /remote.php/caldav\$1 redirect;
-  rewrite ^/carddav(.*)\$ /remote.php/carddav\$1 redirect;
-  rewrite ^/webdav(.*)\$ /remote.php/webdav\$1 redirect;
-
-  index index.php;
-  error_page 403 /core/templates/403.php;
-  error_page 404 /core/templates/404.php;
-
-  location = /robots.txt {
-    allow all;
-    log_not_found off;
-    access_log off;
-    }
-
-  location ~ ^/(?:\.htaccess|data|config|db_structure\.xml|README){
-    deny all;
-    }
-
-  location / {
-   # The following 2 rules are only needed with webfinger
-   rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
-   rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json last;
-
-   rewrite ^/.well-known/carddav /remote.php/carddav/ redirect;
-   rewrite ^/.well-known/caldav /remote.php/caldav/ redirect;
-
-   rewrite ^(/core/doc/[^\/]+/)\$ \$1/index.html;
-
-   try_files \$uri \$uri/ /index.php;
-   }
-
-   location ~ \.php(?:\$|/) {
-   fastcgi_split_path_info ^(.+\.php)(/.+)\$;
-   include fastcgi_params;
-   fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-   fastcgi_param PATH_INFO \$fastcgi_path_info;
-   fastcgi_param HTTPS on;
-   fastcgi_pass php-handler;
-   }
-
-   # Optional: set long EXPIRES header on static assets
-   location ~* \.(?:jpg|jpeg|gif|bmp|ico|png|css|js|swf)\$ {
-       expires 30d;
-       # Optional: Don't log access to assets
-         access_log off;
-   }
-
-  }
-" > /etc/nginx/sites-enabled/owncloud 
+#SERVER_OWNCLOUD=`cat /var/lib/tor/hidden_service/owncloud/hostname`
+#echo "server {
+#  listen 80;
+#  server_name $SERVER_OWNCLOUD;
+#  return 301 https://\$server_name\$request_uri;
+#  }
+#  
+#server {
+#        listen 10.0.0.253;
+#        server_name _;
+#        return 301 https://$SERVER_OWNCLOUD;
+#}
+#
+# server {
+#  listen 80;
+#  server_name owncloud.local;
+#  return 301 https://$SERVER_OWNCLOUD\$request_uri;
+#  }
+#
+#server {
+#  listen 7070;
+#  server_name $SERVER_OWNCLOUD;
+#  return 301 https://\$server_name\$request_uri;
+#  }
+#
+#server {
+#  listen 443;
+#  ssl on;
+#  server_name $SERVER_OWNCLOUD;
+#  ssl_certificate /etc/ssl/nginx/$SERVER_OWNCLOUD.crt;
+#  ssl_certificate_key /etc/ssl/nginx/$SERVER_OWNCLOUD.key;
+#
+#  # Path to the root of your installation
+#  root /var/www/owncloud/;
+#  # set max upload size
+#  client_max_body_size 10G;
+#  fastcgi_buffers 64 4K;
+#
+#  rewrite ^/caldav(.*)\$ /remote.php/caldav\$1 redirect;
+#  rewrite ^/carddav(.*)\$ /remote.php/carddav\$1 redirect;
+#  rewrite ^/webdav(.*)\$ /remote.php/webdav\$1 redirect;
+#
+#  index index.php;
+#  error_page 403 /core/templates/403.php;
+#  error_page 404 /core/templates/404.php;
+#
+#  location = /robots.txt {
+#    allow all;
+#    log_not_found off;
+#    access_log off;
+#    }
+#
+#  location ~ ^/(?:\.htaccess|data|config|db_structure\.xml|README){
+#    deny all;
+#    }
+#
+#  location / {
+#   # The following 2 rules are only needed with webfinger
+#   rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+#   rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json last;
+#
+#   rewrite ^/.well-known/carddav /remote.php/carddav/ redirect;
+#   rewrite ^/.well-known/caldav /remote.php/caldav/ redirect;
+#
+#   rewrite ^(/core/doc/[^\/]+/)\$ \$1/index.html;
+#
+#   try_files \$uri \$uri/ /index.php;
+#   }
+#
+#   location ~ \.php(?:\$|/) {
+#   fastcgi_split_path_info ^(.+\.php)(/.+)\$;
+#   include fastcgi_params;
+#   fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+#   fastcgi_param PATH_INFO \$fastcgi_path_info;
+#   fastcgi_param HTTPS on;
+#   fastcgi_pass php-handler;
+#   }
+#
+#   # Optional: set long EXPIRES header on static assets
+#   location ~* \.(?:jpg|jpeg|gif|bmp|ico|png|css|js|swf)\$ {
+#       expires 30d;
+#       # Optional: Dont log access to assets
+#         access_log off;
+#   }
+#
+#  }
+#" > /etc/nginx/sites-enabled/owncloud 
 
 service nginx restart
 }
@@ -1027,6 +1099,7 @@ configure_interfaces		# Configuring external and internal interfaces
 configure_tor			# Configuring TOR server
 configure_i2p			# Configuring i2p services
 configure_unbound		# Configuring unbound DNS server
+configure_friendica		# Configure Friendica local service
 configure_nginx                 # Configuring nginx web server
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
