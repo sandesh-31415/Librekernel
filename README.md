@@ -53,6 +53,11 @@ A Creative Commons (CC) license is one of several public copyright licenses that
 
 #So finally what means full libre really something free of backdoors, binry blobs and fully open?
 
+#What are certification and licenses for openes and opensource/hardware?
+
+#What are the certifications ofr privacy and security?
+
+
 #WTH is Librerouter?
 
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
