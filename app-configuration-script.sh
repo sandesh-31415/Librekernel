@@ -874,35 +874,47 @@ echo "Configuring Friendica virtual host ..."
 # Getting Tor hidden service friendica name
 SERVER_FRIENDICA="$(cat /var/lib/tor/hidden_service/friendica/hostname 2>/dev/null)"
 
-echo "server {
+echo "
+# Redirect connections from port 8181 to Tor hidden service friendica port 80
+server {
   listen 8181;
   server_name $SERVER_FRIENDICA;
   index index.php;
   root /var/www/friendica;
-  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
-  }
+  return 301 http://$SERVER_FRIENDICA;
+}
 
+# Redirect connections from 10.0.0.252 to Tor hidden service yacy
 server {
-  listen 80;
-  server_name $SERVER_FRIENDICA;
-  index index.php;
-  root /var/www/friendica;
-  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
-  }
-
-server {
-        listen 10.0.0.252;
+        listen 10.0.0.252:80;
         server_name _;
-        return 301 https://$SERVER_FRIENDICA;
+        return 301 http://$SERVER_FRIENDICA;
 }
   
+# Redirect connections from friendica.local to Tor hidden service yacy
 server {
   listen 80;
   server_name friendica.local;
   index index.php;
   root /var/www/friendica;
-  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
+  return 301 http://$SERVER_FRIENDICA;
   }
+
+# Main server for Tor hidden service friendica
+server {
+  listen 80;
+  server_name $SERVER_FRIENDICA;
+  index index.php;
+  root /var/www/friendica;
+
+  # php5-fpm configuration
+  location ~ \.php$ {
+  fastcgi_split_path_info ^(.+\.php)(/.+)$;
+  fastcgi_pass unix:/var/run/php5-fpm.sock;
+  fastcgi_index index.php;
+  include fastcgi_params;
+  }
+}
 " > /etc/nginx/sites-enabled/friendica 
 
 #server {
