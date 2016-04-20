@@ -47,7 +47,7 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
-#WTH many claimed they are open hardware but not at the end?
+#WTH many claimed they are open hardware but is bullshit?
  
  
 
