@@ -49,7 +49,7 @@ A Creative Commons (CC) license is one of several public copyright licenses that
 
 #WTH many claimed they are open hardware but is bullshit?
  
-#WTH is the definiton of really open hardware?
+#WTH is the definition of a real (guaranteed) open hardware?
 
 #So finally what means full libre really something free of backdoors, binry blobs and fully open?
 
