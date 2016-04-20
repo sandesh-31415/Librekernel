@@ -49,7 +49,9 @@ A Creative Commons (CC) license is one of several public copyright licenses that
 
 #WTH many claimed they are open hardware but is bullshit?
  
- 
+#WTH is the definiton of really open hardware?
+
+#So finally what means full libre hardware and libre software? or better what is really something free of backdoor?
 
 #WTH is Librerouter?
 
