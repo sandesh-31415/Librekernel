@@ -6,20 +6,14 @@
 
 
 - **Sniffers**: those that are checking your traffic
-- **Government spy/monitoring institutions passive actions**: like passive bots collecting general data from worldwide, if they target  anyone... that is another story.
+- **Government spy/monitoring institutions passive actions**: collecting general data from worldwide.
 - **Librerouter evil nodes**:  a box Owned for those _bad people_.
 - **Malicious internet nodes**: better known as _blackbones_.
 - **Your internet provider (ISP)**: if they would trying anything with your data.
 
-
-
 ![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
 
-
-
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
-
-
 
 ![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
 ![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
@@ -48,6 +42,8 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
 #WTH many claimed they are open hardware but is bullshit?
+
+
  
 #WTH is the definition of a real (guaranteed) open hardware?
 
