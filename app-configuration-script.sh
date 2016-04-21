@@ -811,12 +811,10 @@ echo "server {
 }
 " > /etc/nginx/sites-enabled/communitycube
 
-
-
 # Configuring Yacy virtual host
 echo "Configuring Yacy virtual host ..."
 
-# Getting Tor hidden service yacy name
+# Getting Tor hidden service yacy hostname
 SERVER_YACY="$(cat /var/lib/tor/hidden_service/yacy/hostname 2>/dev/null)"
 
 # Generating keys and certificates for https connection
@@ -866,12 +864,10 @@ server {
 }
 " > /etc/nginx/sites-enabled/yacy
 
-
-
 # Configuring Friendica virtual host
 echo "Configuring Friendica virtual host ..."
 
-# Getting Tor hidden service friendica name
+# Getting Tor hidden service friendica hostname
 SERVER_FRIENDICA="$(cat /var/lib/tor/hidden_service/friendica/hostname 2>/dev/null)"
 
 echo "
@@ -884,14 +880,14 @@ server {
   return 301 http://$SERVER_FRIENDICA;
 }
 
-# Redirect connections from 10.0.0.252 to Tor hidden service yacy
+# Redirect connections from 10.0.0.252 to Tor hidden service friendica
 server {
         listen 10.0.0.252:80;
         server_name _;
         return 301 http://$SERVER_FRIENDICA;
 }
   
-# Redirect connections from friendica.local to Tor hidden service yacy
+# Redirect connections from friendica.local to Tor hidden service friendica
 server {
   listen 80;
   server_name friendica.local;
@@ -993,25 +989,68 @@ server {
 #  }
 #}
 
-
-
 # Configuring Owncloud virtual host
+echo "Configuring Owncloud virtual host ..."
 
+# Getting Tor hidden service owncloud hostname
+SERVER_OWNCLOUD="$(cat /var/lib/tor/hidden_service/owncloud/hostname 2>/dev/null)"
 
-#SERVER_OWNCLOUD=`cat /var/lib/tor/hidden_service/owncloud/hostname`
-#echo "server {
+echo "
+# Redirect connections from port 7070 to Tor hidden service owncloud port 80
+server {
+  listen 7070;
+  server_name $SERVER_OWNCLOUD;
+  index index.php;
+  root /var/www/owncloud;
+  return 301 http://$SERVER_OWNCLOUD;
+}
+
+# Redirect connections from 10.0.0.253 to Tor hidden service owncloud
+server {
+        listen 10.0.0.253:80;
+        server_name _;
+        return 301 http://$SERVER_OWNCLOUD;
+}
+  
+# Redirect connections from owncloud.local to Tor hidden service owncloud
+server {
+  listen 80;
+  server_name owncloud.local;
+  index index.php;
+  root /var/www/owncloud;
+  return 301 http://$SERVER_OWNCLOUD;
+  }
+
+# Main server for Tor hidden service owncloud
+server {
+  listen 80;
+  server_name $SERVER_OWNCLOUD;
+  index index.php;
+  root /var/www/owncloud;
+
+  # php5-fpm configuration
+  location ~ \.php$ {
+  fastcgi_split_path_info ^(.+\.php)(/.+)$;
+  fastcgi_pass unix:/var/run/php5-fpm.sock;
+  fastcgi_index index.php;
+  include fastcgi_params;
+  }
+}
+" > /etc/nginx/sites-enabled/owncloud
+
+#  server {
 #  listen 80;
 #  server_name $SERVER_OWNCLOUD;
 #  return 301 https://\$server_name\$request_uri;
 #  }
 #  
 #server {
-#        listen 10.0.0.253;
-#        server_name _;
-#        return 301 https://$SERVER_OWNCLOUD;
+#  listen 10.0.0.253;
+#  server_name _;
+#  return 301 https://$SERVER_OWNCLOUD;
 #}
 #
-# server {
+#server {
 #  listen 80;
 #  server_name owncloud.local;
 #  return 301 https://$SERVER_OWNCLOUD\$request_uri;
