@@ -98,18 +98,11 @@ www.vub.ac.be/LSTS/pub/Dehert/481.pdf
      • - Forcing encryption for all communications and data storing in the backends.
      • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
 
-
-
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
 
 #HOW to use it?
 
@@ -119,21 +112,12 @@ www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
  • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
- 
- Place here graphs that shows same thing but with a virtual machine
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
  
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
 
 #Who? Why? What? How? When?
 
@@ -146,7 +130,16 @@ A unique combination of open hardware, GNU software and training book you can ac
 • It is the future Data Center resilience infrastructure.
 • Now, you, because the Hardware ARM is going Open
 
+##Operating System
 
+ • https://wiki.parabola.nu/Main_Page
+ • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
+ • https://www.parabola.nu/news/robofun-sponsors-parabola-arm-port-with-a-bbb-board/
+ • https://www.parabola.nu/packages/?q=uboot
+ • https://lists.parabola.nu/pipermail/dev/2016-March/003848.html
+ • https://labs.parabola.nu/
+ • https://projects.parabola.nu/
+ • https://lists.parabola.nu/mailman/listinfo/dev
 
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![opensourceversugnu](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
@@ -166,16 +159,9 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![trustzone](https://cloud.githubusercontent.com/assets/13025157/14445982/c1003e30-0051-11e6-9ad5-8884d27bc1b9.jpg)
 ![flashdays_new1](https://cloud.githubusercontent.com/assets/13025157/14445986/c1113ece-0051-11e6-883d-57e64bc70daf.png)
 
-
-
-
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
 
 #How it will protect me?
 
@@ -192,20 +178,9 @@ https://github.com/Librerouter/debian-autoscript/issues
 
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
-
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
-
-
-
 
 #Services running in Librerouter ## 
 
