@@ -20,12 +20,8 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 ![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
 
-
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
 
 #WTH is Linux-libre?
 
@@ -37,13 +33,26 @@ Software components with no available source code are called binary blobs and, a
 
 It consists of physical artifacts of technology designed and offered by the open design movement. Both free and open-source software (FOSS) as well as open-source hardware is created by this open-source culture movement and applies a like concept to a variety of components. It is sometimes, thus, referred to as FOSH (free and open-source hardware). The term usually means that information about the hardware is easily discerned so that others can make it - coupling it closely to the maker movement.[1] Hardware design (i.e. mechanical drawings, schematics, bills of material, PCB layout data, HDL source code[2] and integrated circuit layout data), in addition to the software that drives the hardware, are all released under free/libre terms. The original sharer gains feedback and potentially improvements on the design from the FOSH community. There is now significant evidence that such sharing can drive a high return on investment for investors.
 
+###LGPL
+
 The GNU Lesser General Public License (LGPL) is a free software license published by the Free Software Foundation (FSF). The license allows developers and companies to use and integrate software released under the LGPL into their own (even proprietary) software without being required by the terms of a strong copyleft license to release the source code of their own components. The license only requires software under the LGPL be modifiable by end users via source code availability. For proprietary software, code under the LGPL is usually used in the form of a shared library such as a DLL, so that there is a clear separation between the proprietary and LGPL components. The LGPL is primarily used for software libraries, although it is also used by some stand-alone applications.
+
+###CC
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
 #WTH many claimed they are open hardware but is bullshit?
 
+The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls,chipset restringtions and questions about missing parts of info and doc:
 
+- ARM Truszone
+- Controllers in Chipset of the network nics is not opensource
+- No source code.
+- Binary Blobs in the ROMs or bROM.
+- No documentation-
+- No schematics
+- Neeed sign binary for bein accepted by the board.
+- Not accept free booting.
  
 #WTH is the definition of a real (guaranteed) open hardware?
 
