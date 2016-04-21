@@ -56,12 +56,35 @@ The market is full of crowdfunded project where the funder claimed the project i
  
 #WTH is the definition of a real (guaranteed) open hardware?
 
+
+
 #So finally what means full libre really something free of backdoors, binry blobs and fully open?
 
-#What are certification and licenses for openes and opensource/hardware?
+#What are the license/certification for show openes in the hardware?
 
-#What are the certifications ofr privacy and security?
+http://www.ohwr.org/documents/294
+http://www.gnu.org/licenses/quick-guide-gplv3.en.html
+http://www.tapr.org/OHL
+http://www.opengroup.org/accreditation/o-ttps
+http://www.fsf.org/resources/hw/endorsement/respects-your-freedom
 
+
+#What are the certifications for privacy and security?
+
+www.vub.ac.be/LSTS/pub/Dehert/481.pdf
+
+https://www.truste.com/business-products/dpm-services/
+https://www.european-privacy-seal.eu/EPS-en/Certification
+http://www.iso.org/iso/catalogue_detail.htm?csnumber=61498
+http://www.tuv.com/en/corporate/business_customers/information_security_cw/strategic_information_security/data_protection_certification/data_privacy_certification.html
+http://www.export.gov/safeharbor/
+https://safeharbor.export.gov/swisslist.aspx
+https://www.tuvit.de/en/privacy/uld-privacy-seal-1075.htm
+http://www.prismintl.org/Privacy-Certification/privacy/about-the-privacy-plus-program.html
+https://www.esrb.org/privacy/
+
+
+#What are the certifications for security?
 
 #WTH is Librerouter?
 
