@@ -54,6 +54,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - Neeed sign binary for bein accepted by the board.
 - Not accept free booting.
  
+
 #WTH is the definition of a real (guaranteed) open hardware?
 
 
@@ -140,7 +141,10 @@ A unique combination of open hardware, GNU software and training book you can ac
  • https://labs.parabola.nu/
  • https://projects.parabola.nu/
  • https://lists.parabola.nu/mailman/listinfo/dev
-
+ • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
+ • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
+ •
+ 
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![opensourceversugnu](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
 ![parabola](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
