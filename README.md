@@ -144,9 +144,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 -  • https://projects.parabola.nu/
 -  • https://lists.parabola.nu/mailman/listinfo/dev
 -  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
--  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
@@ -157,20 +155,18 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
  - Decentralizing the services (doing impossible to apply big data to you )
- 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
-
-
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 https://github.com/Librerouter/debian-autoscript/issues
-
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 #Services running in Librerouter
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
-|Name|DecentralizedAuthority|AnonymousIN|encryptclientside|encryptserverside|PublicPrivateF2F|WANIPenumeration|
-|:---|:---|:---|:---|:---|:---|:---|
+|-|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
 |OwnCloud|yes|not|not|yes|PrivateFederations|Possible|
 |Mailpile|yes|not|4096DSAelg|not|Private|yes|
 |Diaspora|yes|not|not|EncFS|publics|yes|
@@ -179,10 +175,9 @@ https://github.com/Librerouter/debian-autoscript/issues
 |TahoeI2p|yes|yes|yes|Comingfromowncloud|public|no|
 |ProsodyTOR|yes|not|yes|not|public|not|
 |RTCio|yes|not|Partially|not|publics|yes|
-|Name|DecentralizedAuthority|AnonymousIN|encryptclientside|encryptserverside|PublicPrivateF2F|WANIPenumeration|
 |TOR|no|yes|yes|no|yes|public|no|
 |I2P|no|yes|yes|no|yes|private|yes|
-|:---|:---|:---|:---|:---|:---|:---|
+
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
