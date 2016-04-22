@@ -58,8 +58,8 @@ The market is full of crowdfunded project where the funder claimed the project i
 #WTH is the definition of a real (guaranteed) open hardware?
 
 
+#WTH means full libre really something free of backdoors=binary-blobs and fully open?
 
-#So finally what means full libre really something free of backdoors, binry blobs and fully open?
 
 #What are the license/certification for show openes in the hardware?
 
@@ -174,8 +174,8 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 
  - Decentralizing the services (doing impossible to apply big data to you )
- - 
- ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
+ 
+![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
 
 
 https://github.com/Librerouter/debian-autoscript/issues
@@ -186,7 +186,7 @@ https://github.com/Librerouter/debian-autoscript/issues
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#Services running in Librerouter ## 
+#Services running in Librerouter
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
@@ -196,23 +196,18 @@ https://github.com/Librerouter/debian-autoscript/issues
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
 
 
-^Finalist ^Decentralized ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ OpenAuth ^ encryption ^
-
-|OwnCloud      |no|no|no|yes|no public/no anonymous|no|no|no|AES-256|
-|Mailpile      |no|no|yes|no (direct from encryption schema)|no public/no anonymous|no|no|no|4096bit DSA/elg|
-|Diaspora      |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
-|Friendica     |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
-|YaCy          |D2|yes|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
+| Name | Decentralized-Authority | AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
+|OwnCloud |no|no|no|yes|no public/no anonymous|no|no|no|AES-256|
+|Mailpile |no|no|yes|no (direct from encryption schema)|no public/no anonymous|no|no|no|4096bit DSA/elg|
+|Diaspora |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
+|Friendica |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
+|YaCy | D2|yes|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
 |Tahoe-LAFS I2P|D1|yes|yes|no (direct encryption from clientside)|yes|public and anonymous|no|no|AES/CTR combined (by XOR) with XSalsa20|
 |Prosody       |D2|no|yes (OTR)|nothing to manage (local DB only has usernames&pass)|public/not anonymous|no|no|no|[[https://en.wikipedia.org/wiki/Off-the-Record_Messaging|128bit AES symmetric-key + 1536bit group Diffie–Hellman key exchange + SHA-1 hash function]]|
 |RTC.io/WebRTC |no|no|yes ([[http://stackoverflow.com/questions/23085335/is-webrtc-traffic-over-turn-end-to-end-encrypted|even with TURN server]])|no|no|no|no|no|DTLS|
-
-^Net ^Decentralized/Authorityless ^Anonymous ^ encrypted clientside ^ encrypted serverside ^ Public ^ Private ^F2F ^ Can list ALL external IP users ^
-
-|TOR  |no|yes      |yes|no|yes|no|no|no|
-|I2P  |no|yes  |yes|no|yes|no|no|yes [[https://thetinhat.com/articles/2015/i2p-survey.html|i2p-survey]]|
-|CjDNS|yes|no      |yes|no|yes|yes|yes|no|
-|VPN  |no|Partial|yes|no|no|yes|yes|no|
+|Decentralized-Authority| AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
+|TOR  | no | yes | yes | no | yes |no | no | no |
+|I2P  | no | yes | yes | no | yes | no | no | yes |
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -237,6 +232,7 @@ In our decentralized system your valuable information is encrypted three times:
 2. In the collaboration tool before the data goes to the hard disk
 3. When backing up to the grid, the slices will also be encrypted. 
 4. 
+
 ![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
 
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
@@ -262,18 +258,6 @@ You control your incoming and outgoing posts, and push your posts from a single 
 
 With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
 ![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
-
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
