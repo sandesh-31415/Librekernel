@@ -197,15 +197,15 @@ https://github.com/Librerouter/debian-autoscript/issues
 
 
 | Name | Decentralized-Authority | AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
-|OwnCloud |no|no|no|yes|no public/no anonymous|no|no|no|AES-256|
-|Mailpile |no|no|yes|no (direct from encryption schema)|no public/no anonymous|no|no|no|4096bit DSA/elg|
-|Diaspora |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
-|Friendica |D2|no|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
-|YaCy | D2|yes|no|no. Stored data can be protected with EncFS (plain readable on runtime)|public/not anonymous|no|no|no|no|
-|Tahoe-LAFS I2P|D1|yes|yes|no (direct encryption from clientside)|yes|public and anonymous|no|no|AES/CTR combined (by XOR) with XSalsa20|
-|Prosody       |D2|no|yes (OTR)|nothing to manage (local DB only has usernames&pass)|public/not anonymous|no|no|no|[[https://en.wikipedia.org/wiki/Off-the-Record_Messaging|128bit AES symmetric-key + 1536bit group Diffie–Hellman key exchange + SHA-1 hash function]]|
-|RTC.io/WebRTC |no|no|yes ([[http://stackoverflow.com/questions/23085335/is-webrtc-traffic-over-turn-end-to-end-encrypted|even with TURN server]])|no|no|no|no|no|DTLS|
-|Decentralized-Authority| AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
+|OwnCloud | Yes | no | not yet | yes | Private Federations | Possible |
+|Mailpile | Yes | no | yes 4096DSA/elg     | no(direct from encryption schema) | Private | Yes |
+|Diaspora | Yes | no | no | EncFS | public/not anonymous | Yes |
+|Friendica | Yes | no | no | EncFS | public/not anonymous | Yes |
+|YaCy | Yes | no  | EncFS  | public/not anonymous | Yes |
+|Tahoe-LAFSoverI2pmultipleintroducers | Yes | yes | yes | Comingfromowncloud  | public and anonymous | no | 
+|Prosody       |  Yes | no | yes (OTR) | nothing to manage (local DB only has usernames&pass)| public/notanonymous| no |
+|RTC.io/WebRTC | Yes | no | Partially | TURNserver | Not |
+| Name |Decentralized-Authority| AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
 |TOR  | no | yes | yes | no | yes |no | no | no |
 |I2P  | no | yes | yes | no | yes | no | no | yes |
 
