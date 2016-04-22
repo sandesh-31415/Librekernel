@@ -124,26 +124,26 @@ www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 
 A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks:
 
-• Open source comunity.
-• Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
-• Easy to use for all people with zero tech knowledge.
-• Plug and play system to make your traffic untraceable.
-• It is the future Data Center resilience infrastructure.
-• Now, you, because the Hardware ARM is going Open
+- • Open source comunity.
+- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
+- • Easy to use for all people with zero tech knowledge.
+- • Plug and play system to make your traffic untraceable.
+- • It is the future Data Center resilience infrastructure.
+- • Now, you, because the Hardware ARM is going Open
 
-##Operating System
+##Operating System Dragora Linux Libre Kernel Archarm
 
- • https://wiki.parabola.nu/Main_Page
- • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
- • https://www.parabola.nu/news/robofun-sponsors-parabola-arm-port-with-a-bbb-board/
- • https://www.parabola.nu/packages/?q=uboot
- • https://lists.parabola.nu/pipermail/dev/2016-March/003848.html
- • https://labs.parabola.nu/
- • https://projects.parabola.nu/
- • https://lists.parabola.nu/mailman/listinfo/dev
- • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
- • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
- •
+-  • https://wiki.parabola.nu/Main_Page
+-  • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
+-  • https://www.parabola.nu/news/robofun-sponsors-parabola-arm-port-with-a-bbb-board/
+-  • https://www.parabola.nu/packages/?q=uboot
+-  • https://lists.parabola.nu/pipermail/dev/2016-March/003848.html
+-  • https://labs.parabola.nu/
+-  • https://projects.parabola.nu/
+-  • https://lists.parabola.nu/mailman/listinfo/dev
+-  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
+-  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
+-  •
  
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![opensourceversugnu](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
