@@ -243,6 +243,9 @@ EOF
 EOF
 
 fi
+
+# Restarting network configuration
+/etc/init.d/networking restart
 }
 
 
@@ -1139,7 +1142,7 @@ service nginx restart
 
 check_root			# Checking user
 get_variables			# Getting variables
-get_interfaces			# Getting external and internal interfaces
+#get_interfaces			# Getting external and internal interfaces
 configure_hosts			# Configurint hostname and /etc/hosts
 configure_interfaces		# Configuring external and internal interfaces
 

@@ -303,9 +303,9 @@ if [ $PLATFORM = "D7" ]; then
 	deb.torproject.org-keyring u-boot-tools console-tools \
 	2>&1 > /tmp/apt-get-install.log
 elif [ $PLATFORM = "D8" ]; then
-	apt-get install -y privoxy squid3 nginx php5-common php5-fpm \
-	php5-cli php5-json php5-mysql php5-curl php5-intl php5-mcrypt \
-	php5-memcache php-xml-parser php-pear unbound owncloud \
+	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
+        php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
+        php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
 	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
@@ -414,8 +414,9 @@ check_requirements()
         fi
 
 	# Checking free space. 
-	min_storage=16
-	if [ "$STORAGE" -lt "$min_storage" ]; then
+	MIN_STORAGE=16
+	STORAGE2=`echo $STORAGE | awk -F. {'print $1'}`
+	if [ $STORAGE2 -lt $MIN_STORAGE ]; then
 		echo "You need at least 16GB of free space. Exiting"
 		exit 6
 	fi
@@ -465,7 +466,7 @@ get_dhcp_and_Internet()
 	# and save Internet side network interface name in 
 	# EXT_INTERFACE variable
 	if ping -c1 8.8.8.8 >/dev/null 2>/dev/null; then
-		EXT_INTERFACE=`route -n | awk {'print $1 " " $8'} | grep "0.0.0.0" | awk {'print $2'}`
+		EXT_INTERFACE=`route -n | awk {'print $1 " " $8'} | grep "0.0.0.0" | awk {'print $2'} | sed -n '1p'`
 		echo "Internet connection established on interface $EXT_INTERFACE"
 	else
 		# Checking eth0 for Internet connection
@@ -497,8 +498,7 @@ get_dhcp_and_Internet()
 		fi
 	fi
 	# Getting internal interface name
-        INT_INTERFACE=`ls /sys/class/net/ | grep -w 'eth0\|eth1\|wlan0\|wlan1' \
-	| grep -v $EXT_INTERFACE | sed -n '1p'`
+        INT_INTERFACE=`ls /sys/class/net/ | grep -w 'eth0\|eth1\|wlan0\|wlan1' | grep -v "$EXT_INTERFACE" | sed -n '1p'`
         echo "Internal interface: $INT_INTERFACE"
 }
 
@@ -593,7 +593,6 @@ Int_interface: $INT_INTERFACE" \
 check_root    	# Checking user 
 get_platform  	# Getting platform info
 get_hardware  	# Getting hardware info
-save_variables	# Save detected variables
 # ----------------------------------------------
 # If script detects Physical/Virtual machine
 # then next steps will be
@@ -604,10 +603,11 @@ save_variables	# Save detected variables
 # 7. Download and Install packages
 # ----------------------------------------------
 if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then 
-	check_requirements      # Checking requirements for Physical or Virtual machine
+#	check_requirements      # Checking requirements for Physical or Virtual machine
         get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and connect to Internet
 	configure_repositories	# Prepare and update repositories
 	install_packages       	# Download and install packages	
+        save_variables	        # Save detected variables
 
 # ---------------------------------------------
 # If script detects odroid board then next 
