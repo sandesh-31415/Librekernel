@@ -132,6 +132,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 - • Now, you, because the Hardware ARM is going Open
 
 ##Operating System Dragora Linux Libre Kernel Archarm
+![parabola](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
 
 -  • https://wiki.parabola.nu/Main_Page
 -  • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
@@ -143,11 +144,12 @@ A unique combination of open hardware, GNU software and training book you can ac
 -  • https://lists.parabola.nu/mailman/listinfo/dev
 -  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
 -  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
--  •
+
+
  
 ![freedo svg](https://cloud.githubusercontent.com/assets/13025157/14445156/25347fb2-004b-11e6-90d0-8de7b35699c4.png)
 ![opensourceversugnu](https://cloud.githubusercontent.com/assets/13025157/14445214/8d915b20-004b-11e6-9eb3-43397df14c1e.png)
-![parabola](https://cloud.githubusercontent.com/assets/13025157/14445473/87fba09c-004d-11e6-9870-7f82964fe7fa.png)
+
 ![reversing-and-auditing-androids-proprietary-bits-13-638](https://cloud.githubusercontent.com/assets/13025157/14445912/574ef8c8-0051-11e6-80ac-a1f6177fbf99.jpg)
 ![boot](https://cloud.githubusercontent.com/assets/13025157/14445975/c0dfb9da-0051-11e6-85f3-11909bc981cd.jpg)
 ![architecture-of-tee copy](https://cloud.githubusercontent.com/assets/13025157/14445976/c0e30e3c-0051-11e6-9737-47e787df430e.png)
@@ -161,7 +163,6 @@ A unique combination of open hardware, GNU software and training book you can ac
 ![uboot-presentation-2013-6-638](https://cloud.githubusercontent.com/assets/13025157/14445999/c143d848-0051-11e6-9dee-8a5fabcf8e3e.jpg)
 ![ykpjm jpg-600x303](https://cloud.githubusercontent.com/assets/13025157/14445998/c1433000-0051-11e6-83b5-1e594ba93aca.png)
 ![trustzone](https://cloud.githubusercontent.com/assets/13025157/14445982/c1003e30-0051-11e6-9ad5-8884d27bc1b9.jpg)
-![flashdays_new1](https://cloud.githubusercontent.com/assets/13025157/14445986/c1113ece-0051-11e6-883d-57e64bc70daf.png)
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
