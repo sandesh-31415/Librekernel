@@ -166,8 +166,10 @@ https://github.com/Librerouter/debian-autoscript/issues
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
+
 |app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
-|OwnCloud|yes|not|not|yes|PrivateFederations|Possible|
+|:---|:---|:---|:---|:---|:---|:---|
+|OwnCloud|yes|not|not|yes|PrivtFederation|yes|
 |Mailpile|yes|not|4096DSAelg|not|Private|yes|
 |Diaspora|yes|not|not|EncFS|publics|yes|
 |Friendica|yes|not|not|EncFS|publics|yes|
