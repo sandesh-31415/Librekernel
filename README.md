@@ -190,26 +190,25 @@ https://github.com/Librerouter/debian-autoscript/issues
 
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
-
+|Name|Decentralized-Authority|AnonymousIN|encrypted-clientside|encrypted-serverside|Public/Private/F2F|WANIP-enumeration|
+|OwnCloud|Yes|no|not yet|yes|Private Federations|Possible|
+|Mailpile|Yes|no|yes 4096DSA/elg    |no(direct from encryption schema)|Private|Yes|
+|Diaspora|Yes|no|no|EncFS|public/not anonymous|Yes|
+|Friendica|Yes|no|no|EncFS|public/not anonymous|Yes|
+|YaCy|Yes|no |EncFS |public/not anonymous|Yes|
+|Tahoe-LAFSoverI2pmultipleintroducers|Yes|yes|yes|Comingfromowncloud |public and anonymous|no|
+|Prosody      | Yes|no|yes (OTR)|nothing to manage (local DB only has usernames&pass)|public/notanonymous|no|
+|RTC.io/WebRTC|Yes|no|Partially|TURNserver|Not|
+|Name|Decentralized-Authority|AnonymousIN|encrypted-clientside|encrypted-serverside|Public/Private/F2F|WANIP-enumeration|
+|TOR |no|yes|yes|no|yes|no|no|no|
+|I2P |no|yes|yes|no|yes|no|no|yes|
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
-
-
-| Name | Decentralized-Authority | AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
-|OwnCloud | Yes | no | not yet | yes | Private Federations | Possible |
-|Mailpile | Yes | no | yes 4096DSA/elg     | no(direct from encryption schema) | Private | Yes |
-|Diaspora | Yes | no | no | EncFS | public/not anonymous | Yes |
-|Friendica | Yes | no | no | EncFS | public/not anonymous | Yes |
-|YaCy | Yes | no  | EncFS  | public/not anonymous | Yes |
-|Tahoe-LAFSoverI2pmultipleintroducers | Yes | yes | yes | Comingfromowncloud  | public and anonymous | no | 
-|Prosody       |  Yes | no | yes (OTR) | nothing to manage (local DB only has usernames&pass)| public/notanonymous| no |
-|RTC.io/WebRTC | Yes | no | Partially | TURNserver | Not |
-| Name |Decentralized-Authority| AnonymousIN | encrypted-clientside | encrypted-serverside | Public/Private/F2F | WANIP-enumeration |
-|TOR  | no | yes | yes | no | yes |no | no | no |
-|I2P  | no | yes | yes | no | yes | no | no | yes |
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
