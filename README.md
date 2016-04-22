@@ -53,7 +53,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - No schematics
 - Neeed sign binary for bein accepted by the board.
 - Not accept free booting.
-- 
+
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
 
 #WTH is the definition of a real (guaranteed) open hardware?
