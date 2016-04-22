@@ -79,7 +79,7 @@ www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 - http://www.iso.org/iso/catalogue_detail.htm?csnumber=61498
 - http://www.tuv.com/en/corporate/business_customers/information_security_cw/strategic_information_security/data_protection_certification/data_privacy_certification.html
 - http://www.export.gov/safeharbor/
-- - https://safeharbor.export.gov/swisslist.aspx
+- https://safeharbor.export.gov/swisslist.aspx
 - https://www.tuvit.de/en/privacy/uld-privacy-seal-1075.htm
 - http://www.prismintl.org/Privacy-Certification/privacy/about-the-privacy-plus-program.html
 - https://www.esrb.org/privacy/
@@ -167,25 +167,15 @@ https://github.com/Librerouter/debian-autoscript/issues
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
 |app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
-
 |OwnCloud|yes|not|not|yes|PrivateFederations|Possible|
-
 |Mailpile|yes|not|4096DSAelg|not|Private|yes|
-
 |Diaspora|yes|not|not|EncFS|publics|yes|
-
 |Friendica|yes|not|not|EncFS|publics|yes|
-
 |YaCy|yes|not|EncFS|public|yes|no|
-
 |TahoeI2p|yes|yes|yes|owncloud|public|no|
-
 |ProsodyTOR|yes|not|yes|not|public|not|
-
 |RTCio|yes|not|Partially|not|publics|yes|
-
 |TOR|no|yes|no|maybe|public|no|
-
 |I2P|yes|yes|no|yes|private|yes|
 |:---|:---|:---|:---|:---|:---|:---|
 
