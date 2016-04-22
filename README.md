@@ -264,19 +264,18 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 ## Libre or not libre libraries in the App## 
 
-|Name|Decentralized-Authority|AnonymousIN|encrypted-clientside|encrypted-serverside|Public/Private/F2F|WANIP-enumeration|
+|Name|DecentralizedAuthority|AnonymousIN|encryptclientside|encryptserverside|PublicPrivateF2F|WANIPenumeration|
 |:---|:---|:---|:---|:---|:---|:---|
-|OwnCloud|Yes|no|not yet|yes|Private Federations|Possible|
-|Mailpile|Yes|no|yes 4096DSA/elg |no(direct from encryption schema)|Private|Yes|
-|Diaspora|Yes|no|no|EncFS|public/not anonymous|Yes|
-|Friendica|Yes|no|no|EncFS|public/not anonymous|Yes|
-|YaCy|Yes|no |EncFS |public/not anonymous|Yes|
-|Tahoe-LAFSoverI2pmultipleintroducers|Yes|yes|yes|Comingfromowncloud |public and anonymous|no|
-|Prosody| Yes|no|yes (OTR)|nothing to manage (local DB only has usernames&pass)|public/notanonymous|no|
-|RTC.io/WebRTC|Yes|no|Partially|TURNserver|Not|
-|Name|Decentralized-Authority|AnonymousIN|encrypted-clientside|encrypted-serverside|Public/Private/F2F|WANIP-enumeration|
-|TOR |no|yes|yes|no|yes|no|no|no|
-|I2P |no|yes|yes|no|yes|no|no|yes|
+|OwnCloud|Yes|no|notyet|yes|PrivateFederations|Possible|
+|Mailpile|Yes|no|yes4096DSAelg|no|Private|Yes|
+|Diaspora|Yes|no|no|EncFS|publicnotanonymous|Yes|
+|Friendica|Yes|no|no|EncFS|publicnotanonymous|Yes|
+|YaCy|Yes|no |EncFS |publicnotanonymous|Yes|
+|TahoeI2P|Yes|yes|yes|Comingfromowncloud|publicanonymous|no|
+|ProsodyTOR|Yes|Yes|OTR|dangerous|notanonymous|no|
+|RTCio|Yes|no|Partially|TURNserver|Not|yes|
+|TOR|no|yes|yes|no|yes|no|yes|
+|I2P|no|yes|yes|no|yes|no|yes|
 
 ## Software APPs and their Dependencies Status 
 
