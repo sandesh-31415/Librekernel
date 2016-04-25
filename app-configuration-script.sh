@@ -472,8 +472,19 @@ SocksBindAddress 127.0.0.1 # accept connections only from localhost
 AllowUnverifiedNodes middle,rendezvous
 #Log notice syslog" >>  /etc/tor/torrc
 
+sleep 10
 service tor restart
-sleep 2
+
+t=0
+while [ $t -lt 1 ]
+do
+ if [ -e "/var/lib/tor/hidden_service/yacy/hostname" ]; then
+   echo "Tor successfully configured"
+   t=1
+ else
+   sleep 1
+ fi
+done
 }
 
 
@@ -578,7 +589,7 @@ server:
 #    domain-insecure: "i2p"
     
     #Local destinations
-    local-zone: "local." static
+    local-zone: "local" static
     local-data: "communitycube.local. IN A 10.0.0.1"
     local-data: "i2p.local. IN A 10.0.0.1"
     local-data: "tahoe.local. IN A 10.0.0.1"' > /etc/unbound/unbound.conf
@@ -789,7 +800,7 @@ server {
 
 echo "server {
   listen 80;
-  server_name communitycube.local 10.0.0.1;
+  server_name communitycube.local;
   root /var/www/html;
   index index.html;
 
@@ -799,7 +810,7 @@ echo "server {
                location ~ ^/phpmyadmin/(.+\.php)$ {
                        try_files \$uri =404;
                        root /usr/share/;
-                       fastcgi_pass 127.0.0.1:9000;
+                       fastcgi_pass unix:/var/run/php5-fpm.sock;
                        fastcgi_index index.php;
                        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
                        include /etc/nginx/fastcgi_params;
@@ -858,13 +869,13 @@ location / {
 }
 
 # Redirect https connections to http
-server {
-        listen *:443 ssl;
-        server_name $SERVER_YACY;
-        ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
-        ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
-        return 301 http://$SERVER_YACY;
-}
+#server {
+#        listen *:443 ssl;
+#        server_name $SERVER_YACY;
+#        ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
+#        ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
+#        return 301 http://$SERVER_YACY;
+#}
 " > /etc/nginx/sites-enabled/yacy
 
 # Configuring Friendica virtual host
@@ -878,8 +889,6 @@ echo "
 server {
   listen 8181;
   server_name $SERVER_FRIENDICA;
-  index index.php;
-  root /var/www/friendica;
   return 301 http://$SERVER_FRIENDICA;
 }
 
@@ -894,8 +903,6 @@ server {
 server {
   listen 80;
   server_name friendica.local;
-  index index.php;
-  root /var/www/friendica;
   return 301 http://$SERVER_FRIENDICA;
   }
 
@@ -911,6 +918,7 @@ server {
   fastcgi_split_path_info ^(.+\.php)(/.+)$;
   fastcgi_pass unix:/var/run/php5-fpm.sock;
   fastcgi_index index.php;
+  fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
   include fastcgi_params;
   }
 }
@@ -1003,8 +1011,6 @@ echo "
 server {
   listen 7070;
   server_name $SERVER_OWNCLOUD;
-  index index.php;
-  root /var/www/owncloud;
   return 301 http://$SERVER_OWNCLOUD;
 }
 
@@ -1019,8 +1025,6 @@ server {
 server {
   listen 80;
   server_name owncloud.local;
-  index index.php;
-  root /var/www/owncloud;
   return 301 http://$SERVER_OWNCLOUD;
   }
 
@@ -1036,6 +1040,7 @@ server {
   fastcgi_split_path_info ^(.+\.php)(/.+)$;
   fastcgi_pass unix:/var/run/php5-fpm.sock;
   fastcgi_index index.php;
+  fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
   include fastcgi_params;
   }
 }
@@ -1126,8 +1131,11 @@ server {
 #   }
 #
 #  }
-#" > /etc/nginx/sites-enabled/owncloud 
+#" > /etc/nginx/sites-enabled/owncloud
 
+# Restarting Yacy php5-fpm and Nginx services 
+#service yacy restart
+#service php5-fpm restart
 service nginx restart
 }
 
