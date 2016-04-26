@@ -301,6 +301,8 @@ if [ $PLATFORM = "D7" ]; then
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
 	deb.torproject.org-keyring u-boot-tools console-tools \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
 	2>&1 > /tmp/apt-get-install.log
 elif [ $PLATFORM = "D8" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
@@ -315,6 +317,8 @@ elif [ $PLATFORM = "D8" ]; then
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
 	2>&1 > /tmp/apt-get-install.log
 elif [ $PLATFORM = "T7" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
@@ -329,6 +333,8 @@ elif [ $PLATFORM = "T7" ]; then
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
 	deb.torproject.org-keyring u-boot-tools console-setup \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
 	2>&1 > /tmp/apt-get-install.log
 
 fi
@@ -544,6 +550,21 @@ check_assemblance()
 
 }
 
+
+# ----------------------------------------------
+# Function to install mailpile package
+# ----------------------------------------------
+install_mailpile() {
+cd /opt/
+git clone --recursive https://github.com/mailpile/Mailpile.git
+cd /opt/Mailpile/
+virtualenv -p /usr/bin/python2.7 --system-site-packages mailpile-env
+cd /opt/Mailpile/
+#source mailpile-env/bin/activate
+pip install -r requirements.txt
+xterm -e 'cd /opt/Mailpile && ./mp' &
+}
+
 # ----------------------------------------------
 # This function saves variables in file, so
 # parametization script can read and use these 
@@ -607,6 +628,7 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
         get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and connect to Internet
 	configure_repositories	# Prepare and update repositories
 	install_packages       	# Download and install packages	
+	install_mailpile	# Install Mailpile package
         save_variables	        # Save detected variables
 
 # ---------------------------------------------
@@ -625,6 +647,8 @@ elif [ "$PROCESSOR" = "ARM" ]; then
 	check_internet
 	configure_repositories
 	install_packages
+	install_mailpile	# Install Mailpile package
+
 fi
 
 # ---------------------------------------------
