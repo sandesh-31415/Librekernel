@@ -833,13 +833,14 @@ SERVER_YACY="$(cat /var/lib/tor/hidden_service/yacy/hostname 2>/dev/null)"
 
 # Generating keys and certificates for https connection
 if [ ! -e /etc/ssl/nginx/$SERVER_YACY.key -o ! -e /etc/ssl/nginx/$SERVER_YACY.csr -o ! -e  /etc/ssl/nginx/$SERVER_YACY.crt ]; then
-    openssl genrsa -des3 -out /etc/ssl/nginx/$SERVER_YACY.key 2048
+    openssl genrsa -out /etc/ssl/nginx/$SERVER_YACY.key 2048
     openssl req -new -key /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.csr
     cp /etc/ssl/nginx/$SERVER_YACY.key /etc/ssl/nginx/$SERVER_YACY.org
     openssl rsa -in /etc/ssl/nginx/$SERVER_YACY.key.org -out /etc/ssl/nginx/$SERVER_YACY.key
     openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_YACY.csr -signkey /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.crt
 fi
 
+# Creating Yacy virtual host configuration
 echo "
 # Redirect yacy.local to Tor hidden service yacy
 server {
@@ -869,13 +870,13 @@ location / {
 }
 
 # Redirect https connections to http
-#server {
-#        listen *:443 ssl;
-#        server_name $SERVER_YACY;
-#        ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
-#        ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
-#        return 301 http://$SERVER_YACY;
-#}
+server {
+        listen *:443 ssl;
+        server_name $SERVER_YACY;
+        ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
+        ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
+        return 301 http://$SERVER_YACY;
+}
 " > /etc/nginx/sites-enabled/yacy
 
 # Configuring Friendica virtual host
@@ -884,6 +885,7 @@ echo "Configuring Friendica virtual host ..."
 # Getting Tor hidden service friendica hostname
 SERVER_FRIENDICA="$(cat /var/lib/tor/hidden_service/friendica/hostname 2>/dev/null)"
 
+# Creating friendica virtual host configuration
 echo "
 # Redirect connections from port 8181 to Tor hidden service friendica port 80
 server {
@@ -1006,6 +1008,7 @@ echo "Configuring Owncloud virtual host ..."
 # Getting Tor hidden service owncloud hostname
 SERVER_OWNCLOUD="$(cat /var/lib/tor/hidden_service/owncloud/hostname 2>/dev/null)"
 
+# Creating Owncloud virtual host configuration
 echo "
 # Redirect connections from port 7070 to Tor hidden service owncloud port 80
 server {
@@ -1133,9 +1136,62 @@ server {
 #  }
 #" > /etc/nginx/sites-enabled/owncloud
 
+# Configuring Mailpile virtual host
+echo "Configuring Mailpile virtual host ..."
+
+# Getting Tor hidden service mailpile hostname
+SERVER_MAILPILE="$(cat /var/lib/tor/hidden_service/mailpile/hostname 2>/dev/null)"
+
+# Generating certificates for mailpile ssl connection
+if [ ! -e /etc/ssl/nginx/$SERVER_MAILPILE.key -o ! -e  /etc/ssl/nginx/$SERVER_MAILPILE.crt ]; then
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/nginx/$SERVER_MAILPILE.key -out /etc/ssl/nginx/$SERVER_MAILPILE.crt
+fi
+
+# Creating mailpile virtual host configuration
+echo "
+# Redirect connections from 10.0.0.254 to Tor hidden service mailpile
+server {
+        listen 10.0.0.254;
+        server_name _;
+        return 301 http://$SERVER_MAILPILE;
+}   
+
+# Redirect connections from mailpile.local to Tor hidden service mailpile
+server {
+  listen 80;
+  server_name mailpile.local;
+  return 301 http://$SERVER_MAILPILE;
+  } 
+
+server {
+
+    # Mailpile Domain
+    server_name $SERVER_MAILPILE;
+    client_max_body_size 20m;
+
+    # Nginx port 80 and 443
+    listen 80;
+    listen 443 ssl;
+
+    # SSL Certificate File
+    ssl_certificate      /etc/ssl/nginx/$SERVER_MAILPILE.crt;
+    ssl_certificate_key  /etc/ssl/nginx/$SERVER_MAILPILE.key;
+    # Nginx Poroxy pass for mailpile
+    location / {
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header Host \$http_host;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_pass http://127.0.0.1:33411;
+        proxy_read_timeout  90;
+    }
+}
+" > /etc/nginx/sites-enabled/mailpile
+
 # Restarting Yacy php5-fpm and Nginx services 
-#service yacy restart
-#service php5-fpm restart
+echo "Restarting nginx ..."
+service yacy restart
+service php5-fpm restart
 service nginx restart
 }
 
