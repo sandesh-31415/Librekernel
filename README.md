@@ -244,18 +244,7 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 ## Libre or not libre libraries in the App## 
 
-|Name|DecentralizedAuthority|AnonymousIN|encryptclientside|encryptserverside|PublicPrivateF2F|WANIPenumeration|
-|:---|:---|:---|:---|:---|:---|:---|
-|OwnCloud|Yes|no|notyet|yes|PrivateFederations|Possible|
-|Mailpile|Yes|no|yes4096DSAelg|no|Private|Yes|
-|Diaspora|Yes|no|no|EncFS|publicnotanonymous|Yes|
-|Friendica|Yes|no|no|EncFS|publicnotanonymous|Yes|
-|YaCy|Yes|no |EncFS |publicnotanonymous|Yes|
-|TahoeI2P|Yes|yes|yes|Comingfromowncloud|publicanonymous|no|
-|ProsodyTOR|Yes|Yes|OTR|dangerous|notanonymous|no|
-|RTCio|Yes|no|Partially|TURNserver|Not|yes|
-|TOR|no|yes|yes|no|yes|no|yes|
-|I2P|no|yes|yes|no|yes|no|yes|
+https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
 
 ## Software APPs and their Dependencies Status 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
