@@ -493,7 +493,9 @@ If step 7 finished successfully then test.sh execution for odroid board is finis
 ####DNS Resolution Explained
 
 Librerouter needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
+![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
 
+![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
 
 #DNS petitions are processed in this way:
 
