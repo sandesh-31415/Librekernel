@@ -280,7 +280,7 @@ Comes with four network interfaces which are configured as follows: 2 Wireless a
 
 | Board | Board | Board | 
 |--------|--------|--------|
-| OrangePi  | OLinuXIno-LIME2 | ATSAMA5D3|
+| OrangePi | OLinuXInoLIME2 | ATSAMA5D3 |
 | ssd 8gbc10 | ssd 8gbc10| ssd 8gbc10 |
 | 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard |
 | HDD 1TB | HDD 1TB | HDD 1TB|
@@ -290,6 +290,7 @@ Comes with four network interfaces which are configured as follows: 2 Wireless a
 | usbto-Ledsblinkstick.com| usbto-Ledsblinkstick.com| usbto-Ledsblinkstick.com|
 | CASE | CASE |  CASE | 
 | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | RoboPeak RUSB or Waveshare | 
+|--------|--------|--------|
 
 ![ComponentsH](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
 
