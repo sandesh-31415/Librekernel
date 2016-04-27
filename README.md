@@ -197,7 +197,8 @@ https://www.cageos.org/index.php?page=apps
 
 ##Service Descentralized Indestructible Storage the RockStar app
 
- -Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
+Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
+
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
 • Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
 • Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
@@ -209,7 +210,7 @@ In our decentralized system your valuable information is encrypted three times:
 1. Before it even leaves your computer, in the web browser
 2. In the collaboration tool before the data goes to the hard disk
 3. When backing up to the grid, the slices will also be encrypted. 
-4. 
+
 
 ![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
 
@@ -266,11 +267,12 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 #Which hardware is needed to run Librerouter?
 
- - http://www.imx6rex.com/open-rex/
- - https://www.gitbook.com/book/bananapi/bpi-r1/details
- - https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
- - https://www.element14.com/community/community/designcenter/sama5d3xplained/blog/2014/04/25/debian-on-the-sama5d3-xplained
- - https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
+• https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
+• https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
+• http://es.aliexpress.com/store/product/Orange-Pi-PC-H3-Development-Board-Compatible-With-Raspberry-Pi-2/606998_32505848092.html?spm=2114.30011108.3.1.5pgwqj&ws_ab_test=searchweb201556_7,searchweb201602_5_10017_10005_10006_10034_10021_507_10022_10009_10020_10008_10018_10019,searchweb201603_6&btsid=44da590c-e01e-4e1e-8ad6-86da3183b30b
+• http://es.aliexpress.com/store/product/NEW-orange-pi-plus-Allwinner-A31s-Dual-Core-1GB-RAM-Open-source-development-board/1553371_32248189300.html
+
+    Chips based on ath9k driver for wifi (AR5416, AR5418, AR9160, AR9280, AR9220, AR9281, AR9283, AR9223, AR9287, AR9227, AR9380, AR9382, AR9390, AR9392, AR9462, AR9463, AR9485, AR9580, AR9582, AR9590, AR9592 or QCA9565) and Linux-libre's deblob file that contains the nonfree devices blacklist that should be avoided to use for the board designing.
 
  
 Comes with four network interfaces which are configured as follows: 2 Wireless and 2 Gigabyte Ethernet.
@@ -278,7 +280,7 @@ Comes with four network interfaces which are configured as follows: 2 Wireless a
 
 | Board | Board | Board | 
 |--------|--------|--------|
-| Banana bpir1  | OLinuXIno-LIME2 | ATSAMA5D3Xplained |
+| OrangePi  | OLinuXIno-LIME2 | ATSAMA5D3|
 | ssd 8gbc10 | ssd 8gbc10| ssd 8gbc10 |
 | 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard |
 | HDD 1TB | HDD 1TB | HDD 1TB|
