@@ -72,8 +72,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 #What are the certifications for privacy and security?
 
-www.vub.ac.be/LSTS/pub/Dehert/481.pdf
-
+- www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 - https://www.truste.com/business-products/dpm-services/
 - https://www.european-privacy-seal.eu/EPS-en/Certification
 - http://www.iso.org/iso/catalogue_detail.htm?csnumber=61498
@@ -86,6 +85,10 @@ www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 
 
 #What are the certifications for security?
+
+- http://www.dekra-certification.com/en/cyber-security
+- 
+- 
 
 #WTH is Librerouter?
 
