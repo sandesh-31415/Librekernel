@@ -86,15 +86,15 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 #What are the certifications for security?
 
-+- http://www.dekra-certification.com/en/cyber-security
-+- http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
-+- https://digital.premierit.com/all-about-iso-27001-certification
-+- https://www.apcon.com/apcon-certified-applications?gclid=CMrqsaCTt8wCFcQp0wodJokNQg
-+- http://www.cyberark.com/awards/
-+- https://czarsecurities.com/security-seal
-+- http://www.teletrust.de/en/itsmig/
-+- https://iapp.org/certify/cipt/
-+- http://www.cdse.edu/certification/become.html
+- http://www.dekra-certification.com/en/cyber-security
+- http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
+- https://digital.premierit.com/all-about-iso-27001-certification
+- https://www.apcon.com/apcon-certified-applications?gclid=CMrqsaCTt8wCFcQp0wodJokNQg
+- http://www.cyberark.com/awards/
+- https://czarsecurities.com/security-seal
+- http://www.teletrust.de/en/itsmig/
+- https://iapp.org/certify/cipt/
+- http://www.cdse.edu/certification/become.html
 
 #WTH is Librerouter?
 
