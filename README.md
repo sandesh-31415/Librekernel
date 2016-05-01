@@ -1,9 +1,6 @@
 ![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472862/85e49ae0-00f5-11e6-9591-163f1acd5098.png)
 
-
 #Why do we need this technology?
-
-
 
 - **Sniffers**: those that are checking your traffic
 - **Government spy/monitoring institutions passive actions**: collecting general data from worldwide.
@@ -13,10 +10,9 @@
 
 ![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
 
-[![4954401_orig](https://cloud.githubusercontent.com/assets/18449119/14941752/a885d1f2-0fa7-11e6-883a-317ceb75aff6.jpg)](https://www.youtube.com/watch?v=yzyafieRcWE)
-
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
 
+[![4954401_orig](https://cloud.githubusercontent.com/assets/18449119/14941752/a885d1f2-0fa7-11e6-883a-317ceb75aff6.jpg)](https://www.youtube.com/watch?v=yzyafieRcWE)
 ![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
 ![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
