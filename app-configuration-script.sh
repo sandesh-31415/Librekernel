@@ -167,6 +167,13 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 	iface $INT_INTERFACE:4 inet static
 	    address 10.0.0.254
 	    netmask 255.255.255.0
+	
+	#Webmin
+	auto $INT_INTERFACE:5
+	allow-hotplug $INT_INTERFACE:5
+	iface $INT_INTERFACE:5 inet static
+	    address 10.0.0.10
+	    netmask 255.255.255.0
 EOF
 	# Network interfaces configuration for board
 	elif [ "$PROCESSOR" = "ARM" ]; then
@@ -240,6 +247,14 @@ EOF
 	iface eth1:4 inet static
 	    address 10.0.0.254
 	    netmask 255.255.255.0
+	
+	#Webmin
+	auto eth1:5
+	allow-hotplug eth1:5
+	iface eth1:5 inet static
+	    address 10.0.0.10
+	    netmask 255.255.255.0
+
 EOF
 
 fi
@@ -592,7 +607,8 @@ server:
     local-zone: "local" static
     local-data: "communitycube.local. IN A 10.0.0.1"
     local-data: "i2p.local. IN A 10.0.0.1"
-    local-data: "tahoe.local. IN A 10.0.0.1"' > /etc/unbound/unbound.conf
+    local-data: "tahoe.local. IN A 10.0.0.1"
+    local-data: "webmin.local. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
 
     for i in $(ls /var/lib/tor/hidden_service/)
 	do
@@ -706,7 +722,7 @@ awk {'print "local-data: \"" $1 " IN A 10.0.0.254\""'} \
 
 # Creating  block domains list configuration file
 cat block_domain.list | \
-awk {'print "local-data: \"" $1 " IN A 10.0.0.1\""'} \
+awk {'print "local-data: \"" $1 " IN A 10.0.0.10\""'} \
 > /etc/unbound/block_domain.list.conf
 
 # Deleting old files
@@ -745,10 +761,17 @@ fi
 # ---------------------------------------------------------
 configure_friendica()
 {
+echo "Configuring Friendica local service ..."
 if [ ! -e  /var/lib/mysql/frndc ]; then
-  echo "Enter root mysql password"
-  echo "CREATE DATABASE frndc;
-grant all privileges on frndc.* to  friendica@localhost  identified by 'SuperPass8Wor1_2';" | mysql -u root -p
+
+  # Defining MySQL user and password variables
+  MYSQL_PASS="librerouter"
+  MYSQL_USER="root"
+
+  # Creating MySQL database frndc for friendica local service
+  echo "CREATE DATABASE frndc; grant all privileges on frndc.* to  \
+  friendica@localhost  identified by 'SuperPass8Wor1_2';" \
+  | mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" 
 fi
 
 if [ ! -e  /var/www/friendica ]; then
@@ -832,12 +855,13 @@ echo "Configuring Yacy virtual host ..."
 SERVER_YACY="$(cat /var/lib/tor/hidden_service/yacy/hostname 2>/dev/null)"
 
 # Generating keys and certificates for https connection
+echo "Generating keys and certificates for Yacy ..."
 if [ ! -e /etc/ssl/nginx/$SERVER_YACY.key -o ! -e /etc/ssl/nginx/$SERVER_YACY.csr -o ! -e  /etc/ssl/nginx/$SERVER_YACY.crt ]; then
-    openssl genrsa -out /etc/ssl/nginx/$SERVER_YACY.key 2048
-    openssl req -new -key /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.csr
-    cp /etc/ssl/nginx/$SERVER_YACY.key /etc/ssl/nginx/$SERVER_YACY.org
-    openssl rsa -in /etc/ssl/nginx/$SERVER_YACY.key.org -out /etc/ssl/nginx/$SERVER_YACY.key
-    openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_YACY.csr -signkey /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.crt
+    openssl genrsa -out /etc/ssl/nginx/$SERVER_YACY.key 2048 -batch
+    openssl req -new -key /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.csr -batch
+    cp /etc/ssl/nginx/$SERVER_YACY.key /etc/ssl/nginx/$SERVER_YACY.org 
+    openssl rsa -in /etc/ssl/nginx/$SERVER_YACY.key.org -out /etc/ssl/nginx/$SERVER_YACY.key 
+    openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_YACY.csr -signkey /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.crt 
 fi
 
 # Creating Yacy virtual host configuration
@@ -1143,8 +1167,9 @@ echo "Configuring Mailpile virtual host ..."
 SERVER_MAILPILE="$(cat /var/lib/tor/hidden_service/mailpile/hostname 2>/dev/null)"
 
 # Generating certificates for mailpile ssl connection
+echo "Generating keys and certificates for MailPile"
 if [ ! -e /etc/ssl/nginx/$SERVER_MAILPILE.key -o ! -e  /etc/ssl/nginx/$SERVER_MAILPILE.crt ]; then
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/nginx/$SERVER_MAILPILE.key -out /etc/ssl/nginx/$SERVER_MAILPILE.crt
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/nginx/$SERVER_MAILPILE.key -out /etc/ssl/nginx/$SERVER_MAILPILE.crt -batch
 fi
 
 # Creating mailpile virtual host configuration
@@ -1187,6 +1212,33 @@ server {
     }
 }
 " > /etc/nginx/sites-enabled/mailpile
+
+
+# Configuring Webmin virtual host
+echo "Configuring Webmin virtual host ..."
+
+# Creating Webmin virtual host configuration
+echo "
+# Redirect connections from 10.0.0.10 to webmin.local
+server {
+        listen 10.0.0.10;
+        server_name _;
+        return 301 http://webmin.local;
+}
+
+# Redirect connections to webmin running on 127.0.0.1:10000
+server {
+        listen 80;
+        server_name webmin.local;
+
+location / {
+    proxy_pass       https://127.0.0.1:10000;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
+
+}
+" > /etc/nginx/sites-enabled/webmin
 
 # Restarting Yacy php5-fpm and Nginx services 
 echo "Restarting nginx ..."
