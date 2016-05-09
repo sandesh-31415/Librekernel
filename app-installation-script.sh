@@ -89,8 +89,6 @@ configure_repositories ()
 		# Prepare owncloud repo
 		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
 		wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key -O- | apt-key add -
-		# apt-get update
-		# apt-get install owncloud
 
 		# Prepare prosody repo
 		# echo 'deb http://packages.prosody.im/debian wheezy main' > /etc/apt/sources.list.d/prosody.list
@@ -100,27 +98,23 @@ configure_repositories ()
 		echo 'deb https://dl.dropboxusercontent.com/u/18621288/debian wheezy main' > /etc/apt/sources.list.d/tahoei2p.list
 		apt-key advanced --keyserver pgp.net.nz --recv-keys 8CF6E896B3C01B09
 		# W: GPG error: https://dl.dropboxusercontent.com wheezy Release: The following signatures were invalid: KEYEXPIRED 1460252357
-		# apt-get install apt-transport-https
-		# apt-get update
-		# apt-get install i2p-tahoe-lafs
 				
 		# Prepare yacy repo
 		echo 'deb http://debian.yacy.net ./' > /etc/apt/sources.list.d/yacy.list
 		apt-key advanced --keyserver pgp.net.nz --recv-keys 03D886E7
-		# apt-get update
-		# apt-get install yacy
 
 		# Prepare i2p repo
 		echo 'deb http://deb.i2p2.no/ wheezy main' > /etc/apt/sources.list.d/i2p.list
 		wget --no-check-certificate https://geti2p.net/_static/i2p-debian-repo.key.asc -O- | apt-key add -
-		# apt-get update
-		# apt-get install i2p i2p-keyring killyourtv-keyring
 
 		# Prepare tor repo
 		echo 'deb http://deb.torproject.org/torproject.org wheezy main'  > /etc/apt/sources.list.d/tor.list
 		apt-key advanced --keyserver pgp.net.nz --recv-keys 74A941BA219EC810
-		# apt-get update
-		# deb.torproject.org-keyring
+
+		# Prepare Webmin repo
+		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+		wget http://www.webmin.com/jcameron-key.asc
+		apt-key add jcameron-key.asc 
 
 	elif [ $PLATFORM = "D8" ]; then
 		# Avoid macchanger asking for information
@@ -138,10 +132,11 @@ configure_repositories ()
 
 
 		# Prepare owncloud repo
-#		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
-#		wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key -O- | apt-key add -
+	echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/ /' > /etc/apt/sources.list.d/owncloud.list
+	wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_8.0/Release.key 
+        apt-key add - < Release.key
 
-		# Prepare owncloud repo
+		# Prepare prosody repo
 #		echo 'deb http://packages.prosody.im/debian wheezy main' > /etc/apt/sources.list.d/prosody.list
 #		wget https://prosody.im/files/prosody-debian-packages.key -O- | apt-key add -
  
@@ -160,6 +155,11 @@ configure_repositories ()
 		echo 'deb http://deb.torproject.org/torproject.org wheezy main'  > /etc/apt/sources.list.d/tor.list
 		gpg --keyserver 223.252.21.101 --recv 886DDD89
 		gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
+		
+		# Prepare Webmin repo
+		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+		wget http://www.webmin.com/jcameron-key.asc
+		apt-key add jcameron-key.asc 
 
 # Preparing repositories for Trisquel GNU/Linux 7.0
 
@@ -289,38 +289,6 @@ install_packages ()
 	apt-get update 2>&1 > /tmp/apt-get-update.log
 	echo "Installing packages ... "
 if [ $PLATFORM = "D7" ]; then
-	apt-get install -y --force-yes privoxy squid3 nginx php5-common php5-fpm \
-	php5-cli php5-json php5-mysql php5-curl php5-intl php5-mcrypt \
-	php5-memcache php-xml-parser php-pear unbound owncloud \
-	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
-	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
-	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
-	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
-	macchanger ntpdate tor bc sudo lsb-release dnsutils \
-	ca-certificates-java openssh-server ssh wireless-tools usbutils \
-	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
-	deb.torproject.org-keyring u-boot-tools console-tools \
-        gnupg openssl python-virtualenv python-pip python-lxml git \
-        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
-	2>&1 > /tmp/apt-get-install.log
-elif [ $PLATFORM = "D8" ]; then
-	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
-        php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
-        php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
-	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
-	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
-	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
-	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
-	macchanger ntpdate tor bc sudo lsb-release dnsutils \
-	ca-certificates-java openssh-server ssh wireless-tools usbutils \
-	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
-	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
-        gnupg openssl python-virtualenv python-pip python-lxml git \
-	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
-	2>&1 > /tmp/apt-get-install.log
-elif [ $PLATFORM = "T7" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
@@ -332,10 +300,71 @@ elif [ $PLATFORM = "T7" ]; then
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
+	deb.torproject.org-keyring u-boot-tools console-tools \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
+	2>&1 > /tmp/apt-get-install.log
+ 	
+	# Setting MySQL password
+	echo mysql-server mysql-server/root_password password librerouter \
+	| debconf-set-selections
+	echo mysql-server mysql-server/root_password_again password \
+	librerouter | debconf-set-selections
+
+	# Installing MySQL server package
+ 	apt-get install -y --force-yes mysql-server
+ 
+elif [ $PLATFORM = "D8" ]; then
+	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
+        php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
+        php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
+	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
+	php5-gd php5-imap smarty3 git ntpdate macchanger \
+	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
+	macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	ca-certificates-java openssh-server ssh wireless-tools usbutils \
+	unzip debian-keyring subversion build-essential libncurses5-dev \
+	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
+	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin\
+	2>&1 > /tmp/apt-get-install.log
+
+ 	# Setting MySQL password
+	echo mysql-server mysql-server/root_password password librerouter \
+	| debconf-set-selections
+	echo mysql-server mysql-server/root_password_again password \
+	librerouter | debconf-set-selections
+
+	# Installing MySQL server package
+ 	apt-get install -y --force-yes mysql-server
+
+elif [ $PLATFORM = "T7" ]; then
+	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
+	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
+	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
+	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
+	php5-gd php5-imap smarty3 git ntpdate macchanger \
+	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
+	macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	ca-certificates-java openssh-server ssh wireless-tools usbutils \
+	unzip debian-keyring subversion build-essential libncurses5-dev \
+	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
 	deb.torproject.org-keyring u-boot-tools console-setup \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
 	2>&1 > /tmp/apt-get-install.log
+
+ 	# Setting MySQL password
+	echo mysql-server mysql-server/root_password password librerouter \
+	| debconf-set-selections
+	echo mysql-server mysql-server/root_password_again password \
+	librerouter | debconf-set-selections
+
+	# Installing MySQL server package
+ 	apt-get install -y --force-yes mysql-server
 
 fi
 	if [ $? -ne 0 ]; then
@@ -560,9 +589,9 @@ git clone --recursive https://github.com/mailpile/Mailpile.git
 cd /opt/Mailpile/
 virtualenv -p /usr/bin/python2.7 --system-site-packages mailpile-env
 cd /opt/Mailpile/
-#source mailpile-env/bin/activate
+source mailpile-env/bin/activate
 pip install -r requirements.txt
-xterm -e 'cd /opt/Mailpile && ./mp' &
+#xterm -e 'cd /opt/Mailpile && ./mp' &
 }
 
 # ----------------------------------------------
