@@ -88,7 +88,7 @@ configure_repositories ()
 	
 		# Prepare owncloud repo
 		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
-		wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key -O- | apt-key add -
+		wget http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/Release.key -O- | apt-key add -
 
 		# Prepare prosody repo
 		# echo 'deb http://packages.prosody.im/debian wheezy main' > /etc/apt/sources.list.d/prosody.list
@@ -133,8 +133,8 @@ configure_repositories ()
 
 		# Prepare owncloud repo
 	echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/ /' > /etc/apt/sources.list.d/owncloud.list
-	wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_8.0/Release.key 
-        apt-key add - < Release.key
+	wget http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/Release.key -O- | apt-key add -
+        
 
 		# Prepare prosody repo
 #		echo 'deb http://packages.prosody.im/debian wheezy main' > /etc/apt/sources.list.d/prosody.list
@@ -292,7 +292,7 @@ if [ $PLATFORM = "D7" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
-	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
@@ -318,7 +318,7 @@ elif [ $PLATFORM = "D8" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
         php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
         php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
-	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
@@ -344,7 +344,7 @@ elif [ $PLATFORM = "T7" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
-	apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
@@ -594,6 +594,32 @@ pip install -r requirements.txt
 #xterm -e 'cd /opt/Mailpile && ./mp' &
 }
 
+
+# ----------------------------------------------
+# Function to install EasyRTC package
+# ----------------------------------------------
+install_easyrtc() 
+{
+echo "Installing EasyRTC package ..."
+
+# Creating home folder for EasyRTC 
+mkdir /opt/easyrtc
+
+# Installing Node.js
+curl -sL https://deb.nodesource.com/setup | bash -
+apt-get install -y --force-yes nodejs
+
+# Getting EasyRTC files
+wget https://easyrtc.com/assets/files/easyrtc_server_example.zip
+unzip easyrtc_server_example.zip -d /opt/easyrtc
+rm -r easyrtc_server_example.zip
+
+# Downloading the required dependencies
+cd /opt/easyrtc
+npm install
+cd
+}
+
 # ----------------------------------------------
 # This function saves variables in file, so
 # parametization script can read and use these 
@@ -653,11 +679,14 @@ get_hardware  	# Getting hardware info
 # 7. Download and Install packages
 # ----------------------------------------------
 if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then 
-#	check_requirements      # Checking requirements for Physical or Virtual machine
-        get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and connect to Internet
+#	check_requirements      # Checking requirements for 
+				# Physical or Virtual machine
+        get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and 
+				# connect to Internet
 	configure_repositories	# Prepare and update repositories
 	install_packages       	# Download and install packages	
 	install_mailpile	# Install Mailpile package
+	install_easyrtc		# Install EasyRTC package
         save_variables	        # Save detected variables
 
 # ---------------------------------------------
@@ -677,7 +706,7 @@ elif [ "$PROCESSOR" = "ARM" ]; then
 	configure_repositories
 	install_packages
 	install_mailpile	# Install Mailpile package
-
+	install_easyrtc		# Install EasyRTC package
 fi
 
 # ---------------------------------------------
