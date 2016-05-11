@@ -104,8 +104,8 @@ cat << EOF > /etc/hosts
 #
 
 #<ip-address>   <hostname.domain.org>   <hostname>
-127.0.0.1       communitycube.localdomain localhost.localdomain communitycube localhost
-::1             communitycube.localdomain localhost.localdomain communitycube localhost ip6-localhost ip6-loopback
+127.0.0.1       librerouter.local localhost.local webmin.local librerouter localhost 
+::1             librerouter.local localhost.local webmin.local librerouter localhost ip6-localhost ip6-loopback
 fe00::0         ip6-localnet
 ff00::0         ip6-mcastprefix
 ff02::1         ip6-allnodes
@@ -174,6 +174,13 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 	iface $INT_INTERFACE:5 inet static
 	    address 10.0.0.10
 	    netmask 255.255.255.0
+	
+	#EasyRTC
+	auto $INT_INTERFACE:6
+	allow-hotplug $INT_INTERFACE:6
+	iface $INT_INTERFACE:6 inet static
+	    address 10.0.0.250
+            netmask 255.255.255.0
 EOF
 	# Network interfaces configuration for board
 	elif [ "$PROCESSOR" = "ARM" ]; then
@@ -253,6 +260,13 @@ EOF
 	allow-hotplug eth1:5
 	iface eth1:5 inet static
 	    address 10.0.0.10
+	    netmask 255.255.255.0
+
+	#EasyRTC
+	auto eth1:6
+	allow-hotplug eth1:6
+	iface eth1:6 inet static
+	    address 10.0.0.250
 	    netmask 255.255.255.0
 
 EOF
@@ -433,7 +447,7 @@ configure_tor()
 {
 echo "Configuring Tor server"
 tordir=/var/lib/tor/hidden_service
-for i in yacy owncloud prosody friendica mailpile 
+for i in yacy owncloud prosody friendica mailpile easyrtc 
 do
 
 # Setting user and group to debian-tor
@@ -475,6 +489,9 @@ HiddenServicePort 443 127.0.0.1:443
 
 HiddenServiceDir /var/lib/tor/hidden_service/mailpile
 HiddenServicePort 33411 127.0.0.1:33411
+
+HiddenServiceDir /var/lib/tor/hidden_service/easyrtc
+HiddenServicePort 80 127.0.0.1:8080
 
 DNSPort   9053
 DNSListenAddress 10.0.0.1
@@ -605,10 +622,10 @@ server:
     
     #Local destinations
     local-zone: "local" static
-    local-data: "communitycube.local. IN A 10.0.0.1"
+    local-data: "librerouter.local. IN A 10.0.0.1"
     local-data: "i2p.local. IN A 10.0.0.1"
     local-data: "tahoe.local. IN A 10.0.0.1"
-    local-data: "webmin.local. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
+    local-data: "webmin.local. IN A 10.0.0.1"' > /etc/unbound/unbound.conf
 
     for i in $(ls /var/lib/tor/hidden_service/)
 	do
@@ -699,31 +716,49 @@ rm -rf shallalist.tar.gz shallalist
 cat chat_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.250\""'} \
 > /etc/unbound/chat_domain.list.conf
+cat chat_domain.list | \
+awk {'print "local-data: \"www." $1 " IN A 10.0.0.250\""'} \
+>> /etc/unbound/chat_domain.list.conf
 
 # Creating search engines domains list configuration file
 cat searchengines_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.251\""'} \
 > /etc/unbound/searchengines_domain.list.conf
+cat searchengines_domain.list | \
+awk {'print "local-data: \"www." $1 " IN A 10.0.0.251\""'} \
+>> /etc/unbound/searchengines_domain.list.conf
 
 # Creating social networks domains list configuration file
 cat socialnet_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.252\""'} \
 > /etc/unbound/socialnet_domain.list.conf
+cat socialnet_domain.list | \
+awk {'print "local-data: \"www." $1 " IN A 10.0.0.252\""'} \
+>> /etc/unbound/socialnet_domain.list.conf
 
 # Creating storage domains list configuration file
 cat storage_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.253\""'} \
 > /etc/unbound/storage_domain.list.conf
+cat storage_domain.list | \
+awk {'print "local-data: \"www." $1 " IN A 10.0.0.253\""'} \
+>> /etc/unbound/storage_domain.list.conf
 
 # Creating  webmail domains list configuration file
 cat webmail_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.254\""'} \
 > /etc/unbound/webmail_domain.list.conf
+cat webmail_domain.list | \
+awk {'print "local-data: \"www." $1 " IN A 10.0.0.254\""'} \
+>> /etc/unbound/webmail_domain.list.conf
 
 # Creating  block domains list configuration file
 cat block_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.10\""'} \
 > /etc/unbound/block_domain.list.conf
+cat block_domain.list | \
+awk {'print "local-data: \"www." $1 " IN A 10.0.0.10\""'} \
+>> /etc/unbound/block_domain.list.conf
 
 # Deleting old files
 rm -rf socialnet_domain.list
@@ -792,6 +827,25 @@ fi
 if [ -z "$(grep "friendica/include/poller" /etc/crontab)" ]; then
     echo '*/10 * * * * /usr/bin/php /var/www/friendica/include/poller.php' >> /etc/crontab
 fi
+}
+
+
+# ---------------------------------------------------------
+# Function to configure EasyRTC local service
+# ---------------------------------------------------------
+configure_easyrtc()
+{
+echo "Starting EasyRTC local service ..."
+if [ ! -e /opt/easyrtc/server.js ]; then
+    echo "Can not find EasyRTC server in /opt/eastrtc directory. Exiting ..."
+    exit 4
+fi
+
+cd /opt/easyrtc
+
+# Starting EasyRTC server
+nohup nodejs server &
+cd
 }
 
 
@@ -1240,6 +1294,60 @@ location / {
 }
 " > /etc/nginx/sites-enabled/webmin
 
+# Configuring EasyRTC virtual host
+echo "Configuring EasyRTC virtual host ..."
+
+# Getting Tor hidden service EasyRTC hostname
+SERVER_EASYRTC="$(cat /var/lib/tor/hidden_service/easyrtc/hostname 2>/dev/null)"
+
+# Generating keys and certificates for https connection
+echo "Generating keys and certificates for EasyRTC ..."
+if [ ! -e /etc/ssl/nginx/$SERVER_EASYRTC.key -o ! -e /etc/ssl/nginx/$SERVER_EASYRTC.csr -o ! -e  /etc/ssl/nginx/$SERVER_EASYRTC.crt ]; then
+    openssl genrsa -out /etc/ssl/nginx/$SERVER_EASYRTC.key 2048 -batch
+    openssl req -new -key /etc/ssl/nginx/$SERVER_EASYRTC.key -out /etc/ssl/nginx/$SERVER_EASYRTC.csr -batch
+    cp /etc/ssl/nginx/$SERVER_EASYRTC.key /etc/ssl/nginx/$SERVER_EASYRTC.org 
+    openssl rsa -in /etc/ssl/nginx/$SERVER_EASYRTC.key.org -out /etc/ssl/nginx/$SERVER_EASYRTC.key 
+    openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_EASYRTC.csr -signkey /etc/ssl/nginx/$SERVER_EASYRTC.key -out /etc/ssl/nginx/$SERVER_EASYRTC.crt 
+fi
+
+# Creating EasyRTC virtual host configuration
+echo "
+# Redirect easyrtc.local to Tor hidden service easyrtc
+server {
+        listen 80;
+        server_name easyrtc.local;
+        return 301 http://$SERVER_EASYRTC\$request_uri;
+}
+
+# Redirect connections from 10.0.0.250 to EasyTRC tor hidden service 
+server {
+        listen 10.0.0.250;
+        server_name _;
+        return 301 http://$SERVER_EASYRTC;
+}
+
+# Redirect connections to easyrtc running on 127.0.0.1:8080
+server {
+        listen 80;
+        server_name $SERVER_EASYRTC;
+
+location / {
+    proxy_pass       http://127.0.0.1:8080;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
+}
+
+# Redirect https connections to http
+server {
+        listen *:443 ssl;
+        server_name $SERVER_EASYRTC;
+        ssl_certificate /etc/ssl/nginx/$SERVER_EASYRTC.crt;
+        ssl_certificate_key /etc/ssl/nginx/$SERVER_EASYRTC.key;
+        return 301 http://$SERVER_EASYRTC;
+}
+" > /etc/nginx/sites-enabled/easyrtc
+
 # Restarting Yacy php5-fpm and Nginx services 
 echo "Restarting nginx ..."
 service yacy restart
@@ -1270,6 +1378,7 @@ configure_tor			# Configuring TOR server
 configure_i2p			# Configuring i2p services
 configure_unbound		# Configuring unbound DNS server
 configure_friendica		# Configure Friendica local service
+configure_easyrtc		# Configure EasyRTC local service
 configure_nginx                 # Configuring nginx web server
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
