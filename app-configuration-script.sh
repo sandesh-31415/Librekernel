@@ -96,7 +96,7 @@ get_interfaces()
 # ---------------------------------------------------------
 configure_hosts()
 {
-echo "communitycube" > /etc/hostname
+echo "librerouter" > /etc/hostname
 
 cat << EOF > /etc/hosts
 #
@@ -792,7 +792,7 @@ fi
 
 
 # ---------------------------------------------------------
-# Function to configure Friendica
+# Function to configure Friendica local service
 # ---------------------------------------------------------
 configure_friendica()
 {
@@ -850,6 +850,58 @@ cd
 
 
 # ---------------------------------------------------------
+# Function to configure Owncloud local service 
+# ---------------------------------------------------------
+configure_owncloud()
+{
+echo "Configuring Owncloud local service ..."
+if [ ! -e  /var/lib/mysql/owncloud ]; then
+
+  # Defining MySQL user and password variables
+  MYSQL_PASS="librerouter"
+  MYSQL_USER="root"
+
+  # Creating MySQL database owncloud for owncloud local service
+  echo "CREATE DATABASE owncloud; grant all privileges on owncloud.* to  \
+  owncloud@localhost  identified by 'SuperPass8Wor1_2';" \
+  | mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" 
+fi
+
+# Creating Owncloud configuration file 
+echo "
+<?php
+$CONFIG = array (
+  'instanceid' => 'oc5606b55d9a',
+  'passwordsalt' => 'V1ufXood1AXa0ikQ8reY13k5pm01Ci',
+  'secret' => 'd/JPELayYmcHagt4sDfe5d+c6ZQAwt6ZAlTHZ/oJzJviDU9C',
+  'trusted_domains' => 
+  array (
+    0 => 'bsxjhmgmnqmfxnnu.onion',
+  ),
+  'datadirectory' => '/var/www/owncloud/data',
+  'overwrite.cli.url' => 'http://bsxjhmgmnqmfxnnu.onion',
+  'dbtype' => 'mysql',
+  'dbhost' => 'localhost',
+  'dbname' => 'owncloud',
+  'dbuser' => 'root',
+  'dbpassword' => 'librerouter',
+  'default_language' => 'en',
+  'defaultapp' => 'files',
+  'knowledgebaseenabled' => true,
+  'allow_user_to_change_display_name' => true,
+  'remember_login_cookie_lifetime' => 60*60*24*15,
+  'session_lifetime' => 60 * 60 * 24,
+  'session_keepalive' => true,
+  'version' => '8.1.7.2',
+  'logtimezone' => 'UTC',
+  'installed' => true,
+);
+" > /var/www/owncloud/config/config.php
+
+}
+
+
+# ---------------------------------------------------------
 # Function to configure nginx web server
 # ---------------------------------------------------------
 configure_nginx() 
@@ -865,19 +917,19 @@ echo "upstream php-handler {
 
 echo "server {
   listen 80 default_server;
-  return 301 http://communitycube.local;
+  return 301 http://librerouter.local;
 }
 
 server {
   listen 80;
   server_name box.local;
-  return 301 http://communitycube.local;
+  return 301 http://librerouter.local;
 }
 " > /etc/nginx/sites-enabled/default
 
 echo "server {
   listen 80;
-  server_name communitycube.local;
+  server_name librerouter.local;
   root /var/www/html;
   index index.html;
 
@@ -900,7 +952,7 @@ echo "server {
                rewrite ^/* /phpmyadmin last;
         }
 }
-" > /etc/nginx/sites-enabled/communitycube
+" > /etc/nginx/sites-enabled/librerouter
 
 # Configuring Yacy virtual host
 echo "Configuring Yacy virtual host ..."
@@ -1376,10 +1428,11 @@ configure_interfaces		# Configuring external and internal interfaces
 
 configure_tor			# Configuring TOR server
 configure_i2p			# Configuring i2p services
-configure_unbound		# Configuring unbound DNS server
-configure_friendica		# Configure Friendica local service
-configure_easyrtc		# Configure EasyRTC local service
-configure_nginx                 # Configuring nginx web server
+configure_unbound		# Configuring Unbound DNS server
+configure_friendica		# Configuring Friendica local service
+configure_easyrtc		# Configuring EasyRTC local service
+configure_owncloud		# Configuring Owncloud local service
+configure_nginx                 # Configuring Nginx web server
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
 #configure_iptables		# Configuring iptables rules
