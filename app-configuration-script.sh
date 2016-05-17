@@ -855,15 +855,25 @@ cd
 configure_owncloud()
 {
 echo "Configuring Owncloud local service ..."
+
+# Getting owncloud onion service name
+SERVER_OWNCLOUD="$(cat /var/lib/tor/hidden_service/owncloud/hostname 2>/dev/null)"
+
+# Getting owncloud files in web server root directory
+if [ ! -e  /var/www/owncloud ]; then
+cp -r /usr/share/owncloud /var/www/owncloud
+chown -R www-data /var/www/owncloud
+fi
+
+# Creating MySQL database owncloud for owncloud local service
 if [ ! -e  /var/lib/mysql/owncloud ]; then
 
   # Defining MySQL user and password variables
   MYSQL_PASS="librerouter"
   MYSQL_USER="root"
 
-  # Creating MySQL database owncloud for owncloud local service
   echo "CREATE DATABASE owncloud; grant all privileges on owncloud.* to  \
-  owncloud@localhost  identified by 'SuperPass8Wor1_2';" \
+  root@localhost  identified by 'librerouter';" \
   | mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" 
 fi
 
@@ -876,7 +886,7 @@ $CONFIG = array (
   'secret' => 'd/JPELayYmcHagt4sDfe5d+c6ZQAwt6ZAlTHZ/oJzJviDU9C',
   'trusted_domains' => 
   array (
-    0 => 'bsxjhmgmnqmfxnnu.onion',
+    0 => '$SERVER_OWNCLOUD',
   ),
   'datadirectory' => '/var/www/owncloud/data',
   'overwrite.cli.url' => 'http://bsxjhmgmnqmfxnnu.onion',
