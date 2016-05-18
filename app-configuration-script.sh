@@ -975,7 +975,7 @@ echo "Generating keys and certificates for Yacy ..."
 if [ ! -e /etc/ssl/nginx/$SERVER_YACY.key -o ! -e /etc/ssl/nginx/$SERVER_YACY.csr -o ! -e  /etc/ssl/nginx/$SERVER_YACY.crt ]; then
     openssl genrsa -out /etc/ssl/nginx/$SERVER_YACY.key 2048 -batch
     openssl req -new -key /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.csr -batch
-    cp /etc/ssl/nginx/$SERVER_YACY.key /etc/ssl/nginx/$SERVER_YACY.org 
+    cp /etc/ssl/nginx/$SERVER_YACY.key /etc/ssl/nginx/$SERVER_YACY.key.org 
     openssl rsa -in /etc/ssl/nginx/$SERVER_YACY.key.org -out /etc/ssl/nginx/$SERVER_YACY.key 
     openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_YACY.csr -signkey /etc/ssl/nginx/$SERVER_YACY.key -out /etc/ssl/nginx/$SERVER_YACY.crt 
 fi
@@ -1367,7 +1367,7 @@ echo "Generating keys and certificates for EasyRTC ..."
 if [ ! -e /etc/ssl/nginx/$SERVER_EASYRTC.key -o ! -e /etc/ssl/nginx/$SERVER_EASYRTC.csr -o ! -e  /etc/ssl/nginx/$SERVER_EASYRTC.crt ]; then
     openssl genrsa -out /etc/ssl/nginx/$SERVER_EASYRTC.key 2048 -batch
     openssl req -new -key /etc/ssl/nginx/$SERVER_EASYRTC.key -out /etc/ssl/nginx/$SERVER_EASYRTC.csr -batch
-    cp /etc/ssl/nginx/$SERVER_EASYRTC.key /etc/ssl/nginx/$SERVER_EASYRTC.org 
+    cp /etc/ssl/nginx/$SERVER_EASYRTC.key /etc/ssl/nginx/$SERVER_EASYRTC.key.org 
     openssl rsa -in /etc/ssl/nginx/$SERVER_EASYRTC.key.org -out /etc/ssl/nginx/$SERVER_EASYRTC.key 
     openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_EASYRTC.csr -signkey /etc/ssl/nginx/$SERVER_EASYRTC.key -out /etc/ssl/nginx/$SERVER_EASYRTC.crt 
 fi
