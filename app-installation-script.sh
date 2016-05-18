@@ -84,7 +84,7 @@ configure_repositories ()
 	echo "Updating repositories ..."
         apt-get update 2>&1 > /tmp/apt-get-update-default.log
  	echo "Installing apt-transport-https ..."
-	apt-get install -y apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+	apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 	
 		# Prepare owncloud repo
 		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
@@ -128,7 +128,7 @@ configure_repositories ()
 	echo "Updating repositories ..."
         apt-get update 2>&1 > /tmp/apt-get-update-default.log
  	echo "Installing apt-transport-https ..."
-	apt-get install apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+	apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 
 
 		# Prepare owncloud repo
@@ -185,7 +185,7 @@ configure_repositories ()
 		fi
 	
  		echo "Installing apt-transport-https ..."
-		apt-get install apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 
 		if [ $? -ne 0 ]; then
 			echo "ERROR: UNABLE TO INSTALL PACKAGES: apt-transport-https"
