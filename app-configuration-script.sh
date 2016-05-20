@@ -1011,7 +1011,7 @@ location / {
 
 # Redirect https connections to http
 server {
-        listen *:443 ssl;
+        listen 10.0.0.251:443 ssl;
         server_name $SERVER_YACY;
         ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
         ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
@@ -1024,6 +1024,16 @@ echo "Configuring Friendica virtual host ..."
 
 # Getting Tor hidden service friendica hostname
 SERVER_FRIENDICA="$(cat /var/lib/tor/hidden_service/friendica/hostname 2>/dev/null)"
+
+# Generating keys and certificates for https connection
+echo "Generating keys and certificates for Friendica ..."
+if [ ! -e /etc/ssl/nginx/$SERVER_FRIENDICA.key -o ! -e /etc/ssl/nginx/$SERVER_FRIENDICA.csr -o ! -e  /etc/ssl/nginx/$SERVER_FRIENDICA.crt ]; then
+    openssl genrsa -out /etc/ssl/nginx/$SERVER_FRIENDICA.key 2048 -batch
+    openssl req -new -key /etc/ssl/nginx/$SERVER_FRIENDICA.key -out /etc/ssl/nginx/$SERVER_FRIENDICA.csr -batch
+    cp /etc/ssl/nginx/$SERVER_FRIENDICA.key /etc/ssl/nginx/$SERVER_FRIENDICA.key.org 
+    openssl rsa -in /etc/ssl/nginx/$SERVER_FRIENDICA.key.org -out /etc/ssl/nginx/$SERVER_FRIENDICA.key 
+    openssl x509 -req -days 365 -in /etc/ssl/nginx/$SERVER_FRIENDICA.csr -signkey /etc/ssl/nginx/$SERVER_FRIENDICA.key -out /etc/ssl/nginx/$SERVER_FRIENDICA.crt 
+fi
 
 # Creating friendica virtual host configuration
 echo "
@@ -1052,95 +1062,83 @@ server {
 server {
   listen 80;
   server_name $SERVER_FRIENDICA;
+
   index index.php;
   root /var/www/friendica;
+  rewrite ^ https://$SERVER_FRIENDICA\$request_uri? permanent;
+}
 
-  # php5-fpm configuration
-  location ~ \.php$ {
-  fastcgi_split_path_info ^(.+\.php)(/.+)$;
-  fastcgi_pass unix:/var/run/php5-fpm.sock;
-  fastcgi_index index.php;
-  fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-  include fastcgi_params;
+# Configure Friendica with SSL
+
+server {
+  listen 10.0.0.252:443 ssl;
+  server_name $SERVER_FRIENDICA;
+
+  ssl on;
+  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
+  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
+  ssl_session_timeout 5m;
+  ssl_protocols SSLv3 TLSv1;
+  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+  ssl_prefer_server_ciphers on;
+
+  index index.php;
+  charset utf-8;
+  root /var/www/friendica;
+  access_log /var/log/nginx/friendica.log;
+  # allow uploads up to 20MB in size
+  client_max_body_size 20m;
+  client_body_buffer_size 128k;
+  # rewrite to front controller as default rule
+  location / {
+    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+  }
+
+  # make sure webfinger and other well known services aren't blocked
+  # by denying dot files and rewrite request to the front controller
+  location ^~ /.well-known/ {
+    allow all;
+    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+  }
+
+  # statically serve these file types when possible
+  # otherwise fall back to front controller
+  # allow browser to cache them
+  # added .htm for advanced source code editor library
+  location ~* \.(jpg|jpeg|gif|png|ico|css|js|htm|html|ttf|woff|svg)$ {
+    expires 30d;
+    try_files \$uri /index.php?q=\$uri&\$args;
+  }
+  # block these file types
+  location ~* \.(tpl|md|tgz|log|out)$ {
+    deny all;
+  }
+
+  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  # or a unix socket
+  location ~* \.php$ {
+    try_files \$uri =404;
+
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+    # With php5-cgi alone:
+    # fastcgi_pass 127.0.0.1:9000;
+
+    # With php5-fpm:
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+
+    include fastcgi_params;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+  }
+
+  # deny access to all dot files
+  location ~ /\. {
+    deny all;
   }
 }
 " > /etc/nginx/sites-enabled/friendica 
 
-#server {
-#  listen 443;
-#  ssl on;
-#  server_name $SERVER_FRIENDICA;
-#  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
-#  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
-#  ssl_session_timeout 5m;
-#  ssl_protocols SSLv3 TLSv1;
-#  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
-#  ssl_prefer_server_ciphers on;
-#
-#  index index.php;
-#  charset utf-8;
-#  root /var/www/friendica;
-#  access_log /var/log/nginx/friendica.log;
-#  # allow uploads up to 20MB in size
-#  client_max_body_size 20m;
-#  client_body_buffer_size 128k;
-#
-#
-#  # rewrite to front controller as default rule
-#  location / {
-#    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
-#  }
-#
-#  # make sure webfinger and other well known services arent blocked
-#  # by denying dot files and rewrite request to the front controller
-#  location ^~ /.well-known/ {
-#    allow all;
-#    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
-#  }
-#
-#  # statically serve these file types when possible
-#  # otherwise fall back to front controller
-#  # allow browser to cache them
-#  # added .htm for advanced source code editor library
-#  location ~* \.(jpg|jpeg|gif|png|ico|css|js|htm|html|ttf|woff|svg)$ {
-#    expires 30d;
-#    try_files \$uri /index.php?q=\$uri&\$args;
-#  }
-#  
-#  # block these file types
-#  location ~* \.(tpl|md|tgz|log|out)$ {
-#    deny all;
-#  }
-#  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-#  # or a unix socket
-#  location ~* \.php$ {
-#    # Zero-day exploit defense.
-#    # http://forum.nginx.org/read.php?2,88845,page=3
-#    # Wont work properly (404 error) if the file is not stored on this
-#    # server, which is entirely possible with php-fpm/php-fcgi.
-#    # Comment the try_files line out if you set up php-fpm/php-fcgi on
-#    # another machine.  And then cross your fingers that you wont get hacked.
-#    try_files \$uri =404;
-#
-#    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
-#    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-#
-#    # With php5-cgi alone:
-#    fastcgi_pass 127.0.0.1:9000;
-#
-#    # With php5-fpm:
-#    #fastcgi_pass unix:/var/run/php5-fpm.sock;
-#
-#    include fastcgi_params;
-#    fastcgi_index index.php;
-#    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-#  }
-#
-#  # deny access to all dot files
-#  location ~ /\. {
-#    deny all;
-#  }
-#}
 
 # Configuring Owncloud virtual host
 echo "Configuring Owncloud virtual host ..."
@@ -1311,8 +1309,8 @@ server {
     client_max_body_size 20m;
 
     # Nginx port 80 and 443
-    listen 80;
-    listen 443 ssl;
+    listen 10.0.0.254:80;
+    listen 10.0.0.254:443 ssl;
 
     # SSL Certificate File
     ssl_certificate      /etc/ssl/nginx/$SERVER_MAILPILE.crt;
@@ -1402,7 +1400,7 @@ location / {
 
 # Redirect https connections to http
 server {
-        listen *:443 ssl;
+        listen 10.0.0.250:443 ssl;
         server_name $SERVER_EASYRTC;
         ssl_certificate /etc/ssl/nginx/$SERVER_EASYRTC.crt;
         ssl_certificate_key /etc/ssl/nginx/$SERVER_EASYRTC.key;
