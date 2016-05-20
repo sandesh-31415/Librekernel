@@ -1071,7 +1071,7 @@ server {
 # Configure Friendica with SSL
 
 server {
-  listen 10.0.0.252:443 ssl;
+  listen 443 ssl;
   server_name $SERVER_FRIENDICA;
 
   ssl on;
