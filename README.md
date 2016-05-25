@@ -92,6 +92,10 @@ The market is full of crowdfunded project where the funder claimed the project i
 - http://www.teletrust.de/en/itsmig/
 - https://iapp.org/certify/cipt/
 - http://www.cdse.edu/certification/become.html
+- https://en.wikipedia.org/wiki/Evaluation_Assurance_Level
+- https://en.wikipedia.org/wiki/Common_Criteria
+- http://www.asd.gov.au/infosec/aisep/crypto.htm
+- 
 
 #WTH is Librerouter?
 
