@@ -26,6 +26,10 @@ Is an operating system kernel and a GNU package[3] that is maintained from modif
 
 Software components with no available source code are called binary blobs and, as such, are mostly used for proprietary firmware images in the Linux kernel. While generally redistributable, binary blobs do not give the user the freedom to audit, modify or, consequently, redistribute their modified versions.
 
+2 ways to have Linux with no blobs:
+a) Deblobing : http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check
+b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls.
+
 #WTH is Open-source hardware ?
 
 It consists of physical artifacts of technology designed and offered by the open design movement. Both free and open-source software (FOSS) as well as open-source hardware is created by this open-source culture movement and applies a like concept to a variety of components. It is sometimes, thus, referred to as FOSH (free and open-source hardware). The term usually means that information about the hardware is easily discerned so that others can make it - coupling it closely to the maker movement.[1] Hardware design (i.e. mechanical drawings, schematics, bills of material, PCB layout data, HDL source code[2] and integrated circuit layout data), in addition to the software that drives the hardware, are all released under free/libre terms. The original sharer gains feedback and potentially improvements on the design from the FOSH community. There is now significant evidence that such sharing can drive a high return on investment for investors.
