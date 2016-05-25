@@ -28,7 +28,8 @@ Software components with no available source code are called binary blobs and, a
 
 2 ways to have Linux with no blobs:
 a) Deblobing : http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check
-b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls.
+b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example linux libre.  www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-3.14.N/?C=S;O=D
+  
 
 #WTH is Open-source hardware ?
 
