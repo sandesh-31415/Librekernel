@@ -279,6 +279,30 @@ fi
 
 
 # ---------------------------------------------------------
+# Function to configure DHCP server
+# ---------------------------------------------------------
+configure_dhcp()
+{
+echo "Configuring dhcp server ..."
+echo "
+ddns-update-style none;
+option domain-name \"librerouter.local\";
+option domain-name-servers 10.0.0.1;
+default-lease-time 600;
+max-lease-time 7200;
+authoritative;
+subnet 10.0.0.0 netmask 255.255.255.0 {
+  range 10.0.0.100 10.0.0.200;
+  option routers 10.0.0.1;
+}
+" > /etc/dhcp/dhcpd.conf
+
+# Restarting dhcp server
+service isc-dhcp-server restart
+}
+
+
+# ---------------------------------------------------------
 # Function to configure blacklists
 # ---------------------------------------------------------
 configre_blacklists()
@@ -912,6 +936,16 @@ $CONFIG = array (
 
 
 # ---------------------------------------------------------
+# Function to configure Mailpile local service
+# ---------------------------------------------------------
+configure_mailpile()
+{
+echo "Starting Mailpile local service ..."
+. /opt/Mailpile/mp &
+}
+
+
+# ---------------------------------------------------------
 # Function to configure nginx web server
 # ---------------------------------------------------------
 configure_nginx() 
@@ -938,7 +972,7 @@ server {
 " > /etc/nginx/sites-enabled/default
 
 echo "server {
-  listen 80;
+  listen 10.0.0.1:80;
   server_name librerouter.local;
   root /var/www/html;
   index index.html;
@@ -1429,7 +1463,7 @@ get_variables			# Getting variables
 #get_interfaces			# Getting external and internal interfaces
 configure_hosts			# Configurint hostname and /etc/hosts
 configure_interfaces		# Configuring external and internal interfaces
-
+configure_dhcp			# Configuring DHCP server 
 
 
 # Block 2: Configuring services
@@ -1440,6 +1474,7 @@ configure_unbound		# Configuring Unbound DNS server
 configure_friendica		# Configuring Friendica local service
 configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
+configure_mailpile		# Configuring Mailpile local serive
 configure_nginx                 # Configuring Nginx web server
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
