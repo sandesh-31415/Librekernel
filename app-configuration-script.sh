@@ -471,7 +471,7 @@ configure_tor()
 {
 echo "Configuring Tor server"
 tordir=/var/lib/tor/hidden_service
-for i in yacy owncloud prosody friendica mailpile easyrtc 
+for i in yacy owncloud friendica mailpile easyrtc 
 do
 
 # Setting user and group to debian-tor
@@ -503,9 +503,9 @@ HiddenServiceDir /var/lib/tor/hidden_service/owncloud
 HiddenServicePort 80 127.0.0.1:7070
 HiddenServicePort 443 127.0.0.1:443
 
-HiddenServiceDir /var/lib/tor/hidden_service/prosody
-HiddenServicePort 5222 127.0.0.1:5222
-HiddenServicePort 5269 127.0.0.1:5269
+#HiddenServiceDir /var/lib/tor/hidden_service/prosody
+#HiddenServicePort 5222 127.0.0.1:5222
+#HiddenServicePort 5269 127.0.0.1:5269
 
 HiddenServiceDir /var/lib/tor/hidden_service/friendica
 HiddenServicePort 80 127.0.0.1:8181
@@ -649,7 +649,7 @@ server:
     local-data: "librerouter.local. IN A 10.0.0.1"
     local-data: "i2p.local. IN A 10.0.0.1"
     local-data: "tahoe.local. IN A 10.0.0.1"
-    local-data: "webmin.local. IN A 10.0.0.1"' > /etc/unbound/unbound.conf
+    local-data: "webmin.local. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
 
     for i in $(ls /var/lib/tor/hidden_service/)
 	do
@@ -659,16 +659,27 @@ EOF
 done
 
 for i in $(ls /var/lib/tor/hidden_service/)
-	do
-	hn="$(cat /var/lib/tor/hidden_service/$i/hostname 2>/dev/null )"
-	
-	if [ -n "$hn" ]; then
-		cat << EOF >>  /etc/unbound/unbound.conf
-    local-zone: "$hn." static
-    local-data: "$hn. IN A 10.0.0.1"
-EOF
-	fi
-done
+  do
+  hn="$(cat /var/lib/tor/hidden_service/$i/hostname 2>/dev/null )"
+  if [ -n "$hn" ]; then
+    echo "local-zone: \"$hn.\" static" >> /etc/unbound/unbound.conf
+    if [ $i == "easyrtc" ]; then
+      echo "local-data: \"$hn. IN A 10.0.0.250\"" >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "yacy" ]; then
+      echo "local-data: \"$hn. IN A 10.0.0.251\"" >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "friendica" ]; then
+      echo "local-data: \"$hn. IN A 10.0.0.252\"" >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "owncloud" ]; then
+      echo "local-data: \"$hn. IN A 10.0.0.253\"" >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "mailpile" ]; then
+      echo "local-data: \"$hn. IN A 10.0.0.254\"" >> /etc/unbound/unbound.conf
+    fi
+  fi
+  done
 
 echo '
 # I2P domains will be resolved us 10.191.0.1 
@@ -940,8 +951,22 @@ $CONFIG = array (
 # ---------------------------------------------------------
 configure_mailpile()
 {
+echo "Configuring Mailpile local service ..."
+export MAILPILE_HOME=.local/share/Mailpile
+if [ -e $MAILPIEL_HOME/default/mailpile.cfg ]; then
+  echo "Configuration file does not exist. Exiting ..."
+  exit 6
+fi
+}
+
+
+# ---------------------------------------------------------
+# Function to start mailpile local service
+# ---------------------------------------------------------
+start_mailpile()
+{
 echo "Starting Mailpile local service ..."
-. /opt/Mailpile/mp &
+/opt/Mailpile/mp
 }
 
 
@@ -1018,7 +1043,7 @@ fi
 echo "
 # Redirect yacy.local to Tor hidden service yacy
 server {
-        listen 80;
+        listen 10.0.0.251:80;
         server_name yacy.local;
         return 301 http://$SERVER_YACY\$request_uri;
 }
@@ -1032,7 +1057,7 @@ server {
 
 # Redirect connections to yacy running on 127.0.0.1:8090
 server {
-        listen 80;
+        listen 10.0.0.251:80;
         server_name $SERVER_YACY;
 
 location / {
@@ -1087,14 +1112,14 @@ server {
   
 # Redirect connections from friendica.local to Tor hidden service friendica
 server {
-  listen 80;
+  listen 10.0.0.252:80;
   server_name friendica.local;
   return 301 http://$SERVER_FRIENDICA;
   }
 
 # Main server for Tor hidden service friendica
 server {
-  listen 80;
+  listen 10.0.0.252:80;
   server_name $SERVER_FRIENDICA;
 
   index index.php;
@@ -1105,7 +1130,7 @@ server {
 # Configure Friendica with SSL
 
 server {
-  listen 443 ssl;
+  listen 10.0.0.252:443 ssl;
   server_name $SERVER_FRIENDICA;
 
   ssl on;
@@ -1184,7 +1209,7 @@ SERVER_OWNCLOUD="$(cat /var/lib/tor/hidden_service/owncloud/hostname 2>/dev/null
 echo "
 # Redirect connections from port 7070 to Tor hidden service owncloud port 80
 server {
-  listen 7070;
+  listen 10.0.0.253:7070;
   server_name $SERVER_OWNCLOUD;
   return 301 http://$SERVER_OWNCLOUD;
 }
@@ -1198,14 +1223,14 @@ server {
   
 # Redirect connections from owncloud.local to Tor hidden service owncloud
 server {
-  listen 80;
+  listen 10.0.0.253:80;
   server_name owncloud.local;
   return 301 http://$SERVER_OWNCLOUD;
   }
 
 # Main server for Tor hidden service owncloud
 server {
-  listen 80;
+  listen 10.0.0.253:80;
   server_name $SERVER_OWNCLOUD;
   index index.php;
   root /var/www/owncloud;
@@ -1331,7 +1356,7 @@ server {
 
 # Redirect connections from mailpile.local to Tor hidden service mailpile
 server {
-  listen 80;
+  listen 10.0.0.254:80;
   server_name mailpile.local;
   return 301 http://$SERVER_MAILPILE;
   } 
@@ -1376,7 +1401,7 @@ server {
 
 # Redirect connections to webmin running on 127.0.0.1:10000
 server {
-        listen 80;
+        listen 10.0.0.10:80;
         server_name webmin.local;
 
 location / {
@@ -1408,7 +1433,7 @@ fi
 echo "
 # Redirect easyrtc.local to Tor hidden service easyrtc
 server {
-        listen 80;
+        listen 10.0.0.250:80;
         server_name easyrtc.local;
         return 301 http://$SERVER_EASYRTC\$request_uri;
 }
@@ -1422,7 +1447,7 @@ server {
 
 # Redirect connections to easyrtc running on 127.0.0.1:8080
 server {
-        listen 80;
+        listen 10.0.0.250:80;
         server_name $SERVER_EASYRTC;
 
 location / {
@@ -1476,6 +1501,8 @@ configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
 configure_mailpile		# Configuring Mailpile local serive
 configure_nginx                 # Configuring Nginx web server
+start_mailpile			# Starting Mailpile local service
+
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
 #configure_iptables		# Configuring iptables rules
