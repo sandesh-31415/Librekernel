@@ -104,8 +104,15 @@ cat << EOF > /etc/hosts
 #
 
 #<ip-address>   <hostname.domain.org>   <hostname>
-127.0.0.1       librerouter.local localhost.local webmin.local librerouter localhost 
-::1             librerouter.local localhost.local webmin.local librerouter localhost ip6-localhost ip6-loopback
+127.0.0.1       localhost.local librerouter localhost
+10.0.0.1        librerouter.local
+10.0.0.10       webmin.local
+10.0.0.250      easyrtc.local
+10.0.0.251      yacy.local
+10.0.0.252      friendica.local
+10.0.0.253      owncloud.local
+10.0.0.254      mailpile.local 
+::1             librerouter.local localhost.local librerouter localhost ip6-localhost ip6-loopback
 fe00::0         ip6-localnet
 ff00::0         ip6-mcastprefix
 ff02::1         ip6-allnodes
@@ -644,19 +651,36 @@ server:
 #    domain-insecure: "onion"
 #    domain-insecure: "i2p"
     
-    #Local destinations
-    local-zone: "local" static
-    local-data: "librerouter.local. IN A 10.0.0.1"
-    local-data: "i2p.local. IN A 10.0.0.1"
-    local-data: "tahoe.local. IN A 10.0.0.1"
-    local-data: "webmin.local. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
+#Local destinations
+local-zone: "local" static
+local-data: "librerouter.local. IN A 10.0.0.1"
+local-data: "i2p.local. IN A 10.0.0.1"
+local-data: "tahoe.local. IN A 10.0.0.1"
+local-data: "webmin.local. IN A 10.0.0.10"' > /etc/unbound/unbound.conf
 
     for i in $(ls /var/lib/tor/hidden_service/)
-	do
-	cat << EOF >>  /etc/unbound/unbound.conf
-    local-data: "$i.local.  IN A 10.0.0.1"
-EOF
-done
+    do
+    if [ $i == "easyrtc" ]; then
+      echo "local-data: \"$i.local. IN A 10.0.0.250\"" \
+      >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "yacy" ]; then
+      echo "local-data: \"$i.local. IN A 10.0.0.251\"" \
+      >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "friendica" ]; then
+      echo "local-data: \"$i.local. IN A 10.0.0.252\"" \
+      >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "owncloud" ]; then
+      echo "local-data: \"$i.local. IN A 10.0.0.253\"" \
+      >> /etc/unbound/unbound.conf
+    fi
+    if [ $i == "mailpile" ]; then
+      echo "local-data: \"$i.local. IN A 10.0.0.254\"" \
+      >> /etc/unbound/unbound.conf
+    fi
+    done
 
 for i in $(ls /var/lib/tor/hidden_service/)
   do
@@ -862,6 +886,31 @@ fi
 if [ -z "$(grep "friendica/include/poller" /etc/crontab)" ]; then
     echo '*/10 * * * * /usr/bin/php /var/www/friendica/include/poller.php' >> /etc/crontab
 fi
+
+# Creating friendica configuration
+echo "
+<?php
+
+\$db_host = 'localhost';
+\$db_user = 'root';
+\$db_pass = 'librerouter';
+\$db_data = 'frndc';
+
+\$a->path = '';
+\$default_timezone = 'America/Los_Angeles';
+\$a->config['sitename'] = \"My Friend Network\";
+\$a->config['register_policy'] = REGISTER_OPEN;
+\$a->config['register_text'] = '';
+\$a->config['max_import_size'] = 200000;
+\$a->config['system']['maximagesize'] = 800000;
+\$a->config['php_path'] = '/usr/bin/php';
+\$a->config['system']['huburl'] = '[internal]';
+\$a->config['system']['rino_encrypt'] = true;
+\$a->config['system']['theme'] = 'duepuntozero';
+\$a->config['system']['no_regfullname'] = true;
+\$a->config['system']['directory'] = 'http://dir.friendi.ca';
+" > /var/www/friendica/.htconfig.php
+
 }
 
 
@@ -896,7 +945,13 @@ SERVER_OWNCLOUD="$(cat /var/lib/tor/hidden_service/owncloud/hostname 2>/dev/null
 
 # Getting owncloud files in web server root directory
 if [ ! -e  /var/www/owncloud ]; then
-cp -r /usr/share/owncloud /var/www/owncloud
+ if [ -e /ush/share/owncloud ]; then
+   cp -r /usr/share/owncloud /var/www/owncloud
+ else
+   if [ -e /opt/owncloud ]; then
+     cp -r /opt/owncloud /var/www/owncloud
+   fi
+ fi
 chown -R www-data /var/www/owncloud
 fi
 
@@ -907,9 +962,9 @@ if [ ! -e  /var/lib/mysql/owncloud ]; then
   MYSQL_PASS="librerouter"
   MYSQL_USER="root"
 
-  echo "CREATE DATABASE owncloud; grant all privileges on owncloud.* to  \
-  root@localhost  identified by 'librerouter';" \
-  | mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" 
+#  echo "CREATE DATABASE owncloud; grant all privileges on owncloud.* to  \
+#  root@localhost  identified by 'librerouter';" \
+#  | mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" 
 fi
 
 # Creating Owncloud configuration file 
@@ -1045,14 +1100,18 @@ echo "
 server {
         listen 10.0.0.251:80;
         server_name yacy.local;
-        return 301 http://$SERVER_YACY\$request_uri;
+location / {
+    proxy_pass       http://127.0.0.1:8090;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
 }
 
 # Redirect connections from 10.0.0.251 to Tor hidden service yacy
 server {
         listen 10.0.0.251;
         server_name _;
-        return 301 http://$SERVER_YACY;
+        return 301 http://yacy.local;
 }
 
 # Redirect connections to yacy running on 127.0.0.1:8090
@@ -1075,6 +1134,13 @@ server {
         ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
         ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
         return 301 http://$SERVER_YACY;
+}
+server {
+        listen 10.0.0.251:443 ssl;
+        server_name yacy.local;
+        ssl_certificate /etc/ssl/nginx/$SERVER_YACY.crt;
+        ssl_certificate_key /etc/ssl/nginx/$SERVER_YACY.key;
+        return 301 http://yacy.local;
 }
 " > /etc/nginx/sites-enabled/yacy
 
@@ -1107,14 +1173,17 @@ server {
 server {
         listen 10.0.0.252:80;
         server_name _;
-        return 301 http://$SERVER_FRIENDICA;
+        return 301 http://friendica.local;
 }
   
 # Redirect connections from friendica.local to Tor hidden service friendica
 server {
   listen 10.0.0.252:80;
   server_name friendica.local;
-  return 301 http://$SERVER_FRIENDICA;
+  
+  index index.php;
+  root /var/www/friendica;
+  rewrite ^ https://friendica.local\$request_uri? permanent;
   }
 
 # Main server for Tor hidden service friendica
@@ -1128,6 +1197,74 @@ server {
 }
 
 # Configure Friendica with SSL
+
+server {
+  listen 10.0.0.252:443 ssl;
+  server_name friendica.local;
+
+  ssl on;
+  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
+  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
+  ssl_session_timeout 5m;
+  ssl_protocols SSLv3 TLSv1;
+  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+  ssl_prefer_server_ciphers on;
+
+  index index.php;
+  charset utf-8;
+  root /var/www/friendica;
+  access_log /var/log/nginx/friendica.log;
+  # allow uploads up to 20MB in size
+  client_max_body_size 20m;
+  client_body_buffer_size 128k;
+  # rewrite to front controller as default rule
+  location / {
+    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+  }
+
+  # make sure webfinger and other well known services aren't blocked
+  # by denying dot files and rewrite request to the front controller
+  location ^~ /.well-known/ {
+    allow all;
+    rewrite ^/(.*) /index.php?q=\$uri&\$args last;
+  }
+
+  # statically serve these file types when possible
+  # otherwise fall back to front controller
+  # allow browser to cache them
+  # added .htm for advanced source code editor library
+  location ~* \.(jpg|jpeg|gif|png|ico|css|js|htm|html|ttf|woff|svg)$ {
+    expires 30d;
+    try_files \$uri /index.php?q=\$uri&\$args;
+  }
+  # block these file types
+  location ~* \.(tpl|md|tgz|log|out)$ {
+    deny all;
+  }
+
+  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  # or a unix socket
+  location ~* \.php$ {
+    try_files \$uri =404;
+
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+    # With php5-cgi alone:
+    # fastcgi_pass 127.0.0.1:9000;
+
+    # With php5-fpm:
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+
+    include fastcgi_params;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+  }
+
+  # deny access to all dot files
+  location ~ /\. {
+    deny all;
+  }
+}
 
 server {
   listen 10.0.0.252:443 ssl;
@@ -1196,6 +1333,7 @@ server {
     deny all;
   }
 }
+
 " > /etc/nginx/sites-enabled/friendica 
 
 
@@ -1218,15 +1356,25 @@ server {
 server {
         listen 10.0.0.253:80;
         server_name _;
-        return 301 http://$SERVER_OWNCLOUD;
+        return 301 http://owncloud.local;
 }
   
 # Redirect connections from owncloud.local to Tor hidden service owncloud
 server {
   listen 10.0.0.253:80;
   server_name owncloud.local;
-  return 301 http://$SERVER_OWNCLOUD;
+  index index.php;
+  root /var/www/owncloud;
+
+  # php5-fpm configuration
+  location ~ \.php$ {
+  fastcgi_split_path_info ^(.+\.php)(/.+)$;
+  fastcgi_pass unix:/var/run/php5-fpm.sock;
+  fastcgi_index index.php;
+  fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+  include fastcgi_params;
   }
+}
 
 # Main server for Tor hidden service owncloud
 server {
@@ -1351,15 +1499,32 @@ echo "
 server {
         listen 10.0.0.254;
         server_name _;
-        return 301 http://$SERVER_MAILPILE;
+        return 301 http://mailpile.local;
 }   
 
 # Redirect connections from mailpile.local to Tor hidden service mailpile
 server {
-  listen 10.0.0.254:80;
-  server_name mailpile.local;
-  return 301 http://$SERVER_MAILPILE;
-  } 
+    # Mailpile Domain
+    server_name mailpile.local;
+    client_max_body_size 20m;
+
+    # Nginx port 80 and 443
+    listen 10.0.0.254:80;
+    listen 10.0.0.254:443 ssl;
+
+    # SSL Certificate File
+    ssl_certificate      /etc/ssl/nginx/$SERVER_MAILPILE.crt;
+    ssl_certificate_key  /etc/ssl/nginx/$SERVER_MAILPILE.key;
+    # Nginx Poroxy pass for mailpile
+    location / {
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header Host \$http_host;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_pass http://127.0.0.1:33411;
+        proxy_read_timeout  90;
+    }
+} 
 
 server {
 
@@ -1435,14 +1600,18 @@ echo "
 server {
         listen 10.0.0.250:80;
         server_name easyrtc.local;
-        return 301 http://$SERVER_EASYRTC\$request_uri;
+location / {
+    proxy_pass       http://127.0.0.1:8080;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
 }
 
 # Redirect connections from 10.0.0.250 to EasyTRC tor hidden service 
 server {
         listen 10.0.0.250;
         server_name _;
-        return 301 http://$SERVER_EASYRTC;
+        return 301 http://easyrtc.local\$request_uri;
 }
 
 # Redirect connections to easyrtc running on 127.0.0.1:8080
@@ -1458,6 +1627,13 @@ location / {
 }
 
 # Redirect https connections to http
+server {
+        listen 10.0.0.250:443 ssl;
+        server_name easyrtc.local;
+        ssl_certificate /etc/ssl/nginx/$SERVER_EASYRTC.crt;
+        ssl_certificate_key /etc/ssl/nginx/$SERVER_EASYRTC.key;
+        return 301 http://easyrtc.local;
+}
 server {
         listen 10.0.0.250:443 ssl;
         server_name $SERVER_EASYRTC;
