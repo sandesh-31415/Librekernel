@@ -584,14 +584,10 @@ check_assemblance()
 # Function to install mailpile package
 # ----------------------------------------------
 install_mailpile() {
-cd /opt/
-git clone --recursive https://github.com/mailpile/Mailpile.git
-cd /opt/Mailpile/
-virtualenv -p /usr/bin/python2.7 --system-site-packages mailpile-env
-cd /opt/Mailpile/
-source mailpile-env/bin/activate
-pip install -r requirements.txt
-#xterm -e 'cd /opt/Mailpile && ./mp' &
+git clone --recursive https://github.com/mailpile/Mailpile.git /opt/
+virtualenv -p /usr/bin/python2.7 --system-site-packages /opt/Mailpile/mailpile-env
+source /opt/Mailpile/mailpile-env/bin/activate
+pip install -r /opt/Mailpile/requirements.txt
 }
 
 
