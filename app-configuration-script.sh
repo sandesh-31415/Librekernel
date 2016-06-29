@@ -535,6 +535,7 @@ SocksBindAddress 127.0.0.1 # accept connections only from localhost
 AllowUnverifiedNodes middle,rendezvous
 #Log notice syslog" >>  /etc/tor/torrc
 
+service nginx stop 
 sleep 10
 service tor restart
 
@@ -901,6 +902,7 @@ echo "
 \$a->config['sitename'] = \"My Friend Network\";
 \$a->config['register_policy'] = REGISTER_OPEN;
 \$a->config['register_text'] = '';
+\$a->config['admin_email'] = 'admin@librerouter.com';
 \$a->config['max_import_size'] = 200000;
 \$a->config['system']['maximagesize'] = 800000;
 \$a->config['php_path'] = '/usr/bin/php';
@@ -1020,6 +1022,31 @@ fi
 # ---------------------------------------------------------
 start_mailpile()
 {
+# Make Mailpile a service with upstart
+echo "
+description "Mailpile Webmail Client"
+author      "Sharon Campbell"
+
+start on filesystem or runlevel [2345]
+stop on shutdown
+
+script
+
+    echo $$ > /var/run/mailpile.pid
+    exec /usr/bin/screen -dmS mailpile_init /var/Mailpile/mp
+
+end script
+
+pre-start script
+    echo "[`date`] Mailpile Starting" >> /var/log/mailpile.log
+end script
+
+pre-stop script
+    rm /var/run/mailpile.pid
+    echo "[`date`] Mailpile Stopping" >> /var/log/mailpile.log
+end script
+" > /etc/init/mailpile.conf
+ 
 echo "Starting Mailpile local service ..."
 /opt/Mailpile/mp
 }
