@@ -271,31 +271,11 @@ https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:feat
 
 #Which hardware is needed to run Librerouter?
 
--  • https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXIno-LIME2/open-source-hardware
--  • https://eewiki.net/display/linuxonarm/ATSAMA5D3+Xplained
--  • http://es.aliexpress.com/store/product/Orange-Pi-PC-H3-Development-Board-Compatible-With-Raspberry-Pi-2/606998_32505848092.html?spm=2114.30011108.3.1.5pgwqj&ws_ab_test=searchweb201556_7,searchweb201602_5_10017_10005_10006_10034_10021_507_10022_10009_10020_10008_10018_10019,searchweb201603_6&btsid=44da590c-e01e-4e1e-8ad6-86da3183b30b
--  • http://es.aliexpress.com/store/product/NEW-orange-pi-plus-Allwinner-A31s-Dual-Core-1GB-RAM-Open-source-development-board/1553371_32248189300.html
+Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. It need to habe 2 network interfaces at least, 2GB RAM is recommended, and 4 cores at least. For Tahohe we recomend 1TB hardisk and separate the boot from the rootfs
 
-    Chips based on ath9k driver for wifi (AR5416, AR5418, AR9160, AR9280, AR9220, AR9281, AR9283, AR9223, AR9287, AR9227, AR9380, AR9382, AR9390, AR9392, AR9462, AR9463, AR9485, AR9580, AR9582, AR9590, AR9592 or QCA9565) and Linux-libre's deblob file that contains the nonfree devices blacklist that should be avoided to use for the board designing.
 
  
-Comes with four network interfaces which are configured as follows: 2 Wireless and 2 Gigabyte Ethernet.
-
-
-| Board | Board | Board | 
-|:---|:---|:---|
-| OrangePi | OLinuXInoLIME2 | ATSAMA5D3 |
-| ssd8gbc10 | ssd8gbc10| ssd8gbc10 |
-| 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard | 1xUSB2ETH+1xonboard |
-| HDD1TB | HDD1TB | HDD1TB|
-| 2xWLAN | 2xWLAN| 2xWLAN | 
-| BatteriUPS| BatteriUPS| BatteriUPS|
-| Adapt-POE-volt| Adapt-POE-volt| Adapt-POE-volt| 
-| usbtoLedsblinkstick.com| usbtoLedsblinkstick.com| usbtoLedsblinkstick.com|
-| CASE | CASE |  CASE | 
-| RoboPeakRUSB or Waveshare | RoboPeakRUSB or Waveshare | RoboPeakRUSB or Waveshare | 
-|:---|:---|:---|
-
+  
 ![ComponentsH](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
 
 
