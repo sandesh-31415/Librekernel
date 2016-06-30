@@ -1,5 +1,13 @@
 ![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472862/85e49ae0-00f5-11e6-9591-163f1acd5098.png)
 
+## Can u define the project in a line here ?
+example: Open source, free of blobls router/firewall. 
+
+## Is there are any similar projects like this ?
+if yes mention it and define what is the new in ur project , if no remark that you are the first one doing this.
+
+## is their any demo showing that it is acutally did what is calimed ?
+
 #Why do we need this technology?
 
 - **Sniffers**: those that are checking your traffic.
