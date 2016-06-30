@@ -1,8 +1,16 @@
 ![librerouter - logo](https://cloud.githubusercontent.com/assets/13025157/14472862/85e49ae0-00f5-11e6-9591-163f1acd5098.png)
 
+## Can u define the project in a line here ?
+example: Open source, free of blobls router/firewall. 
+
+## Is there are any similar projects like this ?
+if yes mention it and define what is the new in ur project , if no remark that you are the first one doing this.
+
+## is their any demo showing that it is acutally did what is calimed ?
+
 #Why do we need this technology?
 
-- **Sniffers**: those that are checking your traffic
+- **Sniffers**: those that are checking your traffic.
 - **Government spy/monitoring institutions passive actions**: collecting general data from worldwide.
 - **Librerouter evil nodes**:  a box Owned for those _bad people_.
 - **Malicious internet nodes**: better known as _blackbones_.
@@ -20,20 +28,23 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
+# WTH is stands for ?
+
 #WTH is Linux-libre?
 
 Is an operating system kernel and a GNU package[3] that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses.
 
 Software components with no available source code are called binary blobs and, as such, are mostly used for proprietary firmware images in the Linux kernel. While generally redistributable, binary blobs do not give the user the freedom to audit, modify or, consequently, redistribute their modified versions.
 
-2 ways to have Linux with no blobs:
-a) Deblobing : http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check
-b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example linux libre.  www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-3.14.N/?C=S;O=D
+### 2 ways to have Linux with no blobs:
+- a) Deblobing : clean up and verify linux tarballs and patches for non-Free blobs, you can check if your linux tarballs has non-free blobs or not from [here](http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check)
+- b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
   
 
 #WTH is Open-source hardware ?
-
+Yes, it is.
 It consists of physical artifacts of technology designed and offered by the open design movement. Both free and open-source software (FOSS) as well as open-source hardware is created by this open-source culture movement and applies a like concept to a variety of components. It is sometimes, thus, referred to as FOSH (free and open-source hardware). The term usually means that information about the hardware is easily discerned so that others can make it - coupling it closely to the maker movement.[1] Hardware design (i.e. mechanical drawings, schematics, bills of material, PCB layout data, HDL source code[2] and integrated circuit layout data), in addition to the software that drives the hardware, are all released under free/libre terms. The original sharer gains feedback and potentially improvements on the design from the FOSH community. There is now significant evidence that such sharing can drive a high return on investment for investors.
+
 
 ###LGPL
 
@@ -43,9 +54,9 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
-#WTH many claimed they are open hardware but is bullshit?
+#WTH many claimed they are open hardware but it is bullshit?
 
-The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls,chipset restringtions and questions about missing parts of info and doc:
+The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls, chipset restringtions and questions about missing parts of info and doc:
 
 - ARM Truszone
 - Controllers in Chipset of the network nics is not opensource
@@ -61,7 +72,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 #WTH is the definition of a real (guaranteed) open hardware?
 
 
-#WTH means full libre really something free of backdoors=binary-blobs and fully open?
+#WTH means full libre really something free of backdoors, binary-blobs and fully open?
 
 
 #What are the license/certification for show openes in the hardware?
@@ -137,7 +148,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 #Who? Why? What? How? When?
 
-A unique combination of open hardware, GNU software and training book you can achieve a decrease of the cyber risks:
+A unique combination of open hardware, GNU software and training book you can achieve **a decrease** of the cyber risks:
 
 - • Open source comunity.
 - • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
