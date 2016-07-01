@@ -224,7 +224,7 @@ configure_repositories ()
 # br0 = eth0 and wlan0 
 # br1 = eth1 and wlan1
 # ----------------------------------------------
-configure_bridge()
+configure_bridges()
 {
 	# Updating and installing bridge-utils package
 	echo "Updating repositories ..."
@@ -296,10 +296,12 @@ if [ $PLATFORM = "D7" ]; then
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
-	macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
+	i2p i2p-keyring yacy \
+        killyourtv-keyring  i2p-tahoe-lafs \
+	c-icap clamav  clamav-daemon \
 	deb.torproject.org-keyring u-boot-tools console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
@@ -322,10 +324,12 @@ elif [ $PLATFORM = "D8" ]; then
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
-	macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
+	i2p i2p-keyring yacy \
+     #  killyourtv-keyring i2p-tahoe-lafs \
+	c-icap clamav clamav-daemon \
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
 	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin\
@@ -348,10 +352,12 @@ elif [ $PLATFORM = "T7" ]; then
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
 	php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
-	macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring killyourtv-keyring yacy i2p-tahoe-lafs \
+	i2p i2p-keyring yacy \
+	killyourtv-keyring i2p-tahoe-lafs \
+	c-icap clamav clamav-daemon \
 	deb.torproject.org-keyring u-boot-tools console-setup \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
@@ -606,7 +612,7 @@ curl -sL https://deb.nodesource.com/setup | bash -
 apt-get install -y --force-yes nodejs
 
 # Getting EasyRTC files
-wget https://easyrtc.com/assets/files/easyrtc_server_example.zip
+wget --no-check-certificate https://easyrtc.com/assets/files/easyrtc_server_example.zip
 unzip easyrtc_server_example.zip -d /opt/easyrtc
 rm -r easyrtc_server_example.zip
 
@@ -615,6 +621,27 @@ cd /opt/easyrtc
 npm install
 cd
 }
+
+
+# ----------------------------------------------
+# Function to install SquidClamav
+# ----------------------------------------------
+install_squidclamav()
+{
+echo "Downloading squidclamav ..."
+wget -P /tmp/ http://downloads.sourceforge.net/project/squidclamav/squidclamav/6.15/squidclamav-6.15.tar.gz 
+tar zxvf /tmp/squidclamav-6.15.tar.gz 
+cd /root/squidclamav-6.15 
+
+echo "Building squidclamav ..."
+./configure --with-c-icap 
+make
+make install
+cd
+ln -s /etc/c-icap/squidclamav.conf /etc/squidclamav.conf 
+
+}
+
 
 # ----------------------------------------------
 # This function saves variables in file, so
@@ -683,6 +710,7 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 	install_packages       	# Download and install packages	
 	install_mailpile	# Install Mailpile package
 	install_easyrtc		# Install EasyRTC package
+	install_squidclamav	# install SquidClamav package
         save_variables	        # Save detected variables
 
 # ---------------------------------------------
@@ -696,13 +724,15 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 # 8. Download and Install packages
 # ---------------------------------------------
 elif [ "$PROCESSOR" = "ARM" ]; then 
-	check_assemblance
+#	check_assemblance
 	configure_bridges
 	check_internet
 	configure_repositories
 	install_packages
 	install_mailpile	# Install Mailpile package
 	install_easyrtc		# Install EasyRTC package
+	install_squidclamav	# install SquidClamav package
+        save_variables	        # Save detected variables
 fi
 
 # ---------------------------------------------
