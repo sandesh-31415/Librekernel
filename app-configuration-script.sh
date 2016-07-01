@@ -1018,6 +1018,148 @@ fi
 
 
 # ---------------------------------------------------------
+# Function to configure squid
+# ---------------------------------------------------------
+configure_squid()
+{
+
+# squid TOR
+
+cat << EOF > /etc/squid3/squid-tor.conf 
+cache_peer 127.0.0.1 parent 8119 7 no-query no-digest
+
+acl manager proto cache_object
+acl localhost src 127.0.0.1/32 ::1
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
+
+acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
+
+acl SSL_ports port 443
+acl Safe_ports port 80          # http
+acl Safe_ports port 21          # ftp
+acl Safe_ports port 443         # https
+acl Safe_ports port 70          # gopher
+acl Safe_ports port 210         # wais
+acl Safe_ports port 1025-65535  # unregistered ports
+acl Safe_ports port 280         # http-mgmt
+acl Safe_ports port 488         # gss-http
+acl Safe_ports port 591         # filemaker
+acl Safe_ports port 777         # multiling http
+acl CONNECT method CONNECT
+
+http_access allow localnet
+http_access allow localhost
+http_access allow all
+http_access deny all
+
+http_access deny manager
+
+http_access deny !Safe_ports
+
+http_access deny CONNECT !SSL_ports
+
+http_access deny all
+
+http_port 3129 transparent
+
+hierarchy_stoplist cgi-bin ?
+
+never_direct allow all
+
+cache_store_log none
+
+pid_filename /var/run/squid3-tor.pid
+
+cache_log /var/log/squid3/cache.log
+
+coredump_dir /var/spool/squid3
+
+#url_rewrite_program /usr/bin/squidGuard
+
+no_cache deny all
+EOF
+
+cp /etc/init.d/squid3 /etc/init.d/squid3-tor
+sed "s~Provides:.*~Provides:          squid3-tor~g" -i  /etc/init.d/squid3-tor
+sed "s~PIDFILE=.*~PIDFILE=/var/run/squid3-tor.pid~g" -i  /etc/init.d/squid3-tor
+sed "s~CONFIG=.*~CONFIG=/etc/squid3/squid-tor.conf~g" -i /etc/init.d/squid3-tor
+
+update-rc.d squid3-tor start defaults
+echo "Restarting squid3-tor ..."
+service squid3-tor restart
+
+#Squid I2P
+
+cat << EOF > /etc/squid3/squid-i2p.conf
+cache_peer 127.0.0.1 parent 8118 7 no-query no-digest
+
+acl manager proto cache_object
+acl localhost src 127.0.0.1/32 ::1
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
+
+acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
+
+acl SSL_ports port 443
+acl Safe_ports port 80          # http
+acl Safe_ports port 21          # ftp
+acl Safe_ports port 443         # https
+acl Safe_ports port 70          # gopher
+acl Safe_ports port 210         # wais
+acl Safe_ports port 1025-65535  # unregistered ports
+acl Safe_ports port 280         # http-mgmt
+acl Safe_ports port 488         # gss-http
+acl Safe_ports port 591         # filemaker
+acl Safe_ports port 777         # multiling http
+acl CONNECT method CONNECT
+
+http_access allow localnet
+http_access allow localhost
+http_access allow all
+http_access deny all
+
+http_access deny manager
+
+http_access deny !Safe_ports
+
+http_access deny CONNECT !SSL_ports
+
+http_access deny all
+
+http_port 3128 transparent
+
+hierarchy_stoplist cgi-bin ?
+
+never_direct allow all
+
+cache_store_log none
+
+pid_filename /var/run/squid3-i2p.pid
+
+cache_log /var/log/squid3/cache.log
+
+coredump_dir /var/spool/squid3
+
+#url_rewrite_program /usr/bin/squidGuard
+
+no_cache deny all
+
+EOF
+
+cp /etc/init.d/squid3 /etc/init.d/squid3-i2p
+
+cp /etc/init.d/squid3 /etc/init.d/squid3-i2p
+sed "s~Provides:.*~Provides:          squid3-i2p~g" -i  /etc/init.d/squid3-i2p
+sed "s~PIDFILE=.*~PIDFILE=/var/run/squid3-i2p.pid~g" -i  /etc/init.d/squid3-i2p
+sed "s~CONFIG=.*~CONFIG=/etc/squid3/squid-i2p.conf~g" -i /etc/init.d/squid3-i2p
+
+update-rc.d squid3-i2p start defaults
+
+echo "Restarting squid3-i2p ..."
+service squid3-i2p restart
+}
+
+
+# ---------------------------------------------------------
 # Function to start mailpile local service
 # ---------------------------------------------------------
 start_mailpile()
@@ -1704,6 +1846,7 @@ configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
 configure_mailpile		# Configuring Mailpile local serive
 configure_nginx                 # Configuring Nginx web server
+confugre_squid			# Configuring squid proxy
 start_mailpile			# Starting Mailpile local service
 
 
