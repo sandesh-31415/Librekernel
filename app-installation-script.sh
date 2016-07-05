@@ -301,7 +301,7 @@ if [ $PLATFORM = "D7" ]; then
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring yacy \
         killyourtv-keyring  i2p-tahoe-lafs \
-	c-icap clamav  clamav-daemon \
+	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
@@ -329,7 +329,7 @@ elif [ $PLATFORM = "D8" ]; then
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring yacy \
      #  killyourtv-keyring i2p-tahoe-lafs \
-	c-icap clamav clamav-daemon \
+	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
 	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin\
@@ -357,7 +357,7 @@ elif [ $PLATFORM = "T7" ]; then
 	unzip debian-keyring subversion build-essential libncurses5-dev \
 	i2p i2p-keyring yacy \
 	killyourtv-keyring i2p-tahoe-lafs \
-	c-icap clamav clamav-daemon \
+	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools console-setup \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
@@ -638,6 +638,11 @@ echo "Building squidclamav ..."
 make
 make install
 cd
+
+# Creating configuration file
+if [ -e /etc/squidclamav.conf ]; then
+rm -rf /etc/squidclamav.conf
+fi
 ln -s /etc/c-icap/squidclamav.conf /etc/squidclamav.conf 
 
 }
