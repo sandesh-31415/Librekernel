@@ -1022,6 +1022,23 @@ fi
 # ---------------------------------------------------------
 configure_squid()
 {
+echo "Configuring squid server ..."
+
+# squid configuration
+
+echo "
+                   icap_enable on
+                   icap_send_client_ip on
+                   icap_send_client_username on
+                   icap_client_username_encode off
+                   icap_client_username_header X-Authenticated-User
+                   icap_preview_enable on
+                   icap_preview_size 1024
+                   icap_service service_req reqmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
+                   adaptation_access service_req allow all
+                   icap_service service_resp respmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
+                   adaptation_access service_resp allow all
+" >> /etc/squid3/squid.conf
 
 # squid TOR
 
@@ -1157,6 +1174,86 @@ update-rc.d squid3-i2p start defaults
 echo "Restarting squid3-i2p ..."
 service squid3-i2p restart
 }
+
+
+# ---------------------------------------------------------
+# Function to configure c-icap
+# ---------------------------------------------------------
+configure_c_icap()
+{
+echo "Configuring c-icap ..."
+
+# Making c-icap daemon run automatically on startup
+echo "
+# Defaults for c-icap initscript
+# sourced by /etc/init.d/c-icap
+# installed at /etc/default/c-icap by the maintainer scripts
+
+# Should c-icap daemon run automatically on startup? (default: no)
+START=yes
+
+# Additional options that are passed to the Daemon.
+DAEMON_ARGS=\"\"
+" > /etc/default/c-icap
+
+# c-icap configuration
+echo "
+PidFile /var/run/c-icap/c-icap.pid
+CommandsSocket /var/run/c-icap/c-icap.ctl
+Timeout 300
+MaxKeepAliveRequests 100
+KeepAliveTimeout 600
+StartServers 3
+MaxServers 10
+MinSpareThreads     10
+MaxSpareThreads     20
+ThreadsPerChild     10
+MaxRequestsPerChild  0
+Port 1344
+User c-icap
+Group c-icap
+ServerAdmin admin@libreroute.com
+ServerName librerouter
+TmpDir /tmp
+MaxMemObject 131072
+DebugLevel 1
+ModulesDir /usr/lib/x86_64-linux-gnu/c_icap
+ServicesDir /usr/lib/x86_64-linux-gnu/c_icap
+TemplateDir /usr/share/c_icap/templates/
+TemplateDefaultLanguage en
+LoadMagicFile /etc/c-icap/c-icap.magic
+RemoteProxyUsers off
+RemoteProxyUserHeader X-Authenticated-User
+RemoteProxyUserHeaderEncoded on
+ServerLog /var/log/c-icap/server.log
+AccessLog /var/log/c-icap/access.log
+Service squidclamav squidclamav.so
+Service echo srv_echo.so
+" > /etc/c-icap/c-icap.conf
+
+echo "Restarting c-icap service ..."
+service c-icap restart
+}
+
+
+# ---------------------------------------------------------
+# Function to configure squidclamav
+# ---------------------------------------------------------
+configure_squidclamav()
+{
+echo "Configuring squidclamav ..."
+echo "
+maxsize 5000000
+redirect http://localhost/virus_warning_page
+clamd_ip 10.0.0.1,127.0.0.1
+clamd_port 3310
+timeout 1
+logredir 0
+dnslookup 1
+safebrowsing 0
+" > /etc/squidclamav.conf
+}
+
 
 
 # ---------------------------------------------------------
@@ -1846,7 +1943,9 @@ configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
 configure_mailpile		# Configuring Mailpile local serive
 configure_nginx                 # Configuring Nginx web server
-confugre_squid			# Configuring squid proxy
+#configure_squid		# Configuring squid proxy
+#configure_c_icap		# Configuring c-icap daemon
+#configure_squidclamav		# Configuring squidclamav service
 start_mailpile			# Starting Mailpile local service
 
 
