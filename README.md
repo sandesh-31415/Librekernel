@@ -6,7 +6,7 @@ A end user privacy firewall
 ## Is there are any similar projects like this ?
 sure they are
 
-## is their any demo showing that it is acutally did what is calimed ?
+## is their any demo showing that it is acutally did what is claimed ?
 we are in the way to deliver, ongoing
 
 #Why do we need this technology?
