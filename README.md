@@ -29,9 +29,8 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-# WTH is stands for ?
 
-#WTH is Linux-libre?
+#What is Linux-libre?
 
 Is an operating system kernel and a GNU package[3] that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses.
 
@@ -42,8 +41,8 @@ Software components with no available source code are called binary blobs and, a
 - b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
   
 
-#WTH is Open-source hardware ?
-Yes, it is.
+#What is Open-source hardware ?
+
 It consists of physical artifacts of technology designed and offered by the open design movement. Both free and open-source software (FOSS) as well as open-source hardware is created by this open-source culture movement and applies a like concept to a variety of components. It is sometimes, thus, referred to as FOSH (free and open-source hardware). The term usually means that information about the hardware is easily discerned so that others can make it - coupling it closely to the maker movement.[1] Hardware design (i.e. mechanical drawings, schematics, bills of material, PCB layout data, HDL source code[2] and integrated circuit layout data), in addition to the software that drives the hardware, are all released under free/libre terms. The original sharer gains feedback and potentially improvements on the design from the FOSH community. There is now significant evidence that such sharing can drive a high return on investment for investors.
 
 
@@ -55,7 +54,7 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
-#WTH many claimed they are open hardware but it is bullshit?
+#WTH many hw providers claimed they produce open hardware but it's just horse shit?
 
 The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls, chipset restringtions and questions about missing parts of info and doc:
 
@@ -76,7 +75,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 #WTH means full libre really something free of backdoors, binary-blobs and fully open?
 
 
-#What are the license/certification for show openes in the hardware?
+#Which are the license/certification for show openes in the hardware?
 
 - http://www.ohwr.org/documents/294
 - http://www.gnu.org/licenses/quick-guide-gplv3.en.html
@@ -84,7 +83,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - http://www.opengroup.org/accreditation/o-ttps
 - http://www.fsf.org/resources/hw/endorsement/respects-your-freedom
 
-#What are the certifications for privacy and security?
+#Which are the certifications for privacy and security?
 
 - www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 - https://www.truste.com/business-products/dpm-services/
@@ -98,7 +97,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.esrb.org/privacy/
 
 
-#What are the certifications for security?
+#Which are the certifications for security?
 
 - http://www.dekra-certification.com/en/cyber-security
 - http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
@@ -114,11 +113,12 @@ The market is full of crowdfunded project where the funder claimed the project i
 - http://www.asd.gov.au/infosec/aisep/crypto.htm
 - 
 
-#WTH is Librerouter?
+#What intend to be Librerouter?
 
 ![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
 
-***Librerouter*** is a GNU open hardware and software:
+***Librerouter***  
+GNU open hardware(mostly imposible due to 5june2016 only fpga with ARM) and GNU software:
 
      • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
      • - Decentralizing the services (doing impossible to apply big data :the enemy )
@@ -149,7 +149,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 #Who? Why? What? How? When?
 
-A unique combination of open hardware, GNU software and training book you can achieve **a decrease** of the cyber risks:
+A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
 
 - • Open source comunity.
 - • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
@@ -158,7 +158,7 @@ A unique combination of open hardware, GNU software and training book you can ac
 - • It is the future Data Center resilience infrastructure.
 - • Now, you, because the Hardware ARM is going Open
 
-##Operating System Dragora Linux Libre Kernel Archarm
+#Operating System Dragora Linux Libre Kernel Archarm
 
 ![parabola](https://cloud.githubusercontent.com/assets/17382786/14740871/78c4f18a-0892-11e6-9056-d5f80589e0f7.png)
 
