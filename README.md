@@ -40,6 +40,18 @@ Software components with no available source code are called binary blobs and, a
 - a) Deblobing : clean up and verify linux tarballs and patches for non-Free blobs, you can check if your linux tarballs has non-free blobs or not from [here](http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check)
 - b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
   
+Philosophically speaking, you could consider the difference to be as follows:
+
+    the Debian kernel doesn't include any non-free firmware (bugs aside), but it allows users to load non-free firmware if they wish to do so;
+    the Linux-libre kernel doesn't include any non-free firmware or anything looking like firmware, and it prevents users from loading non-free firmware even if they wish to do so.
+
+Linux-libre is built by running a deblob script on the kernel source code. This goes through the kernel source code, and makes various firmware-related changes:
+
+    any firmware for which source code is available is preserved, but the script makes sure the source code is available;
+    any module requiring firmware is stripped of the ability to load the firmware;
+    any source code which looks like firmware (sequences of numbers) is removed;
+    any file containing only firmware (e.g. the contents of firmware/radeon) is removed.
+
 
 #What is Open-source hardware ?
 
