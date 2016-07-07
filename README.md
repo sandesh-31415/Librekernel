@@ -98,7 +98,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
 
-#Which are the licenses/certifications that show openes in the hardware?
+##Which are the licenses/certifications that show openes in the hardware?
 
 - http://www.ohwr.org/documents/294
 - http://www.gnu.org/licenses/quick-guide-gplv3.en.html
@@ -106,7 +106,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - http://www.opengroup.org/accreditation/o-ttps
 - http://www.fsf.org/resources/hw/endorsement/respects-your-freedom
 
-#Which are the certifications for privacy and security?
+###Which are the certifications for privacy and security?
 
 - www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 - https://www.truste.com/business-products/dpm-services/
@@ -122,7 +122,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.datenschutzzentrum.de/zertifizierung/
 - http://www.edaa.eu/certification-process/trust-seal/
 
-#Which are security product ceritifcations?
+###Which are security product ceritifcations?
 
 - http://www.dekra-certification.com/en/cyber-security
 - http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
@@ -142,7 +142,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 #Operating System
 
-Purposed:
+###Purposed:
 
 Debian (after deblobling,hardening,enlighting)
 Lubuntu (after deblobling,hardening,enlighting)
@@ -155,6 +155,7 @@ Docker for app (further containerization for security) (reference qubeOS.org)
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 #HOW to use Librerouter in Hardware?
 
  • -a) If you buy a Librerouter then connect it like:
@@ -162,7 +163,7 @@ Docker for app (further containerization for security) (reference qubeOS.org)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
- • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
+ • -b) If you feel like an computer expert, then install the scripts in a virtual/physical machine DoItYourSelf
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
  
@@ -173,18 +174,18 @@ Docker for app (further containerization for security) (reference qubeOS.org)
 
 #Which hardware is needed to run Librerouter?
 
-Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. It need to habe 2 network interfaces at least, 2GB RAM is recommended, and 4 cores at least. For Tahohe we recomend 1TB hardisk and separate the boot from the rootfs
-
+Anyone able to run Debian or Ubuntu (by now). It does not matter if ARM,x86 or 64 bits. 
+It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd. 
+*For Owncloud user folders TahoheLafs I2P we recomend 1TB hardisk and separate the boot from the rootfs
 
 #How it will protect me?
 
      • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
-     • - Decentralize the service you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+     • - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
      • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
      • - Forcing encryption in transport and in rest data.
      • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -192,26 +193,20 @@ Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. I
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-https://github.com/Librerouter/debian-autoscript/issues
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 #Services running in Librerouter
-
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
-
 
 |app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
 |:---|:---|:---|:---|:---|:---|:---|
 |OwnCloud|yes|not|not|yes|PrivtFederation|yes|
 |Mailpile|yes|not|4096DSAelg|not|Private|yes|
+|Rouncube|yes|not|4096DSAelg|not|Private|yes|
 |Diaspora|yes|not|not|EncFS|publics|yes|
 |Friendica|yes|not|not|EncFS|publics|yes|
 |YaCy|yes|not|EncFS|public|yes|no|
@@ -220,8 +215,23 @@ https://github.com/Librerouter/debian-autoscript/issues
 |RTCio|yes|not|Partially|not|publics|yes|
 |TOR|no|yes|no|maybe|public|no|
 |I2P|yes|yes|no|yes|private|yes|
+|Dovecot|yes|not|?|public|yes|no|
+|Postfix|yes|not|?|public|yes|no|
 |:---|:---|:---|:---|:---|:---|:---|
 
+https://github.com/Librerouter/debian-autoscript/issues
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+## Libre or not libre libraries in the App## 
+
+https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
+
+## Software APPs and their Dependencies Status 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
@@ -282,20 +292,6 @@ With federated XMPP servers for authentication but perfect for discovering users
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-## Libre or not libre libraries in the App## 
-
-https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
-
-## Software APPs and their Dependencies Status 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
