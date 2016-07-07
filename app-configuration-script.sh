@@ -44,6 +44,7 @@ check_root ()
 get_variables()
 {
 	echo "Initializing variables ..."
+	touch "/tmp/variables.log"
 	if [ -e /tmp/variables.log ]; then
 		PLATFORM=`cat /tmp/variables.log | grep "Platform" | awk {'print $2'}`
 		HARDWARE=`cat /tmp/variables.log | grep "Hardware" | awk {'print $2'}`
