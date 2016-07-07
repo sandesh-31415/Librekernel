@@ -44,7 +44,7 @@ check_root ()
 get_variables()
 {
 	echo "Initializing variables ..."
-	touch "/tmp/variables.log"
+#	touch "/tmp/variables.log"
 	if [ -e /tmp/variables.log ]; then
 		PLATFORM=`cat /tmp/variables.log | grep "Platform" | awk {'print $2'}`
 		HARDWARE=`cat /tmp/variables.log | grep "Hardware" | awk {'print $2'}`
@@ -63,7 +63,7 @@ get_variables()
 			echo "Int Interface: $INT_INTERFACE"
 		fi 
 	else 
-		echo "Error: Can not find variables file. Exiting"
+		echo "Error: i cant find variables of the machine and operating system ,the installation script wasnt installed or failed, please check the Os requirements (at the moment only works in Debian 8 we are ongoing to ubuntu)" 
 		exit 6
 	fi
 }
