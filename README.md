@@ -108,7 +108,9 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.tuvit.de/en/privacy/uld-privacy-seal-1075.htm
 - http://www.prismintl.org/Privacy-Certification/privacy/about-the-privacy-plus-program.html
 - https://www.esrb.org/privacy/
-
+- http://www.privacytrust.org/certification/privacy/
+- https://www.datenschutzzentrum.de/zertifizierung/
+- http://www.edaa.eu/certification-process/trust-seal/
 
 #Which are the certifications for security?
 
@@ -1066,8 +1068,4 @@ Internal WIFI device without password or WEP encryption 	No
 
 
 
-  * http://www.privacytrust.org/certification/privacy/
-  * https://www.truste.com/business-products/trusted-cloud/
-  * https://www.european-privacy-seal.eu/EPS-en/Home
-  * https://www.datenschutzzentrum.de/zertifizierung/
-  * http://www.edaa.eu/certification-process/trust-seal/
+
