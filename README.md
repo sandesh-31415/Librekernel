@@ -82,13 +82,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
 
-#WTH is the definition of a real (guaranteed) open hardware?
-
-
-#WTH means full libre really something free of backdoors, binary-blobs and fully open?
-
-
-#Which are the license/certification for show openes in the hardware?
+#Which are the licenses/certifications that show openes in the hardware?
 
 - http://www.ohwr.org/documents/294
 - http://www.gnu.org/licenses/quick-guide-gplv3.en.html
@@ -112,7 +106,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.datenschutzzentrum.de/zertifizierung/
 - http://www.edaa.eu/certification-process/trust-seal/
 
-#Which are the certifications for security?
+#Which are security product ceritifcations?
 
 - http://www.dekra-certification.com/en/cyber-security
 - http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
@@ -126,23 +120,16 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://en.wikipedia.org/wiki/Evaluation_Assurance_Level
 - https://en.wikipedia.org/wiki/Common_Criteria
 - http://www.asd.gov.au/infosec/aisep/crypto.htm
-- 
 
 #What intend to be Librerouter?
+GNU open hardware and GNU software:
 
-![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
-
-***Librerouter***  
-GNU open hardware(mostly imposible due to 5june2016 only fpga with ARM) and GNU software:
-
-     • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
-     • - Decentralizing the services (doing impossible to apply big data :the enemy )
-     • - Open authentication (dissolve legal relation between user-human and legal-name-ip), 
-     • - Forcing encryption for all communications and data storing in the backends.
-     • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
-
+     • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+     • - Decentralize the service you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+     • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+     • - Forcing encryption in transport and in rest data.
+     • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
