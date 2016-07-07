@@ -53,6 +53,22 @@ Linux-libre is built by running a deblob script on the kernel source code. This 
     any source code which looks like firmware (sequences of numbers) is removed;
     any file containing only firmware (e.g. the contents of firmware/radeon) is removed.
 
+#What intend to be Librerouter?
+GNU open hardware running and GNU software:
+
+#Who? Why? What? How? 
+
+A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
+
+- • Open source comunity.
+- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
+- • Easy to use for all people with zero tech knowledge.
+- • Plug and play system to make your traffic untraceable.
+- • It is the future Data Center resilience infrastructure.
+
+- 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 #What is Open-source hardware ?
 
@@ -121,20 +137,25 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://en.wikipedia.org/wiki/Common_Criteria
 - http://www.asd.gov.au/infosec/aisep/crypto.htm
 
-#What intend to be Librerouter?
-GNU open hardware and GNU software:
 
-     • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
-     • - Decentralize the service you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
-     • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
-     • - Forcing encryption in transport and in rest data.
-     • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
-![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#HOW to use it?
+#Operating System
+
+Purposed:
+
+Debian (after deblobling,hardening,enlighting)
+Lubuntu (after deblobling,hardening,enlighting)
+Ubuntu Core (after deblobling)
+
+Devuan (librekernel,(after apply hardening)
+Uruk   (librekernel),(after apply hardening)
+
+Docker for app (further containerization for security) (reference qubeOS.org)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+#HOW to use Librerouter in Hardware?
 
  • -a) If you buy a Librerouter then connect it like:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
@@ -149,37 +170,21 @@ GNU open hardware and GNU software:
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#Who? Why? What? How? When?
 
-A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
+#Which hardware is needed to run Librerouter?
 
-- • Open source comunity.
-- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
-- • Easy to use for all people with zero tech knowledge.
-- • Plug and play system to make your traffic untraceable.
-- • It is the future Data Center resilience infrastructure.
-- • Now, you, because the Hardware ARM is going Open
+Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. It need to habe 2 network interfaces at least, 2GB RAM is recommended, and 4 cores at least. For Tahohe we recomend 1TB hardisk and separate the boot from the rootfs
 
-#Operating System Dragora Linux Libre Kernel Archarm
-
-![parabola](https://cloud.githubusercontent.com/assets/17382786/14740871/78c4f18a-0892-11e6-9056-d5f80589e0f7.png)
-
--  • https://wiki.parabola.nu/Main_Page
--  • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
--  • https://www.parabola.nu/news/robofun-sponsors-parabola-arm-port-with-a-bbb-board/
--  • https://www.parabola.nu/packages/?q=uboot
--  • https://lists.parabola.nu/pipermail/dev/2016-March/003848.html
--  • https://labs.parabola.nu/
--  • https://projects.parabola.nu/
--  • https://lists.parabola.nu/mailman/listinfo/dev
--  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 #How it will protect me?
 
- - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
+     • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+     • - Decentralize the service you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+     • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+     • - Forcing encryption in transport and in rest data.
+     • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
+![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
+
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -190,6 +195,13 @@ A unique combination of open hardware, GNU software and trainning you can achiev
 https://github.com/Librerouter/debian-autoscript/issues
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 #Services running in Librerouter
 
@@ -283,21 +295,7 @@ https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:feat
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#Which hardware is needed to run Librerouter?
 
-Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. It need to habe 2 network interfaces at least, 2GB RAM is recommended, and 4 cores at least. For Tahohe we recomend 1TB hardisk and separate the boot from the rootfs
-
-
- 
-  
-![ComponentsH](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
-
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
