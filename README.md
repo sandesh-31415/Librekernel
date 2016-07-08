@@ -53,6 +53,22 @@ Linux-libre is built by running a deblob script on the kernel source code. This 
     any source code which looks like firmware (sequences of numbers) is removed;
     any file containing only firmware (e.g. the contents of firmware/radeon) is removed.
 
+#What intend to be Librerouter?
+GNU open hardware running and GNU software:
+
+#Who? Why? What? How? 
+
+A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
+
+- • Open source comunity.
+- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
+- • Easy to use for all people with zero tech knowledge.
+- • Plug and play system to make your traffic untraceable.
+- • It is the future Data Center resilience infrastructure.
+
+- 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 #What is Open-source hardware ?
 
@@ -82,13 +98,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
 
-#WTH is the definition of a real (guaranteed) open hardware?
-
-
-#WTH means full libre really something free of backdoors, binary-blobs and fully open?
-
-
-#Which are the license/certification for show openes in the hardware?
+##Which are the licenses/certifications that show openes in the hardware?
 
 - http://www.ohwr.org/documents/294
 - http://www.gnu.org/licenses/quick-guide-gplv3.en.html
@@ -96,7 +106,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - http://www.opengroup.org/accreditation/o-ttps
 - http://www.fsf.org/resources/hw/endorsement/respects-your-freedom
 
-#Which are the certifications for privacy and security?
+###Which are the certifications for privacy and security?
 
 - www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 - https://www.truste.com/business-products/dpm-services/
@@ -108,9 +118,11 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.tuvit.de/en/privacy/uld-privacy-seal-1075.htm
 - http://www.prismintl.org/Privacy-Certification/privacy/about-the-privacy-plus-program.html
 - https://www.esrb.org/privacy/
+- http://www.privacytrust.org/certification/privacy/
+- https://www.datenschutzzentrum.de/zertifizierung/
+- http://www.edaa.eu/certification-process/trust-seal/
 
-
-#Which are the certifications for security?
+###Which are security product ceritifcations?
 
 - http://www.dekra-certification.com/en/cyber-security
 - http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
@@ -124,35 +136,34 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://en.wikipedia.org/wiki/Evaluation_Assurance_Level
 - https://en.wikipedia.org/wiki/Common_Criteria
 - http://www.asd.gov.au/infosec/aisep/crypto.htm
-- 
 
-#What intend to be Librerouter?
 
-![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-***Librerouter***  
-GNU open hardware(mostly imposible due to 5june2016 only fpga with ARM) and GNU software:
+#Operating System
 
-     • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
-     • - Decentralizing the services (doing impossible to apply big data :the enemy )
-     • - Open authentication (dissolve legal relation between user-human and legal-name-ip), 
-     • - Forcing encryption for all communications and data storing in the backends.
-     • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
+###Purposed:
 
-![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
+Debian (after deblobling,hardening,enlighting)
+Lubuntu (after deblobling,hardening,enlighting)
+Ubuntu Core (after deblobling)
+
+Devuan (librekernel,(after apply hardening)
+Uruk   (librekernel),(after apply hardening)
+
+Docker for app (further containerization for security) (reference qubeOS.org)
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#HOW to use it?
+#HOW to use Librerouter in Hardware?
 
  • -a) If you buy a Librerouter then connect it like:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
- • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
+ • -b) If you feel like an computer expert, then install the scripts in a virtual/physical machine DoItYourSelf
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
  
@@ -160,37 +171,21 @@ GNU open hardware(mostly imposible due to 5june2016 only fpga with ARM) and GNU 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#Who? Why? What? How? When?
 
-A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
+#Which hardware is needed to run Librerouter?
 
-- • Open source comunity.
-- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
-- • Easy to use for all people with zero tech knowledge.
-- • Plug and play system to make your traffic untraceable.
-- • It is the future Data Center resilience infrastructure.
-- • Now, you, because the Hardware ARM is going Open
-
-#Operating System Dragora Linux Libre Kernel Archarm
-
-![parabola](https://cloud.githubusercontent.com/assets/17382786/14740871/78c4f18a-0892-11e6-9056-d5f80589e0f7.png)
-
--  • https://wiki.parabola.nu/Main_Page
--  • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
--  • https://www.parabola.nu/news/robofun-sponsors-parabola-arm-port-with-a-bbb-board/
--  • https://www.parabola.nu/packages/?q=uboot
--  • https://lists.parabola.nu/pipermail/dev/2016-March/003848.html
--  • https://labs.parabola.nu/
--  • https://projects.parabola.nu/
--  • https://lists.parabola.nu/mailman/listinfo/dev
--  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+Anyone able to run Debian or Ubuntu (by now). It does not matter if ARM,x86 or 64 bits. 
+It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd. 
+*For Owncloud user folders TahoheLafs I2P we recomend 1TB hardisk and separate the boot from the rootfs
 
 #How it will protect me?
 
- - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
+     • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+     • - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+     • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+     • - Forcing encryption in transport and in rest data.
+     • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
+![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -198,19 +193,20 @@ A unique combination of open hardware, GNU software and trainning you can achiev
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-https://github.com/Librerouter/debian-autoscript/issues
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 #Services running in Librerouter
-
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
-
 
 |app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
 |:---|:---|:---|:---|:---|:---|:---|
 |OwnCloud|yes|not|not|yes|PrivtFederation|yes|
 |Mailpile|yes|not|4096DSAelg|not|Private|yes|
+|Rouncube|yes|not|4096DSAelg|not|Private|yes|
 |Diaspora|yes|not|not|EncFS|publics|yes|
 |Friendica|yes|not|not|EncFS|publics|yes|
 |YaCy|yes|not|EncFS|public|yes|no|
@@ -219,8 +215,23 @@ https://github.com/Librerouter/debian-autoscript/issues
 |RTCio|yes|not|Partially|not|publics|yes|
 |TOR|no|yes|no|maybe|public|no|
 |I2P|yes|yes|no|yes|private|yes|
+|Dovecot|yes|not|?|public|yes|no|
+|Postfix|yes|not|?|public|yes|no|
 |:---|:---|:---|:---|:---|:---|:---|
 
+https://github.com/Librerouter/debian-autoscript/issues
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+## Libre or not libre libraries in the App## 
+
+https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
+
+## Software APPs and their Dependencies Status 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
@@ -279,34 +290,6 @@ With federated XMPP servers for authentication but perfect for discovering users
 ![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-## Libre or not libre libraries in the App## 
-
-https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
-
-## Software APPs and their Dependencies Status 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-#Which hardware is needed to run Librerouter?
-
-Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. It need to habe 2 network interfaces at least, 2GB RAM is recommended, and 4 cores at least. For Tahohe we recomend 1TB hardisk and separate the boot from the rootfs
-
-
- 
-  
-![ComponentsH](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
-
-
-
-
-
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
@@ -1066,8 +1049,4 @@ Internal WIFI device without password or WEP encryption 	No
 
 
 
-  * http://www.privacytrust.org/certification/privacy/
-  * https://www.truste.com/business-products/trusted-cloud/
-  * https://www.european-privacy-seal.eu/EPS-en/Home
-  * https://www.datenschutzzentrum.de/zertifizierung/
-  * http://www.edaa.eu/certification-process/trust-seal/
+
