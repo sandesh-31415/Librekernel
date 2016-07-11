@@ -33,7 +33,7 @@ check_root ()
 
 
 # ---------------------------------------------------------
-# Function to get varibales from /tmp/variables.log file
+# Function to get varibales from /var/box_variables file
 # Variables to be initialized are:
 #   PLATFORM
 #   HARDWARE
@@ -44,12 +44,12 @@ check_root ()
 get_variables()
 {
 	echo "Initializing variables ..."
-	if [ -e /tmp/variables.log ]; then
-		PLATFORM=`cat /tmp/variables.log | grep "Platform" | awk {'print $2'}`
-		HARDWARE=`cat /tmp/variables.log | grep "Hardware" | awk {'print $2'}`
-		PROCESSOR=`cat /tmp/variables.log | grep "Processor" | awk {'print $2'}`
-		EXT_INTERFACE=`cat /tmp/variables.log | grep "Ext_int" | awk {'print $2'}`
-		INT_INTERFACE=`cat /tmp/variables.log | grep "Int_int" | awk {'print $2'}`
+	if [ -e /var/box_variables ]; then
+		PLATFORM=`cat /var/box_variables | grep "Platform" | awk {'print $2'}`
+		HARDWARE=`cat /var/box_variables | grep "Hardware" | awk {'print $2'}`
+		PROCESSOR=`cat /var/box_variables | grep "Processor" | awk {'print $2'}`
+		EXT_INTERFACE=`cat /var/box_variables | grep "Ext_int" | awk {'print $2'}`
+		INT_INTERFACE=`cat /var/box_variables | grep "Int_int" | awk {'print $2'}`
 		if [ -z "$PLATFORM" -o -z "$HARDWARE" -o -z "$PROCESSOR" \
 		     -o -z "$EXT_INTERFACE" -o -z "$INT_INTERFACE" ]; then
 			echo "Error: Can not detect variables. Exiting"
@@ -112,12 +112,17 @@ cat << EOF > /etc/hosts
 10.0.0.252      friendica.local
 10.0.0.253      owncloud.local
 10.0.0.254      mailpile.local 
-::1             librerouter.local localhost.local librerouter localhost ip6-localhost ip6-loopback
-fe00::0         ip6-localnet
-ff00::0         ip6-mcastprefix
-ff02::1         ip6-allnodes
-ff02::2         ip6-allrouters
 EOF
+
+# Disabling ipv6
+echo "
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+" >> /etc/sysctl.conf
+
+# Restarting sysctl
+sysctl -p
 }
 
 
