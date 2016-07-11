@@ -6,7 +6,7 @@ A end user privacy firewall
 ## Is there are any similar projects like this ?
 sure they are
 
-## is their any demo showing that it is acutally did what is calimed ?
+## is their any demo showing that it is acutally did what is claimed ?
 we are in the way to deliver, ongoing
 
 #Why do we need this technology?
@@ -26,24 +26,45 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 ![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-# WTH is stands for ?
-
-#WTH is Linux-libre?
+#What is Linux-libre?
 
 Is an operating system kernel and a GNU package[3] that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses.
 
 Software components with no available source code are called binary blobs and, as such, are mostly used for proprietary firmware images in the Linux kernel. While generally redistributable, binary blobs do not give the user the freedom to audit, modify or, consequently, redistribute their modified versions.
 
-### 2 ways to have Linux with no blobs:
+### 3 ways to have Linux with no blobs:
 - a) Deblobing : clean up and verify linux tarballs and patches for non-Free blobs, you can check if your linux tarballs has non-free blobs or not from [here](http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check)
 - b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
-  
+- c) VRMS :vrms (Virtual Richard M. Stallman) is a program that analyzes the set of currently-installed packages on a Debian-based system, and reports all of the packages from the non-free tree which are currently installed. Software gets placed in the non-free tree when it is agreed not to be too problematic for Debian to distribute but does not meet the Debian Free Software Guidelines and therefore cannot be included in their official distribution. For each program from "non-free" installed, vrms displays an explanation of why it is non-free, if one is available.:https://alioth.debian.org/projects/vrms/
 
-#WTH is Open-source hardware ?
-Yes, it is.
+Philosophically speaking, you could consider the difference to be as follows:
+
+    the Debian kernel doesn't include any non-free firmware (bugs aside), but it allows users to load non-free firmware if they wish to do so;
+    the Linux-libre kernel doesn't include any non-free firmware or anything looking like firmware, and it prevents users from loading non-free firmware even if they wish to do so.
+
+Linux-libre is built by running a deblob script on the kernel source code. This goes through the kernel source code, and makes various firmware-related changes:
+
+    any firmware for which source code is available is preserved, but the script makes sure the source code is available;
+    any module requiring firmware is stripped of the ability to load the firmware;
+    any source code which looks like firmware (sequences of numbers) is removed;
+    any file containing only firmware (e.g. the contents of firmware/radeon) is removed.
+
+#What intend to be Librerouter?
+GNU open hardware running and GNU software:
+
+#Who? Why? What? How? 
+
+A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
+
+- • Open source comunity.
+- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
+- • Easy to use for all people with zero tech knowledge.
+- • Plug and play system to make your traffic untraceable.
+- • It is the future Data Center resilience infrastructure.
+
+#What is Open-source hardware ?
+
 It consists of physical artifacts of technology designed and offered by the open design movement. Both free and open-source software (FOSS) as well as open-source hardware is created by this open-source culture movement and applies a like concept to a variety of components. It is sometimes, thus, referred to as FOSH (free and open-source hardware). The term usually means that information about the hardware is easily discerned so that others can make it - coupling it closely to the maker movement.[1] Hardware design (i.e. mechanical drawings, schematics, bills of material, PCB layout data, HDL source code[2] and integrated circuit layout data), in addition to the software that drives the hardware, are all released under free/libre terms. The original sharer gains feedback and potentially improvements on the design from the FOSH community. There is now significant evidence that such sharing can drive a high return on investment for investors.
 
 
@@ -55,7 +76,7 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
-#WTH many claimed they are open hardware but it is bullshit?
+#WTH many hw providers claimed they produce open hardware but it's just horse shit?
 
 The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls, chipset restringtions and questions about missing parts of info and doc:
 
@@ -70,13 +91,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
 
-#WTH is the definition of a real (guaranteed) open hardware?
-
-
-#WTH means full libre really something free of backdoors, binary-blobs and fully open?
-
-
-#What are the license/certification for show openes in the hardware?
+##Which are the licenses/certifications that show openes in the hardware?
 
 - http://www.ohwr.org/documents/294
 - http://www.gnu.org/licenses/quick-guide-gplv3.en.html
@@ -84,7 +99,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - http://www.opengroup.org/accreditation/o-ttps
 - http://www.fsf.org/resources/hw/endorsement/respects-your-freedom
 
-#What are the certifications for privacy and security?
+###Which are the certifications for privacy and security?
 
 - www.vub.ac.be/LSTS/pub/Dehert/481.pdf
 - https://www.truste.com/business-products/dpm-services/
@@ -96,9 +111,11 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.tuvit.de/en/privacy/uld-privacy-seal-1075.htm
 - http://www.prismintl.org/Privacy-Certification/privacy/about-the-privacy-plus-program.html
 - https://www.esrb.org/privacy/
+- http://www.privacytrust.org/certification/privacy/
+- https://www.datenschutzzentrum.de/zertifizierung/
+- http://www.edaa.eu/certification-process/trust-seal/
 
-
-#What are the certifications for security?
+###Which are security product ceritifcations?
 
 - http://www.dekra-certification.com/en/cyber-security
 - http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
@@ -112,92 +129,63 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://en.wikipedia.org/wiki/Evaluation_Assurance_Level
 - https://en.wikipedia.org/wiki/Common_Criteria
 - http://www.asd.gov.au/infosec/aisep/crypto.htm
-- 
 
-#WTH is Librerouter?
+#Operating System
 
-![librerouter](https://cloud.githubusercontent.com/assets/13025157/14460824/ee318792-00bf-11e6-8021-226d8251fddc.jpg)
+###Purposed:
 
-***Librerouter*** is a GNU open hardware and software:
+Debian (after deblobling,hardening,enlighting)
+Lubuntu (after deblobling,hardening,enlighting)
+Ubuntu Core (after deblobling)
 
-     • - Filtering viruses, exploits, malware, ads , bad IP-sources and bad content.
-     • - Decentralizing the services (doing impossible to apply big data :the enemy )
-     • - Open authentication (dissolve legal relation between user-human and legal-name-ip), 
-     • - Forcing encryption for all communications and data storing in the backends.
-     • - Filtering the META&data that expose you, like scripts,cookies, browser info,etc.
+Devuan (librekernel,(after apply hardening)
+Uruk   (librekernel),(after apply hardening)
 
-![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
+Docker for app (further containerization for security) (reference qubeOS.org)
 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-#HOW to use it?
+#HOW to use Librerouter in Hardware?
 
  • -a) If you buy a Librerouter then connect it like:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
- • -b) If you feel an computer expert then install the scripts in a virtual/physical machine DoItYourSelf
+ • -b) If you feel like an computer expert, then install the scripts in a virtual/physical machine DoItYourSelf
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
- 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#Who? Why? What? How? When?
+#Which hardware is needed to run Librerouter?
 
-A unique combination of open hardware, GNU software and training book you can achieve **a decrease** of the cyber risks:
-
-- • Open source comunity.
-- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
-- • Easy to use for all people with zero tech knowledge.
-- • Plug and play system to make your traffic untraceable.
-- • It is the future Data Center resilience infrastructure.
-- • Now, you, because the Hardware ARM is going Open
-
-##Operating System Dragora Linux Libre Kernel Archarm
-
-![parabola](https://cloud.githubusercontent.com/assets/17382786/14740871/78c4f18a-0892-11e6-9056-d5f80589e0f7.png)
-
--  • https://wiki.parabola.nu/Main_Page
--  • https://www.fsf.org/blogs/licensing/parabola-gnu-linux-joins-the-fsf-list-of-free-distributions
--  • https://www.parabola.nu/news/robofun-sponsors-parabola-arm-port-with-a-bbb-board/
--  • https://www.parabola.nu/packages/?q=uboot
--  • https://lists.parabola.nu/pipermail/dev/2016-March/003848.html
--  • https://labs.parabola.nu/
--  • https://projects.parabola.nu/
--  • https://lists.parabola.nu/mailman/listinfo/dev
--  • http://linux-libre.fsfla.org/pub/linux-libre/releases/4.5-gnu/deblob-4.5
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+Anyone able to run Debian or Ubuntu (by now). It does not matter if ARM,x86 or 64 bits. 
+It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd. 
+*For Owncloud user folders TahoheLafs I2P we recomend 1TB hardisk and separate the boot from the rootfs
 
 #How it will protect me?
 
- - Filtering virus, webexploits, malware,ads ,bad IP-sources and bad content,the data that expose you, like scripts,cookies, browser info,etc.
+     • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+     • - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+     • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+     • - Forcing encryption in transport and in rest data.
+     • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
+![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502236/a90391a6-01aa-11e6-80ae-156cdccdbd00.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
- - Decentralizing the services (doing impossible to apply big data to you )
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+ 
+- Decentralizing the services (doing impossible to apply big data to you )
+
 ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-https://github.com/Librerouter/debian-autoscript/issues
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 #Services running in Librerouter
-
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
-
 
 |app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
 |:---|:---|:---|:---|:---|:---|:---|
 |OwnCloud|yes|not|not|yes|PrivtFederation|yes|
 |Mailpile|yes|not|4096DSAelg|not|Private|yes|
+|Rouncube|yes|not|4096DSAelg|not|Private|yes|
 |Diaspora|yes|not|not|EncFS|publics|yes|
 |Friendica|yes|not|not|EncFS|publics|yes|
 |YaCy|yes|not|EncFS|public|yes|no|
@@ -206,17 +194,21 @@ https://github.com/Librerouter/debian-autoscript/issues
 |RTCio|yes|not|Partially|not|publics|yes|
 |TOR|no|yes|no|maybe|public|no|
 |I2P|yes|yes|no|yes|private|yes|
+|Dovecot|yes|not|?|public|yes|no|
+|Postfix|yes|not|?|public|yes|no|
 |:---|:---|:---|:---|:---|:---|:---|
 
+https://github.com/Librerouter/debian-autoscript/issues
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+## Libre or not libre libraries in the App## 
+
+https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
+
+## Software APPs and their Dependencies Status 
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 https://www.cageos.org/index.php?page=apps
 
@@ -265,40 +257,6 @@ You control your incoming and outgoing posts, and push your posts from a single 
 With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
 ![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-## Libre or not libre libraries in the App## 
-
-https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
-
-## Software APPs and their Dependencies Status 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-#Which hardware is needed to run Librerouter?
-
-Anyone able to run Debian or Ubuntu. It does not matter if ARM,x86 or 64 bits. It need to habe 2 network interfaces at least, 2GB RAM is recommended, and 4 cores at least. For Tahohe we recomend 1TB hardisk and separate the boot from the rootfs
-
-
- 
-  
-![ComponentsH](https://cloud.githubusercontent.com/assets/13025157/14441894/5ea09592-0037-11e6-9e6c-14e2254f6728.jpg)
-
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
 
 
 #Setup Modes
@@ -316,18 +274,6 @@ The following list includes some of the features that have been added and modifi
 • Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
 • Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
 • Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
-
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
 
 ##Steps to setup on Physical/Virtual machine.
 
@@ -369,30 +315,15 @@ The way networking works in Librerouter will be:
 
 ![servermodeworkflow](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
 
-
-
-
  
 ##Bridge mode**
 
 Where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
   
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
-
 ![bridmode workflow](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
 
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
 #Step 3. Executing scripts.
-
 
 In this step you need to download and execute the following scripts on your machine with given order.
 
@@ -401,20 +332,6 @@ In this step you need to download and execute the following scripts on your mach
  - 3. app-post configuiration encryption FDE fill disk en cryption
  - 4. Minimun System Wizards
  - 5. Subsystems GUIs
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
 
 ![initial-install-workflow](https://cloud.githubusercontent.com/assets/13025157/14444383/5b99d710-0045-11e6-9ae8-3efa1645f355.png)
 
@@ -466,22 +383,6 @@ The same as in Physical/Virtual machine case.
  - Step 7.2. Downloading and Installing packages
 The same as in Physical/Virtual machine case.
 If step 7 finished successfully then test.sh execution for odroid board is finished successfully and it's time to run the next script “app-installation-script.sh”. 
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
 
 #Network Flow
 
@@ -543,9 +444,6 @@ This step is tacking place if DjDNS could not resolve other domains resolution r
 Unbound dns  configuration is implemented by configure_unbound() function. (lines 491-726 of app-configuration-script.sh) 
 Tor dns configuration is implemented by configure_tor() function. (lines 411-474 of app-configuration-script.sh) 
 
-
-
-
 ##Intelligence IP, Domain Providers:
 
 - Shallalist
@@ -565,9 +463,7 @@ If this connection it's to a HTTPS regular domain, this SSL tunnel will be not o
 
 Content filtering will be done if it's a HTTPS open SSL tunnel, or a regular HTTP petition.
 
-
 Squid will do mainly two process of it.
-
 
 - With I-cmp/clamav plugin, filter all possible viruses.
 
@@ -604,141 +500,26 @@ There's a first version of Superbrowser  for windows 32bit. It doens't have I2P 
 https://cloud.Librerouter.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
 
 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
 #Steps to setup on LibreRouter on A20-OLinuXIno-LIME2 and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #Steps to setup on LibreRouter in an Banapi Router and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
-
-
-
-
-
-
-
 #Steps to setup on LibreRouter in an Explained and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #Steps to setup on LibreRouter in an  IM6REX and assemble it.**
 
 There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-
-
 #Executing scripts.
 
 In this step you need to download and execute the following scripts on your machine with given order.
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
 
 
 #Workflow of scripts.
@@ -782,36 +563,6 @@ Script workflow
 
  
  add diagram of the installation script upgraded
- 
- 
- 
- 
- 
- 
- 
- 
- 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-
 
 #app-configuration-script.sh (Parametrization script)**
 
@@ -859,52 +610,17 @@ It aims to configure all the packages and services.
 
   * Any other domain name will be resolved by DjDNS,P2P or OpenNIC with CryptoDNS.
 
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
 # Configure Reverse proxy
  
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
 ## License
 >You can check out the full license [here](https://github.com/CommunityLibrerouter/debian-autoscript/blob/master/LICENSE)
 
 This project is licensed under the terms of the **GNU GPL V2** license.
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 This wizard should ask the customer about and is pending in the project to be developed:
  -a) Do you want your protect your privacy or just user Librerouter services? if yes then mode bridge if not then mode equals server.
  -b) Mode Transparent firewall Bridge:
@@ -942,8 +658,8 @@ If Cable and DHCP:
 Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the connection getting up If not specify error conditions
 
 If Cable and FIX IP address:
-Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions
-///////////////////////////////////////////////////////////////////////////////////////////////////
+Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions 
+
 mode 2
 
  Do you want to use a cable or want librerouter connect to your router or switch?
@@ -1037,24 +753,10 @@ Root password configuration 	Yes, mandatory on first boot and later on TFT confi
 Wifi password configuratio 	Yes, manadatory on first boot and later on TFT configuration panel
 Internal WIFI device without password or WEP encryption 	No
 
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
 ![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
 
 
 
 
 
-  * http://www.privacytrust.org/certification/privacy/
-  * https://www.truste.com/business-products/trusted-cloud/
-  * https://www.european-privacy-seal.eu/EPS-en/Home
-  * https://www.datenschutzzentrum.de/zertifizierung/
-  * http://www.edaa.eu/certification-process/trust-seal/
+

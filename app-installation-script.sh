@@ -70,6 +70,17 @@ check_root ()
 configure_repositories () 
 {
 	echo "Configuring repositories ... "
+
+	# Updating date and time
+        ntpdate time.nist.gov
+	
+	apt-get --allow-unauthenticated upgrade
+
+	echo "
+Acquire::https::dl.dropboxusercontent.com::Verify-Peer \"false\";
+Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
+        " > /etc/apt/apt.conf.d/apt.conf 
+
 	if [ $PLATFORM = "U12" ]; then
 		exit
 	elif [ $PLATFORM = "U14" ]; then
@@ -113,6 +124,9 @@ configure_repositories ()
 
 		# Prepare Webmin repo
 		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+		if [ -e jcameron-key.asc ]; then
+			rm -r jcameron-key.asc
+		fi
 		wget http://www.webmin.com/jcameron-key.asc
 		apt-key add jcameron-key.asc 
 
@@ -158,6 +172,9 @@ configure_repositories ()
 		
 		# Prepare Webmin repo
 		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+		if [ -e jcameron-key.asc ]; then
+			rm -r jcameron-key.asc
+		fi
 		wget http://www.webmin.com/jcameron-key.asc
 		apt-key add jcameron-key.asc 
 
@@ -211,6 +228,14 @@ configure_repositories ()
 		echo 'deb http://deb.torproject.org/torproject.org wheezy main'  > /etc/apt/sources.list.d/tor.list
 		gpg --keyserver 223.252.21.101 --recv 886DDD89
 		gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | apt-key add -
+
+		# Prepare Webmin repo
+		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+		if [ -e jcameron-key.asc ]; then
+			rm -r jcameron-key.asc
+		fi
+		wget http://www.webmin.com/jcameron-key.asc
+		apt-key add jcameron-key.asc 
 
 	else 
 		echo "ERROR: UNKNOWN PLATFORM" 
@@ -299,7 +324,7 @@ if [ $PLATFORM = "D7" ]; then
 	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring yacy \
+	i2p i2p-keyring yacy virtualenv pwgen \
         killyourtv-keyring  i2p-tahoe-lafs \
 	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools console-tools \
@@ -308,10 +333,11 @@ if [ $PLATFORM = "D7" ]; then
 	2>&1 > /tmp/apt-get-install.log
  	
 	# Setting MySQL password
-	echo mysql-server mysql-server/root_password password librerouter \
+	MYSQL_PASS=`pwgen 10 1`
+	echo mysql-server mysql-server/root_password password $MYSQL_PASS \
 	| debconf-set-selections
 	echo mysql-server mysql-server/root_password_again password \
-	librerouter | debconf-set-selections
+	$MYSQL_PASS | debconf-set-selections
 
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
@@ -327,19 +353,20 @@ elif [ $PLATFORM = "D8" ]; then
 	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring yacy \
-     #  killyourtv-keyring i2p-tahoe-lafs \
+	i2p i2p-keyring yacy virtualenv pwgen \
+        killyourtv-keyring i2p-tahoe-lafs \
 	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
 	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin\
-	2>&1 > /tmp/apt-get-install.log
+	2>&1 > /tmp/apt-get-install1.log
 
- 	# Setting MySQL password
-	echo mysql-server mysql-server/root_password password librerouter \
+	# Setting MySQL password
+	MYSQL_PASS=`pwgen 10 1`
+	echo mysql-server mysql-server/root_password password $MYSQL_PASS \
 	| debconf-set-selections
 	echo mysql-server mysql-server/root_password_again password \
-	librerouter | debconf-set-selections
+	$MYSQL_PASS | debconf-set-selections
 
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
@@ -355,7 +382,7 @@ elif [ $PLATFORM = "T7" ]; then
 	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring yacy \
+	i2p i2p-keyring yacy virtualenv pwgen \
 	killyourtv-keyring i2p-tahoe-lafs \
 	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools console-setup \
@@ -363,11 +390,12 @@ elif [ $PLATFORM = "T7" ]; then
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
 	2>&1 > /tmp/apt-get-install.log
 
- 	# Setting MySQL password
-	echo mysql-server mysql-server/root_password password librerouter \
+	# Setting MySQL password
+	MYSQL_PASS=`pwgen 10 1`
+	echo mysql-server mysql-server/root_password password $MYSQL_PASS \
 	| debconf-set-selections
 	echo mysql-server mysql-server/root_password_again password \
-	librerouter | debconf-set-selections
+	$MYSQL_PASS | debconf-set-selections
 
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
@@ -590,7 +618,7 @@ check_assemblance()
 # Function to install mailpile package
 # ----------------------------------------------
 install_mailpile() {
-git clone --recursive https://github.com/mailpile/Mailpile.git /opt/
+git clone --recursive https://github.com/mailpile/Mailpile.git /opt/Mailpile
 virtualenv -p /usr/bin/python2.7 --system-site-packages /opt/Mailpile/mailpile-env
 source /opt/Mailpile/mailpile-env/bin/activate
 pip install -r /opt/Mailpile/requirements.txt
@@ -605,6 +633,9 @@ install_easyrtc()
 echo "Installing EasyRTC package ..."
 
 # Creating home folder for EasyRTC 
+if [ -e /opt/easyrtc ]; then
+	rm -r /opt/easyrtc
+fi
 mkdir /opt/easyrtc
 
 # Installing Node.js
@@ -668,7 +699,7 @@ Hardware: $HARDWARE\n\
 Processor: $PROCESSOR\n\
 Ext_interface: $EXT_INTERFACE\n\
 Int_interface: $INT_INTERFACE" \
-                 > /tmp/variables.log
+                 > /var/box_variables
         if [ $? -ne  0 ]; then
                 echo "Error: Unable to save variables. Exiting"
                 exit 11
