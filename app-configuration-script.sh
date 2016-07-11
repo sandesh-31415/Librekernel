@@ -53,13 +53,6 @@ get_variables()
 
 #	touch "/tmp/variables.log"
 
-	if [ -e /tmp/variables.log ]; then
-		PLATFORM=`cat /tmp/variables.log | grep "Platform" | awk {'print $2'}`
-		HARDWARE=`cat /tmp/variables.log | grep "Hardware" | awk {'print $2'}`
-		PROCESSOR=`cat /tmp/variables.log | grep "Processor" | awk {'print $2'}`
-		EXT_INTERFACE=`cat /tmp/variables.log | grep "Ext_int" | awk {'print $2'}`
-		INT_INTERFACE=`cat /tmp/variables.log | grep "Int_int" | awk {'print $2'}`
-
 		if [ -z "$PLATFORM" -o -z "$HARDWARE" -o -z "$PROCESSOR" \
 		     -o -z "$EXT_INTERFACE" -o -z "$INT_INTERFACE" ]; then
 			echo "Error: Can not detect variables. Exiting"
