@@ -616,7 +616,11 @@ It aims to configure all the packages and services.
 >You can check out the full license [here](https://github.com/CommunityLibrerouter/debian-autoscript/blob/master/LICENSE)
 
 This project is licensed under the terms of the **GNU GPL V2** license.
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 This wizard should ask the customer about and is pending in the project to be developed:
  -a) Do you want your protect your privacy or just user Librerouter services? if yes then mode bridge if not then mode equals server.
  -b) Mode Transparent firewall Bridge:
@@ -654,8 +658,8 @@ If Cable and DHCP:
 Please specify if you would use fix IP or DHCP client? If DHCP Then setup dhcp client in the interface and try to receive IP The daemon should check the connection getting up If not specify error conditions
 
 If Cable and FIX IP address:
-Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions
-///////////////////////////////////////////////////////////////////////////////////////////////////
+Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions 
+
 mode 2
 
  Do you want to use a cable or want librerouter connect to your router or switch?
