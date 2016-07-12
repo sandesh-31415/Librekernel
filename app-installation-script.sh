@@ -84,7 +84,34 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 	if [ $PLATFORM = "U12" ]; then
 		continue
 	elif [ $PLATFORM = "U14" ]; then
-		continue
+	#adding repos in apt souces list file
+	echo "Updating repositories ..."
+        echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
+        apt-get update 2>&1 > /tmp/apt-get-update-default.log
+ 	echo "Installing apt-transport-https ..."
+	apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+# insatalling owncloud
+        cd /tmp
+        wget http://download.opensuse.org/repositories/isv:ownCloud:community/xUbuntu_14.04/Release.key -O- |  apt-key add -
+        sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /' > /etc/apt/sources.list.d/owncloud.list"
+        cd -
+#        apt-get update
+#        apt-get install owncloud
+# preparing tahoe repo
+#        apt-get install tahoe-lafs
+
+# preparing yacy repo 
+        echo 'deb http://debian.yacy.net ./' >>/etc/apt/sources.list
+# preparing i2p repo 
+        echo 'deb http://deb.i2p2.no/ trusty main' >/etc/apt/sources.list.d/i2p.list
+        echo 'deb-src http://deb.i2p2.no/ trusty main' >>/etc/apt/sources.list.d/i2p.list
+# preparing tor repo 
+# preparing webmin repo 
+        echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+        echo 'deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list
+        wget -q "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
+# now install pacakages
+# prepare param
 	elif [ $PLATFORM = "D7" ]; then
 		echo "deb http://ftp.us.debian.org/debian wheezy main non-free contrib" > /etc/apt/sources.list
 		echo "deb http://ftp.debian.org/debian/ wheezy-updates main contrib non-free" >> /etc/apt/sources.list
@@ -341,7 +368,32 @@ if [ $PLATFORM = "D7" ]; then
 
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
- 
+     elif [ $PLATFORM = "U14" ]; then
+# now  install ubunut 14 packages
+	apt-get install -y --force-yes debconf-utils privoxy squid3 nginx php5-common \
+	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
+	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
+	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
+	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
+	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
+	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	ca-certificates-java openssh-server ssh wireless-tools usbutils \
+	unzip debian-keyring subversion build-essential libncurses5-dev \
+	i2p i2p-keyring yacy tahoe-lafs \
+        killyourtv-keyring   \
+	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
+	deb.torproject.org-keyring u-boot-tools console-tools \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
+	2>&1 > /tmp/apt-get-install.log
+ 	#  this also works for ubuntu too
+	# Setting MySQL password
+	echo mysql-server mysql-server/root_password password librerouter \
+	| debconf-set-selections
+	echo mysql-server mysql-server/root_password_again password \
+	librerouter | debconf-set-selections
+
 elif [ $PLATFORM = "D8" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
         php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
