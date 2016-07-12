@@ -261,10 +261,13 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 #Setup Modes
 <!-- this part needs to be refactored by someone that does know the current state of building process -->
-There are 2 ways to join to CommunityLibrerouter network
+There are 2 ways to join to Librerouter network
 
-###1. Setup CommunityLibrerouter software on Physical/Virtual machine----Debian or librekernel distro
-###2. Setup CommunityLibrerouter software on ARM-------------------------Debian or librekernel distro croscompiled
+###1. Setup Librerouter software on Physical/Virtual machine 
+You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
+
+###2. Buy a premade future available Librerouter
+![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
 
 The following list includes some of the features that have been added and modified in the Linux kernel (core):
 
@@ -612,8 +615,7 @@ It aims to configure all the packages and services.
 
 # Configure Reverse proxy
  
-## License
->You can check out the full license [here](https://github.com/CommunityLibrerouter/debian-autoscript/blob/master/LICENSE)
+ 
 
 This project is licensed under the terms of the **GNU GPL V2** license.
 
