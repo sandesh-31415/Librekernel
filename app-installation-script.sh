@@ -82,9 +82,9 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
         " > /etc/apt/apt.conf.d/apt.conf 
 
 	if [ $PLATFORM = "U12" ]; then
-		exit
+		continue
 	elif [ $PLATFORM = "U14" ]; then
-		exit
+		continue
 	elif [ $PLATFORM = "D7" ]; then
 		echo "deb http://ftp.us.debian.org/debian wheezy main non-free contrib" > /etc/apt/sources.list
 		echo "deb http://ftp.debian.org/debian/ wheezy-updates main contrib non-free" >> /etc/apt/sources.list
