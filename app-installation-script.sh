@@ -81,48 +81,54 @@ Acquire::https::dl.dropboxusercontent.com::Verify-Peer \"false\";
 Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
         " > /etc/apt/apt.conf.d/apt.conf 
 
-	if [ $PLATFORM = "U12" ]; then
-		continue
-	elif [ $PLATFORM = "U14" ]; then
-	#adding repos in apt souces list file
-	echo "Updating repositories ..."
-        echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
-        apt-get update 2>&1 > /tmp/apt-get-update-default.log
- 	echo "Installing apt-transport-https ..."
-	apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
-# insatalling owncloud
-        cd /tmp
-        wget http://download.opensuse.org/repositories/isv:ownCloud:community/xUbuntu_14.04/Release.key -O- |  apt-key add -
-        sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /' > /etc/apt/sources.list.d/owncloud.list"
-        cd -
-#        apt-get update
-#        apt-get install owncloud
-# preparing tahoe repo
-#        apt-get install tahoe-lafs
+# Preparing repositories for Ubuntu 12.04 GNU/Linux 
 
-# preparing yacy repo 
-        echo 'deb http://debian.yacy.net ./' >>/etc/apt/sources.list
-# preparing i2p repo 
-        echo 'deb http://deb.i2p2.no/ trusty main' >/etc/apt/sources.list.d/i2p.list
-        echo 'deb-src http://deb.i2p2.no/ trusty main' >>/etc/apt/sources.list.d/i2p.list
-# preparing tor repo 
-# preparing webmin repo 
-        echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
-        echo 'deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list
-        wget -q "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
-# now install pacakages
-# prepare param
+	if [ $PLATFORM = "U12" ]; then
+		echo "Ubuntu 12.04 is not supported yet. Exiting ..."
+		exit 3
+
+# Preparing repositories for Ubuntu 14.04 GNU/Linux 
+
+	elif [ $PLATFORM = "U14" ]; then
+		# Configuring repositories for Ubuntu 14.04
+		echo "Updating repositories ..."
+        	echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
+        	apt-get update 2>&1 > /tmp/apt-get-update-default.log
+ 		echo "Installing apt-transport-https ..."
+		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+		
+		# Prepare owncloud repo
+		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
+		wget http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/Release.key -O- | apt-key add -
+
+		# Preparing yacy repo
+		echo 'deb http://debian.yacy.net ./' > /etc/apt/sources.list.d/yacy.list
+		apt-key advanced --keyserver pgp.net.nz --recv-keys 03D886E7
+		
+		# preparing i2p repo 
+        	echo 'deb http://deb.i2p2.no/ trusty main' >/etc/apt/sources.list.d/i2p.list
+        	echo 'deb-src http://deb.i2p2.no/ trusty main' >>/etc/apt/sources.list.d/i2p.list
+
+		# preparing tor repo 
+		# preparing webmin repo 
+       		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+        	echo 'deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list
+        	wget -q "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
+
+# Preparing repositories for Debian 7 GNU/Linux 
+
 	elif [ $PLATFORM = "D7" ]; then
+		# Configuring repositories for Debian 7
 		echo "deb http://ftp.us.debian.org/debian wheezy main non-free contrib" > /etc/apt/sources.list
 		echo "deb http://ftp.debian.org/debian/ wheezy-updates main contrib non-free" >> /etc/apt/sources.list
 		echo "deb http://security.debian.org/ wheezy/updates main contrib non-free" >> /etc/apt/sources.list
 
 		# There is a need to install apt-transport-https 
 		# package before preparing third party repositories
-	echo "Updating repositories ..."
-        apt-get update 2>&1 > /tmp/apt-get-update-default.log
- 	echo "Installing apt-transport-https ..."
-	apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+		echo "Updating repositories ..."
+	        apt-get update 2>&1 > /tmp/apt-get-update-default.log
+ 		echo "Installing apt-transport-https ..."
+		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 	
 		# Prepare owncloud repo
 		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
@@ -157,24 +163,28 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 		wget http://www.webmin.com/jcameron-key.asc
 		apt-key add jcameron-key.asc 
 
+# Preparing repositories for Debian 8 GNU/Linux 
+
 	elif [ $PLATFORM = "D8" ]; then
 		# Avoid macchanger asking for information
 		export DEBIAN_FRONTEND=noninteractive
+
+		# Configuring Repositories for Debian 8
 		echo "deb http://ftp.es.debian.org/debian/ jessie main" > /etc/apt/sources.list
 		echo "deb http://ftp.es.debian.org/debian/ jessie-updates main" >> /etc/apt/sources.list
 		echo "deb http://security.debian.org/ jessie/updates main" >> /etc/apt/sources.list
 
 		# There is a need to install apt-transport-https 
 		# package before preparing third party repositories
-	echo "Updating repositories ..."
-        apt-get update 2>&1 > /tmp/apt-get-update-default.log
- 	echo "Installing apt-transport-https ..."
-	apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+		echo "Updating repositories ..."
+       		apt-get update 2>&1 > /tmp/apt-get-update-default.log
+ 		echo "Installing apt-transport-https ..."
+		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 
 
 		# Prepare owncloud repo
-	echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/ /' > /etc/apt/sources.list.d/owncloud.list
-	wget http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/Release.key -O- | apt-key add -
+		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/ /' > /etc/apt/sources.list.d/owncloud.list
+		wget http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_8.0/Release.key -O- | apt-key add -
         
 
 		# Prepare prosody repo
@@ -208,7 +218,10 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 # Preparing repositories for Trisquel GNU/Linux 7.0
 
 	elif [ $PLATFORM = "T7" ]; then
+		# Avoid macchanger asking for information
 		export DEBIAN_FRONTEND=noninteractive
+		
+		# Configuring repositories for Trisquel 7
 		echo "deb http://fr.archive.trisquel.info/trisquel/ belenos main" > /etc/apt/sources.list
 		echo "deb-src http://fr.archive.trisquel.info/trisquel/ belenos main" >> /etc/apt/sources.list
 		echo "deb http://fr.archive.trisquel.info/trisquel/ belenos-security main" >> /etc/apt/sources.list
@@ -266,9 +279,10 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 
 	else 
 		echo "ERROR: UNKNOWN PLATFORM" 
-		exit
+		exit 4
 	fi
 }
+
 # ----------------------------------------------
 # This script installs bridge-utils package and
 # configures bridge interfaces.
@@ -340,6 +354,9 @@ install_packages ()
 	echo "Updating repositories packages ... "
 	apt-get update 2>&1 > /tmp/apt-get-update.log
 	echo "Installing packages ... "
+
+# Installing Packages for Debian 7 GNU/Linux
+
 if [ $PLATFORM = "D7" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
@@ -368,31 +385,8 @@ if [ $PLATFORM = "D7" ]; then
 
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
-     elif [ $PLATFORM = "U14" ]; then
-# now  install ubunut 14 packages
-	apt-get install -y --force-yes debconf-utils privoxy squid3 nginx php5-common \
-	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
-	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
-	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
-	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
-	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
-	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
-	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
-	ca-certificates-java openssh-server ssh wireless-tools usbutils \
-	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring yacy tahoe-lafs \
-        killyourtv-keyring   \
-	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
-	deb.torproject.org-keyring u-boot-tools console-tools \
-        gnupg openssl python-virtualenv python-pip python-lxml git \
-        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
-	2>&1 > /tmp/apt-get-install.log
- 	#  this also works for ubuntu too
-	# Setting MySQL password
-	echo mysql-server mysql-server/root_password password librerouter \
-	| debconf-set-selections
-	echo mysql-server mysql-server/root_password_again password \
-	librerouter | debconf-set-selections
+
+# Installing Packages for Debian 8 GNU/Linux
 
 elif [ $PLATFORM = "D8" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
@@ -423,6 +417,8 @@ elif [ $PLATFORM = "D8" ]; then
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
 
+# Installing Packages for Trisquel 7.0 GNU/Linux
+
 elif [ $PLATFORM = "T7" ]; then
 	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
@@ -452,13 +448,43 @@ elif [ $PLATFORM = "T7" ]; then
 	# Installing MySQL server package
  	apt-get install -y --force-yes mysql-server
 
+# Installing Packages for Ubuntu 14.04 GNU/Linux
+
+elif [ $PLATFORM = "U14" ]; then
+	apt-get install -y --force-yes debconf-utils privoxy squid3 nginx php5-common \
+	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
+	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
+	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
+	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
+	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
+	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
+	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
+	ca-certificates-java openssh-server ssh wireless-tools usbutils \
+	unzip debian-keyring subversion build-essential libncurses5-dev \
+	i2p i2p-keyring yacy tahoe-lafs \
+        killyourtv-keyring   \
+	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
+	deb.torproject.org-keyring u-boot-tools console-tools \
+        gnupg openssl python-virtualenv python-pip python-lxml git \
+        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
+	2>&1 > /tmp/apt-get-install.log
+	
+	# Setting MySQL password
+	MYSQL_PASS=`pwgen 10 1`
+	echo mysql-server mysql-server/root_password password $MYSQL_PASS \
+	| debconf-set-selections
+	echo mysql-server mysql-server/root_password_again password \
+	$MYSQL_PASS | debconf-set-selections
+
+	# Installing MySQL server package
+ 	apt-get install -y --force-yes mysql-server
+
 fi
 	if [ $? -ne 0 ]; then
 		echo "ERROR: unable to install packages"
 		exit 3
 	fi
 }
-
 
 # ----------------------------------------------
 # This function checks hardware 
