@@ -839,10 +839,12 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 # ---------------------------------------------
 elif [ "$PROCESSOR" = "ARM" ]; then 
 #	check_assemblance
-	configure_bridges
-	check_internet
-	configure_repositories
-	install_packages
+	configure_bridges       # Configure bridge interfacers
+	check_internet          # Check Internet access
+        get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and 
+				# connect to Internet
+	configure_repositories  # Prepare and update repositories
+	install_packages        # Download and install packages
 	install_mailpile	# Install Mailpile package
 	install_easyrtc		# Install EasyRTC package
 	install_squidclamav	# install SquidClamav package
