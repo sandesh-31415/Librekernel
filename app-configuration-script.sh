@@ -117,15 +117,6 @@ cat << EOF > /etc/hosts
 10.0.0.254      mailpile.local 
 EOF
 
-# Disabling ipv6
-echo "
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1
-" >> /etc/sysctl.conf
-
-# Restarting sysctl
-sysctl -p
 }
 
 
@@ -402,72 +393,69 @@ chmod +x /etc/blacklists/blacklists-iptables.sh
 # ---------------------------------------------------------
 configure_iptables()
 {
+
+# Disabling ipv6 and enabling ipv4 forwarding
+echo "
+net.ipv4.ip_forward=1
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+" > /etc/sysctl.conf
+
+# Restarting sysctl
+sysctl -p > /dev/null
+
 if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
-cat << EOF > /etc/rc.local
-#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
+cat << EOF >> /etc/rc.local
 
 iptables -X
 iptables -F
 iptables -t nat -F
 iptables -t filter -F
 
-# i2p petitions 
-iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
+# Redirecting http traffic to squid 
+iptables -t nat -A PREROUTING -i br1 -p tcp --dport 80 -j DNAT --to 10.0.0.1:3128
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
 
-# Allow surf onion zone
-iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+## i2p petitions 
+#iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+#iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+#iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
 
-# Enable Blacklist
-[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
+## Allow surf onion zone
+#iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+#iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+
+## Enable Blacklist
+#[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
 
 
 exit 0
 EOF
+
 elif [ "$PROCESSOR" = "ARM" ]; then
-cat << EOF > /etc/rc.local
-#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
+cat << EOF >> /etc/rc.local
 
 iptables -X
 iptables -F
 iptables -t nat -F
 iptables -t filter -F
 
-# i2p petitions 
-iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -i br1 -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
+# Redirecting http traffic to squid 
+iptables -t nat -A PREROUTING -i br1 -p tcp --dport 80 -j DNAT --to 10.0.0.1:3128
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
 
-# Allow surf onion zone
-iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+## i2p petitions 
+#iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+#iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+#iptables -t nat -A PREROUTING -i br1 -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
 
-# Enable Blacklist
-[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
+## Allow surf onion zone
+#iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+#iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+
+## Enable Blacklist
+#[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
 
 exit 0
 EOF
@@ -844,8 +832,13 @@ echo "Stoping dnsmasq ..."
 if ps aux | grep -w "dnsmasq" | grep -v "grep" > /dev/null;   then
 	kill -9 `ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'`
 fi
-     echo "kill -9 \`ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'\`" \
-     >> /etc/rc.local
+     echo "#!/bin/sh -e
+
+	# Stopping dnsmasq
+	kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
+	2> /dev/null
+	" > /etc/rc.local
+
 	echo "service unbound restart" >> /etc/rc.local
 
 echo "Starting Unbound DNS server ..."
@@ -1035,18 +1028,47 @@ echo "Configuring squid server ..."
 # squid configuration
 
 echo "
-                   icap_enable on
-                   icap_send_client_ip on
-                   icap_send_client_username on
-                   icap_client_username_encode off
-                   icap_client_username_header X-Authenticated-User
-                   icap_preview_enable on
-                   icap_preview_size 1024
-                   icap_service service_req reqmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
-                   adaptation_access service_req allow all
-                   icap_service service_resp respmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
-                   adaptation_access service_resp allow all
-" >> /etc/squid3/squid.conf
+acl SSL_ports port 443
+acl Safe_ports port 80          # http
+acl Safe_ports port 21          # ftp
+acl Safe_ports port 443         # https
+acl Safe_ports port 70          # gopher
+acl Safe_ports port 210         # wais
+acl Safe_ports port 1025-65535  # unregistered ports
+acl Safe_ports port 280         # http-mgmt
+acl Safe_ports port 488         # gss-http
+acl Safe_ports port 591         # filemaker
+acl Safe_ports port 777         # multiling http
+acl CONNECT method CONNECT
+acl librenetwork src 10.0.0.0/24
+http_access deny !Safe_ports
+http_access deny CONNECT !SSL_ports
+http_access allow localhost manager
+http_access deny manager
+http_access allow localhost
+http_access allow librenetwork
+http_access deny all
+http_port 10.0.0.1:3128 accel vhost allow-direct
+coredump_dir /var/spool/squid3
+refresh_pattern ^ftp:           1440    20%     10080
+refresh_pattern ^gopher:        1440    0%      1440
+refresh_pattern -i (/cgi-bin/|\\?) 0     0%      0
+refresh_pattern .               0       20%     4320
+
+# icap configuration
+
+icap_enable on
+icap_send_client_ip on
+icap_send_client_username on
+icap_client_username_encode off
+icap_client_username_header X-Authenticated-User
+icap_preview_enable on
+icap_preview_size 1024
+icap_service service_req reqmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
+adaptation_access service_req allow all
+icap_service service_resp respmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
+adaptation_access service_resp allow all
+" > /etc/squid3/squid.conf
 
 # squid TOR
 
@@ -1220,13 +1242,15 @@ MaxRequestsPerChild  0
 Port 1344
 User c-icap
 Group c-icap
-ServerAdmin admin@libreroute.com
+ServerAdmin admin@librerouter.com
 ServerName librerouter
 TmpDir /tmp
 MaxMemObject 131072
 DebugLevel 1
-ModulesDir /usr/lib/x86_64-linux-gnu/c_icap
-ServicesDir /usr/lib/x86_64-linux-gnu/c_icap
+ModulesDir /usr/lib/arm-linux-gnueabihf/c_icap
+ServicesDir /usr/lib/arm-linux-gnueabihf/c_icap
+#ModulesDir /usr/lib/x86_64-linux-gnu/c_icap
+#ServicesDir /usr/lib/x86_64-linux-gnu/c_icap
 TemplateDir /usr/share/c_icap/templates/
 TemplateDefaultLanguage en
 LoadMagicFile /etc/c-icap/c-icap.magic
@@ -1951,13 +1975,13 @@ configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
 configure_mailpile		# Configuring Mailpile local serive
 configure_nginx                 # Configuring Nginx web server
-#configure_squid		# Configuring squid proxy
-#configure_c_icap		# Configuring c-icap daemon
-#configure_squidclamav		# Configuring squidclamav service
+configure_squid			# Configuring squid proxy
+configure_c_icap		# Configuring c-icap daemon
+configure_squidclamav		# Configuring squidclamav service
 start_mailpile			# Starting Mailpile local service
 
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
-#configure_iptables		# Configuring iptables rules
+configure_iptables		# Configuring iptables rules
 
 
