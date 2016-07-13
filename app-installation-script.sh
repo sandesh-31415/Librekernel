@@ -73,8 +73,8 @@ configure_repositories ()
 
 	# Updating date and time
         ntpdate time.nist.gov
-	
-	apt-get --allow-unauthenticated upgrade
+	echo "adding unauthenticated upgrade"
+	apt-get  -y --force-yes --allow-unauthenticated upgrade
 
 	echo "
 Acquire::https::dl.dropboxusercontent.com::Verify-Peer \"false\";
@@ -84,16 +84,37 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 # Preparing repositories for Ubuntu 12.04 GNU/Linux 
 
 	if [ $PLATFORM = "U12" ]; then
-		echo "Ubuntu 12.04 is not supported yet. Exiting ..."
-		exit 3
+		# Configuring repositories for Ubuntu 12.04
+		echo "Updating repositories in Ubuntu 12.04"
+#        	echo "deb http://security.ubuntu.com/ubuntu precise-security main" >> /etc/apt/sources.list
+ 		echo "Installing apt-transport-https ..."
+		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
+		
+		# Prepare owncloud repo
+		echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' > /etc/apt/sources.list.d/owncloud.list
+		wget http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/Release.key -O- | apt-key add -
+
+		# Preparing yacy repo
+		echo 'deb http://debian.yacy.net ./' > /etc/apt/sources.list.d/yacy.list
+		apt-key advanced --keyserver pgp.net.nz --recv-keys 03D886E7
+		
+		# preparing i2p repo 
+        	echo 'deb http://deb.i2p2.no/ precise main' >/etc/apt/sources.list.d/i2p.list
+        	echo 'deb-src http://deb.i2p2.no/ precise main' >>/etc/apt/sources.list.d/i2p.list
+
+		# preparing tor repo 
+		# preparing webmin repo 
+       		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
+        	echo 'deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list
+        	wget  "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
 
 # Preparing repositories for Ubuntu 14.04 GNU/Linux 
 
 	elif [ $PLATFORM = "U14" ]; then
 		# Configuring repositories for Ubuntu 14.04
-		echo "Updating repositories ..."
-        	echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
-        	apt-get update 2>&1 > /tmp/apt-get-update-default.log
+		echo "Updating repositories in Ubuntu 14.04"
+#        	echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
+        	#apt-get update 2>&1 > /tmp/apt-get-update-default.log
  		echo "Installing apt-transport-https ..."
 		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
 		
@@ -113,7 +134,7 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 		# preparing webmin repo 
        		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
         	echo 'deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list
-        	wget -q "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
+        	wget "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
 
 # Preparing repositories for Debian 7 GNU/Linux 
 
@@ -450,7 +471,7 @@ elif [ $PLATFORM = "T7" ]; then
 
 # Installing Packages for Ubuntu 14.04 GNU/Linux
 
-elif [ $PLATFORM = "U14" ]; then
+elif [ $PLATFORM = "U14" -o $PLATFORM = "U12" ]; then
 	apt-get install -y --force-yes debconf-utils privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
