@@ -113,7 +113,7 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 	elif [ $PLATFORM = "U14" ]; then
 		# Configuring repositories for Ubuntu 14.04
 		echo "Updating repositories in Ubuntu 14.04"
-        	echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
+#        	echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list
         	#apt-get update 2>&1 > /tmp/apt-get-update-default.log
  		echo "Installing apt-transport-https ..."
 		apt-get install -y --force-yes apt-transport-https 2>&1 > /tmp/apt-get-install-aptth.log
@@ -134,7 +134,7 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 		# preparing webmin repo 
        		echo 'deb http://download.webmin.com/download/repository sarge contrib' > /etc/apt/sources.list.d/webmin.list
         	echo 'deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list
-        	wget -q "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
+        	wget "http://www.webmin.com/jcameron-key.asc" -O- | apt-key add -
 
 # Preparing repositories for Debian 7 GNU/Linux 
 
