@@ -127,8 +127,9 @@ Acquire::https::deb.nodesource.com::Verify-Peer \"false\";
 		apt-key advanced --keyserver pgp.net.nz --recv-keys 03D886E7
 		
 		# preparing i2p repo 
-        	echo 'deb http://deb.i2p2.no/ trusty main' >/etc/apt/sources.list.d/i2p.list
-        	echo 'deb-src http://deb.i2p2.no/ trusty main' >>/etc/apt/sources.list.d/i2p.list
+        	#echo 'deb http://deb.i2p2.no/ trusty main' >/etc/apt/sources.list.d/i2p.list
+        	#echo 'deb-src http://deb.i2p2.no/ trusty main' >>/etc/apt/sources.list.d/i2p.list
+                echo -ne '\n' | apt-add-repository ppa:i2p-maintainers/i2p
 
 		# preparing tor repo 
 		# preparing webmin repo 
@@ -472,22 +473,21 @@ elif [ $PLATFORM = "T7" ]; then
 # Installing Packages for Ubuntu 14.04 GNU/Linux
 
 elif [ $PLATFORM = "U14" -o $PLATFORM = "U12" ]; then
-	apt-get install -y --force-yes debconf-utils privoxy squid3 nginx php5-common \
+	apt-get install -y --force-yes pwgen debconf-utils privoxy squid3 nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
 	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
 	apache2.2-common- openjdk-7-jre-headless phpmyadmin php5 \
-	mysql-server php5-gd php5-imap smarty3 git ntpdate macchanger \
+	mysql-server-5.6 php5-gd php5-imap smarty3 git ntpdate macchanger \
 	bridge-utils hostapd isc-dhcp-server hostapd bridge-utils \
 	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring yacy tahoe-lafs \
-        killyourtv-keyring   \
+	i2p yacy tahoe-lafs \
 	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
-	deb.torproject.org-keyring u-boot-tools console-tools \
+	u-boot-tools console-tools* \
         gnupg openssl python-virtualenv python-pip python-lxml git \
-        libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
+         zlib1g-dev python-dev webmin \
 	2>&1 > /tmp/apt-get-install.log
 	
 	# Setting MySQL password
