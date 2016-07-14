@@ -160,12 +160,11 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ###Purposed:
 
-Debian (after deblobling,hardening,enlighting)
-Lubuntu (after deblobling,hardening,enlighting)
-Ubuntu Core (after deblobling)
-
-Devuan (librekernel,(after apply hardening)
-Uruk   (librekernel),(after apply hardening)
+- Debian (after deblobling,hardening,enlighting)
+- Lubuntu (after deblobling,hardening,enlighting)
+- Ubuntu Core (after deblobling)
+- Devuan (librekernel,(after apply hardening)
+- Uruk   (librekernel),(after apply hardening)
 
 Docker for app (further containerization for security) (reference qubeOS.org)
 
