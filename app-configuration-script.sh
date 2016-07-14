@@ -50,6 +50,7 @@ get_variables()
 		PROCESSOR=`cat /var/box_variables | grep "Processor" | awk {'print $2'}`
 		EXT_INTERFACE=`cat /var/box_variables | grep "Ext_int" | awk {'print $2'}`
 		INT_INTERFACE=`cat /var/box_variables | grep "Int_int" | awk {'print $2'}`
+		MYSQL_PASS=`cat /var/box_variables | grep "DB_PASS" | awk {'print $2'}`
 
 #	touch "/tmp/variables.log"
 
@@ -832,7 +833,7 @@ echo "Stoping dnsmasq ..."
 if ps aux | grep -w "dnsmasq" | grep -v "grep" > /dev/null;   then
 	kill -9 `ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'`
 fi
-     echo "#!/bin/sh -e
+     echo "#!/bin/sh 
 
 	# Stopping dnsmasq
 	kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
@@ -861,7 +862,7 @@ echo "Configuring Friendica local service ..."
 if [ ! -e  /var/lib/mysql/frndc ]; then
 
   # Defining MySQL user and password variables
-  MYSQL_PASS="librerouter"
+# MYSQL_PASS="librerouter"
   MYSQL_USER="root"
 
   # Creating MySQL database frndc for friendica local service
@@ -962,7 +963,7 @@ fi
 if [ ! -e  /var/lib/mysql/owncloud ]; then
 
   # Defining MySQL user and password variables
-  MYSQL_PASS="librerouter"
+# MYSQL_PASS="librerouter"
   MYSQL_USER="root"
 
 #  echo "CREATE DATABASE owncloud; grant all privileges on owncloud.* to  \
@@ -1069,6 +1070,9 @@ adaptation_access service_req allow all
 icap_service service_resp respmod_precache bypass=1 icap://127.0.0.1:1344/squidclamav
 adaptation_access service_resp allow all
 " > /etc/squid3/squid.conf
+
+echo "Restarting squid server ..."
+service squid3 restart
 
 # squid TOR
 
@@ -1277,15 +1281,54 @@ echo "Configuring squidclamav ..."
 echo "
 maxsize 5000000
 redirect http://localhost/virus_warning_page
-clamd_ip 10.0.0.1,127.0.0.1
-clamd_port 3310
+clamd_local /var/run/clamav/clamd.ctl
+#clamd_ip 10.0.0.1,127.0.0.1
+#clamd_port 3310
 timeout 1
 logredir 0
 dnslookup 1
 safebrowsing 0
 " > /etc/squidclamav.conf
+
+echo "Restarting clamav daemon ..."
+service clamav-daemon restart
 }
 
+
+# ---------------------------------------------------------
+# Function to configure postfix mail service
+# ---------------------------------------------------------
+configure_postfix()
+{
+# Configurinf postfix mail service
+echo "Configuring postfix ..."
+
+echo "
+mtpd_banner = \$myhostname ESMTP \$mail_name (Debian/GNU)
+biff = no
+append_dot_mydomain = no 
+readme_directory = no
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_use_tls=yes
+smtpd_tls_session_cache_database = btree:\${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:\${data_directory}/smtp_scache
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+myhostname = librerouter.local
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+myorigin = /etc/mailname
+mydestination = librerouter.local, localhost.local, localhost.local, localhost
+relayhost =
+mynetworks = 127.0.0.0/8, 10.0.0.0/24
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+" > /etc/postfix/main.cf
+
+echo "Restarting postfix ..."
+service postfix restart
+}
 
 
 # ---------------------------------------------------------
@@ -1295,26 +1338,26 @@ start_mailpile()
 {
 # Make Mailpile a service with upstart
 echo "
-description "Mailpile Webmail Client"
-author      "Sharon Campbell"
+description \"Mailpile Webmail Client\"
+author      \"Sharon Campbell\"
 
 start on filesystem or runlevel [2345]
 stop on shutdown
 
 script
 
-    echo $$ > /var/run/mailpile.pid
+    echo \$\$ > /var/run/mailpile.pid
     exec /usr/bin/screen -dmS mailpile_init /var/Mailpile/mp
 
 end script
 
 pre-start script
-    echo "[`date`] Mailpile Starting" >> /var/log/mailpile.log
+    echo \"[`date`] Mailpile Starting\" >> /var/log/mailpile.log
 end script
 
 pre-stop script
     rm /var/run/mailpile.pid
-    echo "[`date`] Mailpile Stopping" >> /var/log/mailpile.log
+    echo \"[`date`] Mailpile Stopping\" >> /var/log/mailpile.log
 end script
 " > /etc/init/mailpile.conf
  
@@ -1474,15 +1517,15 @@ server {
         return 301 http://friendica.local;
 }
   
-# Redirect connections from friendica.local to Tor hidden service friendica
-server {
-  listen 10.0.0.252:80;
-  server_name friendica.local;
-  
-  index index.php;
-  root /var/www/friendica;
-  rewrite ^ https://friendica.local\$request_uri? permanent;
-  }
+# Redirect connections from http to https
+#server {
+#  listen 10.0.0.252:80;
+#  server_name friendica.local;
+#  
+#  index index.php;
+#  root /var/www/friendica;
+#  rewrite ^ https://friendica.local\$request_uri? permanent;
+#  }
 
 # Main server for Tor hidden service friendica
 server {
@@ -1497,16 +1540,16 @@ server {
 # Configure Friendica with SSL
 
 server {
-  listen 10.0.0.252:443 ssl;
+  listen 10.0.0.252:80;
   server_name friendica.local;
 
-  ssl on;
-  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
-  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
-  ssl_session_timeout 5m;
-  ssl_protocols SSLv3 TLSv1;
-  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
-  ssl_prefer_server_ciphers on;
+#  ssl on;
+#  ssl_certificate /etc/ssl/nginx/$SERVER_FRIENDICA.crt;
+#  ssl_certificate_key /etc/ssl/nginx/$SERVER_FRIENDICA.key;
+#  ssl_session_timeout 5m;
+#  ssl_protocols SSLv3 TLSv1;
+#  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+#  ssl_prefer_server_ciphers on;
 
   index index.php;
   charset utf-8;
@@ -1853,19 +1896,33 @@ server {
 # Configuring Webmin virtual host
 echo "Configuring Webmin virtual host ..."
 
+# Generating certificates for webmin ssl connection
+echo "Generating keys and certificates for webmin"
+if [ ! -e /etc/ssl/nginx/webmin.key -o ! -e  /etc/ssl/nginx/webmin.crt ]; then
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/nginx/webmin.key -out /etc/ssl/nginx/webmin.crt -batch
+fi
+
 # Creating Webmin virtual host configuration
 echo "
 # Redirect connections from 10.0.0.10 to webmin.local
 server {
         listen 10.0.0.10;
         server_name _;
-        return 301 http://webmin.local;
+        return 301 https://webmin.local;
 }
 
 # Redirect connections to webmin running on 127.0.0.1:10000
 server {
-        listen 10.0.0.10:80;
+        listen 10.0.0.10:443 ssl;
         server_name webmin.local;
+
+  ssl on;
+  ssl_certificate /etc/ssl/nginx/webmin.crt;
+  ssl_certificate_key /etc/ssl/nginx/webmin.key;
+  ssl_session_timeout 5m;
+  ssl_protocols SSLv3 TLSv1;
+  ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+  ssl_prefer_server_ciphers on;
 
 location / {
     proxy_pass       https://127.0.0.1:10000;
@@ -1967,21 +2024,22 @@ configure_dhcp			# Configuring DHCP server
 
 # Block 2: Configuring services
 
+configure_iptables		# Configuring iptables rules
 configure_tor			# Configuring TOR server
 configure_i2p			# Configuring i2p services
 configure_unbound		# Configuring Unbound DNS server
 configure_friendica		# Configuring Friendica local service
 configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
-configure_mailpile		# Configuring Mailpile local serive
+configure_mailpile		# Configuring Mailpile local service
 configure_nginx                 # Configuring Nginx web server
 configure_squid			# Configuring squid proxy
 configure_c_icap		# Configuring c-icap daemon
 configure_squidclamav		# Configuring squidclamav service
+configure_postfix		# Configuring postfix mail service
 start_mailpile			# Starting Mailpile local service
 
 
 #configure_blacklists		# Configuring blacklist to block some ip addresses
-configure_iptables		# Configuring iptables rules
 
 
