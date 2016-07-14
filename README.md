@@ -8,13 +8,27 @@
 ##Table of content 
 ==================
 
+- [Introduction](#Introduction)
+	- [FAQ] (#faq)
+	- [Why we need this technology?] (#why-we-need-this-technology)
+	- [What is linux libre?](#what-is-linux-libre)
+	- [What intend to be librouter?](what-intend-to-be-librouter)
+
+
+
+
+
+----------
+#Introduction
+----------
+	
 ## Can u define the project in a line here ?
 A end user privacy firewall 
 
 ## Is there are any similar projects like this ?
 Sure they are
 
-## is their any demo showing that it is acutally did what is claimed ?
+## Is their any demo showing that it is acutally did what is claimed ?
 We are in the way to deliver, ongoing
 
 #Why do we need this technology?
