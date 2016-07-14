@@ -4,15 +4,15 @@
 
 &nbsp;
 
-
+--
 ##Table of content 
-==================
+--
 
-- [Introduction](#Introduction)
+- [Introduction](#introduction)
 	- [FAQ] (#faq)
-	- [Why we need this technology?] (#why-we-need-this-technology)
+	- [Why we need this technology?] (#why-do-we-need-this-technology)
 	- [What is linux libre?](#what-is-linux-libre)
-	- [What intend to be librouter?](what-intend-to-be-librouter)
+	- [What intend to be librouter?](#what-intend-to-be-librouter)
 
 
 
@@ -21,6 +21,7 @@
 ----------
 #Introduction
 ----------
+	###Faq
 	
 ## Can u define the project in a line here ?
 A end user privacy firewall 
