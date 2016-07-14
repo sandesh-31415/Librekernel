@@ -396,6 +396,7 @@ if [ $PLATFORM = "D7" ]; then
 	deb.torproject.org-keyring u-boot-tools console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
+        postfix mailutils \
 	2>&1 > /tmp/apt-get-install.log
  	
 	# Setting MySQL password
@@ -426,7 +427,8 @@ elif [ $PLATFORM = "D8" ]; then
 	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
-	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin\
+	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
+        postfix mailutils \
 	2>&1 > /tmp/apt-get-install1.log
 
 	# Setting MySQL password
@@ -458,6 +460,7 @@ elif [ $PLATFORM = "T7" ]; then
 	deb.torproject.org-keyring u-boot-tools console-setup \
         gnupg openssl python-virtualenv python-pip python-lxml git \
         libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev \
+        postfix mailutils \
 	2>&1 > /tmp/apt-get-install.log
 
 	# Setting MySQL password
@@ -488,6 +491,7 @@ elif [ $PLATFORM = "U14" -o $PLATFORM = "U12" ]; then
 	u-boot-tools console-tools* \
         gnupg openssl python-virtualenv python-pip python-lxml git \
          zlib1g-dev python-dev webmin \
+        postfix mailutils \
 	2>&1 > /tmp/apt-get-install.log
 	
 	# Setting MySQL password
@@ -797,7 +801,8 @@ save_variables()
 Hardware: $HARDWARE\n\
 Processor: $PROCESSOR\n\
 Ext_interface: $EXT_INTERFACE\n\
-Int_interface: $INT_INTERFACE" \
+Int_interface: $INT_INTERFACE\n\
+DB_PASS: $MYSQL_PASS" \
                  > /var/box_variables
         if [ $? -ne  0 ]; then
                 echo "Error: Unable to save variables. Exiting"
