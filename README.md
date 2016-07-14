@@ -5,7 +5,7 @@
 &nbsp;
 
 --
-##Table of content 
+##Table of cont Anti-exploitationent 
 --
 
 - [Introduction](#introduction)
@@ -296,27 +296,26 @@ You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
 
 The following list includes some of the features that have been added and modified in the Linux kernel (core):
 
-• Anti-exploitation modules high tuned for OS attacking resistance.   
-• Anti-forensic capabilities in the case of seizure by law enforcement. 
-• Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched. 
-• Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
-• Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
-• Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
+ -• Anti-exploitation modules high tuned for OS attacking resistance.   
+ -• Anti-forensic capabilities in the case of seizure by law enforcement. 
+ -• Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched. 
+ -• Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
+ -• Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
+ -• Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
 
 ##Steps to setup on Physical/Virtual machine.
 
 **Step 1: Checking requirements**
 Your Physical/Virtual machine need to meet the minimum requirements:
- - 1. x2 network interfaceS
- - 2. 1 GB of RAM
- - 3. 16 GB of SD or micro SD or virtual booting HD
- - 4. SATA HARDDISK or separate second phzsical or virutual DISK
+ - 1. x2 network interfaces
+ - 2. 2 GB of RAM
+ - 3. 1TB SATA hdd better if ssd
 
 The way networking works in Librerouter will be:
 
 2 Bridges two interfaces each
- - 1x bridge acts as a WAN
- - 2st bridge acts as LAN
+ - 1 x bridge acts as a WAN (cable or wireless as client)
+ - 2 x bridge acts as LAN   (cable or wireless as an AP)
 
 So, we actually have 4 possible PHySICAL scenarios:
 
@@ -327,8 +326,8 @@ So, we actually have 4 possible PHySICAL scenarios:
 
 **Step 2: Setup the network.**
 
-In this step you need to connect one interface of your machine to Internet, and other one to local network device.
-Networking of Librerouter has two way to work.
+ - In this step you need to connect one of the interfaces of your machine to Internet to download apps and upgrades, and other one to local network device or switch where you connect from the laptop.
+ - Networking of Librerouter has two way to work: Server (no protection but services) or Bridge (services and network protection)
 
 
 
