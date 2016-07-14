@@ -12,27 +12,30 @@
 	- [FAQ] (#faq)
 	- [Why we need this technology?] (#why-do-we-need-this-technology)
 	- [What is linux libre?](#what-is-linux-libre)
-	- [What intend to be librouter?](#what-intend-to-be-librouter)
+	- [What intend to be librouter?](#what-intend-to-be-Librerouter)
+	- [#Who? Why? What? How?](#Who-Why-What-How)
 
 
 
 
-
-----------
+--
 #Introduction
-----------
-	###Faq
+--
+
+&nbsp;
+
+##Faq
 	
-## Can u define the project in a line here ?
-A end user privacy firewall 
+	-Can u define the project in a line here ?
+		-Ans.A end user privacy firewall 
 
-## Is there are any similar projects like this ?
-Sure they are
+	-Is there are any similar projects like this ?
+		-Ans.Sure they are
 
-## Is their any demo showing that it is acutally did what is claimed ?
-We are in the way to deliver, ongoing
+	-Is their any demo showing that it is acutally did what is claimed ?
+		-Ans.We are in the way to deliver, ongoing
 
-#Why do we need this technology?
+###Why do we need this technology?
 
 - **Sniffers**: those that are checking your traffic.
 - **Government spy/monitoring institutions passive actions**: collecting general data from worldwide.
@@ -50,7 +53,7 @@ The Internet is full of ___free___ services and you are the product they sell yo
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 ![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
 
-#What is Linux-libre?
+###What is Linux-libre?
 
 Is an operating system kernel and a GNU package[3] that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses.
 
