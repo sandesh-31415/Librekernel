@@ -407,7 +407,8 @@ net.ipv6.conf.lo.disable_ipv6 = 1
 sysctl -p > /dev/null
 
 if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
-cat << EOF >> /etc/rc.local
+cat << EOF > /etc/rc.local
+#!/bin/sh
 
 iptables -X
 iptables -F
@@ -415,7 +416,7 @@ iptables -t nat -F
 iptables -t filter -F
 
 # Redirecting http traffic to squid 
-iptables -t nat -A PREROUTING -i br1 -p tcp --dport 80 -j DNAT --to 10.0.0.1:3128
+iptables -t nat -A PREROUTING -i br1 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
 
 ## i2p petitions 
@@ -435,7 +436,8 @@ exit 0
 EOF
 
 elif [ "$PROCESSOR" = "ARM" ]; then
-cat << EOF >> /etc/rc.local
+cat << EOF > /etc/rc.local
+#!/bin/sh
 
 iptables -X
 iptables -F
@@ -443,7 +445,7 @@ iptables -t nat -F
 iptables -t filter -F
 
 # Redirecting http traffic to squid 
-iptables -t nat -A PREROUTING -i br1 -p tcp --dport 80 -j DNAT --to 10.0.0.1:3128
+iptables -t nat -A PREROUTING -i br1 -p tcp ! -d 10.0.0.0/24  --dport 80 -j DNAT --to 10.0.0.1:3128
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
 
 ## i2p petitions 
@@ -833,12 +835,11 @@ echo "Stoping dnsmasq ..."
 if ps aux | grep -w "dnsmasq" | grep -v "grep" > /dev/null;   then
 	kill -9 `ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'`
 fi
-     echo "#!/bin/sh 
-
+     echo "
 	# Stopping dnsmasq
 	kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
 	2> /dev/null
-	" > /etc/rc.local
+	" >> /etc/rc.local
 
 	echo "service unbound restart" >> /etc/rc.local
 
@@ -956,8 +957,9 @@ if [ ! -e  /var/www/owncloud ]; then
      cp -r /opt/owncloud /var/www/owncloud
    fi
  fi
-chown -R www-data /var/www/owncloud
 fi
+
+chown -R www-data /var/www/owncloud
 
 # Creating MySQL database owncloud for owncloud local service
 if [ ! -e  /var/lib/mysql/owncloud ]; then
@@ -1026,6 +1028,16 @@ configure_squid()
 {
 echo "Configuring squid server ..."
 
+# Generating certificates for ssl connection
+echo "Generating certificates ..."
+if [ ! -e /etc/ssl/squid.pam ]; then
+openssl req -new -newkey rsa:1024 -days 1365 -nodes -x509 -keyout myca.pem -out /etc/ssl/squid.pem -batch
+fi
+
+# Initializing squid ssl_db
+/usr/local/squid/libexec/ssl_crtd -c -s /var/lib/ssl_db
+chown -R squid.squid /var/lib/ssl_db
+
 # squid configuration
 
 echo "
@@ -1049,8 +1061,21 @@ http_access deny manager
 http_access allow localhost
 http_access allow librenetwork
 http_access deny all
+
+# http configuration
 http_port 10.0.0.1:3128 accel vhost allow-direct
 coredump_dir /var/spool/squid3
+
+# https configuration
+https_port 3129 intercept ssl-bump generate-host-certificates=on dynamic_cert_mem_cache_size=4MB
+ 
+cert=/etc/ssl/squid.pem key=/etc/ssl/squid.pem
+ 
+ssl_bump server-first all
+ 
+sslcrtd_program /usr/local/squid/libexec/ssl_crtd -s /var/lib/ssl_db -M 4MB
+sslcrtd_children 8 startup=1 idle=1
+
 refresh_pattern ^ftp:           1440    20%     10080
 refresh_pattern ^gopher:        1440    0%      1440
 refresh_pattern -i (/cgi-bin/|\\?) 0     0%      0
@@ -1352,12 +1377,12 @@ script
 end script
 
 pre-start script
-    echo \"[`date`] Mailpile Starting\" >> /var/log/mailpile.log
+    echo \"[\`date\`] Mailpile Starting\" >> /var/log/mailpile.log
 end script
 
 pre-stop script
     rm /var/run/mailpile.pid
-    echo \"[`date`] Mailpile Stopping\" >> /var/log/mailpile.log
+    echo \"[\`date\`] Mailpile Stopping\" >> /var/log/mailpile.log
 end script
 " > /etc/init/mailpile.conf
  
