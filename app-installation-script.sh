@@ -380,7 +380,7 @@ install_packages ()
 # Installing Packages for Debian 7 GNU/Linux
 
 if [ $PLATFORM = "D7" ]; then
-	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
+	apt-get install -y --force-yes privoxy nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
 	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
@@ -412,7 +412,7 @@ if [ $PLATFORM = "D7" ]; then
 # Installing Packages for Debian 8 GNU/Linux
 
 elif [ $PLATFORM = "D8" ]; then
-	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
+	apt-get install -y --force-yes privoxy nginx php5-common \
         php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
         php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
 	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
@@ -422,13 +422,15 @@ elif [ $PLATFORM = "D8" ]; then
 	curl macchanger ntpdate tor bc sudo lsb-release dnsutils \
 	ca-certificates-java openssh-server ssh wireless-tools usbutils \
 	unzip debian-keyring subversion build-essential libncurses5-dev \
-	i2p i2p-keyring yacy virtualenv pwgen \
+	i2p i2p-keyring yacy virtualenv pwgen gcc make \
         killyourtv-keyring i2p-tahoe-lafs \
-	c-icap clamav  clamav-daemon  gcc make libcurl4-gnutls-dev libicapapi-dev \
+	c-icap clamav  clamav-daemon libcurl4-gnutls-dev libicapapi-dev \
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
 	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
         postfix mailutils \
+	libssl-dev perl \
+        libxml2-dev libxslt1-dev python-jinja2 python-pgpdump spambayes \
 	2>&1 > /tmp/apt-get-install1.log
 
 	# Setting MySQL password
@@ -444,7 +446,7 @@ elif [ $PLATFORM = "D8" ]; then
 # Installing Packages for Trisquel 7.0 GNU/Linux
 
 elif [ $PLATFORM = "T7" ]; then
-	apt-get install -y --force-yes privoxy squid3 nginx php5-common \
+	apt-get install -y --force-yes privoxy nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
 	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
@@ -476,7 +478,7 @@ elif [ $PLATFORM = "T7" ]; then
 # Installing Packages for Ubuntu 14.04 GNU/Linux
 
 elif [ $PLATFORM = "U14" -o $PLATFORM = "U12" ]; then
-	apt-get install -y --force-yes pwgen debconf-utils privoxy squid3 nginx php5-common \
+	apt-get install -y --force-yes pwgen debconf-utils privoxy nginx php5-common \
 	php5-fpm php5-cli php5-json php5-mysql php5-curl php5-intl \
 	php5-mcrypt php5-memcache php-xml-parser php-pear unbound owncloud \
 	node npm apache2-mpm-prefork- apache2-utils- apache2.2-bin- \
@@ -758,6 +760,27 @@ cd
 
 
 # ----------------------------------------------
+# Function to install squid
+# ----------------------------------------------
+install_squid()
+{
+echo "Installing squid dependences ..."
+aptitude build-dep squid
+
+echo "Downloading squid ..."
+wget -P /tmp/ http://www.squid-cache.org/Versions/v3/3.4/squid-3.4.13.tar.gz
+tar zxvf /tmp/squid-3.4.13.tar.gz
+
+echo "Building squid ..."
+cd /root/squid-3.4.13
+./configure --with-openssl --enable-ssl --enable-ssl-crtd --with-default-user=squid 
+make
+make install
+cd
+}
+
+
+# ----------------------------------------------
 # Function to install SquidClamav
 # ----------------------------------------------
 install_squidclamav()
@@ -850,6 +873,7 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 	install_packages       	# Download and install packages	
 	install_mailpile	# Install Mailpile package
 	install_easyrtc		# Install EasyRTC package
+	install_squid		# Install squid package
 	install_squidclamav	# install SquidClamav package
         save_variables	        # Save detected variables
 
@@ -873,6 +897,7 @@ elif [ "$PROCESSOR" = "ARM" ]; then
 	install_packages        # Download and install packages
 	install_mailpile	# Install Mailpile package
 	install_easyrtc		# Install EasyRTC package
+	install_squid		# Install squid package
 	install_squidclamav	# install SquidClamav package
         save_variables	        # Save detected variables
 fi
