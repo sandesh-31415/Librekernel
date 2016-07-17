@@ -10,8 +10,8 @@
 	- [FAQ] (#faq)
 	- [Why we need this technology?] (#why-do-we-need-this-technology)
 	- [What is linux libre?](#what-is-linux-libre)
-	- [What intend to be librouter?](#what-intend-to-be-Librerouter)
-	- [Who? Why? What? How?](#Who-Why-What-How)
+	- [What intend to be librouter?](#what-intend-to-be-librerouter)
+	- [Who? Why? What? How?](#Who?-Why?-What?-How)
 
 
 
