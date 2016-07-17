@@ -160,11 +160,11 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ###Purposed:
 
-- Debian (after deblobling,hardening,enlighting)
-- Lubuntu (after deblobling,hardening,enlighting)
-- Ubuntu Core (after deblobling)
-- Devuan (librekernel,(after apply hardening)
-- Uruk   (librekernel),(after apply hardening)
+- Debian (after deblobling,hardening,enlighting) debian.org
+- Lubuntu (after deblobling,hardening,enlighting) lubuntu.org
+- Ubuntu Core (after deblobling) https://developer.ubuntu.com/en/snappy/start/intel-nuc/
+- Devuan (librekernel,(after apply hardening) https://devuan.org/
+- Uruk   (librekernel),(after apply hardening) https://urukproject.org//dist/index.html
 
 Docker for app (further containerization for security) (reference qubeOS.org)
 
@@ -296,12 +296,12 @@ You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
 
 The following list includes some of the features that have been added and modified in the Linux kernel (core):
 
- -• Anti-exploitation modules high tuned for OS attacking resistance.   
- -• Anti-forensic capabilities in the case of seizure by law enforcement. 
- -• Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched. 
- -• Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
- -• Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
- -• Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
+ - Anti-exploitation modules high tuned for OS attacking resistance.   
+ - Anti-forensic capabilities in the case of seizure by law enforcement. 
+ - Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched. 
+ - Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
+ - Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
+ - Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
 
 ##Steps to setup on Physical/Virtual machine.
 
