@@ -57,7 +57,7 @@ Is an operating system kernel and a GNU package[3] that is maintained from modif
 
 Software components with no available source code are called binary blobs and, as such, are mostly used for proprietary firmware images in the Linux kernel. While generally redistributable, binary blobs do not give the user the freedom to audit, modify or, consequently, redistribute their modified versions.
 
-####*** 3 ways to have Linux with no blobs:***
+####***3 ways to have Linux with no blobs:***
 - a) Deblobing : clean up and verify linux tarballs and patches for non-Free blobs, you can check if your linux tarballs has non-free blobs or not from [here](http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check)
 - b) Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
 - c) VRMS :vrms (Virtual Richard M. Stallman) is a program that analyzes the set of currently-installed packages on a Debian-based system, and reports all of the packages from the non-free tree which are currently installed. Software gets placed in the non-free tree when it is agreed not to be too problematic for Debian to distribute but does not meet the Debian Free Software Guidelines and therefore cannot be included in their official distribution. For each program from "non-free" installed, vrms displays an explanation of why it is non-free, if one is available.:https://alioth.debian.org/projects/vrms/
