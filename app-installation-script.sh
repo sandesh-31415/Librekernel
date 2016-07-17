@@ -72,8 +72,9 @@ configure_repositories ()
 	echo "Configuring repositories ... "
 
 	# Updating date and time
-        ntpdate time.nist.gov
-	echo "adding unauthenticated upgrade"
+	# ntpdate time.nist.gov
+	
+	# echo "adding unauthenticated upgrade"
 	apt-get  -y --force-yes --allow-unauthenticated upgrade
 
 	echo "
@@ -326,40 +327,48 @@ configure_bridges()
 		exit 8
 	else
 
-        # Configuring bridge interfaces
+	EXT_BR_INT=`echo $EXT_INTERFACE | head -c 4`
+       	INT_BR_INT=`echo $INT_INTERFACE | head -c 4`
+
 	echo "Configuring bridge interfaces..."
 	echo "# interfaces(5) file used by ifup(8) and ifdown(8) " > /etc/network/interfaces
 	echo "auto lo" >> /etc/network/interfaces
 	echo "iface lo inet loopback" >> /etc/network/interfaces
+
+	# Configuring bridge interfaces
+
 	echo "#External network interface" >> /etc/network/interfaces
-	echo "auto eth0" >> /etc/network/interfaces
-	echo "allow-hotplug eth0" >> /etc/network/interfaces
-	echo "iface eth0 inet dhcp" >> /etc/network/interfaces
+	echo "auto $EXT_INTERFACE" >> /etc/network/interfaces
+	echo "allow-hotplug $EXT_INTERFACE" >> /etc/network/interfaces
+	echo "iface $EXT_INTERFACE inet dhcp" >> /etc/network/interfaces
+
 	echo "#External network interface" >> /etc/network/interfaces
-	echo "# wireless wlan0" >> /etc/network/interfaces
-	echo "auto wlan0" >> /etc/network/interfaces
-	echo "allow-hotplug wlan0" >> /etc/network/interfaces
-	echo "iface wlan0 inet manual" >> /etc/network/interfaces
+	echo "auto wlan$EXT_BR_INT" >> /etc/network/interfaces
+	echo "allow-hotplug wlan$EXT_BR_INT" >> /etc/network/interfaces
+	echo "iface wlan$EXT_BR_INT inet manual" >> /etc/network/interfaces
+
 	echo "##External Network Bridge " >> /etc/network/interfaces
-	echo "#auto br0" >> /etc/network/interfaces
-	echo "#allow-hotplug br0" >> /etc/network/interfaces
-	echo "#iface br0 inet dhcp" >> /etc/network/interfaces   
-	echo "#    bridge_ports eth0 wlan0" >> /etc/network/interfaces
+	echo "#auto br$EXT_BR_INT" >> /etc/network/interfaces
+	echo "#allow-hotplug br$EXT_BR_INT" >> /etc/network/interfaces
+	echo "#iface br$EXT_BR_INT inet dhcp" >> /etc/network/interfaces   
+	echo "#bridge_ports eth$EXT_BR_INT wlan$EXT_BR_INT" >> /etc/network/interfaces
+	
 	echo "#Internal network interface" >> /etc/network/interfaces
-	echo "auto eth1" >> /etc/network/interfaces
-	echo "allow-hotplug eth1" >> /etc/network/interfaces
-	echo "iface eth1 inet manual" >> /etc/network/interfaces
+	echo "auto $INT_INTERFACE" >> /etc/network/interfaces
+	echo "allow-hotplug $INT_INTERFACE" >> /etc/network/interfaces
+	echo "iface $INT_INTERFACE inet manual" >> /etc/network/interfaces
+	
 	echo "#Internal network interface" >> /etc/network/interfaces
-	echo "# wireless wlan1" >> /etc/network/interfaces
-	echo "auto wlan1" >> /etc/network/interfaces
-	echo "allow-hotplug wlan1" >> /etc/network/interfaces
-	echo "iface wlan1 inet manual" >> /etc/network/interfaces
+	echo "auto wlan$INT_BR_INT" >> /etc/network/interfaces
+	echo "allow-hotplug wlan$INT_BR_INT" >> /etc/network/interfaces
+	echo "iface wlan$INT_BR_INT inet manual" >> /etc/network/interfaces
+
 	echo "# Internal network Bridge" >> /etc/network/interfaces
-	echo "auto br1" >> /etc/network/interfaces
-	echo "allow-hotplug br1" >> /etc/network/interfaces
+	echo "auto br$INT_BR_INT" >> /etc/network/interfaces
+	echo "allow-hotplug br$INT_BR_INT" >> /etc/network/interfaces
 	echo "# Setup bridge" >> /etc/network/interfaces
-	echo "iface br1 inet static" >> /etc/network/interfaces
-	echo "    bridge_ports eth1 wlan1" >> /etc/network/interfaces
+	echo "iface br$INT_BR_INT inet static" >> /etc/network/interfaces
+	echo "    bridge_ports eth$INT_BR_INT wlan$INT_BR_INT" >> /etc/network/interfaces
 	echo "    address 10.0.0.1" >> /etc/network/interfaces
 	echo "    netmask 255.255.255.0" >> /etc/network/interfaces
 	echo "    network 10.0.0.0" >> /etc/network/interfaces
@@ -865,7 +874,10 @@ get_hardware  	# Getting hardware info
 # 7. Download and Install packages
 # ----------------------------------------------
 if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then 
+	check_internet          # Check Internet access
+#	check_assemblance
 #	check_requirements      # Checking requirements for 
+	configure_bridges       # Configure bridge interfacers
 				# Physical or Virtual machine
         get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and 
 				# connect to Internet
@@ -889,16 +901,16 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 # ---------------------------------------------
 elif [ "$PROCESSOR" = "ARM" ]; then 
 #	check_assemblance
-	configure_bridges       # Configure bridge interfacers
-	check_internet          # Check Internet access
-        get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and 
+	#configure_bridges       # Configure bridge interfacers
+	#check_internet          # Check Internet access
+        #get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and 
 				# connect to Internet
-	configure_repositories  # Prepare and update repositories
-	install_packages        # Download and install packages
-	install_mailpile	# Install Mailpile package
-	install_easyrtc		# Install EasyRTC package
-	install_squid		# Install squid package
-	install_squidclamav	# install SquidClamav package
+	#configure_repositories  # Prepare and update repositories
+	#install_packages        # Download and install packages
+	#install_mailpile	# Install Mailpile package
+	#install_easyrtc		# Install EasyRTC package
+	#install_squid		# Install squid package
+	#install_squidclamav	# install SquidClamav package
         save_variables	        # Save detected variables
 fi
 
