@@ -4,9 +4,7 @@
 
 &nbsp;
 
---
-##Table of cont Anti-exploitationent 
---
+
 
 - [Introduction](#introduction)
 	- [FAQ] (#faq)
