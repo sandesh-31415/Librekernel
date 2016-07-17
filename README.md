@@ -12,17 +12,17 @@
 	- [What is linux libre?](#what-is-linux-libre)
 	- [What intend to be librouter?](#what-intend-to-be-librerouter)
 	- [Who? Why? What? How?](#who-why-what-how)
+	- [What is Open-source hardware ?] (#what-is-open-source-hardware)
+-
 
 
 
 
---
 #Introduction
---
 
-&nbsp;
 
-##Faq
+
+***Faq***
 	
 	-Can u define the project in a line here ?
 		-Ans.A end user privacy firewall 
@@ -33,7 +33,7 @@
 	-Is their any demo showing that it is acutally did what is claimed ?
 		-Ans.We are in the way to deliver, ongoing
 
-###Why do we need this technology?
+***Why do we need this technology?***
 
 - **Sniffers**: those that are checking your traffic.
 - **Government spy/monitoring institutions passive actions**: collecting general data from worldwide.
