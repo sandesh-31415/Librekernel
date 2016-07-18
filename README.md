@@ -23,7 +23,7 @@
 
 ##***Faq***
 	
-	Can u define the project in a line here?
+	Can you define the project in a line here?
 		-Ans. A end user privacy firewall 
 
 	Is there are any similar projects like this ?
