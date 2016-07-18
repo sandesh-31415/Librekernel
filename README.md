@@ -12,7 +12,7 @@
 	- [What is linux libre?](#what-is-linux-libre)
 	- [What intend to be librouter?](#what-intend-to-be-librerouter)
 	- [Who? Why? What? How?](#who-why-what-how)
-	- [What is open source hardware ?](#what-is-open-source-hardware)
+	- [What is open source hardware?](#what-is-open-source-hardware)
 
 
 
@@ -24,14 +24,14 @@
 
 ##***Faq***
 	
-	-Can u define the project in a line here ?
-		-Ans.A end user privacy firewall 
+	***Can u define the project in a line here?***
+		-Ans. A end user privacy firewall 
 
-	-Is there are any similar projects like this ?
-		-Ans.Sure they are
+	***Is there are any similar projects like this ?***
+		-Ans. Sure they are
 
-	-Is their any demo showing that it is acutally did what is claimed ?
-		-Ans.We are in the way to deliver, ongoing
+	***Is their any demo showing that it is acutally did what is claimed?***
+		-Ans. We are in the way to deliver, ongoing
 
 ##***Why do we need this technology?***
 
@@ -87,7 +87,7 @@ A unique combination of open hardware, GNU software and trainning you can achiev
 - • Plug and play system to make your traffic untraceable.
 - • It is the future Data Center resilience infrastructure.
 
-##***What is open source hardware ?***
+##***What is open source hardware?***
 
 It consists of physical artifacts of technology designed and offered by the open design movement. Both free and open-source software (FOSS) as well as open-source hardware is created by this open-source culture movement and applies a like concept to a variety of components. It is sometimes, thus, referred to as FOSH (free and open-source hardware). The term usually means that information about the hardware is easily discerned so that others can make it - coupling it closely to the maker movement.[1] Hardware design (i.e. mechanical drawings, schematics, bills of material, PCB layout data, HDL source code[2] and integrated circuit layout data), in addition to the software that drives the hardware, are all released under free/libre terms. The original sharer gains feedback and potentially improvements on the design from the FOSH community. There is now significant evidence that such sharing can drive a high return on investment for investors.
 
