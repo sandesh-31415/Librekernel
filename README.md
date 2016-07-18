@@ -63,8 +63,9 @@ Software components with no available source code are called binary blobs and, a
 
 #####***Philosophically speaking, you could consider the difference to be as follows:***
 
--The Debian kernel doesn't include any non-free firmware (bugs aside), but it allows users to load non-free firmware if they wish to do so.
--The Linux-libre kernel doesn't include any non-free firmware or anything looking like firmware, and it prevents users from loading non-free firmware even if they wish to do so.
+- The Debian kernel doesn't include any non-free firmware (bugs aside), but it allows users to load non-free firmware if they wish to do so.
+
+- The Linux-libre kernel doesn't include any non-free firmware or anything looking like firmware, and it prevents users from loading non-free firmware even if they wish to do so.
 
 #####***Linux-libre is built by running a deblob script on the kernel source code. This goes through the kernel source code, and makes various firmware-related changes:***
 
