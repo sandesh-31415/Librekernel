@@ -15,22 +15,24 @@
 	- [What is open source hardware?](#what-is-open-source-hardware)
 	- [Which are the licenses/certifications that show openes in the hardware?](#which-are-the-licences/certifications-that-show-opens-in-the-hardware)
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
-
+- [Functional Specification](#functional-specs)
+- [Roadmap](#roadmap)
+- [To be categorized](#others)
 
 #Introduction
 
 
 
-##***Faq***
+##***FAQ***
 	
-	Can you define the project in a line here?
-		-Ans. A end user privacy firewall 
+	Q. Can you define the project in a line here?
+	-> An end user privacy firewall
 
-	Is there are any similar projects like this ?
-		-Ans. Sure they are
+	Q. Are there any other similar projects?
+	-> Sure there are
 
-	Is their any demo showing that it is acutally did what is claimed?
-		-Ans. We are in the way to deliver, ongoing
+	Q. Is their any demo showing that it is acutally doing what is being claimed?
+	-> Work-in-progress
 
 ##***Why do we need this technology?***
 
@@ -290,15 +292,6 @@ You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
 ###2. Buy a premade future available Librerouter
 ![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
 
-The following list includes some of the features that have been added and modified in the Linux kernel (core):
-
- - Anti-exploitation modules high tuned for OS attacking resistance.   
- - Anti-forensic capabilities in the case of seizure by law enforcement. 
- - Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched. 
- - Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services. 
- - Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries. 
- - Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
-
 ##Steps to setup on Physical/Virtual machine.
 
 **Step 1: Checking requirements**
@@ -307,13 +300,12 @@ Your Physical/Virtual machine need to meet the minimum requirements:
  - 2. 2 GB of RAM
  - 3. 1TB SATA hdd better if ssd
 
-The way networking works in Librerouter will be:
+The way networking works in Librerouter will be as follows:
+There are two bridges with two interfaces each as follows:
+1. One bridge acting as WAN: cable or wireless interface as client
+2. One bridge acting as LAN: cable or wireless interface as an AP
 
-2 Bridges two interfaces each
- - 1 x bridge acts as a WAN (cable or wireless as client)
- - 2 x bridge acts as LAN   (cable or wireless as an AP)
-
-So, we actually have 4 possible PHySICAL scenarios:
+So, we actually have four possible PHySICAL scenarios:
 
  - WAN is WiFi, LAN is WiFi
  - WAN is WiFi, LAN is Cabled Ethernet
@@ -700,8 +692,40 @@ If Cable and FIX IP address:
 
 Please provide the IP address Please provide the default GW Please provide the DNS server Trying ping against the IPs If correct finish The daemon should check the connections answers If not specify error conditions 
 
-
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#functional-specs
+To be specified
+This section can have functional specifications for this project. It can list
+specifications like follows:
+Configurable user privacy settings
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#architecture
+To be specified
+This section can have detailed architecture of the project. Along with that it
+can explain the different technical blocks involved in the project.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#roadmap
+To be specified
+Features to be implemented in the project to be listed here in order of priority
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#others
+**Following sections need to be placed at appropriate places**
+**Section 1**
+The following list includes some of the features that have been added and modified in the Linux kernel (core):
+
+ - Anti-exploitation modules high tuned for OS attacking resistance.
+ - Anti-forensic capabilities in the case of seizure by law enforcement.
+ - Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched.
+ - Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services.
+ - Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries.
+ - Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
+
+** Section 2**
 Kernel & Forensics
 Threat 	CageOS Protection
 Several Exploit 	GrSecurity
@@ -776,9 +800,5 @@ Wifi password configuratio 	Yes, manadatory on first boot and later on TFT confi
 Internal WIFI device without password or WEP encryption 	No
 
 ![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
-
-
-
-
 
 
