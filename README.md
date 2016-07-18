@@ -13,9 +13,12 @@
 	- [What intend to be librouter?](#what-intend-to-be-librerouter)
 	- [Who? Why? What? How?](#who-why-what-how)
 	- [What is open source hardware?](#what-is-open-source-hardware)
-	- [Which are the licenses/certifications that show openes in the hardware?](#which-are-the-licences/certifications-that-show-opens-in-the-hardware)
+	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licences-and-certifications-that-show-opens-in-the-hardware)
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
 - [Functional Specification](#functional-specs)
+- [Installation and Setup](#installation-and-setup)
+	- [Prerequisites](#prerequisites)
+	- []
 - [Roadmap](#roadmap)
 - [To be categorized](#others)
 
@@ -110,7 +113,7 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
-#WTH many hw providers claimed they produce open hardware but it's just horse shit?
+#Many H/W providers claimed they produce open hardware but it's just horse shit?
 
 The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls, chipset restringtions and questions about missing parts of info and doc:
 
@@ -164,7 +167,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://en.wikipedia.org/wiki/Common_Criteria
 - http://www.asd.gov.au/infosec/aisep/crypto.htm
 
-#Operating System
+##Operating System
 
 ###Purposed:
 
@@ -176,7 +179,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 Docker for app (further containerization for security) (reference qubeOS.org)
 
-#HOW to use Librerouter in Hardware?
+#How to use Librerouter in Hardware?
 
  • -a) If you buy a Librerouter then connect it like:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
