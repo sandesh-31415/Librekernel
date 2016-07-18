@@ -24,13 +24,13 @@
 
 ##***Faq***
 	
-	***Can u define the project in a line here?***
+	Can u define the project in a line here?
 		-Ans. A end user privacy firewall 
 
-	***Is there are any similar projects like this ?***
+	Is there are any similar projects like this ?
 		-Ans. Sure they are
 
-	***Is their any demo showing that it is acutally did what is claimed?***
+	Is their any demo showing that it is acutally did what is claimed?
 		-Ans. We are in the way to deliver, ongoing
 
 ##***Why do we need this technology?***
@@ -62,12 +62,12 @@ Software components with no available source code are called binary blobs and, a
 - Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
 - **VRMS** :vrms (Virtual Richard M. Stallman) is a program that analyzes the set of currently-installed packages on a Debian-based system, and reports all of the packages from the non-free tree which are currently installed. Software gets placed in the non-free tree when it is agreed not to be too problematic for Debian to distribute but does not meet the Debian Free Software Guidelines and therefore cannot be included in their official distribution. For each program from "non-free" installed, vrms displays an explanation of why it is non-free, if one is available.:https://alioth.debian.org/projects/vrms/
 
-Philosophically speaking, you could consider the difference to be as follows:
+######***Philosophically speaking, you could consider the difference to be as follows:***
 
-    the Debian kernel doesn't include any non-free firmware (bugs aside), but it allows users to load non-free firmware if they wish to do so;
-    the Linux-libre kernel doesn't include any non-free firmware or anything looking like firmware, and it prevents users from loading non-free firmware even if they wish to do so.
+The Debian kernel doesn't include any non-free firmware (bugs aside), but it allows users to load non-free firmware if they wish to do so;
+The Linux-libre kernel doesn't include any non-free firmware or anything looking like firmware, and it prevents users from loading non-free firmware even if they wish to do so.
 
-Linux-libre is built by running a deblob script on the kernel source code. This goes through the kernel source code, and makes various firmware-related changes:
+#####Linux-libre is built by running a deblob script on the kernel source code. This goes through the kernel source code, and makes various firmware-related changes:
 
     any firmware for which source code is available is preserved, but the script makes sure the source code is available;
     any module requiring firmware is stripped of the ability to load the firmware;
