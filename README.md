@@ -59,7 +59,7 @@ Software components with no available source code are called binary blobs and, a
 ####***3 ways to have Linux with no blobs:***
 - **Deblobing** : clean up and verify linux tarballs and patches for non-Free blobs, you can check if your linux tarballs has non-free blobs or not from [here](http://www.fsfla.org/svn/fsfla/software/linux-libre/scripts/deblob-check)
 - Use clean basement and dont allow instaltion of 3rd party software that is stablished by trust control is free of blobls. Example [linux libre](http://www.linux-libre.fsfla.org/pub/linux-libre/releases/LATEST-4.6.N/)
-- **VRMS** :vrms (Virtual Richard M. Stallman) is a program that analyzes the set of currently-installed packages on a Debian-based system, and reports all of the packages from the non-free tree which are currently installed. Software gets placed in the non-free tree when it is agreed not to be too problematic for Debian to distribute but does not meet the Debian Free Software Guidelines and therefore cannot be included in their official distribution. For each program from "non-free" installed, vrms displays an explanation of why it is non-free, if one is available.:https://alioth.debian.org/projects/vrms/
+- **VRMS**: VRMS(Virtual Richard M. Stallman) is a program that analyzes the set of currently-installed packages on a Debian-based system, and reports all of the packages from the non-free tree which are currently installed. Software gets placed in the non-free tree when it is agreed not to be too problematic for Debian to distribute but does not meet the Debian Free Software Guidelines and therefore cannot be included in their official distribution. For each program from "non-free" installed, vrms displays an explanation of why it is non-free, if one is available.:https://alioth.debian.org/projects/vrms/
 
 #####***Philosophically speaking, you could consider the difference to be as follows:***
 
@@ -69,10 +69,10 @@ Software components with no available source code are called binary blobs and, a
 
 #####***Linux-libre is built by running a deblob script on the kernel source code. This goes through the kernel source code, and makes various firmware-related changes:***
 
-    any firmware for which source code is available is preserved, but the script makes sure the source code is available;
-    any module requiring firmware is stripped of the ability to load the firmware;
-    any source code which looks like firmware (sequences of numbers) is removed;
-    any file containing only firmware (e.g. the contents of firmware/radeon) is removed.
+- Any firmware for which source code is available is preserved, but the script makes sure the source code is available.
+- Any module requiring firmware is stripped of the ability to load the firmware.
+- Any source code which looks like firmware (sequences of numbers) is removed.
+- Any file containing only firmware (e.g. the contents of firmware/radeon) is removed.
 
 ##***What intend to be Librerouter?***
 GNU open hardware running and GNU software:
@@ -81,11 +81,11 @@ GNU open hardware running and GNU software:
 
 A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
 
-- • Open source comunity.
-- • Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
-- • Easy to use for all people with zero tech knowledge.
-- • Plug and play system to make your traffic untraceable.
-- • It is the future Data Center resilience infrastructure.
+- Open source comunity.
+- Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
+- Easy to use for all people with zero tech knowledge.
+- Plug and play system to make your traffic untraceable.
+- It is the future Data Center resilience infrastructure.
 
 ##***What is open source hardware?***
 
