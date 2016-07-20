@@ -47,23 +47,6 @@
 - **Malicious internet nodes**: better known as _blackbones_.
 - **Your internet provider (ISP)**: if they would trying anything with your data.
 
-**to_be_fixed**
-Below picture is not relevant, it should be deleted.
-![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
-
-The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
-
-**to_be_fixed**
-The below picture is ok, but can be replaced with a better picture conveying the right message about "Terms and Conditions"
-[![4954401_orig](https://cloud.githubusercontent.com/assets/18449119/14941752/a885d1f2-0fa7-11e6-883a-317ceb75aff6.jpg)](https://www.youtube.com/watch?v=yzyafieRcWE)
-
-**to_be_fixed**
-The below picture of Software Wars is not relevant, it should be deleted
-![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
-
-![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
-![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
-
 ##***What is Linux-libre?***
 
 Is an operating system kernel and a GNU package[3] that is maintained from modified versions of the Linux kernel. The aim of the project is to remove from the Linux kernel any software that does not include its source code, has its source code obfuscated, or is released under proprietary licenses.
@@ -810,5 +793,17 @@ Wifi password configuratio 	Yes, manadatory on first boot and later on TFT confi
 Internal WIFI device without password or WEP encryption 	No
 
 ![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
-
 ![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
+**to_be_fixed**
+Below picture is not relevant, it should be deleted.
+![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
+The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
+**to_be_fixed**
+The below picture is ok, but can be replaced with a better picture conveying the right message about "Terms and Conditions"
+[![4954401_orig](https://cloud.githubusercontent.com/assets/18449119/14941752/a885d1f2-0fa7-11e6-883a-317ceb75aff6.jpg)](https://www.youtube.com/watch?v=yzyafieRcWE)
+**to_be_fixed**
+The below picture of Software Wars is not relevant, it should be deleted
+![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
+![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
+![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
+
