@@ -15,7 +15,7 @@
 	- [What is open source hardware?](#what-is-open-source-hardware)
 	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licenses-and-certifications-that-show-openes-in-the-hardware)
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
-	- [Which are security product certifcations?](#which-are-security-product-certifications)
+	- [Which are security product certifications?](#which-are-security-product-certifications)
 	- [Purposed Operating Systems](#purposed-operating-systems)
 - [Functional Specification](#functional-specs)
 - [Installation and Setup](#installation-and-setup)
@@ -153,7 +153,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - https://www.datenschutzzentrum.de/zertifizierung/
 - http://www.edaa.eu/certification-process/trust-seal/
 
-###***Which are security product certifcations?***
+###***Which are security product certifications?***
 
 - http://www.dekra-certification.com/en/cyber-security
 - http://www.exsolutiongroup.com/blog/various-types-of-iso-certification-uae-has-to-offer/
