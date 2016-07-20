@@ -166,30 +166,30 @@ Docker for app (further containerization for security) (reference qubeOS.org)
 
 #Technical Overview
 
-#How to use Librerouter in Hardware?
+###***How to use Librerouter in Hardware?***
 
- • -a) If you buy a Librerouter then connect it like:
+ • If you buy a Librerouter then connect it like:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
- • -b) If you feel like an computer expert, then install the scripts in a virtual/physical machine DoItYourSelf
+ • If you feel like an computer expert, then install the scripts in a virtual/physical machine DoItYourSelf
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
 
-#Which hardware is needed to run Librerouter?
+###***Which hardware is needed to run Librerouter?***
 
 Anyone able to run Debian or Ubuntu (by now). It does not matter if ARM,x86 or 64 bits. 
 It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd. 
 *For Owncloud user folders TahoheLafs I2P we recomend 1TB hardisk and separate the boot from the rootfs
 
-#How it will protect me?
+###***How it will protect me?***
 
-     • - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
-     • - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
-     • - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
-     • - Forcing encryption in transport and in rest data.
-     • - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
+    • Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+    • Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+    • Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+    • Forcing encryption in transport and in rest data.
+    • Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
  
