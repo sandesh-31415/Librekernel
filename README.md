@@ -13,9 +13,9 @@
 	- [What intend to be librouter?](#what-intend-to-be-librerouter)
 	- [Who? Why? What? How?](#who-why-what-how)
 	- [What is open source hardware?](#what-is-open-source-hardware)
-	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licences-and-certifications-that-show-opens-in-the-hardware)
+	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licenses-and-certifications-that-show-openes-in-the-hardware)
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
-	- [Which are security product certifcations?](#Which-are-security-product-certifications)
+	- [Which are security product certifcations?](#which-are-security-product-certifications)
 	- [Purposed Operating Systems](#purposed-operating-systems)
 - [Functional Specification](#functional-specs)
 - [Installation and Setup](#installation-and-setup)
@@ -61,7 +61,6 @@ The below picture is ok, but can be replaced with a better picture conveying the
 The below picture of Software Wars is not relevant, it should be deleted
 ![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
 
-![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 ![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
 
@@ -812,4 +811,4 @@ Internal WIFI device without password or WEP encryption 	No
 
 ![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
 
-
+![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
