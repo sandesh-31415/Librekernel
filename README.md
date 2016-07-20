@@ -17,6 +17,9 @@
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
 	- [Which are security product certifications?](#which-are-security-product-certifications)
 	- [Purposed Operating Systems](#purposed-operating-systems)
+- [Technical Overview](#technical-overview)
+	- [How to use Librerouter in Hardware?](#how-to-use-librerouter-in-hardware)
+	- [Which hardware is needed to run Librerouter?](#which-hardware-is-needed-to-run-librerouter?)
 - [Functional Specification](#functional-specs)
 - [Installation and Setup](#installation-and-setup)
 	- [Prerequisites](#prerequisites)
@@ -97,7 +100,7 @@ The GNU Lesser General Public License (LGPL) is a free software license publishe
 
 A Creative Commons (CC) license is one of several public copyright licenses that enable the free distribution of an otherwise copyrighted work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author's work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work.
 
-###***Many H/W providers claimed they produce open hardware but it's just horse shit?***
+###***Many H/W providers claimed they produce open hardware but it's just crap?***
 
 The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls, chipset restringtions and questions about missing parts of info and doc:
 
@@ -112,7 +115,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
 
-###***Which are the licenses and certifications that show openes in the hardware?***
+###***Which are the licenses and certifications that show openness in the hardware?***
 
 - http://www.ohwr.org/documents/294
 - http://www.gnu.org/licenses/quick-guide-gplv3.en.html
@@ -160,6 +163,8 @@ The market is full of crowdfunded project where the funder claimed the project i
 - Uruk   (librekernel),(after apply hardening) https://urukproject.org//dist/index.html
 
 Docker for app (further containerization for security) (reference qubeOS.org)
+
+#Technical Overview
 
 #How to use Librerouter in Hardware?
 
