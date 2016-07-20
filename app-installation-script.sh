@@ -437,7 +437,7 @@ elif [ $PLATFORM = "D8" ]; then
 	deb.torproject.org-keyring u-boot-tools php-zeta-console-tools \
         gnupg openssl python-virtualenv python-pip python-lxml git \
 	libjpeg62-turbo libjpeg62-turbo-dev zlib1g-dev python-dev webmin \
-        postfix mailutils \
+        postfix mailutils squid3 \
 	libssl-dev perl \
         libxml2-dev libxslt1-dev python-jinja2 python-pgpdump spambayes \
 	2>&1 > /tmp/apt-get-install1.log
@@ -873,7 +873,7 @@ get_hardware  	# Getting hardware info
 # 6. Configure repositories
 # 7. Download and Install packages
 # ----------------------------------------------
-if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then 
+if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" -o "$PROCESSOR" = "ARM" ]; then 
 	check_internet          # Check Internet access
 #	check_assemblance
 #	check_requirements      # Checking requirements for 
@@ -885,7 +885,7 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 	install_packages       	# Download and install packages	
 	install_mailpile	# Install Mailpile package
 	install_easyrtc		# Install EasyRTC package
-	install_squid		# Install squid package
+	#install_squid		# Install squid package
 	install_squidclamav	# install SquidClamav package
         save_variables	        # Save detected variables
 
@@ -899,19 +899,19 @@ if [ "$PROCESSOR" = "Intel" -o "$PROCESSOR" = "AMD" ]; then
 # 7. Configure repositories
 # 8. Download and Install packages
 # ---------------------------------------------
-elif [ "$PROCESSOR" = "ARM" ]; then 
-#	check_assemblance
-	#configure_bridges       # Configure bridge interfacers
-	#check_internet          # Check Internet access
-        #get_dhcp_and_Internet  	# Get DHCP on eth0 or eth1 and 
+#elif [ "$PROCESSOR" = "ARM" ]; then 
+	#check_assemblance
+	#configure_bridges      # Configure bridge interfacers
+	#check_internet         # Check Internet access
+        #get_dhcp_and_Internet  # Get DHCP on eth0 or eth1 and 
 				# connect to Internet
-	#configure_repositories  # Prepare and update repositories
-	#install_packages        # Download and install packages
+	#configure_repositories # Prepare and update repositories
+	#install_packages       # Download and install packages
 	#install_mailpile	# Install Mailpile package
-	#install_easyrtc		# Install EasyRTC package
+	#install_easyrtc	# Install EasyRTC package
 	#install_squid		# Install squid package
 	#install_squidclamav	# install SquidClamav package
-        save_variables	        # Save detected variables
+	#save_variables	        # Save detected variables
 fi
 
 # ---------------------------------------------
