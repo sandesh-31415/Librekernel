@@ -366,6 +366,32 @@ Where the trafic is filtered by dns first , by snort later, by ip via iptables, 
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 ![bridmode workflow](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
 
+#Network Flow
+
+![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
+
+####DNS Resolution Explained
+
+Librerouter needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
+![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
+
+![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
+
+#DNS petitions are processed in this way:
+
+- Regular webpages (ex: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS. If it can not resolve then we need to ask TOR about but using DNSCRYPT and using services like DIana or Open NIC
+
+- Onion domains are resolved to a IP inside range 10.192.0.0/16
+
+- I2P domains are always resolved to 10.191.0.1
+
+- Local defined domains, forwards to 10.0.0.1
+
+- Service replacement (ex: google.com it's replaced by our internal service YaCy) will resolve local ip 10.0.0.25x
+
+- Petition Flow: If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
+
+![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
 
 
 
@@ -378,7 +404,7 @@ In this step you need to download and execute the following scripts on your mach
  - 2. app-configuration-script.sh
  - 3. app-post configuration encryption FDE fill disk en cryption
  - 4. System Wizards
- - 5. Subsystems GUI forked from IPFIRE
+ - 5. Subsystems GUIs for backends forked from IPFIRE
 
 ![initial-install-workflow](https://cloud.githubusercontent.com/assets/13025157/14444383/5b99d710-0045-11e6-9ae8-3efa1645f355.png)
 
@@ -431,32 +457,6 @@ The same as in Physical/Virtual machine case.
 The same as in Physical/Virtual machine case.
 If step 7 finished successfully then test.sh execution for odroid board is finished successfully and it's time to run the next script “app-installation-script.sh”. 
 
-#Network Flow
-
-![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
-
-####DNS Resolution Explained
-
-Librerouter needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
-![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
-
-![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
-
-#DNS petitions are processed in this way:
-
-- Regular webpages (ex: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS. If it can not resolve then we need to ask TOR about but using DNSCRYPT and using services like DIana or Open NIC
-
-- Onion domains are resolved to a IP inside range 10.192.0.0/16
-
-- I2P domains are always resolved to 10.191.0.1
-
-- Local defined domains, forwards to 10.0.0.1
-
-- Service replacement (ex: google.com it's replaced by our internal service YaCy) will resolve local ip 10.0.0.25x
-
-- Petition Flow: If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
-
-![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
 
 Workflow of app-configuration-script.sh
 Part 1/4: DNS Resolution
