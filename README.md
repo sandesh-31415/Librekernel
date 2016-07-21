@@ -158,6 +158,8 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ###***Purposed Operating Systems***
 
+tested only in debian 8.5 x86 32bits
+
 - Debian (after deblobling,hardening,enlighting) debian.org
 - Lubuntu (after deblobling,hardening,enlighting) lubuntu.org
 - Ubuntu Core (after deblobling) https://developer.ubuntu.com/en/snappy/start/intel-nuc/
@@ -329,8 +331,13 @@ four possible PHySICAL scenarios:
 
 **Step 2: Setup the network.**
 
- - In this step you need to connect one of the interfaces of your machine to Internet to download apps and upgrades, and other one to local network device or switch where you connect from the laptop.
- - Networking of Librerouter has two way to work: Server (no protection but services) or Bridge (services and network protection)
+ - In this step you need to connect one of the interfaces cable of your machine to Internet to download apps and upgrades, and other one to local network device or switch where you connect from the laptop. (there is due to date of today 27july2016 not yet wizard for the wlan, but coming soon)
+ 
+Networking of Librerouter has two way to work: 
+
+ - Server (no protection but services)
+ - Network Router (services and network protection) (dont mix with NIC bridge that is not)
+ 
 <!-- this part needs to be refactored by someone that does know the current state of building process -->
 There are 2 ways to join to Librerouter network
 
