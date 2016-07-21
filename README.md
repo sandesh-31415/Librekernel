@@ -627,7 +627,7 @@ It aims to configure all the packages and services.
   * :3 10.0.0.253/24 for Owncloud services 
   * :4 10.0.0.254/24 for Mailpile services
 
-Need to describe with a diagram what is in here:
+David Need to describe with a diagram what is in here:
 
  https://raw.githubusercontent.com/Librerouter/Librekernel/gh-pages/app-configuration-script.sh
 
