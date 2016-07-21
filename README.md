@@ -344,28 +344,23 @@ Networking of Librerouter has two way to work:
  - Server (no protection but services)
  - Network Router (services and network protection) (dont mix with NIC bridges that we have to separate 4 interfaces in 2 zones)
  
-There are 2 ways to join to Librerouter network
-
 
 ##Steps to setup on Physical/Virtual machine.
-
-
-
 
 
 ##Server mode
 
 The way networking works in Librerouter will be:
 
- -  -1 uniqe fix IP LAN or Bridge> can be WLAN or Cabled Ethernett connected to the existing internet router LAN. Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks and malware)
- 
- 
+ -  1 uniqe fix IP LAN 10.0.0.1-255 can be WLAN or Cabled Ethernet (date 27july2016 only suported cable) connected to the existing internet router LAN. 
+ -  Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks,tracking,ads and malware)
+
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443924/9c798300-0042-11e6-85b1-1760c5b3789d.png)
 
 ![servermodeworkflow](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
 
  
-##Bridge mode
+##Router mode
 
 Where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
   
