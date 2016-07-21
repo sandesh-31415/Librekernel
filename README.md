@@ -403,7 +403,27 @@ Where the trafic is filtered by dns first , by snort later, by ip via iptables, 
 
 ![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
 
+##DNS resolution process.
 
+###Classified domains
+  * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
+  * Social networks - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
+  * Storages        - Will be resolved to ip address 10.0.0.253 (Owncloud) by unbound.
+  * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
+    
+###Local, i2p and onion domains
+
+  * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
+  * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
+  * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
+   
+###Other domain names
+
+  * Any other domain name will be resolved by DjDNS,P2P or OpenNIC with CryptoDNS.
+
+# Configure Reverse proxy
+ 
+ 
 Part 1/4: DNS Resolution
 
 This documentation aims to describe DNS resolution process of LibreRouter.
@@ -620,7 +640,7 @@ Script workflow
   * Install necessary packages
 
  
- add diagram of the installation script upgraded
+
 
 #app-configuration-script.sh (Parametrization script)**
 
@@ -643,34 +663,12 @@ It aims to configure all the packages and services.
   * :3 10.0.0.253/24 for Owncloud services 
   * :4 10.0.0.254/24 for Mailpile services
 
-4. Configure DNS resolution
-  * Unbound DNS will be configured to listed 10.0.0.1:53
-  * Tor DNS will be configured to listed 10.0.0.1:9053
-  * DjDNS will be configured to listed 10.0.0.1:8053
+Need to describe with a diagram what is in here:
+
+ https://raw.githubusercontent.com/Librerouter/Librekernel/gh-pages/app-configuration-script.sh
 
 
 
-##DNS resolution process.
-
-###Classified domains
-  * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
-  * Social networks - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
-  * Storages        - Will be resolved to ip address 10.0.0.253 (Owncloud) by unbound.
-  * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
-    
-###Local, i2p and onion domains
-
-  * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
-  * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
-  * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
-   
-###Other domain names
-
-  * Any other domain name will be resolved by DjDNS,P2P or OpenNIC with CryptoDNS.
-
-# Configure Reverse proxy
- 
- 
 
 This project is licensed under the terms of the **GNU GPL V2** license.
 
