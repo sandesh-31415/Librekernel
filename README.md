@@ -371,19 +371,25 @@ Where the trafic is filtered by dns first , by snort later, by ip via iptables, 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 ####DNS Resolution Explained
-
-Librerouter needs a powerfull DNS resolver to provide a transparent browsing for the user but it need to be outside the centrilzed mafioso models like IANA.
-![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
-
-![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
-
 #DNS petitions are processed in this way:
 
-- Regular webpages (ex: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS. If it can not resolve then we need to ask TOR about but using DNSCRYPT and using services like DIana or Open NIC
+- Regular webpages (example: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS (we used unbounddns momentarely( because djdns need upgrade and we are searching for developers for it)). 
 
-- Onion domains are resolved to a IP inside range 10.192.0.0/16
+- If it can not resolved, then we need to ask through TOR if it is not resolved then using DNSCRYPT and using services like DIana or Open NIC
 
-- I2P domains are always resolved to 10.191.0.1
+- Onion domains are resolved to a IP inside range 10.192.0.0/16 and consequently they go through TOR proxy that is hearing in that IP
+
+- I2P domains are always resolved to 10.191.0.1 and consequently they go through I2P proxy that is hearing in that IP.
+
+- Freenet domains:> not yet implemented http://ftp.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/cryptography/apps/freenet/fcptools/linux/gateway.html
+
+- Bit domains> blockchain bitcoin> not yet implemented https://en.wikipedia.org/wiki/Namecoin  https://bit.namecoin.info/
+
+- Zeronet> not yet implemented
+
+- Openbazaar> not yet implemented
+- 
+- Other decentraized webs> not yet implemented
 
 - Local defined domains, forwards to 10.0.0.1
 
@@ -392,6 +398,10 @@ Librerouter needs a powerfull DNS resolver to provide a transparent browsing for
 - Petition Flow: If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
 
 ![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
+
+![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
+
+![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
 
 
 
