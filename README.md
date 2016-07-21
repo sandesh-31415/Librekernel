@@ -163,6 +163,7 @@ The market is full of crowdfunded project where the funder claimed the project i
 - Ubuntu Core (after deblobling) https://developer.ubuntu.com/en/snappy/start/intel-nuc/
 - Devuan (librekernel,(after apply hardening) https://devuan.org/
 - Uruk   (librekernel),(after apply hardening) https://urukproject.org//dist/index.html
+- LibreWRT
 
 Docker for app (further containerization for security) (reference qubeOS.org)
 
@@ -179,18 +180,28 @@ Docker for app (further containerization for security) (reference qubeOS.org)
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
 
-###***Which hardware is needed to run Librerouter?***
+###***Which hardware/Virtual resources you needed to run Librerouter scripts?***
 
-Anyone able to run Debian or Ubuntu (by now). It does not matter if ARM,x86 or 64 bits. 
-It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd. 
-*For Owncloud user folders TahoheLafs I2P we recomend 1TB hardisk and separate the boot from the rootfs
+Anyone able to run Debian (for other distro script need to be depurated still due date of 21july2016). 
+It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
+
+- You need to setup a least 2 network interfaces NICS (external and internal always no matters bridge or server mode),
+- 2GB RAM
+- 4 cores CPU 
+- 1TB Hdd. (but will work with 32gb ssd either.)
+
 
 ###***How it will protect me?***
 
 - Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+- insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unbounddnslists>iptablesIP lists>client
+
 - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+- insert image of what decentrlization means.
 - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+- 
 - Forcing encryption in transport and in rest data.
+- 
 - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
