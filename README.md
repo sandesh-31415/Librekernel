@@ -13,7 +13,7 @@
 	- [What intend to be librouter?](#what-intend-to-be-librerouter)
 	- [Who? Why? What? How?](#who-why-what-how)
 	- [What is open source hardware?](#what-is-open-source-hardware)
-	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licenses-and-certifications-that-show-openes-in-the-hardware)
+	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licenses-and-certifications-that-show-openness-in-the-hardware)
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
 	- [Which are security product certifications?](#which-are-security-product-certifications)
 	- [Purposed Operating Systems](#purposed-operating-systems)
@@ -185,11 +185,11 @@ It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd.
 
 ###***How it will protect me?***
 
-    • Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
-    • Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
-    • Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
-    • Forcing encryption in transport and in rest data.
-    • Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
+- Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+- Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
+- Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+- Forcing encryption in transport and in rest data.
+- Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
  
@@ -204,19 +204,19 @@ It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd.
 
 |app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
 |:---|:---|:---|:---|:---|:---|:---|
-|OwnCloud|yes|not|not|yes|PrivtFederation|yes|
-|Mailpile|yes|not|4096DSAelg|not|Private|yes|
-|Rouncube|yes|not|4096DSAelg|not|Private|yes|
-|Diaspora|yes|not|not|EncFS|publics|yes|
-|Friendica|yes|not|not|EncFS|publics|yes|
-|YaCy|yes|not|EncFS|public|yes|no|
-|TahoeI2p|yes|yes|yes|owncloud|public|no|
-|ProsodyTOR|yes|not|yes|not|public|not|
-|RTCio|yes|not|Partially|not|publics|yes|
-|TOR|no|yes|no|maybe|public|no|
-|I2P|yes|yes|no|yes|private|yes|
-|Dovecot|yes|not|?|public|yes|no|
-|Postfix|yes|not|?|public|yes|no|
+|OwnCloud|Yes|No|No|Yes|PrivtFederation|Yes|
+|Mailpile|Yes|No|4096DSAelg|No|Private|Yes|
+|Rouncube|Yes|No|4096DSAelg|No|Private|Yes|
+|Diaspora|Yes|No|No|EncFS|Public|Yes|
+|Friendica|yes|not|not|EncFS|Public|yes|
+|YaCy|Yes|No|EncFS|Public|Yes|No|
+|TahoeI2p|Yes|Yes|Yes|owncloud|Public|No|
+|ProsodyTOR|Yes|No|Yes|Not|Public|No|
+|RTCio|Yes|No|Partially|No|Public|Yes|
+|TOR|No|Yes|No|May Be|Public|No|
+|I2P|Yes|Yes|No|Yes|Private|Yes|
+|Dovecot|Yes|No|?|Public|Yes|No|
+|Postfix|Yes|No|?|Public|Yes|No|
 |:---|:---|:---|:---|:---|:---|:---|
 
 https://github.com/Librerouter/debian-autoscript/issues
