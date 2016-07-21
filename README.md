@@ -42,6 +42,7 @@
 
 	Q. Is their any demo showing that it is actually doing what is being claimed?
 	-> Work-in-progress
+![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
 
 ##***Why do we need this technology?***
 
@@ -799,20 +800,20 @@ VPN Support 	Configurable through TFT
 Ad-bloking track protection 	Yes
 Root password configuration 	Yes, mandatory on first boot and later on TFT configuration panel
 Wifi password configuratio 	Yes, manadatory on first boot and later on TFT configuration panel
-Internal WIFI device without password or WEP encryption 	No
+Internal WIFI device without password or WPA encryption 
 
-![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
-![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
-**to_be_fixed**
-Below picture is not relevant, it should be deleted.
-![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
+
+
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
-**to_be_fixed**
-The below picture is ok, but can be replaced with a better picture conveying the right message about "Terms and Conditions"
+
 [![4954401_orig](https://cloud.githubusercontent.com/assets/18449119/14941752/a885d1f2-0fa7-11e6-883a-317ceb75aff6.jpg)](https://www.youtube.com/watch?v=yzyafieRcWE)
-**to_be_fixed**
+
 The below picture of Software Wars is not relevant, it should be deleted
 ![microsoftempire](https://cloud.githubusercontent.com/assets/17382786/14495567/578ee6e6-0190-11e6-9c93-016a32a56a93.png)
 ![paranoia](https://cloud.githubusercontent.com/assets/17382786/14495569/57af9850-0190-11e6-9051-9a4ed5977457.png)
 ![backdoorrouters](https://cloud.githubusercontent.com/assets/17382786/14653063/894a02f6-0677-11e6-9e34-963c0535858d.png)
 
+![netneut](https://cloud.githubusercontent.com/assets/17382786/14496448/800de600-0193-11e6-885e-5537c8714c58.png)
+
+
+![milestones](https://cloud.githubusercontent.com/assets/17382786/14495088/46ff610e-018e-11e6-960a-b9725c7f6127.png)
