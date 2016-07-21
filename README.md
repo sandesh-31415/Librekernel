@@ -298,6 +298,12 @@ A grid splits your files up into little pieces, encrypts them and spreads them o
 You can also sync your home Librerouter with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement Librerouter server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
 
 
+###1. Setup Librerouter software on Physical/Virtual machine 
+
+You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk,Dockers, Librewrt
+
+###2. Buy a premade future available Librerouter
+![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
 
 
 #Installation and Setup
@@ -336,16 +342,10 @@ four possible PHySICAL scenarios:
 Networking of Librerouter has two way to work: 
 
  - Server (no protection but services)
- - Network Router (services and network protection) (dont mix with NIC bridge that is not)
+ - Network Router (services and network protection) (dont mix with NIC bridges that we have to separate 4 interfaces in 2 zones)
  
-<!-- this part needs to be refactored by someone that does know the current state of building process -->
 There are 2 ways to join to Librerouter network
 
-###1. Setup Librerouter software on Physical/Virtual machine 
-You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
-
-###2. Buy a premade future available Librerouter
-![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
 
 ##Steps to setup on Physical/Virtual machine.
 
