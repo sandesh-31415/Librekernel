@@ -164,15 +164,12 @@ The market is full of crowdfunded project where the funder claimed the project i
 - Devuan (librekernel,(after apply hardening) https://devuan.org/
 - Uruk   (librekernel),(after apply hardening) https://urukproject.org//dist/index.html
 - LibreWRT
-
-Docker for app (further containerization for security) (reference qubeOS.org)
+- Dockers (further containerization for security) (reference qubeOS.org)
 
 #Technical Overview
 
 ###***How to use Librerouter in Hardware?***
 
- • If you buy a Librerouter then connect it like:
-![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
@@ -194,23 +191,28 @@ It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
 ###***How it will protect me?***
 
 
--     With our OS, a secured open operating system when we would have the hardened version of it (debian libre)
+- With our OS, a secured open operating system when we would have the hardened version of it (debian libre)
 
 Put here similar foto of Totemo distro piramid.
 
--     Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
+- Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
--  	 A decentralized anonymous Search Engine with admin rights.
+- A decentralized anonymous Search Engine with admin rights.
 ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
+![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
 
--        A filter-connector for your Social Networks in one single place using decentralized social network Friendica.
-	 Secure decentralized video conferences based in XMPPoverTOR or WebRTC.
--        A secure Storage System with collaborative tools based in : TahoeLafs over i2P and blocksnet.
--     Transparent Email encryption for your actual email.
--     Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+- A filter-connector for your Social Networks in one single place using decentralized social network Friendica.
 
-- insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unbounddnslists>iptablesIP lists>client
+- Secure decentralized video conferences based in XMPPoverTOR or WebRTC.
+- 
+- A secure Storage System with collaborative tools based in : TahoeLafs over i2P and blocksnet.
+- 
+- Transparent Email encryption for your actual email.
+![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
+- Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+
+insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unbounddnslists>iptablesIP lists>client
 
 - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
 
@@ -219,6 +221,7 @@ Put here similar foto of Totemo distro piramid.
 - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc. 
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 
 
 ###***Services are running in Librerouter***
@@ -253,17 +256,18 @@ https://github.com/CommunityCube/debian-autoscript/issues
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
 
 
-##Service email encryption Webmail
+## Service The descentralized Social networkNetwork
 
-![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
+Librerouter can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
+You can use Librerouter to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
+You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
+![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
 
-##Service descentralized search engine
+## Service The descentralized Video Conference
 
-![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
-
-
-
-
+With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  
+Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 ##Service Descentralized Indestructible Storage the RockStar app
 
@@ -296,35 +300,28 @@ A grid splits your files up into little pieces, encrypts them and spreads them o
 
 You can also sync your home Librerouter with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement Librerouter server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
 
-## Service The descentralized Social networkNetwork
-
-Librerouter can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
-You can use Librerouter to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
-You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
-![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
-
-## Service The descentralized Video Conference
-
-With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  b) Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
-![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 
 
 #Installation and Setup
 
-###Prerequisites:
+### recheck Prerequisites:
 ***```Step 1```: Checking Prerequisites***
 Your Physical/Virtual machine need to meet the minimum requirements:
- - 1. x2 network interfaces
+ - 1. x 2 network interfaces NICs
  - 2. 2 GB of RAM
  - 3. 1TB SATA hdd better if ssd
 
 The way networking works in Librerouter will be as follows:
-There are two bridges with two interfaces each as follows:
-1. One bridge acting as WAN: cable or wireless interface as client
-2. One bridge acting as LAN: cable or wireless interface as an AP
 
-So, we actually have four possible PHySICAL scenarios:
+	There are two bridges with two interfaces each:
+	
+1. One bridge acting as WAN (2 nics): cable or wireless interface as DHCP client of your internet router
+2. One bridge acting as LAN (2 nics): cable or wireless interface as an AP for being DHCP server for your new secure LAN.
+
+four possible PHySICAL scenarios:
+
+![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
 
  - WAN is WiFi, LAN is WiFi
  - WAN is WiFi, LAN is Cabled Ethernet
