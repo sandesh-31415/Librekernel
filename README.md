@@ -193,24 +193,33 @@ It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
 
 ###***How it will protect me?***
 
-- Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
-- insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unbounddnslists>iptablesIP lists>client
 
-- Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps. )
-- insert image of what decentrlization means.
-- Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
-- 
-- Forcing encryption in transport and in rest data.
-- 
-- Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc.
-![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
- 
-- Decentralizing the services (doing impossible to apply big data to you )
+-     With our OS, a secured open operating system when we would have the hardened version of it (debian libre)
 
+Put here similar foto of Totemo distro piramid.
+
+-     Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
+![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+
+-  	 A decentralized anonymous Search Engine with admin rights.
 ![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
 
-![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+-        A filter-connector for your Social Networks in one single place using decentralized social network Friendica.
+	 Secure decentralized video conferences based in XMPPoverTOR or WebRTC.
+-        A secure Storage System with collaborative tools based in : TahoeLafs over i2P and blocksnet.
+-     Transparent Email encryption for your actual email.
+-     Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
+
+- insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unbounddnslists>iptablesIP lists>client
+
+- Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
+
+- Forcing encryption in transport and in rest data.
+
+- Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc. 
+![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 
 ###***Services are running in Librerouter***
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
@@ -232,18 +241,27 @@ It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
 |Postfix|Yes|No|?|Public|Yes|No|
 |:---|:---|:---|:---|:---|:---|:---|
 
+Need to grab info for those links paste here important and move to other pages in github what is requiered to be explained. use copy paste
+
+https://www.cageos.org/index.php?page=apps
+
+
 https://github.com/CommunityCube/debian-autoscript/issues
+
+
 
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
 
 
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-## Software APPs and their Dependencies Status 
+##Service email encryption Webmail
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
+
+##Service descentralized search engine
+
 ![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
 
-https://www.cageos.org/index.php?page=apps
+
 
 
 
