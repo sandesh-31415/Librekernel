@@ -196,6 +196,7 @@ It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
 Put here similar foto of Totemo distro piramid.
 
 - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
+
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
 - A decentralized anonymous Search Engine with admin rights.
@@ -204,10 +205,15 @@ Put here similar foto of Totemo distro piramid.
 
 - A filter-connector for your Social Networks in one single place using decentralized social network Friendica.
 
+![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
+
 - Secure decentralized video conferences based in XMPPoverTOR or WebRTC.
-- 
+
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
+
+
 - A secure Storage System with collaborative tools based in : TahoeLafs over i2P and blocksnet.
-- 
+
 - Transparent Email encryption for your actual email.
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 - Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
@@ -261,13 +267,12 @@ https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:feat
 Librerouter can act as a unified entry and outgoing point for all of your posts across social networks, as well as a filter for what is important to you.For example, do you hate cat videos? (Really? Can I get you some help?)
 You can use Librerouter to filter them out when it automatically imports posts from Facebook, Twitter, and Pinterest!
 You control your incoming and outgoing posts, and push your posts from a single place to everywhere with no need to open each social network in a separate tab.We aren’t asking you to give up on social media.Instead we offer you a way to be in the captain’s chair.
-![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
 
 ## Service The descentralized Video Conference
 
 With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  
 Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
-![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
+
 
 ##Service Descentralized Indestructible Storage the RockStar app
 
