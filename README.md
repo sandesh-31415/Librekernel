@@ -754,19 +754,10 @@ Features to be implemented in the project to be listed here in order of priority
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#others
+
 **Following sections need to be placed at appropriate places**
-**Section 1**
-The following list includes some of the features that have been added and modified in the Linux kernel (core):
 
- - Anti-exploitation modules high tuned for OS attacking resistance.
- - Anti-forensic capabilities in the case of seizure by law enforcement.
- - Cryptographically enhanced modules for file memory and access modes. Boot and Full disk encryption and Cold Boot Attack patched.
- - Isolation: Each service runs in an isolated environment, to prevent security bugs that may affect the rest of the system and services.
- - Optimization: Proper service configuration helps to avoid possible vector attacks of unused libraries.
- - Backward/downward compatible: New security standards can receive, read, view or play older standards or formats.
-
-** Section 2**
+*** Section 2**
 Kernel & Forensics
 Threat 	CageOS Protection
 Several Exploit 	GrSecurity
