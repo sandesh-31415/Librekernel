@@ -370,7 +370,7 @@ Where the trafic is filtered by dns first , by snort later, by ip via iptables, 
 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
-####DNS Resolution Explained
+
 #DNS petitions are processed in this way:
 
 - Regular webpages (example: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS (we used unbounddns momentarely( because djdns need upgrade and we are searching for developers for it)). 
@@ -565,35 +565,10 @@ The same as in Physical/Virtual machine case.
 The same as in Physical/Virtual machine case.
 If step 7 finished successfully then test.sh execution for odroid board is finished successfully and it's time to run the next script “app-installation-script.sh”. 
 
-
-Workflow of app-configuration-script.sh
-
-
-There's a first version of Superbrowser for linux 32bit. It's needed to have Java installed
-
-https://cloud.Librerouter.com:8083/public.php?service=files&t=6eacefffe8443befe42af8114988c474
-
-There's a first version of Superbrowser  for windows 32bit. It doens't have I2P network conneciton
-
-https://cloud.Librerouter.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
+ 
 
 
-#Steps to setup on LibreRouter on A20-OLinuXIno-LIME2 and assemble it.**
 
-There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
-
-
-#Steps to setup on LibreRouter in an Banapi Router and assemble it.**
-
-There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
-
-#Steps to setup on LibreRouter in an Explained and assemble it.**
-
-There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
-
-#Steps to setup on LibreRouter in an  IM6REX and assemble it.**
-
-There are several seperate modules that need to be connected to A20-OLinuXIno-LIME2.
 
 #Executing scripts.
 
@@ -675,8 +650,10 @@ This project is licensed under the terms of the **GNU GPL V2** license.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#FUTURE WIZARDS AND GUIS
 
 This wizard should ask the customer about and is pending in the project to be developed:
+
  -a) Do you want your protect your privacy or just user Librerouter services? if yes then mode bridge if not then mode equals server.
  -b) Mode Transparent firewall Bridge:
  -     Lets configure the Internet access (WAN)
@@ -831,6 +808,14 @@ Root password configuration 	Yes, mandatory on first boot and later on TFT confi
 Wifi password configuratio 	Yes, manadatory on first boot and later on TFT configuration panel
 Internal WIFI device without password or WPA encryption 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+There's a first version of Superbrowser for linux 32bit. It's needed to have Java installed
+
+https://cloud.Librerouter.com:8083/public.php?service=files&t=6eacefffe8443befe42af8114988c474
+
+There's a first version of Superbrowser  for windows 32bit. It doens't have I2P network conneciton
+
+https://cloud.Librerouter.com:8083/public.php?service=files&t=8d6e823f6d24dd12605084084299e0fb
 
 
 The Internet is full of ___free___ services and you are the product they sell your data, in their _terms and conditions page_, that ***almost nobody reads***, and **Librerouter** operates exactly the opposite:
