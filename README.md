@@ -177,16 +177,6 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
 
-###***Which hardware/Virtual resources you needed to run Librerouter scripts?***
-
-Anyone able to run Debian (for other distro script need to be depurated still due date of 21july2016). 
-It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
-
-- You need to setup a least 2 network interfaces NICS (external and internal always no matters bridge or server mode),
-- 2GB RAM
-- 4 cores CPU 
-- 1TB Hdd. (but will work with 32gb ssd either.)
-
 
 ###***How it will protect me?***
 
@@ -310,14 +300,18 @@ You can also sync your home Librerouter with all of your portable devices to hav
 
 #Installation and Setup
 
-### recheck Prerequisites:
-***```Step 1```: Checking Prerequisites***
-Your Physical/Virtual machine need to meet the minimum requirements:
- - 1. x 2 network interfaces NICs
- - 2. 2 GB of RAM
- - 3. 1TB SATA hdd better if ssd
+###***Which hardware/Virtual resources you needed to run Librerouter scripts?***
 
-The way networking works in Librerouter will be as follows:
+Anyone able to run Debian (for other distro script need to be depurated still due date of 21july2016). 
+It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
+
+- You need to setup a least 2 network interfaces NICS (external and internal always no matters bridge or server mode),
+- 2GB RAM
+- 4 cores CPU 
+- 1TB Hdd. (but will work with 32gb ssd either.)
+
+
+###***The way networking works in Librerouter will be as follows:
 
 	There are two bridges with two interfaces each:
 	
