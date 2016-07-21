@@ -40,7 +40,7 @@
 	Q. Are there any other similar projects?
 	-> Sure there are
 
-	Q. Is their any demo showing that it is acutally doing what is being claimed?
+	Q. Is their any demo showing that it is actually doing what is being claimed?
 	-> Work-in-progress
 
 ##***Why do we need this technology?***
