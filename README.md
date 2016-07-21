@@ -356,21 +356,24 @@ The way networking works in Librerouter will be:
  -  Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks,tracking,ads and malware)
 
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443924/9c798300-0042-11e6-85b1-1760c5b3789d.png)
-
 ![servermodeworkflow](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
 
  
 ##Router mode
 
-Where the trafic is filtered by dns, and by proxy squid with clamav and ssl bumping, and surikata. Also redirecting dns via TOR and dnssec)
+Where the trafic is filtered by dns first , by snort later, by ip via iptables, by proxy squid with clamav and ssl bumping, and surikata. 
   
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 ![bridmode workflow](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
+
+
+
 
 #Step 3. Executing scripts.
 
 In this step you need to download and execute the following scripts on your machine with given order.
 
+ - 0. driver-script-pipoX8 or pipox10 plus opendrivers wlan
  - 1. app-installation-script.sh
  - 2. app-configuration-script.sh
  - 3. app-post configuiration encryption FDE fill disk en cryption
