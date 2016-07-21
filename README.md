@@ -373,12 +373,12 @@ Where the trafic is filtered by dns first , by snort later, by ip via iptables, 
 
 In this step you need to download and execute the following scripts on your machine with given order.
 
- - 0. driver-script-pipoX8 or pipox10 plus opendrivers wlan
+ - 0. driver-script-pipoxY.sh pipoX8 or pipox10 plus opendrivers wlan
  - 1. app-installation-script.sh
  - 2. app-configuration-script.sh
- - 3. app-post configuiration encryption FDE fill disk en cryption
- - 4. Minimun System Wizards
- - 5. Subsystems GUIs
+ - 3. app-post configuration encryption FDE fill disk en cryption
+ - 4. System Wizards
+ - 5. Subsystems GUI forked from IPFIRE
 
 ![initial-install-workflow](https://cloud.githubusercontent.com/assets/13025157/14444383/5b99d710-0045-11e6-9ae8-3efa1645f355.png)
 
