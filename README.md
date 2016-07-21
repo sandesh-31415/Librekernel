@@ -232,7 +232,7 @@ It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
 |Postfix|Yes|No|?|Public|Yes|No|
 |:---|:---|:---|:---|:---|:---|:---|
 
-https://github.com/Librerouter/debian-autoscript/issues
+https://github.com/CommunityCube/debian-autoscript/issues
 
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
 
