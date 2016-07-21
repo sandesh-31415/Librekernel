@@ -13,13 +13,14 @@
 	- [What intend to be librouter?](#what-intend-to-be-librerouter)
 	- [Who? Why? What? How?](#who-why-what-how)
 	- [What is open source hardware?](#what-is-open-source-hardware)
-	- [Which are the licenses and certifications that show openes in the hardware?](#which-are-the-licenses-and-certifications-that-show-openness-in-the-hardware)
+	- [Which are the licenses and certifications that show openness in the hardware?](#which-are-the-licenses-and-certifications-that-show-openness-in-the-hardware)
 	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
 	- [Which are security product certifications?](#which-are-security-product-certifications)
 	- [Purposed Operating Systems](#purposed-operating-systems)
 - [Technical Overview](#technical-overview)
 	- [How to use Librerouter in Hardware?](#how-to-use-librerouter-in-hardware)
 	- [Which hardware is needed to run Librerouter?](#which-hardware-is-needed-to-run-librerouter?)
+	- [Services are running in Librerouter](#services-are-running-in-librouter)
 - [Functional Specification](#functional-specs)
 - [Installation and Setup](#installation-and-setup)
 	- [Prerequisites](#prerequisites)
@@ -199,10 +200,10 @@ It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd.
 
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
-#Services running in Librerouter
+###***Services are running in Librerouter***
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
-|app|Decentralized|AnonymInsid|ncryptclientside|ncryptservrside|PubPrivF2F|exposepubIP|
+|App|Decentralized|AnonymInsid|Ncryptclientside|Ncryptservrside|PubPrivF2F|ExposepubIP|
 |:---|:---|:---|:---|:---|:---|:---|
 |OwnCloud|Yes|No|No|Yes|PrivtFederation|Yes|
 |Mailpile|Yes|No|4096DSAelg|No|Private|Yes|
@@ -211,7 +212,7 @@ It need to have at least 2 network interfaces, 2GB RAM, 4 cores and *1TB Hdd.
 |Friendica|yes|not|not|EncFS|Public|yes|
 |YaCy|Yes|No|EncFS|Public|Yes|No|
 |TahoeI2p|Yes|Yes|Yes|owncloud|Public|No|
-|ProsodyTOR|Yes|No|Yes|Not|Public|No|
+|ProsodyTOR|Yes|No|Yes|No|Public|No|
 |RTCio|Yes|No|Partially|No|Public|Yes|
 |TOR|No|Yes|No|May Be|Public|No|
 |I2P|Yes|Yes|No|Yes|Private|Yes|
@@ -280,19 +281,10 @@ With federated XMPP servers for authentication but perfect for discovering users
 
 
 
-#Setup Modes
-<!-- this part needs to be refactored by someone that does know the current state of building process -->
-There are 2 ways to join to Librerouter network
+#Installation and Setup
 
-###1. Setup Librerouter software on Physical/Virtual machine 
-You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
-
-###2. Buy a premade future available Librerouter
-![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
-
-##Steps to setup on Physical/Virtual machine.
-
-**Step 1: Checking requirements**
+###Prerequisites:
+***```Step 1```: Checking Prerequisites***
 Your Physical/Virtual machine need to meet the minimum requirements:
  - 1. x2 network interfaces
  - 2. 2 GB of RAM
@@ -314,6 +306,18 @@ So, we actually have four possible PHySICAL scenarios:
 
  - In this step you need to connect one of the interfaces of your machine to Internet to download apps and upgrades, and other one to local network device or switch where you connect from the laptop.
  - Networking of Librerouter has two way to work: Server (no protection but services) or Bridge (services and network protection)
+<!-- this part needs to be refactored by someone that does know the current state of building process -->
+There are 2 ways to join to Librerouter network
+
+###1. Setup Librerouter software on Physical/Virtual machine 
+You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk.
+
+###2. Buy a premade future available Librerouter
+![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
+
+##Steps to setup on Physical/Virtual machine.
+
+
 
 
 
