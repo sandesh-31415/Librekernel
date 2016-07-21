@@ -371,100 +371,6 @@ Where the trafic is filtered by dns first , by snort later, by ip via iptables, 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
 
-#DNS petitions are processed in this way:
-
-- Regular webpages (example: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS (we used unbounddns momentarely( because djdns need upgrade and we are searching for developers for it)). 
-
-- If it can not resolved, then we need to ask through TOR if it is not resolved then using DNSCRYPT and using services like DIana or Open NIC
-
-- Onion domains are resolved to a IP inside range 10.192.0.0/16 and consequently they go through TOR proxy that is hearing in that IP
-
-- I2P domains are always resolved to 10.191.0.1 and consequently they go through I2P proxy that is hearing in that IP.
-
-- Freenet domains:> not yet implemented http://ftp.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/cryptography/apps/freenet/fcptools/linux/gateway.html
-
-- Bit domains> blockchain bitcoin> not yet implemented https://en.wikipedia.org/wiki/Namecoin  https://bit.namecoin.info/
-
-- Zeronet> not yet implemented
-
-- Openbazaar> not yet implemented
-- 
-- Other decentraized webs> not yet implemented
-
-- Local defined domains, forwards to 10.0.0.1
-
-- Service replacement (ex: google.com it's replaced by our internal service YaCy) will resolve local ip 10.0.0.25x
-
-- Petition Flow: If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
-
-![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
-
-![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
-
-![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
-
-##DNS resolution process.
-
-###Classified domains
-  * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
-  * Social networks - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
-  * Storages        - Will be resolved to ip address 10.0.0.253 (Owncloud) by unbound.
-  * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
-    
-###Local, i2p and onion domains
-
-  * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
-  * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
-  * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
-   
-###Other domain names
-
-  * Any other domain name will be resolved by DjDNS,P2P or OpenNIC with CryptoDNS.
-
-# Configure Reverse proxy
- 
- 
-Part 1/4: DNS Resolution
-
-This documentation aims to describe DNS resolution process of LibreRouter.
-There are 3 different DNS servers (Unbound Tor and DjDNS) on LibreRouter that work together us one DNS resolution system, to provide the best open source solutions for anonymity and security.  
-Here is the list of servers and interfaces/ports DNS servers  are listening.
-Unbound is running on 10.0.0.1:53
-Tor is running on 10.0.0.1:9053
-DjDNS running on 10.0.0.1:8053
-At first any DNS request comes to Unbound, which is the main dns server, then if needed unbound will forward the request to Tor or DjDNS. 
-Lets describe DNS resolution steps in more details. (Please see DNS resolution picture).
-
-Step: 1 Classified domains resolution
-We have integrated shallalist domains list into unbound, so when DNS request comes at first unbound will check if it’s classified. Classified domain are going to be resolved to local services ip addresses or be blocked.
-Here is the list of domains
-1.	Chat domains – these domains are going to be resolved to IP address 10.0.0.250. We have WebRTC running on 10.0.0.250, so when you type some chat domain you will get WebRTC in your browser.
-2.	Search engines – these domains are going to be resolved to IP address 10.0.0.251 by unbound. We have Yacy running on 10.0.0.251, so when you type some search engine domain you will get Yacy in your browser.
-3.	Social networks – these domains are going to be resolved to IP address 10.0.0.252 by unbound. We have Friendica running on 10.0.0.252, so when you type some social network domain you will get Friendica in your browser.
-4.	Storage - these domains are going to be resolved to IP address 10.0.0.253 by unbound. We have Owncloud running on 10.0.0.253, so when you type some storage domain you will get Owncloud in your browser.
-5.	Webmail - these domains are going to be resolved to IP address 10.0.0.254 by unbound. We have Mailpile running on 10.0.0.254, so when you type some storage domain you will get Mailpile in your browser.
-6.	Blocking – this  group includes tracker, redirector, governmental, spyware domains. - these domains are going to be resolved to IP address 10.0.0.1 by unbound. We have Webmin running on 10.0.0.1, so when you type some storage domain you will get Webmin administration interface in your browser to allow/deny given domain
-Step: 2  .onion domains resolution 
-If incoming DNS request is for .onion domain then it will be forwarded To Tor DNS server running on 10.0.0.1:9053. Tor DNS server will resolve that request qithin Tor network and resolved ip address will be from 10.192.0.0/16 network.
-Step: 3  .i2p domains resolution
-If incoming DNS request is for .i2p domain then it will be resolved to ip address 10.191.0.1 by unbound.
-Step: 4  Other domains resolution by DjDNS
-If incoming DNS request in not in classified domains, nor is .onion neither .i2p then dns request will be forwarded to DjDNS server running on 10.0.0.1:8053
-Step: 5  Other domains resolution by Tor + DNSSEC
-This step is tacking place if DjDNS could not resolve other domains resolution request at step 4: This time DNS request again will be forwarded to Tor DNS server (10.0.0.1:9053) but this time with DNSSEC validation.
-
-Unbound dns  configuration is implemented by configure_unbound() function. (lines 491-726 of app-configuration-script.sh) 
-Tor dns configuration is implemented by configure_tor() function. (lines 411-474 of app-configuration-script.sh) 
-
-##Intelligence IP, Domain Providers:
-
-- Shallalist
-- mesdk12
-- http://urlblacklist.com/?sec=download
-- https://www.iblocklist.com/lists
-- http://iplists.firehol.org/
-- https://github.com/rustybird/corridor
-
 ###Connection Flow 3: Squid Open SSL Tunnel
 
 When user it's using a HTTPS connection to a darknet domain, this traffic it's considered as insecure.
@@ -500,6 +406,89 @@ If connection pass all blocks and Connection Flow filters, then this petition ca
 
 - HTTP (ex: http://news.com) will go through TOR to the internet site
 Access from outside model (Bypass Router / Closed Ports
+
+
+#DNS:
+##DNS engines:
+-used today unbound-dns momentarely( because djdns needs upgrade and it not workeable due to 21july2016  we are searching for developers for it)). 
+- If it can not resolved, then we need to ask through TOR if it is not resolved then using DNSCRYPT and using services like D.I.A.N.A (oposite of IANA) or Open NIC.
+There are 3 different DNS servers (Unbound Tor and DjDNS) on LibreRouter that work together us one DNS resolution system, to provide the best open source solutions for anonymity and security.  
+Here is the list of servers and interfaces/ports DNS servers  are listening.
+Unbound is running on 10.0.0.1:53
+Tor is running on 10.0.0.1:9053
+DjDNS running on 10.0.0.1:8053
+At first any DNS request comes to Unbound, which is the main dns server, then if needed unbound will forward the request to Tor or DjDNS. 
+
+##DNS Workflow:
+
+###Classified domains that matched our app decentralized alternatives:
+  * Search engines  - will be resolved to ip address 10.0.0.251 (Yacy) by unbound.
+  * Social network  - will be resolved to ip address 10.0.0.252 (friendics) by unbound.
+  * Online Storage    - Will be resolved to ip address 10.0.0.253 (Owncloud) by unbound.
+  * Webmails        - Will be resolved to ip address 10.0.0.254 (MailPile) by unbound.
+ If it's a local service (10.0.0.25x) petition it's forwarded to local Nginx server
+Step: 1 Classified domains resolution
+We have integrated shallalist domains list into unbound, so when DNS request comes at first unbound will check if it’s classified. Classified domain are going to be resolved to local services ip addresses or be blocked.
+David describe it from the file perspective of the shalalists files
+
+Here is the list of domains
+1.	Chat domains – these domains are going to be resolved to IP address 10.0.0.250. We have WebRTC running on 10.0.0.250, so when you type some chat domain you will get WebRTC in your browser.
+2.	Search engines – these domains are going to be resolved to IP address 10.0.0.251 by unbound. We have Yacy running on 10.0.0.251, so when you type some search engine domain you will get Yacy in your browser.
+3.	Social networks – these domains are going to be resolved to IP address 10.0.0.252 by unbound. We have Friendica running on 10.0.0.252, so when you type some social network domain you will get Friendica in your browser.
+4.	Storage - these domains are going to be resolved to IP address 10.0.0.253 by unbound. We have Owncloud running on 10.0.0.253, so when you type some storage domain you will get Owncloud in your browser.
+5.	Webmail - these domains are going to be resolved to IP address 10.0.0.254 by unbound. We have Mailpile running on 10.0.0.254, so when you type some storage domain you will get Mailpile in your browser.
+
+#### Why?
+Because if the user make use of centralized webs like Facebook,Google,Dropbox etc, we cant protect his privacy
+#### Can I workaround it:
+Yes in the future via GUI should be possible to reconfigure this cage.
+ ### Darknets Domains
+  * .local - will be resolved to local ip address (10.0.0.0/24 network) by unbound.
+  * .i2p   - will be resolved to ip address 10.191.0.1 by unbound.
+  * .onion - unbound will forward this zone to Tor DNS running on 10.0.0.1:9053
+The rest of shadow darknets are coming in the further revisions .
+ - Freenet domains:> not yet implemented http://ftp.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/cryptography/apps/freenet/fcptools/linux/gateway.html
+- Bit domains> blockchain bitcoin> not yet implemented https://en.wikipedia.org/wiki/Namecoin  https://bit.namecoin.info/
+
+- Zeronet> not yet implemented
+
+- Openbazaar> not yet implemented
+
+- Other decentraized webs> not yet implemented
+####onion domains resolution 
+If incoming DNS request is for .onion domain then it will be forwarded To Tor DNS server running on 10.0.0.1:9053. Tor DNS server will resolve that request qithin Tor network and resolved ip address will be from 10.192.0.0/16 network.
+#### .i2p domains resolution
+If incoming DNS request is for .i2p domain then it will be resolved to ip address 10.191.0.1 by unbound.
+
+ ### Other Domains
+- Regular webpages (example: www.meneame.net) would need to be resolved by decentralized DNS engine like DjDNS 
+![dns](https://cloud.githubusercontent.com/assets/17382786/14493566/5ebfcba6-0186-11e6-9c0d-e6032290dcc0.png)
+![part_1_4_dns](https://cloud.githubusercontent.com/assets/17382786/14854168/e37aa830-0c8e-11e6-8ff4-05eddebf200e.png)
+![part2_4](https://cloud.githubusercontent.com/assets/17382786/14854169/e39c500c-0c8e-11e6-9802-9b26b951eff5.png)
+ 
+ 
+###Blocking – this  group includes tracker, redirector, governmental, spyware domains. - these domains are going to be resolved to IP address 10.0.0.1 by unbound. We have Webmin running on 10.0.0.1, so when you type some storage domain you will get Webmin administration interface in your browser to allow/deny given domain
+ 
+Unbound dns  configuration is implemented by configure_unbound() function. (lines 491-726 of app-configuration-script.sh) 
+Tor dns configuration is implemented by configure_tor() function. (lines 411-474 of app-configuration-script.sh) 
+
+##Intelligence IP, Domain Providers:
+- Shallalist
+- mesdk12
+- http://urlblacklist.com/?sec=download
+- https://www.iblocklist.com/lists
+- http://iplists.firehol.org/
+- https://github.com/rustybird/corridor
+- Spamhaus
+- Virustotal
+
+
+
+
+
+
+
+
 
 
 
