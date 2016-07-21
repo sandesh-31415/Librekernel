@@ -42,7 +42,7 @@
 
 	Q. Is their any demo showing that it is actually doing what is being claimed?
 	-> Work-in-progress
-![data center or decentralization](https://cloud.githubusercontent.com/assets/13025157/14445980/c0e4a8d2-0051-11e6-9369-e319141e671e.png)
+
 
 ##***Why do we need this technology?***
 
