@@ -233,12 +233,10 @@ It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
 |:---|:---|:---|:---|:---|:---|:---|
 
 https://github.com/Librerouter/debian-autoscript/issues
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-## Libre or not libre libraries in the App## 
-
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
 
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ## Software APPs and their Dependencies Status 
 
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
