@@ -414,22 +414,50 @@ iptables -F
 iptables -t nat -F
 iptables -t filter -F
 
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.10 -j ACCEPT
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.250 -j ACCEPT
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.251 -j ACCEPT
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.252 -j ACCEPT
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.253 -j ACCEPT
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.254 -j ACCEPT
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp ! -d 10.0.0.0/8 --dport 80 -j DNAT --to 10.0.0.1:3130
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 22 -j REDIRECT --to-ports 22
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 80 -j REDIRECT --to-ports 80
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 443 -j REDIRECT --to-ports 443
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 7000 -j REDIRECT --to-ports 7000
+
+# Redirecting traffic to tor
+#iptables -t nat -A PREROUTING -i eth0 -p tcp -d 10.0.0.0/8 --dport 80 --syn -j REDIRECT --to-ports 9040
+#iptables -t nat -A PREROUTING -i eth0 -p udp --dport 53 -j REDIRECT --to-ports 53
+
 # Redirecting http traffic to squid 
-iptables -t nat -A PREROUTING -i eth1 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
-iptables -t nat -A PREROUTING -i eth0 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
+#iptables -t nat -A PREROUTING -i eth1 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
+#iptables -t nat -A PREROUTING -i eth0 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
 
 ## i2p petitions 
-#iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-#iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-#iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
+iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
 
 ## Allow surf onion zone
-#iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-#iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --syn -m multiport ! --dports 80 -j REDIRECT --to-ports 9040
 
 ## Enable Blacklist
 #[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
 
+
+# Stopping dnsmasq
+kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
+2> /dev/null
+service unbound restart
+
+# Starting easyrtc
+nohup nodejs /opt/easyrtc/server.js
+
+# Starting Mailpile
+/usr/bin/screen -dmS mailpile_init /opt/Mailpile/mp
 
 exit 0
 EOF
@@ -749,6 +777,11 @@ cat chat_domain.list | \
 awk {'print "local-data: \"www." $1 " IN A 10.0.0.250\""'} \
 >> /etc/unbound/chat_domain.list.conf
 
+# Adding skype to chat domain list
+echo "local-data: \"skype.com IN A 10.0.0.250\"
+local-data: \"www.skype.com IN A 10.0.0.250\"
+" >> /etc/unbound/chat_domain.list.conf
+
 # Creating search engines domains list configuration file
 cat searchengines_domain.list | \
 awk {'print "local-data: \"" $1 " IN A 10.0.0.251\""'} \
@@ -805,13 +838,14 @@ echo "Stoping dnsmasq ..."
 if ps aux | grep -w "dnsmasq" | grep -v "grep" > /dev/null;   then
 	kill -9 `ps aux | grep dnsmasq | awk {'print $2'} | sed -n '1p'`
 fi
-     echo "
-	# Stopping dnsmasq
-	kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
-	2> /dev/null
-	" >> /etc/rc.local
 
-	echo "service unbound restart" >> /etc/rc.local
+#     echo "
+#	# Stopping dnsmasq
+#	kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
+#	2> /dev/null
+#	" >> /etc/rc.local
+#
+#	echo "service unbound restart" >> /etc/rc.local
 
 echo "Starting Unbound DNS server ..."
 service unbound restart
@@ -862,29 +896,29 @@ if [ -z "$(grep "friendica/include/poller" /etc/crontab)" ]; then
 fi
 
 # Creating friendica configuration
-echo "
-<?php
-
-\$db_host = 'localhost';
-\$db_user = 'root';
-\$db_pass = '$MYSQL_PASS';
-\$db_data = 'frndc';
-
-\$a->path = '';
-\$default_timezone = 'America/Los_Angeles';
-\$a->config['sitename'] = \"My Friend Network\";
-\$a->config['register_policy'] = REGISTER_OPEN;
-\$a->config['register_text'] = '';
-\$a->config['admin_email'] = 'admin@librerouter.com';
-\$a->config['max_import_size'] = 200000;
-\$a->config['system']['maximagesize'] = 800000;
-\$a->config['php_path'] = '/usr/bin/php';
-\$a->config['system']['huburl'] = '[internal]';
-\$a->config['system']['rino_encrypt'] = true;
-\$a->config['system']['theme'] = 'duepuntozero';
-\$a->config['system']['no_regfullname'] = true;
-\$a->config['system']['directory'] = 'http://dir.friendi.ca';
-" > /var/www/friendica/.htconfig.php
+#echo "
+#<?php
+#
+#\$db_host = 'localhost';
+#\$db_user = 'root';
+#\$db_pass = '$MYSQL_PASS';
+#\$db_data = 'frndc';
+#
+#\$a->path = '';
+#\$default_timezone = 'America/Los_Angeles';
+#\$a->config['sitename'] = \"My Friend Network\";
+#\$a->config['register_policy'] = REGISTER_OPEN;
+#\$a->config['register_text'] = '';
+#\$a->config['admin_email'] = 'admin@librerouter.com';
+#\$a->config['max_import_size'] = 200000;
+#\$a->config['system']['maximagesize'] = 800000;
+#\$a->config['php_path'] = '/usr/bin/php';
+#\$a->config['system']['huburl'] = '[internal]';
+#\$a->config['system']['rino_encrypt'] = true;
+#\$a->config['system']['theme'] = 'duepuntozero';
+#\$a->config['system']['no_regfullname'] = true;
+#\$a->config['system']['directory'] = 'http://dir.friendi.ca';
+#" > /var/www/friendica/.htconfig.php
 
 }
 
@@ -994,6 +1028,101 @@ fi
 
 
 # ---------------------------------------------------------
+# Function to configure Privoxy
+# --------------------------------------------------------
+configure_privoxy()
+{
+/etc/init.d/privoxy stop
+rm -f /etc/rc?.d/*privoxy*
+
+#Privoxy I2P
+
+cat << EOF > /etc/privoxy/config-i2p
+user-manual /usr/share/doc/privoxy/user-manual
+confdir /etc/privoxy
+logdir /var/log/privoxy
+filterfile default.filter
+#logfile logfile #its said produces fails cause errors logging I2P ipv6 ips
+listen-address  127.0.0.1:8118
+#debug     1 # Log the destination for each request Privoxy let through. See also debug 1024.
+#debug     2 # show each connection status
+#debug     4 # show I/O status
+#debug     8 # show header parsing
+#debug    16 # log all data written to the network
+#debug    32 # debug force feature
+#debug    64 # debug regular expression filters
+#debug   128 # debug redirects
+#debug   256 # debug GIF de-animation
+#debug   512 # Common Log Format
+#debug  1024 # Log the destination for requests Privoxy didnt let through, and the reason why.
+#debug  2048 # CGI user interface
+#debug  4096 # Startup banner and warnings.
+#debug  8192 # Non-fatal errors
+#debug 32768 # log all data read from the network
+#debug 65536 # Log the applying actions
+toggle  1
+enable-remote-toggle  0
+enable-remote-http-toggle  0
+enable-edit-actions 0
+enforce-blocks 0
+buffer-limit 4096
+forwarded-connect-retries  0
+accept-intercepted-requests 1
+allow-cgi-request-crunching 0
+split-large-forms 0
+keep-alive-timeout 5
+socket-timeout 300
+forward .i2p 127.0.0.1:4444
+EOF
+
+cp /etc/init.d/privoxy /etc/init.d/privoxy-i2p
+
+sed "s~Provides:.*~Provides:          privoxy-i2p~g" -i  /etc/init.d/privoxy-i2p
+sed "s~PIDFILE=.*~PIDFILE=/var/run/\$NAME-i2p.pid~g" -i  /etc/init.d/privoxy-i2p
+sed "s~CONFIGFILE=.*~CONFIGFILE=/etc/privoxy/config-i2p~g" -i /etc/init.d/privoxy-i2p
+sed "s~SCRIPTNAME=.*~SCRIPTNAME=/etc/init.d/\$NAME-i2p~g" -i /etc/init.d/privoxy-i2p
+
+update-rc.d privoxy-i2p defaults
+echo "Restarting privoxy-i2p ..."
+service privoxy-i2p restart
+
+#Privoxy TOR
+
+cat << EOF > /etc/privoxy/config-tor 
+forward-socks4a / 127.0.0.1:9050 .
+confdir /etc/privoxy
+logdir /var/log/privoxy
+actionsfile default.action   # Main actions file
+actionsfile user.action      # User customizations
+filterfile default.filter
+
+logfile logfile
+
+debug   4096 # Startup banner and warnings
+debug   8192 # Errors - *we highly recommended enabling this*
+
+user-manual /usr/share/doc/privoxy/user-manual
+listen-address  127.0.0.1:8119
+toggle  1
+enable-remote-toggle 0
+enable-edit-actions 0
+enable-remote-http-toggle 0
+buffer-limit 4096
+EOF
+
+cp /etc/init.d/privoxy /etc/init.d/privoxy-tor
+sed "s~Provides:.*~Provides:          privoxy-tor~g" -i  /etc/init.d/privoxy-tor
+sed "s~PIDFILE=.*~PIDFILE=/var/run/\$NAME-tor.pid~g" -i  /etc/init.d/privoxy-tor
+sed "s~CONFIGFILE=.*~CONFIGFILE=/etc/privoxy/config-tor~g" -i /etc/init.d/privoxy-tor
+sed "s~SCRIPTNAME=.*~SCRIPTNAME=/etc/init.d/\$NAME-tor~g" -i /etc/init.d/privoxy-tor
+
+update-rc.d privoxy-tor defaults
+echo "Restarting privoxy-tor ..."
+service privoxy-tor restart
+}
+
+
+# ---------------------------------------------------------
 # Function to configure squid
 # ---------------------------------------------------------
 configure_squid()
@@ -1035,7 +1164,7 @@ http_access allow librenetwork
 http_access deny all
 
 # http configuration
-http_port 10.0.0.1:3128 accel vhost allow-direct
+http_port 10.0.0.1:3130 accel vhost allow-direct
 coredump_dir /var/spool/squid3
 
 # https configuration
@@ -1076,9 +1205,9 @@ service squid3 restart
 cat << EOF > /etc/squid3/squid-tor.conf 
 cache_peer 127.0.0.1 parent 8119 7 no-query no-digest
 
-acl manager proto cache_object
-acl localhost src 127.0.0.1/32 ::1
-acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
+#acl manager proto cache_object
+acl localhost src 127.0.0.1/32 
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 
 
 acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
 
@@ -1100,7 +1229,7 @@ http_access allow localhost
 http_access allow all
 http_access deny all
 
-http_access deny manager
+#http_access deny manager
 
 http_access deny !Safe_ports
 
@@ -1108,7 +1237,7 @@ http_access deny CONNECT !SSL_ports
 
 http_access deny all
 
-http_port 3129 transparent
+http_port 3129 accel vhost allow-direct
 
 hierarchy_stoplist cgi-bin ?
 
@@ -1141,9 +1270,9 @@ service squid3-tor restart
 cat << EOF > /etc/squid3/squid-i2p.conf
 cache_peer 127.0.0.1 parent 8118 7 no-query no-digest
 
-acl manager proto cache_object
-acl localhost src 127.0.0.1/32 ::1
-acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
+#acl manager proto cache_object
+acl localhost src 127.0.0.1/32 
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 
 
 acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
 
@@ -1173,7 +1302,7 @@ http_access deny CONNECT !SSL_ports
 
 http_access deny all
 
-http_port 3128 transparent
+http_port 3128 accel vhost allow-direct
 
 hierarchy_stoplist cgi-bin ?
 
@@ -1994,6 +2123,36 @@ server {
 }
 " > /etc/nginx/sites-enabled/easyrtc
 
+# i2p.librenet virtual host configuration  
+
+echo "
+server {
+        listen 10.0.0.1:80;
+        server_name i2p.librenet;
+
+location / {
+    proxy_pass       http://127.0.0.1:7657;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
+}
+" > /etc/nginx/sites-enabled/i2p 
+
+# tahoe.librenet virtual host configuration
+
+echo "
+server {
+        listen 10.0.0.1:80;
+        server_name tahoe.librenet;
+
+location / {
+    proxy_pass       http://127.0.0.1:3456;
+    proxy_set_header Host      \$host;
+    proxy_set_header X-Real-IP \$remote_addr;
+  }
+}
+" > /etc/nginx/sites-enabled/tahoe
+
 # Restarting Yacy php5-fpm and Nginx services 
 echo "Restarting nginx ..."
 service yacy restart
@@ -2029,7 +2188,8 @@ configure_easyrtc		# Configuring EasyRTC local service
 configure_owncloud		# Configuring Owncloud local service
 configure_mailpile		# Configuring Mailpile local service
 configure_nginx                 # Configuring Nginx web server
-configure_squid			# Configuring squid proxy
+configure_privoxy		# Configure Privoxy proxy server
+configure_squid			# Configuring squid proxy server
 configure_c_icap		# Configuring c-icap daemon
 configure_squidclamav		# Configuring squidclamav service
 configure_postfix		# Configuring postfix mail service
