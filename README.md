@@ -568,6 +568,9 @@ In this step you need to download and execute the following scripts on your mach
 
 ##1. app-installation-script.sh (Initialization script)**
 
+![installation_script2](https://cloud.githubusercontent.com/assets/18449119/17086029/ee2354f0-51e7-11e6-9fbb-0a0764173b94.JPG)
+
+
 Script workflow
 
 1. Check User 
@@ -610,7 +613,7 @@ Script workflow
 
 It aims to configure all the packages and services.
 
-
+![configuration_script_](https://cloud.githubusercontent.com/assets/18449119/17086028/edfbbd78-51e7-11e6-996f-e67e849a88a0.JPG)
 
 1. Check User 
   * You need to run script as root user
