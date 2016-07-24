@@ -469,6 +469,12 @@ nohup nodejs /opt/easyrtc/server.js &
 # Starting Mailpile
 /usr/bin/screen -dmS mailpile_init /opt/Mailpile/mp
 
+# Restarting i2p
+/etc/init.d/i2p restart
+
+# Restarting tor
+/etc/init.d/tor restart
+
 exit 0
 EOF
 
@@ -1391,10 +1397,6 @@ ServerName librerouter
 TmpDir /tmp
 MaxMemObject 131072
 DebugLevel 1
-ModulesDir /usr/lib/arm-linux-gnueabihf/c_icap
-ServicesDir /usr/lib/arm-linux-gnueabihf/c_icap
-#ModulesDir /usr/lib/x86_64-linux-gnu/c_icap
-#ServicesDir /usr/lib/x86_64-linux-gnu/c_icap
 TemplateDir /usr/share/c_icap/templates/
 TemplateDefaultLanguage en
 LoadMagicFile /etc/c-icap/c-icap.magic
@@ -1406,6 +1408,22 @@ AccessLog /var/log/c-icap/access.log
 Service squidclamav squidclamav.so
 Service echo srv_echo.so
 " > /etc/c-icap/c-icap.conf
+
+# Modules directory in Intel
+if [ "$PROCESSOR" = "Intel" ]; then
+echo "
+ModulesDir /usr/lib/x86_64-linux-gnu/c_icap
+ServicesDir /usr/lib/x86_64-linux-gnu/c_icap
+" >> /etc/c-icap/c-icap.conf
+fi
+
+# Modules directory in ARM
+if [ "$PROCESSOR" = "ARM" ]; then
+echo "
+ModulesDir /usr/lib/arm-linux-gnueabihf/c_icap
+ServicesDir /usr/lib/arm-linux-gnueabihf/c_icap
+" >> /etc/c-icap/c-icap.conf
+fi
 
 echo "Restarting c-icap service ..."
 service c-icap restart
