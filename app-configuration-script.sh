@@ -398,9 +398,9 @@ configure_iptables()
 # Disabling ipv6 and enabling ipv4 forwarding
 echo "
 net.ipv4.ip_forward=1
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1
+#net.ipv6.conf.all.disable_ipv6 = 1
+#net.ipv6.conf.default.disable_ipv6 = 1
+#net.ipv6.conf.lo.disable_ipv6 = 1
 " > /etc/sysctl.conf
 
 # Restarting sysctl
@@ -420,11 +420,21 @@ iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.251 -j ACCEPT
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.252 -j ACCEPT
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.253 -j ACCEPT
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.254 -j ACCEPT
-iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp ! -d 10.0.0.0/8 --dport 80 -j DNAT --to 10.0.0.1:3130
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 22 -j REDIRECT --to-ports 22
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 80 -j REDIRECT --to-ports 80
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 443 -j REDIRECT --to-ports 443
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 7000 -j REDIRECT --to-ports 7000
+
+# i2p network
+iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128
+
+# tor
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --dport 80 -d 10.0.0.0/8 -j REDIRECT --to-ports 9040
+
+# squid
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --dport 80 -j DNAT --to 10.0.0.1:3130
 
 # Redirecting traffic to tor
 #iptables -t nat -A PREROUTING -i eth0 -p tcp -d 10.0.0.0/8 --dport 80 --syn -j REDIRECT --to-ports 9040
@@ -435,14 +445,14 @@ iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 7000 
 #iptables -t nat -A PREROUTING -i eth0 -p tcp ! -d 10.0.0.0/24 --dport 80 -j DNAT --to 10.0.0.1:3128
 
 ## i2p petitions 
-iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
-iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
+#iptables -t nat -A OUTPUT     -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+#iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-port 3128
+#iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128 
 
 ## Allow surf onion zone
-iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
-iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --syn -m multiport ! --dports 80 -j REDIRECT --to-ports 9040
+#iptables -t nat -A PREROUTING -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+#iptables -t nat -A OUTPUT     -p tcp -d 10.192.0.0/16 -j REDIRECT --to-port 9040
+#iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --syn -m multiport ! --dports 80 -j REDIRECT --to-ports 9040
 
 ## Enable Blacklist
 #[ -e /etc/blacklists/blacklists-iptables.sh ] && /etc/blacklists/blacklists-iptables.sh &
@@ -454,7 +464,7 @@ kill -9 \`ps aux | grep dnsmasq | awk {'print \$2'} | sed -n '1p'\` \
 service unbound restart
 
 # Starting easyrtc
-nohup nodejs /opt/easyrtc/server.js
+nohup nodejs /opt/easyrtc/server.js &
 
 # Starting Mailpile
 /usr/bin/screen -dmS mailpile_init /opt/Mailpile/mp
@@ -521,16 +531,21 @@ HiddenServicePort 33411 127.0.0.1:33411
 HiddenServiceDir /var/lib/tor/hidden_service/easyrtc
 HiddenServicePort 80 127.0.0.1:8080
 
-DNSPort   9053
-DNSListenAddress 10.0.0.1
-VirtualAddrNetworkIPv4 10.192.0.0/16
+#DNSPort   9053
+#DNSListenAddress 10.0.0.1
+#VirtualAddrNetworkIPv4 10.192.0.0/16
+#AutomapHostsOnResolve 1
+#TransPort 9040
+#TransListenAddress 10.0.0.1
+#SocksPort 9050 # what port to open for local application connectio$
+#SocksBindAddress 127.0.0.1 # accept connections only from localhost
+#AllowUnverifiedNodes middle,rendezvous
+#Log notice syslog
+DNSPort   0.0.0.0:9053
+VirtualAddrNetworkIPv4 10.192.0.0/11
 AutomapHostsOnResolve 1
-TransPort 9040
-TransListenAddress 10.0.0.1
-SocksPort 9050 # what port to open for local application connectio$
-SocksBindAddress 127.0.0.1 # accept connections only from localhost
-AllowUnverifiedNodes middle,rendezvous
-#Log notice syslog" >>  /etc/tor/torrc
+TransPort 0.0.0.0:9040
+" >>  /etc/tor/torrc
 
 service nginx stop 
 sleep 10
@@ -728,8 +743,8 @@ include: /etc/unbound/block_domain.list.conf
  
 # .ounin domains will be resolved by TOR DNS 
 forward-zone:
-    name: "onion."
-    forward-addr: 10.0.0.1@9053
+    name: "onion"
+    forward-addr: 127.0.0.1@9053
 
 # Forward rest of zones to DjDNS
 forward-zone:
