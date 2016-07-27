@@ -276,45 +276,53 @@ A grid splits your files up into little pieces, encrypts them and spreads them o
 You can also sync your home Librerouter with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement Librerouter server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
 
 
-Libraries
-
+Libraries:
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-#Seting up a lab:
+
+#Setting up a lab:
 
 ###1. Setup Librerouter software Virtual machine 
 
-You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk,Dockers, Librewrt
+You need Debian 8.5 32bits
 
-###2. Seting up in Pipo X8-9-10 (yes is not open hardware neither boot but due to limitation of only sold 300 boxes we cant go prod with ARM boards plus screen in case, its too expensive)
+Ongoing further: Devuan,Lubuntu/Core,Uruk,Dockers, Librewrt
+
+###2. Seting up in Pipo X8-9-10.
+
+(yes is not open hardware neither boot but due to limitation of only sold 300 boxes we cant go prod with ARM boards plus screen in case, its too expensive)
 ![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
+
 Pipo do not have 1Tb HDD or 2 ethernets or 2 wlans, the version we test has addiotional components.
 The Debian LFromScratch will contain drivers that may be restrictive, again if you want a 100% open the you need fpga/arm boards in the market for router compatible with debian. 
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 #Installation and Setup
 
 ###***Which hardware/Virtual resources you needed to run Librerouter scripts?***
 
-Anyone able to run Debian (for other distro script need to be depurated still due date of 21july2016). 
-It does not matter if ARM,x86 or 64 bits if it is debian from version 8.:
+Anyone able to run a Debian 8.5  ARM,x86 or 64 bits 
 
-- You need to setup a least 2 network interfaces NICS (external and internal always no matters bridge or server mode),
+- At least 2 network interfaces NICS (external and internal always no matters bridge or server mode),
 - 2GB RAM
 - 4 cores CPU 
-- 1TB Hdd. (but will work with 32gb ssd either.)
+- 1TB Hdd. or 32GBemc
 
 
 ###***The way networking works in Librerouter will be as follows:
 
-	There are two bridges with two interfaces each:
+- There are two bridges with two interfaces each in PIPO in VM you dont have bridges (only 2 separated zone NICs):
 	
-1. One bridge acting as WAN (2 nics): cable or wireless interface as DHCP client of your internet router
-2. One bridge acting as LAN (2 nics): cable or wireless interface as an AP for being DHCP server for your new secure LAN.
+1. External area red bridge acting as WAN (2 nics): cable or wireless interface as DHCP client of your internet router
+2. Internal area gren bridge acting as LAN (2 nics): cable or wireless interface as an AP for being DHCP server for your new secure LAN.
 
-four possible PHySICAL scenarios:
-
+- Four possible PHySICAL scenarios:
 ![cable or wifi](https://cloud.githubusercontent.com/assets/13025157/14445978/c0e3a824-0051-11e6-9b69-aeca8d572b2e.png)
-
  - WAN is WiFi, LAN is WiFi
  - WAN is WiFi, LAN is Cabled Ethernet
  - WAN is Cabled Ethernet, LAN is WiFi
