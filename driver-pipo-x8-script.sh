@@ -6,8 +6,27 @@
 # Global variables
 ORIG_DIR="$(pwd)"
 
-# Test if a given package is installed
-# Args: $1 = package_name
+# Test if build tools are installed, if not, then installed
+function _install_buildtools() {
+	BUILD_ESSENTIAL_STATE=$(dpkg -l build-essential)
+	# The package is known to the system
+	if [ $? = 0 ]
+	then
+		# Checking if isn't installed
+		echo "$BUILD_ESSENTIAL_STATE)" | grep ^ii -q
+		if ! [ $? = 0 ] 
+		then
+			# install the package
+			apt install build-essential linux-headers-$(uname -r) -y
+		fi
+
+	# The package is unknown to the system
+	else 
+		apt install build-essential linux-headers-$(uname -r) -y
+		
+	fi 	
+}
+
 function _install_package() {
 	PACKAGE="$1"
 	PACKAGE_STATE=$(dpkg -l $PACKAGE)
@@ -45,6 +64,7 @@ function _touchscreen() {
 	cp "${ORIG_DIR}/driver-pipo-x8-script-files/0001-Input-goodix-add-changes-to-support-PIPO-X8.patch" .
 	# wget https://github.com/Librerouter/Librekernel/blob/gh-pages/driver-pipo-x8-script-files/0001-Input-goodix-add-changes-to-support-PIPO-X8.patch" .
 	# END FIXME
+	cat 0001-Input-goodix-add-changes-to-support-PIPO-X8.patch | patch
 
 	echo -e "obj-m += goodix.o\nall:\n\tmake -C /lib/modules/\$(shell uname -r)/build M=\$(PWD) modules\nclean:\n\tmake -C /lib/modules/\$(shell uname -r)/build M=\$(PWD) clean" > Makefile
 	make
