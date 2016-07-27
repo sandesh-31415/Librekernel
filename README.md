@@ -81,7 +81,7 @@ GNU open hardware running and GNU software:
 
 ##***Who? Why? What? How?***
 
-A unique combination of open hardware, GNU software and trainning you can achieve **a decrease** of the cyber risks:
+A unique combination of open hardware or audited, GNU software and trainning you can achieve **a decrease** of the cyber risks:
 
 - Open source comunity.
 - Solution to bypass censorship, spy agencies, anti net neutrality internet providers, and gov. control.
@@ -106,13 +106,12 @@ A Creative Commons (CC) license is one of several public copyright licenses that
 
 The market is full of crowdfunded project where the funder claimed the project is open hardware but in real the hardware is full of binary blobls, chipset restringtions and questions about missing parts of info and doc:
 
-- ARM Truszone
-- Controllers in Chipset of the network nics is not opensource
+- ARM Truszone is a blackbox
+- Controllers or Chipset not opensource
 - No source code.
-- Binary Blobs in the ROMs or bROM.
-- No documentation-
-- No schematics
-- Neeed sign binary for bein accepted by the board.
+- Dark Binaries required.
+- No documentation No schematics
+- Neeed sign binaries for bein accepted by the board.
 - Not accept free booting.
 
 ![arm boot tz](https://cloud.githubusercontent.com/assets/17382786/14741525/16a5c3f8-0897-11e6-8b2b-ec1f3fbdc5de.png)
@@ -158,34 +157,31 @@ The market is full of crowdfunded project where the funder claimed the project i
 
 ###***Purposed Operating Systems***
 
-tested only in debian 8.5 x86 32bits
+tested only in debian 8.5 x86 32bits 2Gib Ram and 32GB emc
 
-- Debian (after deblobling,hardening,enlighting) debian.org
-- Lubuntu (after deblobling,hardening,enlighting) lubuntu.org
-- Ubuntu Core (after deblobling) https://developer.ubuntu.com/en/snappy/start/intel-nuc/
-- Devuan (librekernel,(after apply hardening) https://devuan.org/
+- Debian (after deblobling,hardening,enlight) debian.org
+- Lubuntu (after deblobling,hardening,enlight) lubuntu.org
+- Ubuntu Core NUC (after deblobling) https://developer.ubuntu.com/en/snappy/start/intel-nuc/
+- Devuan (librekernel,(after apply hardening) https://devuan.org/  do not boot in Pipo
 - Uruk   (librekernel),(after apply hardening) https://urukproject.org//dist/index.html
-- LibreWRT
+- LibreWRT (librekernel)
+- FreeBSD (librekernel) complex
 - Dockers (further containerization for security) (reference qubeOS.org)
 
 #Technical Overview
 
-###***How to use Librerouter in Hardware?***
-
+###***How to connect to use Librerouter in Hardware?***
+From inside secureLAN
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
+From being routed through any Darknet 
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
-
- • If you feel like an computer expert, then install the scripts in a virtual/physical machine DoItYourSelf
-
-![virtualization](https://cloud.githubusercontent.com/assets/17382786/14496641/12912564-0194-11e6-9162-f2cb59c27476.png)
 
 
 ###***How it will protect me?***
 
+- With our bridge, a secured open operating system when we would have the hardened version of it (initially based debian libre)
 
-- With our OS, a secured open operating system when we would have the hardened version of it (debian libre)
-
-Put here similar foto of Totemo distro piramid.
+![mempo-system-layers](https://cloud.githubusercontent.com/assets/17382786/17193230/6fe23616-5452-11e6-9e55-4d0253a89c93.png)
 
 - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
 
