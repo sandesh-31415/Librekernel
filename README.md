@@ -351,11 +351,20 @@ The way networking works in Librerouter will be:
 Where the trafic is filtered by dns , by ip via iptables, by protocol, application layer signature and reputationally. 
   
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
-![bridmode workflow](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
+##Menu GUI later on (check GUI md doc in this repository)
+![bridmode workflow](https://cloud.githubusercontent.com/assets/130157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
 
-#Network Flow in GUI later on (check GUI md doc in this repository)
+
+
+#Network Working flow 
+
+Pending Update l7f and others
 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
+
+
+
+Pending here arquitecture of unbound,iptables,squid,etc all chain
 
 
 ###Connection Flow 3: Squid Open SSL Tunnel
