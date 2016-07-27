@@ -279,9 +279,6 @@ You can also sync your home Librerouter with all of your portable devices to hav
 Libraries:
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 #Setting up a lab:
@@ -330,9 +327,7 @@ Anyone able to run a Debian 8.5  ARM,x86 or 64 bits
 
 **Step 2: Setup the network.**
 
- - In this step you need to connect one of the interfaces cable of your machine to Internet to download apps and upgrades, and other one to local network device or switch where you connect from the laptop. (there is due to date of today 27july2016 not yet wizard for the wlan, but coming soon)
- 
-Networking of Librerouter has two way to work: 
+Librerouter has two way to work: 
 
  - Server (no protection but services)
  - Network Router (services and network protection) (dont mix with NIC bridges that we have to separate 4 interfaces in 2 zones)
@@ -345,21 +340,20 @@ Networking of Librerouter has two way to work:
 
 The way networking works in Librerouter will be:
 
- -  1 uniqe fix IP LAN 10.0.0.1-255 can be WLAN or Cabled Ethernet (date 27july2016 only suported cable) connected to the existing internet router LAN. 
- -  Server mode with single LAN interface and not redirecting domains or threating the traffic (not hable to defend against web browsing leaks,tracking,ads and malware)
-
+ -  Fix serviceable IPs in 10.0.0.x can be wireless or Cabled Ethernet connected to the existing internet router LAN. 
+ -  Server mode with both WAN and LAN interfaces in the same DMZ or VLAN or area and not threating the network traffic (not hable to defend against web browsing leaks,tracking,ads and malware)
 ![server](https://cloud.githubusercontent.com/assets/13025157/14443924/9c798300-0042-11e6-85b1-1760c5b3789d.png)
 ![servermodeworkflow](https://cloud.githubusercontent.com/assets/13025157/14444317/f69f0ec0-0044-11e6-9c94-ad7a9c496140.png)
 
  
 ##Router mode
 
-Where the trafic is filtered by dns first , by snort later, by ip via iptables, by proxy squid with clamav and ssl bumping, and surikata. 
+Where the trafic is filtered by dns , by ip via iptables, by protocol, application layer signature and reputationally. 
   
 ![bridge](https://cloud.githubusercontent.com/assets/13025157/14443871/4bf91bfc-0042-11e6-9ca5-06a23891d32e.png)
 ![bridmode workflow](https://cloud.githubusercontent.com/assets/13025157/14444156/373281de-0044-11e6-9d3d-6c536c0b3844.png)
 
-#Network Flow
+#Network Flow in GUI later on (check GUI md doc in this repository)
 
 ![networktraffic6](https://cloud.githubusercontent.com/assets/13025157/14437535/f40d21c4-0021-11e6-9e4a-1c73e06e965b.png)
 
