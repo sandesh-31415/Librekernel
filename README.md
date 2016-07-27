@@ -187,10 +187,11 @@ From being routed through any Darknet
 - Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
 - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
 - Forcing encryption in transport and in rest data.
-
+- Decentralization of auth https://cageos.org/index.php?page=apps&section=Autenticacion
 - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc. 
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
 
 
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
