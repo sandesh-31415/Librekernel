@@ -184,32 +184,8 @@ From being routed through any Darknet
 ![mempo-system-layers](https://cloud.githubusercontent.com/assets/17382786/17193230/6fe23616-5452-11e6-9e55-4d0253a89c93.png)
 
 - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
-
-![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
-
-- A decentralized anonymous Search Engine with admin rights.
-![data center or decntraliyation](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
-![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
-
-- A filter-connector for your Social Networks in one single place using decentralized social network Friendica.
-
-![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
-
-- Secure decentralized video conferences based in XMPPoverTOR or WebRTC.
-
-![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
-
-
-- A secure Storage System with collaborative tools based in : TahoeLafs over i2P and blocksnet.
-
-- Transparent Email encryption for your actual email.
-![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 - Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
-
-insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unbounddnslists>iptablesIP lists>client
-
 - Selfhosted obfuscated authentication (dissolve legal relation between user-human and legal-name), 
-
 - Forcing encryption in transport and in rest data.
 
 - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc. 
@@ -217,6 +193,7 @@ insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unb
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
+![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
 
 ###***Services are running in Librerouter***
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
@@ -238,16 +215,42 @@ insert image of protection onion> internet>proxy>clamav>surikata>proxy>snort>unb
 |Postfix|Yes|No|?|Public|Yes|No|
 |:---|:---|:---|:---|:---|:---|:---|
 
-Need to grab info for those links paste here important and move to other pages in github what is requiered to be explained. use copy paste
+- Decentrazied collaboration and makerplaces
+https://cageos.org/index.php?page=apps&section=Collaborative
+https://openbazaar.org
 
-https://www.cageos.org/index.php?page=apps
+- A decentralized anonymous Search Engine with admin rights.
+![data center or decent-ralization](https://cloud.githubusercontent.com/assets/13025157/14444635/1047009c-0047-11e6-89a2-b271457d9df7.png)
+![search engine](https://cloud.githubusercontent.com/assets/13025157/14445495/ac8eeeb4-004d-11e6-92c0-89fdc5c8cbb4.jpg)
+https://cageos.org/index.php?page=apps&section=SearchEngine
+
+- A filter-connector for your Social Networks in one single place using decentralized social network Friendica.
+
+https://cageos.org/index.php?page=apps&section=SocialNetworks
+![socialnetworks](https://cloud.githubusercontent.com/assets/13025157/14444852/be938994-0048-11e6-9200-0299ac312b3b.jpg)
+
+- Secure decentralized video conferences based in XMPPoverTOR or WebRTC.
+https://cageos.org/index.php?page=apps&section=Collaborative
+![rtcio](https://cloud.githubusercontent.com/assets/13025157/14445429/3081fd8e-004d-11e6-893f-8a4b4ccc9c1e.jpg)
 
 
-https://github.com/CommunityCube/debian-autoscript/issues
+- A secure Storage System with collaborative tools based in : TahoeLafs over i2P and blocksnet.
+https://cageos.org/index.php?page=apps&section=StorageOwnCloud
+https://cageos.org/index.php?page=apps&section=DecentralizedBackup
+
+- Transparent Email encryption for your actual email.
+https://cageos.org/index.php?page=apps&section=SecureEmail
+
+![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
 
 
+
+Pending to be updated the with latest technical
 
 https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
+
+
+
 
 
 ## Service The descentralized Social networkNetwork
