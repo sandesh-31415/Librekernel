@@ -241,18 +241,7 @@ https://cageos.org/index.php?page=apps&section=DecentralizedBackup
 
 - Transparent Email encryption for your actual email.
 https://cageos.org/index.php?page=apps&section=SecureEmail
-
 ![email](https://cloud.githubusercontent.com/assets/13025157/14445983/c101a78e-0051-11e6-9efc-35569cf73c04.jpg)
-
-
-
-Pending to be updated the with latest technical
-
-https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
-
-
-
-
 
 ## Service The descentralized Social networkNetwork
 
@@ -265,7 +254,6 @@ You control your incoming and outgoing posts, and push your posts from a single 
 With federated XMPP servers for authentication but perfect for discovering users outside the Librerouter network with security from the normal web.  
 Unauthenticated and decentralized web browser video conferencing through anonymous links to create fast video conference rooms without third parties or middlemen involved.
 
-
 ##Service Descentralized Indestructible Storage the RockStar app
 
 Imagine all the important information you have stored on the hard drive of your computer.You are just one hardware failure away from disaster.After all, when did you do your last backup? Unfortunately, centralized storage solutions such as Dropbox and Google Drive also present a variety of risks:
@@ -273,38 +261,35 @@ Imagine all the important information you have stored on the hard drive of your 
 • Data kidnapping: A real example was Mega. (FBI closed it in 2009). 
 • Disaster: Your external hard disks fail or stolen. (no disaster recovery)   
 • Privacy: You're at risk of having your data hacked and stolen if it’s not encrypted.
-
 ![gridstorage](https://cloud.githubusercontent.com/assets/13025157/14445990/c11a4172-0051-11e6-93f8-23a53225b479.jpg)
-
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
 In our decentralized system your valuable information is encrypted three times:
 1. Before it even leaves your computer, in the web browser
 2. In the collaboration tool before the data goes to the hard disk
 3. When backing up to the grid, the slices will also be encrypted. 
-
-
 ![tahoe](https://cloud.githubusercontent.com/assets/13025157/14444761/fea4bc0c-0047-11e6-80bd-583bcb7b0fda.jpg)
-
 The decentralized (i2p) version of Tahoe LAFS-Grid (with protections against Sybil attacks and upload Dodos) is a new way to make your data indestructible. 
-
 ![storage](https://cloud.githubusercontent.com/assets/13025157/14444754/f0ebf814-0047-11e6-9558-25e26b3d614b.jpg)
-
 A grid splits your files up into little pieces, encrypts them and spreads them out geographically, making it immune to any disaster or service outage.
-
 ![grid](https://cloud.githubusercontent.com/assets/13025157/14444751/e3eaba38-0047-11e6-95f4-e4753c0d50c5.jpg)
-
 ![grid4](https://cloud.githubusercontent.com/assets/13025157/14444809/5f670ebe-0048-11e6-8b0d-5170ab2afdc4.png)
-
 You can also sync your home Librerouter with all of your portable devices to have the same files and receive the same alerts in real time.If someone steals your cube or for some reason it is destroyed, you can simply buy a replacement Librerouter server and recover your lost data automatically from the Grid.In minutes you’re up and running again!
 
 
-###1. Setup Librerouter software on Physical/Virtual machine 
+Libraries
+
+https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:featurescomparison
+
+#Seting up a lab:
+
+###1. Setup Librerouter software Virtual machine 
 
 You need Debian 8, ongoing fixing: Devuan,Ubuntu,Urkuk,Dockers, Librewrt
 
-###2. Buy a premade future available Librerouter
+###2. Seting up in Pipo X8-9-10 (yes is not open hardware neither boot but due to limitation of only sold 300 boxes we cant go prod with ARM boards plus screen in case, its too expensive)
 ![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
-
+Pipo do not have 1Tb HDD or 2 ethernets or 2 wlans, the version we test has addiotional components.
+The Debian LFromScratch will contain drivers that may be restrictive, again if you want a 100% open the you need fpga/arm boards in the market for router compatible with debian. 
 
 #Installation and Setup
 
