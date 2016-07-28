@@ -304,6 +304,10 @@ https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:feat
 
 #Setting up a lab:
 
+You would need to setup 2 machines like this:
+
+
+
 ###1. Setup Librerouter software Virtual machine 
 
 You need Debian 8.5 32bits
