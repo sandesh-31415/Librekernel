@@ -171,9 +171,13 @@ tested only in debian 8.5 x86 32bits 2Gib Ram and 32GB emc
 #Technical Overview
 
 ###***How to connect to use Librerouter in Hardware?***
+
 From inside secureLAN
+
 ![from home](https://cloud.githubusercontent.com/assets/13025157/14445987/c112aa48-0051-11e6-907d-dcbe9cc77805.png)
+
 From being routed through any Darknet 
+
 ![from outdoor](https://cloud.githubusercontent.com/assets/13025157/14445989/c1160490-0051-11e6-9996-bc6ffe9386f1.png)
 
 
@@ -191,12 +195,15 @@ From being routed through any Darknet
 - Network filtering the MetaData that expose you, like scripts,cookies, browser info, docs meta, etc. 
 ![metapollas](https://cloud.githubusercontent.com/assets/13025157/14502287/d6467f16-01aa-11e6-91d3-5e757c73a626.jpg)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
-
-
-
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![softwarelist](https://cloud.githubusercontent.com/assets/13025157/14445470/7411e258-004d-11e6-8447-2e2f554ca756.jpg)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
-###***Services are running in Librerouter***
+
+#***Services are running in Librerouter***
+
 ![servicecomparison](https://cloud.githubusercontent.com/assets/13025157/14443209/0a778136-003e-11e6-98dc-5a699933e7f6.jpg)
 
 |App|Decentralized|AnonymInsid|Ncryptclientside|Ncryptservrside|PubPrivF2F|ExposepubIP|
@@ -217,6 +224,7 @@ From being routed through any Darknet
 |:---|:---|:---|:---|:---|:---|:---|
 
 - Decentrazied collaboration and makerplaces
+
 https://cageos.org/index.php?page=apps&section=Collaborative
 https://openbazaar.org
 
@@ -306,6 +314,10 @@ https://213.129.164.215:4580/dokuwiki/doku.php?id=technical:software:matrix:feat
 
 You would need to setup 2 machines like this:
 
+![deded](https://cloud.githubusercontent.com/assets/17382786/17208311/782c6d8a-54b8-11e6-82b7-e408db4f966d.png)
+
+One is a Debian where you will do a Virtual Machine Snapshoot BEFORE! installing the in YOUR Debian LFS the Librerouter Scripts
+The other a privacyshit like windows 10 or simillar conected to the internal interface of the Librerouter.
 
 
 ###1. Setup Librerouter software Virtual machine 
