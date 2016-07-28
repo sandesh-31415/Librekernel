@@ -317,7 +317,11 @@ You would need to setup 2 machines like this:
 ![deded](https://cloud.githubusercontent.com/assets/17382786/17208311/782c6d8a-54b8-11e6-82b7-e408db4f966d.png)
 
 One is a Debian where you will do a Virtual Machine Snapshoot BEFORE! installing the in YOUR Debian LFS the Librerouter Scripts
-The other a privacyshit like windows 10 or simillar conected to the internal interface of the Librerouter.
+
+The other VirtualMachine could be a privacyshit like windows 10 or simillar conected to the internal interface of the Librerouter.
+
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 ##1. Setup Librerouter software Virtual machine 
@@ -356,7 +360,9 @@ https://www.solid-run.com/product-category/clearfog-carriers/
 We still in research about this cheap Clearfog boards. Keep you posted.
 
 
-
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 
 
 #Installation and Setup
