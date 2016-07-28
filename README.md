@@ -320,21 +320,44 @@ One is a Debian where you will do a Virtual Machine Snapshoot BEFORE! installing
 The other a privacyshit like windows 10 or simillar conected to the internal interface of the Librerouter.
 
 
-###1. Setup Librerouter software Virtual machine 
+##1. Setup Librerouter software Virtual machine 
 
 You need Debian 8.5 32bits
 
 Ongoing further: Devuan,Lubuntu/Core,Uruk,Dockers, Librewrt
 
-###2. Seting up in Pipo X8-9-10.
+##2. Seting up in Pipo X8-9-10.
 
-(yes is not open hardware neither boot but due to limitation of only sold 300 boxes we cant go prod with ARM boards plus screen in case, its too expensive)
+PIPO Intel NUC Z8083 is NOT! open hardware/source because the boot is NOT able to support yet replacement with Coreboot or Uboot
+Due to limitations: Only PRE-sold 300 boxes in crowdfunding, we can NOT go prod with ARM-FPGA boards plus screen in case, its too expensive)
+
 ![infografia_12](https://cloud.githubusercontent.com/assets/13025157/16766793/67d0bb0e-483c-11e6-99ad-9b6ccf856e1a.jpg)
 
 Pipo do not have 1Tb HDD or 2 ethernets or 2 wlans, the version we test has addiotional components.
 The Debian LFromScratch will contain drivers that may be restrictive, again if you want a 100% open the you need fpga/arm boards in the market for router compatible with debian. 
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
 ![espacioblanco](https://cloud.githubusercontent.com/assets/17382786/14488687/b41768ba-0169-11e6-96cd-80377e21231d.png)
+
+We plan to dev in to the next presented hreally open hardware when is fully ready but for now the test is customized PIPO
+
+![pismasher_sbc](https://cloud.githubusercontent.com/assets/17382786/17208572/96313d46-54b9-11e6-99e0-ee4018a90a92.jpg)
+
+http://dab-embedded.com/en/cases/openwrt-atmel-sama5d3-and-max10-fpga-board/
+
+![owtbrd](https://cloud.githubusercontent.com/assets/17382786/17208817/7400644e-54ba-11e6-8607-2347be8de41a.png)
+
+Or you can buy expensive board like this one:
+
+![clearfog_pro_openwrt_router_board](https://cloud.githubusercontent.com/assets/17382786/17208844/90b919c8-54ba-11e6-928a-c07c732d25b6.jpg)
+
+https://www.solid-run.com/product-category/clearfog-carriers/
+
+
+We still in research about this cheap Clearfog boards. Keep you posted.
+
+
+
+
 
 #Installation and Setup
 
