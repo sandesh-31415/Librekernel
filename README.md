@@ -181,7 +181,7 @@ From being routed through any Darknet
 
 - With our bridge, a secured open operating system when we would have the hardened version of it (initially based debian libre)
 
-![mempo-system-layers](https://cloud.githubusercontent.com/assets/17382786/17193230/6fe23616-5452-11e6-9e55-4d0253a89c93.png)
+![mempo](https://cloud.githubusercontent.com/assets/17382786/17207306/48017294-54b4-11e6-8d6e-d50e66288416.png)
 
 - Decentralizing the services you consume from the cloud at local alternatives (making impossible to apply big data enemy corps.)
 - Anonymous web traffic enforcer Ad-blocker, intrusion prevention system, anti-virus and anti-tracking technology for your web - browsing. Filtering virus, exploits, malware, ads , bad reputational IP and tasteless content.
