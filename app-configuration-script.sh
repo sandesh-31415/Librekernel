@@ -421,6 +421,7 @@ iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.252 -j ACCEPT
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.253 -j ACCEPT
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.254 -j ACCEPT
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 22 -j REDIRECT --to-ports 22
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p udp -d 10.0.0.1 --dport 53 -j REDIRECT --to-ports 53
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 80 -j REDIRECT --to-ports 80
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 443 -j REDIRECT --to-ports 443
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.1 --dport 7000 -j REDIRECT --to-ports 7000
@@ -431,7 +432,7 @@ iptables -t nat -A PREROUTING -d 10.191.0.1 -p tcp --dport 80 -j REDIRECT --to-p
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -m tcp --sport 80 -d 10.191.0.1 -j REDIRECT --to-ports 3128
 
 # tor
-iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --dport 80 -d 10.0.0.0/8 -j REDIRECT --to-ports 9040
+iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp -d 10.0.0.0/8 -j DNAT --to 10.0.0.1:3129
 
 # squid
 iptables -t nat -A PREROUTING -i $INT_INTERFACE -p tcp --dport 80 -j DNAT --to 10.0.0.1:3130
@@ -537,20 +538,17 @@ HiddenServicePort 33411 127.0.0.1:33411
 HiddenServiceDir /var/lib/tor/hidden_service/easyrtc
 HiddenServicePort 80 127.0.0.1:8080
 
-#DNSPort   9053
-#DNSListenAddress 10.0.0.1
-#VirtualAddrNetworkIPv4 10.192.0.0/16
-#AutomapHostsOnResolve 1
-#TransPort 9040
-#TransListenAddress 10.0.0.1
-#SocksPort 9050 # what port to open for local application connectio$
-#SocksBindAddress 127.0.0.1 # accept connections only from localhost
-#AllowUnverifiedNodes middle,rendezvous
-#Log notice syslog
-DNSPort   0.0.0.0:9053
-VirtualAddrNetworkIPv4 10.192.0.0/11
+DNSPort   127.0.0.1:9053
+VirtualAddrNetworkIPv4 10.0.0.0/8
 AutomapHostsOnResolve 1
-TransPort 0.0.0.0:9040
+
+SocksPort 127.0.0.1:9050
+Log notice file /var/log/tor/tor.log
+
+RunAsDaemon 1
+CookieAuthentication 1
+
+
 " >>  /etc/tor/torrc
 
 service nginx stop 
@@ -755,18 +753,9 @@ forward-zone:
 # Forward rest of zones to DjDNS
 forward-zone:
     name: "."
-    forward-addr: 8.8.8.8@53
-    forward-addr: 10.0.0.1@9053
+    forward-addr: 127.0.0.1@9053
 
 ' >> /etc/unbound/unbound.conf
-
-# Getting classified domains list from shallalist.de
-echo "Getting classified domains list ..."
-wget http://www.shallalist.de/Downloads/shallalist.tar.gz
-if [ $? -ne 0 ]; then
-	echo "Error: Unable to download domain list. Exithing"
-	exit 5
-fi
 
 # Extracting classified domain list package
 echo "Extracting files ..."
@@ -895,21 +884,6 @@ if [ ! -e  /var/lib/mysql/frndc ]; then
   echo "CREATE DATABASE frndc; grant all privileges on frndc.* to  \
   friendica@localhost  identified by 'SuperPass8Wor1_2';" \
   | mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" 
-fi
-
-if [ ! -e  /var/www/friendica ]; then
-
-cd /var/www
-git clone https://github.com/friendica/friendica.git
-cd friendica
-git clone https://github.com/friendica/friendica-addons.git addon
-
-chown -R www-data:www-data /var/www/friendica/view/smarty3
-chmod g+w /var/www/friendica/view/smarty3
-touch /var/www/friendica/.htconfig.php
-chown www-data:www-data /var/www/friendica/.htconfig.php
-chmod g+rwx /var/www/friendica/.htconfig.php
-
 fi
 
 if [ -z "$(grep "friendica/include/poller" /etc/crontab)" ]; then
@@ -1110,25 +1084,20 @@ service privoxy-i2p restart
 #Privoxy TOR
 
 cat << EOF > /etc/privoxy/config-tor 
-forward-socks4a / 127.0.0.1:9050 .
 confdir /etc/privoxy
 logdir /var/log/privoxy
 actionsfile default.action   # Main actions file
 actionsfile user.action      # User customizations
 filterfile default.filter
-
 logfile logfile
-
-debug   4096 # Startup banner and warnings
-debug   8192 # Errors - *we highly recommended enabling this*
-
 user-manual /usr/share/doc/privoxy/user-manual
-listen-address  127.0.0.1:8119
-toggle  1
+listen-address 127.0.0.1:8119
+toggle 0
 enable-remote-toggle 0
-enable-edit-actions 0
 enable-remote-http-toggle 0
-buffer-limit 4096
+enable-edit-actions 0
+forward-socks5t / 127.0.0.1:9050 .
+max-client-connections 4096
 EOF
 
 cp /etc/init.d/privoxy /etc/init.d/privoxy-tor
@@ -1224,6 +1193,18 @@ service squid3 restart
 # squid TOR
 
 cat << EOF > /etc/squid3/squid-tor.conf 
+# Tor acl
+acl tor_url dstdomain .onion
+
+# Privoxy+Tor access rules 
+never_direct allow tor_url
+
+# Local Privoxy is cache parent 
+cache_peer 127.0.0.1 parent 8119 0 no-query no-digest default
+
+cache_peer_access 127.0.0.1 allow tor_url
+cache_peer_access 127.0.0.1 deny all
+
 cache_peer 127.0.0.1 parent 8119 7 no-query no-digest
 
 #acl manager proto cache_object
