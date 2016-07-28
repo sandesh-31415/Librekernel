@@ -520,6 +520,30 @@ fi
 		echo "ERROR: unable to install packages"
 		exit 3
 	fi
+
+# Getting classified domains list from shallalist.de
+echo "Getting classified domains list ..."
+wget http://www.shallalist.de/Downloads/shallalist.tar.gz
+if [ $? -ne 0 ]; then
+        echo "Error: Unable to download domain list. Exithing"
+        exit 5
+fi
+
+# Getting Friendica 
+echo "Getting Friendica ..."
+if [ ! -e  /var/www/friendica ]; then
+	cd /var/www
+	git clone https://github.com/friendica/friendica.git
+	cd friendica
+	git clone https://github.com/friendica/friendica-addons.git addon
+
+	chown -R www-data:www-data /var/www/friendica/view/smarty3
+	chmod g+w /var/www/friendica/view/smarty3
+	touch /var/www/friendica/.htconfig.php
+	chown www-data:www-data /var/www/friendica/.htconfig.php
+	chmod g+rwx /var/www/friendica/.htconfig.php
+fi
+
 }
 
 # ----------------------------------------------
