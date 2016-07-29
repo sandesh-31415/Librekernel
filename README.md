@@ -4,31 +4,48 @@
 
 &nbsp;
 
+## INDEX
+
+	- [Purpose of this document] (#purpose-of-this-document)
+	- [Introduction](#introduction)
+	- [Need for Linux Libre and Libre Router technology] (#need-for-linux-libre-and-libre-router-technology)
+	- [What is Linux Libre?] (#what-is-Linux-Libre?)
+	- [About Libre Router Technology] (#about-libre-router-technology)
+	- [Ways of Proprietary firmware removal and its good effects] (#ways-of-proprietary-firmware-removal-and-its-good-effects)
+	- [Free open source hardware(FOSH)](#free-open-source-hardware(FOSH))
+	- [Licenses and certifications available for hardware openness compliance] (#licenses-and-certifications-available-for-hardware-openness-compliance)
+	- [Certifications available for privacy and security compliance] (#certifications-available-for-privacy-and-security-compliance)
+	- [Purposed Operating Systems using Linux Libre] (#purposed-operating-systems-using-linux-libre)
+	- [Distributions using Linux-Libre] (#distributions-using-linux-Libre)
+	- [Distributions with default kernel proposing Linux Libre] (#distributions-with-default-kernel-proposing-linux-libre)
+
+##***Introduction***
+
+##***Need for Linux Libre and Libre Router technology***
+
+##***What is Linux Libre?***
+
+##***About Libre Router Technology***
+
+##***Ways of Proprietary firmware removal and its good effects***
+
+##***Free open source hardware(FOSH)***
+
+##***Licenses and certifications available for hardware openness compliance***
+
+##***Certifications available for privacy and security compliance***
+
+##***Which are security product certifications?***
+
+##***Purposed Operating Systems using Linux Libre***
+
+##***Distributions using Linux-Libre***
+
+##***Distributions with default kernel proposing those Linux Libre***
+
+##*** ***
 
 
-- [Introduction](#introduction)
-	- [FAQ] (#faq)
-	- [Why we need this technology?] (#why-do-we-need-this-technology)
-	- [What is linux libre?](#what-is-linux-libre)
-	- [What intend to be librouter?](#what-intend-to-be-librerouter)
-	- [Who? Why? What? How?](#who-why-what-how)
-	- [What is open source hardware?](#what-is-open-source-hardware)
-	- [Which are the licenses and certifications that show openness in the hardware?](#which-are-the-licenses-and-certifications-that-show-openness-in-the-hardware)
-	- [Which are the certifications for privacy and security?](#which-are-the-certifications-for-privacy-and-security)
-	- [Which are security product certifications?](#which-are-security-product-certifications)
-	- [Purposed Operating Systems](#purposed-operating-systems)
-- [Technical Overview](#technical-overview)
-	- [How to use Librerouter in Hardware?](#how-to-use-librerouter-in-hardware)
-	- [Which hardware is needed to run Librerouter?](#which-hardware-is-needed-to-run-librerouter?)
-	- [Services are running in Librerouter](#services-are-running-in-librouter)
-- [Functional Specification](#functional-specs)
-- [Installation and Setup](#installation-and-setup)
-	- [Prerequisites](#prerequisites)
-	
-- [Roadmap](#roadmap)
-- [To be categorized](#others)
-
-#Introduction
 
 
 
