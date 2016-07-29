@@ -35,7 +35,7 @@
 ##***FAQ***
 	
 	Q. Can you define the project in a line here?
-	-> An end user privacy firewall
+	-> An end user privacy firewall  
 
 	Q. Are there any other similar projects?
 	-> Sure there are
